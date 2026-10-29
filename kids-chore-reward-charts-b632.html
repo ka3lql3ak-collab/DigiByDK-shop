@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Star Chore Chart · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#ffd34f;--b:#7bdff2;--deep:#ff8a1f;--bg:#fffaf0;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+td{font-size:30px;text-align:center;cursor:pointer;min-width:46px;height:46px;border-radius:14px;background:#fff7e8}td.l{font-size:16px;font-weight:600;text-align:left;white-space:nowrap;cursor:default;background:none;padding-right:8px}th{font-family:'Luckiest Guy';color:var(--deep)}
+</style></head><body>
+<header><p class="script">you're a superstar</p><h1>My Star Chore Chart</h1><p class="sub">Tap a box to earn a star!</p></header>
+<main>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🌈</span><div class="row"><b>Who's doing chores?</b><div class="tabs" id="kids" style="margin:0"></div><button class="btn" id="addk">+ Add kid</button></div>
+ <div style="overflow:auto"><table id="t" style="border-collapse:separate;border-spacing:6px;margin-top:10px"></table></div></div>
+<div class="card" style="text-align:center"><h2>⭐ Star jar: <span id="cnt">0</span></h2><div class="bar" style="height:26px"><i id="jar"></i></div><p id="next"></p>
+ <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))" id="rewards"></div><button class="btn" id="newweek" style="margin-top:12px">New week (clear stars)</button></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#ffd34f','#7bdff2','#ff8a1f','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-chores-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-chores-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+const C=[["\ud83d\udecf", "Make bed"], ["\ud83e\udea5", "Brush teeth"], ["\ud83d\udc55", "Get dressed"], ["\ud83e\uddf8", "Pick up toys"], ["\ud83c\udf7d", "Clear plate"], ["\ud83d\udc36", "Feed pet"], ["\ud83d\udcda", "Read 15 min"], ["\ud83c\udf92", "Pack backpack"]];const RW=[[5,'🍕 Pick dinner'],[10,'🎬 Movie night pick'],[20,'🍦 Ice cream trip'],[40,'🎁 Special day out']];
+let K=S.get('kids',['My kid']);let k=0;
+function stars(){return S.get('s-'+k,{})}
+function render(){const s=stars(),t=document.getElementById('t');t.innerHTML='<tr><th></th>'+['M','T','W','T','F','S','S'].map(d=>`<th>${d}</th>`).join('')+'</tr>';
+ C.forEach((c,ci)=>{const tr=document.createElement('tr');tr.innerHTML=`<td class="l">${c[0]} ${c[1]}</td>`;for(let d=0;d<7;d++){const td=document.createElement('td');td.textContent=s[ci+'-'+d]?'⭐':'';
+  td.onclick=()=>{s[ci+'-'+d]=!s[ci+'-'+d];S.set('s-'+k,s);pop(s[ci+'-'+d]?1000:350,.25,'triangle');if(s[ci+'-'+d]){td.animate([{transform:'scale(1.6) rotate(20deg)'},{transform:'scale(1)'}],{duration:400})}render()};tr.appendChild(td)}t.appendChild(tr)});
+ const n=Object.values(s).filter(Boolean).length;document.getElementById('cnt').textContent=n;const nx=RW.find(r=>r[0]>n);document.getElementById('jar').style.width=Math.min(100,n/40*100)+'%';
+ document.getElementById('next').textContent=nx?`${nx[0]-n} more stars until: ${nx[1]}`:'WOW! All rewards unlocked! 🏆';
+ const rw=document.getElementById('rewards');rw.innerHTML='';RW.forEach(r=>rw.appendChild(el(`<div class="check ${n>=r[0]?'done':''}" style="text-decoration:none"><span class="box">${n>=r[0]?'🔓':'🔒'}</span><span>${r[0]}⭐ ${r[1]}</span></div>`)));
+ const kt=document.getElementById('kids');kt.innerHTML='';K.forEach((nm,i)=>{const b=el(`<button class="btn tab ${i===k?'on':''}">${nm}</button>`);b.onclick=()=>{k=i;render()};kt.appendChild(b)})}
+document.getElementById('addk').onclick=()=>{const n=prompt("Kid's name?");if(n){K.push(n);S.set('kids',K);k=K.length-1;render()}};
+document.getElementById('newweek').onclick=()=>{if(confirm('Clear this week\'s stars?')){S.set('s-'+k,{});render()}};
+let last=-1;setInterval(()=>{},1000);render();
+
+</script></body></html>

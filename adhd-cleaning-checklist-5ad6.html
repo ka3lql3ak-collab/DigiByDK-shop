@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADHD House Reset · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#c8b6ff;--b:#ffb3cf;--deep:#7b5cc4;--bg:#fff7fb;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+</style></head><body>
+<header><p class="script">tiny steps · zero guilt</p><h1>ADHD House Reset</h1><p class="sub">Tap to check things off. Everything saves on your device.</p></header>
+<main>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🫧</span><h2>⏱ 15-Minute House Reset</h2>
+ <p>Feels like too much? Press start and just follow the list. When the timer ends, you're allowed to stop. 💜</p>
+ <div class="row"><div id="clock" style="font:600 54px Fredoka;color:var(--deep);min-width:170px">15:00</div>
+ <button class="btn big" id="go">▶ Start</button><button class="btn" id="rs">↺ Reset</button></div>
+ <div id="reset"></div></div>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🎡</span><h2>🎲 Spin a Task</h2>
+ <p>Can't decide where to start? Spin, then do just that ONE thing.</p>
+ <div style="display:grid;place-items:center"><canvas id="wheel" width="340" height="340" style="max-width:100%"></canvas>
+ <button class="btn big" id="spin" style="margin-top:10px">Spin! 🎉</button><p id="pick" style="font:600 22px Fredoka;color:var(--deep);min-height:30px"></p></div></div>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🧹</span><h2>🏠 Room by Room</h2><div class="tabs" id="tabs"></div><div id="room"></div>
+ <button class="btn" id="clr" style="margin-top:8px">Clear checks for a fresh week</button></div>
+<div class="card"><h2>🌟 My Reset Streak</h2><p>Tap a day every time you do a reset. Comebacks count!</p><div id="streak" class="grid" style="grid-template-columns:repeat(7,1fr)"></div></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#c8b6ff','#ffb3cf','#7b5cc4','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-adhd-clean-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-adhd-clean-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+const ROOMS={"\ud83c\udf73 Kitchen": ["Run or empty the dishwasher", "Wipe counters & stovetop", "Take out trash if full", "Quick sweep of crumbs", "Put food away", "Wipe the microwave", "Clean out old fridge food"], "\ud83d\udecf Bedroom": ["Make the bed", "Clothes in hamper or closet", "Clear nightstand cups", "Open the blinds", "Clear the 'chair pile'", "Change the sheets", "Vacuum the floor"], "\ud83d\udec1 Bathroom": ["Wipe sink & faucet", "Hang towels", "Clear the counter", "Wipe the mirror", "Scrub the toilet", "Replace towels", "Restock toilet paper"], "\ud83d\udecb Living room": ["Return dishes to kitchen", "Fold the blankets", "Remotes & chargers in a basket", "Clear the coffee table", "Fluff pillows", "Water plants", "Vacuum"], "\ud83e\uddfa Laundry": ["Start one load", "Set a timer for the washer", "Move to dryer", "Fold during one episode", "Put away right away"]},RESET=["Grab a trash bag: toss trash in every room", "Gather ALL cups & dishes", "Every clothing item into the basket", "Clear the coffee table", "Clear the bathroom sink", "Make the bed (messy-made counts!)", "Fluff pillows / fold one blanket", "Light a candle or open a window \u2728"],TASKS=["Throw away 10 things", "Clear one surface", "Wash all the cups", "Start one laundry load", "Put away 5 items", "Wipe the bathroom sink", "Make the bed", "Take out the trash", "Empty the dishwasher", "Clear the floor", "Wipe the counters", "Fold one basket"];
+checklist(document.getElementById('reset'),'reset',RESET);
+let t=900,run=null;const clock=document.getElementById('clock');
+function show(){clock.textContent=String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')}
+document.getElementById('go').onclick=e=>{if(run){clearInterval(run);run=null;e.target.textContent='▶ Start';return}
+ e.target.textContent='⏸ Pause';pop(600);run=setInterval(()=>{t--;show();if(t<=0){clearInterval(run);run=null;confetti();chime();toast('Reset done! You can stop now 💜')}},1000)};
+document.getElementById('rs').onclick=()=>{clearInterval(run);run=null;t=900;show();document.getElementById('go').textContent='▶ Start'};
+// wheel
+const wc=document.getElementById('wheel'),wx=wc.getContext('2d');let ang=0;
+function drawWheel(){const n=TASKS.length,R=165;wx.clearRect(0,0,340,340);
+ for(let i=0;i<n;i++){wx.beginPath();wx.moveTo(170,170);wx.arc(170,170,R,ang+i*2*Math.PI/n,ang+(i+1)*2*Math.PI/n);wx.fillStyle=COLS[i%COLS.length];wx.fill();
+  wx.save();wx.translate(170,170);wx.rotate(ang+(i+.5)*2*Math.PI/n);wx.fillStyle='#43283a';wx.font='600 12px Fredoka';wx.textAlign='right';wx.fillText(TASKS[i].slice(0,22),R-8,4);wx.restore()}
+ wx.beginPath();wx.arc(170,170,22,0,7);wx.fillStyle='#fff';wx.fill();wx.beginPath();wx.moveTo(320,170);wx.lineTo(345,158);wx.lineTo(345,182);wx.fillStyle='#43283a';wx.fill()}
+drawWheel();
+document.getElementById('spin').onclick=()=>{let v=.35+Math.random()*.3;const tick=()=>{ang+=v;v*=.985;drawWheel();if((ang*20|0)%3==0)pop(1200,.04,'triangle');
+ if(v>.002)requestAnimationFrame(tick);else{const n=TASKS.length,a=((2*Math.PI-(ang%(2*Math.PI)))%(2*Math.PI)),i=Math.floor(a/(2*Math.PI/n))%n;
+ document.getElementById('pick').textContent='👉 '+TASKS[i];chime()}};tick()};
+// rooms
+const tabs=document.getElementById('tabs');let cur=Object.keys(ROOMS)[0];
+function room(){checklist(document.getElementById('room'),'room-'+cur,ROOMS[cur]);[...tabs.children].forEach(b=>b.classList.toggle('on',b.textContent===cur))}
+Object.keys(ROOMS).forEach(r=>{const b=el(`<button class="btn tab">${r}</button>`);b.onclick=()=>{cur=r;room();pop()};tabs.appendChild(b)});room();
+document.getElementById('clr').onclick=()=>{Object.keys(ROOMS).forEach(r=>S.set('room-'+r,{}));S.set('reset',{});room();checklist(document.getElementById('reset'),'reset',RESET);toast('Fresh start ✨')};
+// streak
+const st=S.get('streak',{}),sg=document.getElementById('streak');
+for(let i=1;i<=28;i++){const d=el(`<button class="btn" style="padding:10px 0">${st[i]?'🌟':i}</button>`);d.onclick=()=>{st[i]=!st[i];S.set('streak',st);d.textContent=st[i]?'🌟':i;pop(st[i]?900:400);if(st[i])confetti(60)};sg.appendChild(d)}
+
+</script></body></html>

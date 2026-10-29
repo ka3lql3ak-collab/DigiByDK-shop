@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No-Guilt Habit Tracker · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#b9a7ff;--b:#ffb3cf;--deep:#7b5cc4;--bg:#fff8fc;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+td{width:28px;height:28px;text-align:center;border-radius:9px;cursor:pointer;font-size:14px;background:color-mix(in srgb,var(--a) 14%,#fff)}td.h{width:auto;cursor:default;background:none;text-align:left;font-weight:600;white-space:nowrap;padding-right:8px}th{font-size:11px;opacity:.7}
+</style></head><body>
+<header><p class="script">tries count too</p><h1>No-Guilt Habit Tracker</h1><p class="sub">Track tries, not perfection.</p></header>
+<main>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🌱</span><h2>📅 <span id="mname"></span></h2>
+ <div class="row"><button class="btn" id="prev">◀</button><button class="btn" id="next">▶</button>
+ <span style="opacity:.75">Tap once = done 💜 · twice = I tried 🩷 · three times = clear</span></div>
+ <div style="overflow:auto;margin-top:12px"><table id="t" style="border-collapse:separate;border-spacing:4px"></table></div></div>
+<div class="card"><h2>➕ My habits (max 8)</h2><div id="hab"></div><div class="row" style="margin-top:8px"><input type="text" id="nh" placeholder="New habit (keep it tiny!)" style="flex:1"><button class="btn big" id="add">Add</button></div></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#b9a7ff','#ffb3cf','#7b5cc4','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-habit-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-habit-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+let H=S.get('habits',['Drink water','Take meds','Move my body','Read 10 pages']);let off=0;
+function key(){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()+off);return d}
+function render(){const d=key(),y=d.getFullYear(),m=d.getMonth(),nd=new Date(y,m+1,0).getDate();document.getElementById('mname').textContent=d.toLocaleString('default',{month:'long'})+' '+y;
+ const data=S.get('m'+y+'-'+m,{});const t=document.getElementById('t');t.innerHTML='';const hr=document.createElement('tr');hr.innerHTML='<th></th>'+Array.from({length:nd},(_,i)=>`<th>${i+1}</th>`).join('')+'<th>🔥</th>';t.appendChild(hr);
+ H.forEach((h,hi)=>{const tr=document.createElement('tr');tr.innerHTML=`<td class="h">${h}</td>`;let cnt=0;
+  for(let i=1;i<=nd;i++){const v=data[hi+'-'+i]||0;if(v)cnt++;const td=document.createElement('td');td.textContent=['','💜','🩷'][v];td.onclick=()=>{const nv=((data[hi+'-'+i]||0)+1)%3;data[hi+'-'+i]=nv;S.set('m'+y+'-'+m,data);pop(nv?800:400);render();if(nv===1&&Math.random()<.25)toast(['Yesss! 💜','Proud of you!','Tiny wins = big wins','You showed up 🌟'][(Math.random()*4)|0])};tr.appendChild(td)}
+  const c=document.createElement('td');c.className='h';c.textContent=cnt;tr.appendChild(c);t.appendChild(tr)})}
+function list(){const h=document.getElementById('hab');h.innerHTML='';H.forEach((x,i)=>{const b=el(`<button class="btn" style="margin:4px">${x} ✕</button>`);b.onclick=()=>{if(confirm('Remove '+x+'?')){H.splice(i,1);S.set('habits',H);list();render()}};h.appendChild(b)})}
+document.getElementById('add').onclick=()=>{const v=document.getElementById('nh').value.trim();if(v&&H.length<8){H.push(v);S.set('habits',H);document.getElementById('nh').value='';list();render();pop(900)}};
+document.getElementById('prev').onclick=()=>{off--;render()};document.getElementById('next').onclick=()=>{off++;render()};list();render();
+
+</script></body></html>

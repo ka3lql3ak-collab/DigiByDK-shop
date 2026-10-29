@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>30-Day Prayer Journal · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#e8cfc2;--b:#a8b89a;--deep:#9a7a4a;--bg:#fbf7ef;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+</style></head><body>
+<header><p class="script">come as you are</p><h1>30-Day Prayer Journal</h1><p class="sub">Type your prayers. They save on your device (private to you). Scripture: KJV.</p></header>
+<main>
+<div class="card"><span class="deco" style="right:14px;top:-18px">🕊</span><h2>Choose your day</h2><div id="days" class="grid" style="grid-template-columns:repeat(10,1fr)"></div><div class="bar"><i id="pb"></i></div></div>
+<div class="card"><h2 id="dt"></h2><div id="verse" style="font:500 21px Fredoka;text-align:center;padding:14px;border-radius:18px;background:color-mix(in srgb,var(--a) 18%,#fff)"></div>
+ <div id="acts"></div><button class="btn big" id="amen" style="margin-top:10px">Amen 🙏 (mark day complete)</button></div>
+<div class="card"><h2>🌿 Prayer requests & answers</h2><div id="req"></div><div class="row" style="margin-top:8px"><input type="text" id="nr" placeholder="I'm praying for..." style="flex:1"><button class="btn" id="addr">Add</button></div></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#e8cfc2','#a8b89a','#9a7a4a','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-pray-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-pray-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+const V=[{"v": "I can do all things through Christ which strengtheneth me.", "r": "Philippians 4:13"}, {"v": "For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.", "r": "Jeremiah 29:11"}, {"v": "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.", "r": "Proverbs 3:5-6"}, {"v": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.", "r": "Isaiah 41:10"}, {"v": "Be still, and know that I am God.", "r": "Psalm 46:10"}, {"v": "Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.", "r": "Joshua 1:9"}, {"v": "And we know that all things work together for good to them that love God.", "r": "Romans 8:28"}, {"v": "The LORD is my shepherd; I shall not want.", "r": "Psalm 23:1"}, {"v": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", "r": "Matthew 11:28"}, {"v": "For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.", "r": "2 Timothy 1:7"}, {"v": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.", "r": "Philippians 4:6"}, {"v": "This is the day which the LORD hath made; we will rejoice and be glad in it.", "r": "Psalm 118:24"}, {"v": "His compassions fail not. They are new every morning: great is thy faithfulness.", "r": "Lamentations 3:22-23"}, {"v": "But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.", "r": "Isaiah 40:31"}, {"v": "I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works.", "r": "Psalm 139:14"}, {"v": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.", "r": "John 3:16"}, {"v": "Be not conformed to this world: but be ye transformed by the renewing of your mind.", "r": "Romans 12:2"}, {"v": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.", "r": "Galatians 5:22-23"}, {"v": "The LORD is nigh unto them that are of a broken heart.", "r": "Psalm 34:18"}, {"v": "Casting all your care upon him; for he careth for you.", "r": "1 Peter 5:7"}, {"v": "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.", "r": "Matthew 6:33"}, {"v": "Strength and honour are her clothing; and she shall rejoice in time to come.", "r": "Proverbs 31:25"}, {"v": "What time I am afraid, I will trust in thee.", "r": "Psalm 56:3"}, {"v": "Now faith is the substance of things hoped for, the evidence of things not seen.", "r": "Hebrews 11:1"}, {"v": "Charity suffereth long, and is kind.", "r": "1 Corinthians 13:4"}, {"v": "Delight thyself also in the LORD; and he shall give thee the desires of thine heart.", "r": "Psalm 37:4"}, {"v": "The LORD thy God in the midst of thee is mighty; he will rejoice over thee with joy.", "r": "Zephaniah 3:17"}, {"v": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.", "r": "Ephesians 2:8"}, {"v": "Peace I leave with you, my peace I give unto you. Let not your heart be troubled, neither let it be afraid.", "r": "John 14:27"}, {"v": "My help cometh from the LORD, which made heaven and earth.", "r": "Psalm 121:2"}];const L=[['A · Adoration','I praise You for...'],['C · Confession','Lord, forgive me for...'],['T · Thanksgiving','Thank You for...'],['S · Supplication','I am asking You for...'],['Live it','One way I will live this verse today...']];
+let day=S.get('day',0);const done=S.get('done',{});
+function days(){const h=document.getElementById('days');h.innerHTML='';for(let i=0;i<30;i++){const b=el(`<button class="btn" style="padding:9px 0">${done[i]?'🤍':i+1}</button>`);if(i===day)b.style.outline='3px solid var(--deep)';b.onclick=()=>{day=i;S.set('day',i);show();pop()};h.appendChild(b)}
+ document.getElementById('pb').style.width=(Object.values(done).filter(Boolean).length/30*100)+'%'}
+function show(){days();document.getElementById('dt').textContent='Day '+(day+1);document.getElementById('verse').innerHTML=`“${V[day].v}”<br><b style="color:var(--deep)">${V[day].r}</b>`;
+ const a=document.getElementById('acts');a.innerHTML='';const ent=S.get('e'+day,{});L.forEach(([h,p],i)=>{const b=el(`<div style="margin-top:12px"><b style="color:var(--deep)">${h}</b><textarea placeholder="${p}"></textarea></div>`);
+ const ta=b.querySelector('textarea');ta.value=ent[i]||'';ta.oninput=()=>{ent[i]=ta.value;S.set('e'+day,ent)};a.appendChild(b)})}
+document.getElementById('amen').onclick=()=>{done[day]=true;S.set('done',done);confetti();chime();toast('Amen 🤍 See you tomorrow!');days()};
+const R=S.get('req',[]);function req(){const h=document.getElementById('req');h.innerHTML='';R.forEach((r,i)=>{const d=el(`<div class="check ${r.a?'done':''}"><span class="box">${r.a?'✓':''}</span><span>${r.t}${r.a?' · answered!':''}</span></div>`);
+ d.onclick=()=>{r.a=!r.a;S.set('req',R);req();if(r.a){confetti(90);chime()}};h.appendChild(d)})}
+document.getElementById('addr').onclick=()=>{const v=document.getElementById('nr').value.trim();if(v){R.push({t:v,a:false});S.set('req',R);document.getElementById('nr').value='';req();pop(900)}};
+show();req();
+
+</script></body></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brush Brush Brush! · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#7bdff2;--b:#ffd34f;--deep:#2b8ad6;--bg:#f4fbff;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+</style></head><body>
+<header><p class="script">sparkly teeth club</p><h1>Brush Brush Brush!</h1><p class="sub">A 2-minute timer that tells you where to brush, plus a sticker chart.</p></header>
+<main>
+<div class="card" style="text-align:center"><span class="deco" style="right:14px;top:-18px">🦷</span>
+ <div id="tooth" style="font-size:110px;transition:.3s">😁</div><div id="zone" style="font:600 24px Fredoka;color:var(--deep);min-height:34px">Ready to brush?</div>
+ <div id="tm" style="font:400 64px 'Luckiest Guy';color:var(--deep)">2:00</div>
+ <div class="grid" style="grid-template-columns:1fr 1fr;max-width:340px;margin:10px auto" id="q"></div>
+ <button class="btn big" id="go">▶ Start brushing!</button></div>
+<div class="card"><h2>📅 Brushing chart</h2><p>Tap ☀ for morning and 🌙 for night. 7 days in a row = a little reward!</p><div id="cal" class="grid" style="grid-template-columns:repeat(7,1fr)"></div></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#7bdff2','#ffd34f','#2b8ad6','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-teeth-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-teeth-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+const Z=['↖ Top left','↗ Top right','↙ Bottom left','↘ Bottom right'];const qh=document.getElementById('q');Z.forEach(z=>qh.appendChild(el(`<div class="check" style="justify-content:center">${z}</div>`)));
+let t=120,run=null;const tm=document.getElementById('tm'),tooth=document.getElementById('tooth');
+document.getElementById('go').onclick=e=>{if(run)return;t=120;pop(600);run=setInterval(()=>{t--;tm.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+ const z=Math.min(3,Math.floor((120-t)/30));[...qh.children].forEach((c,i)=>c.classList.toggle('done',i<z));document.getElementById('zone').textContent='Brush '+Z[z]+' 🪥';
+ tooth.style.transform=`rotate(${(t%2?-8:8)}deg)`;if(t%30===0&&t>0){pop(900);toast('Switch sides! 🔄')}
+ if(t<=0){clearInterval(run);run=null;[...qh.children].forEach(c=>c.classList.add('done'));tooth.textContent='✨😁✨';document.getElementById('zone').textContent='Sparkly clean!';confetti();chime()}},1000)};
+const cal=S.get('cal',{});const ch=document.getElementById('cal');for(let d=1;d<=28;d++){const b=el(`<div style="text-align:center;background:#fff;border-radius:14px;padding:6px;box-shadow:0 3px 8px rgba(0,0,0,.06)"><b>${d}</b><div></div></div>`);
+ ['☀','🌙'].forEach((s,k)=>{const x=el(`<button class="btn" style="padding:4px 6px;margin:2px;opacity:${cal[d+'-'+k]?1:.35}">${s}</button>`);x.onclick=()=>{cal[d+'-'+k]=!cal[d+'-'+k];S.set('cal',cal);x.style.opacity=cal[d+'-'+k]?1:.35;pop(cal[d+'-'+k]?1000:400);if(cal[d+'-'+k])confetti(40)};b.lastChild.appendChild(x)});ch.appendChild(b)}
+
+</script></body></html>

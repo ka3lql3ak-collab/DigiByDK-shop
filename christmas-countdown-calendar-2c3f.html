@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Christmas Countdown · DigiByDK</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--a:#f6d6d6;--b:#e3f1e7;--deep:#c8102e;--bg:#fff6f3;--ink:#43283a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);min-height:100vh;
+ background:radial-gradient(circle at 15% 0,color-mix(in srgb,var(--a) 30%,transparent),transparent 40%),
+ radial-gradient(circle at 100% 90%,color-mix(in srgb,var(--b) 30%,transparent),transparent 45%),var(--bg)}
+header{text-align:center;padding:22px 16px 6px}
+.script{font-family:'Great Vibes',cursive;font-size:32px;color:var(--deep);margin:0}
+h1{font-family:'Luckiest Guy',cursive;font-size:clamp(28px,6vw,48px);margin:2px 0 6px;color:var(--deep);letter-spacing:1px;
+ text-shadow:3px 3px 0 #fff,6px 6px 0 color-mix(in srgb,var(--deep) 25%,transparent)}
+.sub{opacity:.75;margin:0 0 6px}
+main{max-width:980px;margin:0 auto;padding:10px 14px 40px}
+.card{background:#fff;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 12px 30px color-mix(in srgb,var(--deep) 18%,transparent);
+ border:3px solid color-mix(in srgb,var(--a) 45%,#fff);position:relative}
+.card h2{font-family:'Luckiest Guy';color:var(--deep);margin:0 0 10px;font-size:24px;letter-spacing:.5px}
+.btn{border:none;border-radius:18px;padding:11px 16px;font:600 16px Fredoka;background:color-mix(in srgb,var(--a) 30%,#fff);color:var(--ink);cursor:pointer;
+ box-shadow:0 4px 0 color-mix(in srgb,var(--a) 70%,#fff);transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--a) 70%,#fff)}
+.btn.big{font-size:20px;padding:14px 22px;background:var(--deep);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--deep) 60%,#000)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.tab.on{background:var(--deep);color:#fff}
+.check{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer;margin:6px 0;
+ background:color-mix(in srgb,var(--a) 12%,#fff);font-size:17px;transition:.2s;user-select:none}
+.check .box{width:28px;height:28px;flex:none;border-radius:9px;border:3px solid var(--deep);background:#fff;display:grid;place-items:center;font-size:18px}
+.check.done{background:color-mix(in srgb,var(--b) 35%,#fff);text-decoration:line-through;opacity:.8}
+.check.done .box{background:var(--deep);color:#fff}
+.bar{height:18px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,#fff);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--deep));border-radius:12px;transition:width .4s}
+.grid{display:grid;gap:10px}
+textarea,input[type=text]{width:100%;border-radius:14px;border:2px solid color-mix(in srgb,var(--a) 50%,#fff);padding:10px;font:16px Fredoka;color:var(--ink);background:#fffafd}
+textarea{min-height:80px;resize:vertical}
+.foot{text-align:center;opacity:.65;font-size:13px;padding:20px}
+.deco{position:absolute;font-size:30px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:12px 20px;
+ border-radius:20px;font-weight:600;transition:.35s;z-index:60}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.door{aspect-ratio:1;border-radius:18px;border:4px dashed #fff;display:grid;place-items:center;cursor:pointer;font:400 34px 'Luckiest Guy';color:#fff;
+ box-shadow:0 6px 0 rgba(0,0,0,.12);transition:transform .3s;position:relative;text-shadow:2px 2px 0 rgba(0,0,0,.2)}.door:hover{transform:rotate(-2deg) scale(1.03)}
+.door.open{background:#fff!important;color:var(--deep);border-style:solid;font-size:40px}.door.did::after{content:'✅';position:absolute;right:6px;top:4px;font-size:18px}
+@keyframes snow{to{transform:translateY(110vh)}}.flake{position:fixed;top:-20px;color:#fff;pointer-events:none;animation:snow linear infinite;text-shadow:0 0 4px #9cc}
+</style></head><body>
+<header><p class="script">24 days of magic</p><h1>Christmas Countdown</h1><p class="sub">Open one door a day for a cozy family activity!</p></header>
+<main>
+<div class="card" style="background:linear-gradient(#fff,#fff6f3)"><span class="deco" style="right:14px;top:-18px">🎄</span>
+ <h2>Tap a door to open today's surprise!</h2><p id="cd" style="font:600 20px Fredoka;color:var(--deep)"></p>
+ <div id="doors" class="grid" style="grid-template-columns:repeat(4,1fr)"></div>
+ <label style="display:block;margin-top:10px;opacity:.75"><input type="checkbox" id="peek"> Let me open any day (no waiting!)</label></div>
+<div class="card" id="reveal" style="display:none;text-align:center"><div id="re" style="font-size:80px"></div><h2 id="rt"></h2><p id="ra" style="font-size:20px"></p>
+ <button class="btn big" id="did">We did it! ✅</button></div></main>
+<div class="foot">Made with 💖 by DigiByDK · Saves automatically on this device · Personal use only</div>
+<canvas id="confetti"></canvas><div class="toast" id="toast"></div>
+<script>
+const COLS=['#f6d6d6','#e3f1e7','#c8102e','#ffd166','#7bdff2','#ff8fab'];
+const S={get(k,d){try{const v=localStorage.getItem('dbdk-advent-'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('dbdk-advent-'+k,JSON.stringify(v))}catch(e){}}};
+let AC=null;function pop(f=700,d=.18,type='sine'){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;
+ o.frequency.setValueAtTime(f,AC.currentTime);o.frequency.exponentialRampToValueAtTime(f*1.7,AC.currentTime+.08);g.gain.setValueAtTime(.12,AC.currentTime);
+ g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g).connect(AC.destination);o.start();o.stop(AC.currentTime+d+.02)}catch(e){}}
+function chime(){[660,880,1320].forEach((f,i)=>setTimeout(()=>pop(f,.3),i*110))}
+function confetti(n=170){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const P=Array.from({length:n},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:Math.random()*6,c:COLS[(Math.random()*COLS.length)|0],s:6+Math.random()*9}));
+ let t=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.12;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});
+ if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function checklist(host,key,items,onAll){const done=S.get(key,{});host.innerHTML='';const bar=el('<div class="bar"><i></i></div>');host.appendChild(bar);
+ const upd=()=>{const n=items.filter((_,i)=>done[i]).length;bar.firstChild.style.width=(100*n/items.length)+'%';return n};
+ items.forEach((it,i)=>{const r=el(`<div class="check ${done[i]?'done':''}"><span class="box">${done[i]?'✓':''}</span><span>${it}</span></div>`);
+  r.onclick=()=>{done[i]=!done[i];S.set(key,done);r.classList.toggle('done',done[i]);r.firstChild.textContent=done[i]?'✓':'';pop(done[i]?820:420);
+   if(upd()===items.length){confetti();chime();toast('You did it! 🎉');onAll&&onAll()}};host.appendChild(r)});upd()}
+
+const A=["Write a letter to Santa", "Make paper snowflakes", "Watch a Christmas movie", "Bake cookies", "Read a Christmas story", "Make a card for a neighbor", "Drive to see the lights", "Hot cocoa night", "Build a blanket fort", "Donate a toy", "Make an ornament", "Sing Christmas songs", "Play in the snow (or make fake snow!)", "Write 3 things you're thankful for", "Decorate a gingerbread house", "Pajama breakfast", "Call grandparents", "Make a paper chain", "Christmas craft day", "Do a secret kindness", "Read the Christmas story (Luke 2)", "Wrap a gift for family", "Leave cookies & milk for Santa", "Merry Christmas!"],E=["\u2709", "\u2744", "\ud83c\udfac", "\ud83c\udf6a", "\ud83d\udcd6", "\ud83d\udc8c", "\ud83d\ude97", "\u2615", "\ud83c\udfd5", "\ud83e\uddf8", "\ud83c\udf84", "\ud83c\udfb6", "\u26c4", "\ud83d\ude4f", "\ud83c\udfe0", "\ud83e\udd5e", "\ud83d\udcde", "\ud83d\udd17", "\u2702", "\ud83d\udc96", "\u2b50", "\ud83c\udf81", "\ud83e\udd5b", "\ud83c\udf85"];const st=S.get('st',{});const now=new Date();const today=now.getMonth()===11?now.getDate():0;
+const xmas=new Date(now.getFullYear(),11,25);if(now>xmas)xmas.setFullYear(xmas.getFullYear()+1);
+document.getElementById('cd').textContent='🎅 '+Math.ceil((xmas-now)/864e5)+' sleeps until Christmas!';
+const order=[...Array(24).keys()].sort((a,b)=>((a*7+3)%24)-((b*7+3)%24));const h=document.getElementById('doors');const cols=['#c8102e','#1f7a4d','#e3a33b','#b23a6b'];
+order.forEach((i,k)=>{const d=el(`<div class="door ${st[i]?'open':''} ${st[i]==2?'did':''}" style="background:${cols[k%4]}">${st[i]?E[i]:i+1}</div>`);
+ d.onclick=()=>{if(!st[i]&&!document.getElementById('peek').checked&&today&&i+1>today){toast('No peeking! Come back on Dec '+(i+1)+' 🎁');pop(300);return}
+  if(!st[i]){st[i]=1;S.set('st',st);d.classList.add('open');d.textContent=E[i];confetti(90);chime()}open(i,d)};h.appendChild(d)});
+function open(i,d){const r=document.getElementById('reveal');r.style.display='block';document.getElementById('re').textContent=E[i];document.getElementById('rt').textContent='Day '+(i+1);
+ document.getElementById('ra').textContent=A[i];r.scrollIntoView({behavior:'smooth'});document.getElementById('did').onclick=()=>{st[i]=2;S.set('st',st);d.classList.add('did');confetti();toast('Memory made! 🎄')}}
+for(let i=0;i<26;i++){const f=document.createElement('div');f.className='flake';f.textContent='❄';f.style.left=Math.random()*100+'vw';f.style.fontSize=(10+Math.random()*16)+'px';
+ f.style.animationDuration=(6+Math.random()*8)+'s';f.style.animationDelay=(-Math.random()*10)+'s';f.style.opacity=.6;document.body.appendChild(f)}
+
+</script></body></html>
