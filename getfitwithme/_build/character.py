@@ -341,69 +341,156 @@ def prop_svg(p, x, y):
     if p == "jeans": return f'<g transform="translate({x-54},{y-86})"><path d="M0,0 H108 L102,180 H62 L54,62 L46,180 H6 Z" fill="#4a72b8" {S}/><path d="M0,0 H108 V18 H0 Z" fill="#3b5d99" {S}/><circle cx="54" cy="9" r="5" fill="#e5c07b"/><path d="M20,30 q10,40 6,120 M88,30 q-10,40 -6,120" stroke="#fff" stroke-opacity=".2" stroke-width="6" fill="none"/></g>'
     if p == "plate": return f'<g transform="translate({x},{y})"><circle r="74" fill="#26232c" {S}/><circle r="52" fill="none" stroke="#3a3642" stroke-width="8"/><circle r="13" fill="#9a94a6" {S}/><text y="-28" text-anchor="middle" font-family="Anton" font-size="22" fill="#cfc8da">45 LB</text></g>'
     if p == "wine": return f'<g transform="translate({x-18},{y-120})"><path d="M11,0 H25 V32 Q38,46 38,68 V150 Q38,158 30,158 H6 Q-2,158 -2,150 V68 Q-2,46 11,32 Z" fill="#3d1626" {S}/><rect x="0" y="84" width="36" height="38" fill="#e9dcc3"/><rect x="4" y="40" width="6" height="100" rx="3" fill="#fff" opacity=".18"/></g>'
+    if p == "glass": return f'<g transform="translate({x},{y+10})"><path d="M-26,-92 h52 q0,58 -26,64 q-26,-6 -26,-64 Z" fill="#ffffff30" {S}/><path d="M-23,-70 h46 q-4,38 -23,42 q-19,-4 -23,-42 Z" fill="#8a1530"/><path d="M0,-28 v40 M-22,12 h44" {S} fill="none"/><path d="M-18,-84 q-2,20 4,34" stroke="#fff" stroke-width="3" opacity=".5" fill="none"/></g>'
     if p == "mealprep": return f'<g transform="translate({x-70},{y-36})"><rect width="140" height="72" rx="12" fill="#f6f3fb" {S}/><rect x="10" y="10" width="56" height="52" rx="6" fill="#fff8e7"/><rect x="72" y="10" width="58" height="24" rx="6" fill="#d7a26b"/><rect x="72" y="38" width="58" height="24" rx="6" fill="#58b368"/></g>'
     return ""
 
 
-# ================================================================ kids (skin tones close to mom's)
-KIDS = [
-    {"name": "teen", "skin": "#c88a6b", "skin_d": "#a66a50", "hair": "#2a1612", "shirt": "#ffd166", "shirt_d": "#e3ad3a", "pants": "#4a72b8", "do": "braids", "h": 1.30, "graphic": "heart"},
-    {"name": "boy", "skin": "#b97a5b", "skin_d": "#975c44", "hair": "#1a110d", "shirt": "#5fc7a8", "shirt_d": "#3fa587", "pants": "#34313c", "do": "fade", "h": 1.12, "graphic": "7"},
-    {"name": "girl", "skin": "#cf9475", "skin_d": "#ad7258", "hair": "#2a1612", "shirt": "#ff8fb1", "shirt_d": "#e8739a", "pants": "#6d32d4", "do": "puffs", "h": .96, "graphic": "star"},
-    {"name": "toddler", "skin": "#c48466", "skin_d": "#a2644b", "hair": "#1f140f", "shirt": "#8fbaff", "shirt_d": "#6f9ce8", "pants": "#34313c", "do": "curls", "h": .80, "graphic": "dot"},
+# ================================================================ kids (same detail level as mom)
+KIDS = [  # oldest sister, slightly younger sister, little sister, little brother (youngest)
+    {"id": "k1", "name": "oldest sister", "girl": True, "age": 3, "skin": "#c88a6b", "skin_d": "#a66a50", "skin_l": "#e4a98a",
+     "hair": "#2a1612", "hair_l": "#5a3328", "top": ("#ffd166", "#e3ad3a", "#fff0b8"), "bottom": ("#4a72b8", "#34558f", "#7397d6"),
+     "do": "braids", "h": 1.30, "graphic": "heart", "outfit": "sweatshirt"},
+    {"id": "k2", "name": "older sister", "girl": True, "age": 2, "skin": "#b97a5b", "skin_d": "#975c44", "skin_l": "#d79a7a",
+     "hair": "#2a1612", "hair_l": "#5a3328", "top": ("#5fc7a8", "#3fa587", "#a6ecd8"), "bottom": ("#6d32d4", "#4a1f9e", "#9e6cf5"),
+     "do": "ponytail", "h": 1.15, "graphic": "star", "outfit": "tee"},
+    {"id": "k3", "name": "little sister", "girl": True, "age": 1, "skin": "#cf9475", "skin_d": "#ad7258", "skin_l": "#ecb497",
+     "hair": "#2a1612", "hair_l": "#5a3328", "top": ("#ff8fb1", "#e8739a", "#ffd0df"), "bottom": ("#b48cff", "#8a62e0", "#d6c2ff"),
+     "do": "puffs", "h": .98, "graphic": "rainbow", "outfit": "dress"},
+    {"id": "k4", "name": "little brother", "girl": False, "age": 0, "skin": "#c48466", "skin_d": "#a2644b", "skin_l": "#e2a487",
+     "hair": "#1f140f", "hair_l": "#4a3026", "top": ("#8fbaff", "#6f9ce8", "#cfe0ff"), "bottom": ("#3a3644", "#26232d", "#5a5466"),
+     "do": "curls", "h": .80, "graphic": "dino", "outfit": "shorts"},
 ]
 
 
 def kid(st, mood="happy"):
-    S = f'stroke="{OL}" stroke-width="4" stroke-linejoin="round"'
-    cx = 90
-    g = [f'<ellipse cx="90" cy="340" rx="70" ry="10" fill="#000" opacity=".2"/>',
-         f'<path d="M58,232 L56,322 L84,322 L88,252 L92,252 L96,322 L124,322 L122,232 Z" fill="{st["pants"]}" {S}/><path d="M64,250 L62,316" stroke="#fff" stroke-opacity=".2" stroke-width="6"/>',
-         f'<path d="M50,318 h38 q6,14 -2,22 h-38 q-6,-12 2,-22 Z" fill="#fff" {S}/><path d="M92,318 h38 q8,12 2,22 h-38 q-8,-8 -2,-22 Z" fill="#fff" {S}/><path d="M48,334 h40 M92,334 h40" stroke="{PURPLE}" stroke-width="4"/>']
-
-    def arm(x1, y1, x2, y2):
-        return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{OL}" stroke-width="27" stroke-linecap="round"/>'
-                f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{st["skin"]}" stroke-width="18" stroke-linecap="round"/>'
-                f'<line x1="{x1+4}" y1="{y1}" x2="{x2+4}" y2="{y2}" stroke="{st["skin_d"]}" stroke-width="5" stroke-linecap="round" opacity=".6"/>')
-    g += [arm(52, 152, 20, 70), arm(128, 152, 160, 70)] if mood == "cheer" else [arm(52, 152, 40, 224), arm(128, 152, 140, 224)]
-    g.append(f'<path d="M46,142 Q90,124 134,142 L140,242 L40,242 Z" fill="{st["shirt"]}" {S}/><path d="M74,134 Q90,150 106,134" stroke="{st["shirt_d"]}" stroke-width="6" fill="none"/>'
-             f'<path d="M118,150 L124,236" stroke="#000" stroke-opacity=".12" stroke-width="10"/><path d="M54,150 L50,236" stroke="#fff" stroke-opacity=".2" stroke-width="6"/>')
+    """Detailed kid in a 200x390 box (feet at ~380)."""
+    k, cx = st["id"], 100
+    sk, skd, skl = st["skin"], st["skin_d"], st["skin_l"]
+    t0, t1, t2 = st["top"]; b0, b1, b2 = st["bottom"]
+    S = f'stroke="{OL}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"'
+    g = [f'<defs><linearGradient id="{k}sk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{skl}"/><stop offset=".45" stop-color="{sk}"/><stop offset="1" stop-color="{skd}"/></linearGradient>'
+         f'<radialGradient id="{k}fc" cx=".38" cy=".36" r=".75"><stop offset="0" stop-color="{skl}"/><stop offset=".55" stop-color="{sk}"/><stop offset="1" stop-color="{skd}"/></radialGradient>'
+         f'<linearGradient id="{k}tp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{t2}"/><stop offset=".4" stop-color="{t0}"/><stop offset="1" stop-color="{t1}"/></linearGradient>'
+         f'<linearGradient id="{k}bt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{b2}"/><stop offset=".4" stop-color="{b0}"/><stop offset="1" stop-color="{b1}"/></linearGradient>'
+         f'<linearGradient id="{k}hr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{st["hair_l"]}"/><stop offset=".4" stop-color="{st["hair"]}"/><stop offset="1" stop-color="#0d0705"/></linearGradient></defs>',
+         f'<ellipse cx="{cx}" cy="384" rx="74" ry="11" fill="url(#groundG)"/>']
+    # ---- legs
+    shorts = st["outfit"] == "shorts"
+    for s_ in (-1, 1):
+        hx = cx + s_ * 20
+        o, f_ = limb((hx, 280), (hx + s_ * 2, 360), 30, 24, sk if shorts else b0, shade=True)
+        g += [o, f_]
+    if shorts:
+        g.append(P(f"M{cx-44},262 L{cx+44},262 L{cx+46},312 L{cx+4},312 L{cx},298 L{cx-4},312 L{cx-46},312 Z", f"url(#{k}bt)"))
+        g.append(f'<path d="M{cx-40},300 h32 M{cx+8},300 h32" stroke="#fff" stroke-opacity=".25" stroke-width="2" stroke-dasharray="5 4"/>')
+    else:
+        g.append(f'<path d="M{cx-26},300 L{cx-25},352 M{cx+14},300 L{cx+15},352" stroke="#fff" stroke-opacity=".2" stroke-width="5" stroke-linecap="round"/>')
+    # ---- sneakers
+    for x0 in (cx - 42, cx + 4):
+        g.append(P(f"M{x0},{360} L{x0+30},{358} Q{x0+46},{364} {x0+42},{380} L{x0-4},{380} Q{x0-6},{366} {x0},{360} Z", "url(#shoeG)", 3.5))
+        g.append(f'<path d="M{x0-4},{374} H{x0+42}" stroke="{t1}" stroke-width="5"/><path d="M{x0+8},{364} h12 M{x0+10},{369} h12" stroke="#9a92aa" stroke-width="2.5" stroke-linecap="round"/>')
+    # ---- torso / outfit
+    if st["outfit"] == "dress":
+        g.append(P(f"M{cx-44},176 Q{cx},162 {cx+44},176 L{cx+40},236 Q{cx+70},282 {cx+66},304 Q{cx},318 {cx-66},304 Q{cx-70},282 {cx-40},236 Z", f"url(#{k}tp)"))
+        g.append(f'<path d="M{cx-40},236 Q{cx},248 {cx+40},236" stroke="{t1}" stroke-width="7" fill="none"/><path d="M{cx-30},250 q-8,30 -16,50 M{cx},252 v54 M{cx+30},250 q8,30 16,50" stroke="{OL}" stroke-opacity=".25" stroke-width="3" fill="none"/>'
+                 f'<path d="M{cx-64},300 Q{cx},314 {cx+64},300" stroke="#fff" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>')
+    else:
+        low = 272 if st["outfit"] == "sweatshirt" else 268
+        g.append(P(f"M{cx-46},176 Q{cx},160 {cx+46},176 L{cx+48},{low} Q{cx},{low+10} {cx-48},{low} Z", f"url(#{k}tp)"))
+        if st["outfit"] == "sweatshirt":
+            g.append(f'<path d="M{cx-48},{low-12} Q{cx},{low-2} {cx+48},{low-12}" stroke="{t1}" stroke-width="8" fill="none"/>'
+                     + "".join(f'<path d="M{cx-44+i*8},{low-14} v12" stroke="{OL}" stroke-opacity=".2" stroke-width="2"/>' for i in range(12)))
+        g.append(f'<path d="M{cx-32},196 q-6,30 2,56 M{cx+34},200 q6,26 -2,50" stroke="{OL}" stroke-opacity=".22" stroke-width="3" fill="none"/>')
+        if not shorts and st["outfit"] != "dress":
+            g.append(P(f"M{cx-46},{low-2} Q{cx},{low+8} {cx+46},{low-2} L{cx+46},{low+12} Q{cx},{low+20} {cx-46},{low+12} Z", b1, 3.5))
+    g.append(P(f"M{cx-24},172 Q{cx},196 {cx+24},172 Q{cx},182 {cx-24},172 Z", t1, 3.5))  # collar
     gr = st["graphic"]
-    if gr == "heart": g.append('<path d="M90,214 C60,192 70,168 90,182 C110,168 120,192 90,214 Z" fill="#ff5f8f" stroke="#2a161c" stroke-width="3"/>')
-    if gr == "7": g.append('<text x="90" y="222" text-anchor="middle" font-family="Anton" font-size="56" fill="#fff" stroke="#2a161c" stroke-width="2">7</text>')
-    if gr == "star": g.append('<path d="M90,168 l9,18 20,3 -14,14 3,20 -18,-9 -18,9 3,-20 -14,-14 20,-3 Z" fill="#ffd84d" stroke="#2a161c" stroke-width="3"/>')
-    if gr == "dot": g.append('<circle cx="90" cy="196" r="16" fill="#fff" stroke="#2a161c" stroke-width="3"/><circle cx="84" cy="192" r="3" fill="#2a161c"/><circle cx="96" cy="192" r="3" fill="#2a161c"/><path d="M83,200 q7,6 14,0" stroke="#2a161c" stroke-width="2.5" fill="none"/>')
+    if gr == "heart": g.append(P(f"M{cx},246 C{cx-34},222 {cx-22},196 {cx},212 C{cx+22},196 {cx+34},222 {cx},246 Z", "#ff5f8f", 3) + f'<path d="M{cx-14},212 q4,-6 10,-4" stroke="#fff" stroke-width="3" fill="none" opacity=".7"/>')
+    if gr == "star": g.append(P(f"M{cx},198 l9,18 20,3 -14,14 3,20 -18,-9 -18,9 3,-20 -14,-14 20,-3 Z", "#ffd84d", 3))
+    if gr == "rainbow": g.append(f'<path d="M{cx-26},236 a26,26 0 0 1 52,0" stroke="#ff5f5f" stroke-width="7" fill="none"/><path d="M{cx-19},236 a19,19 0 0 1 38,0" stroke="#ffd84d" stroke-width="7" fill="none"/><path d="M{cx-12},236 a12,12 0 0 1 24,0" stroke="#5fc7a8" stroke-width="7" fill="none"/><circle cx="{cx-28}" cy="238" r="7" fill="#fff"/><circle cx="{cx+28}" cy="238" r="7" fill="#fff"/>')
+    if gr == "dino": g.append(P(f"M{cx-34},248 q4,-32 30,-32 q16,-20 34,-6 q-6,8 -16,8 q4,16 -2,30 Z", "#5fc7a8", 3) + f'<circle cx="{cx+22}" cy="214" r="2.6" fill="{OL}"/><path d="M{cx-20},218 l5,-9 5,9 M{cx-6},214 l5,-9 5,9" stroke="{OL}" stroke-width="2.5" fill="#3fa587"/>')
+    # ---- arms
+    pose = {"cheer": [((-70, -40), (-60, -92))] * 2}.get(mood, [((-12, 50), (-10, 96))] * 2)
+    arms = []
+    for side, ((eo, eyo), (ho, hyo)) in zip((-1, 1), pose):
+        sx, sy = cx + side * 42, 186
+        ex, ey = sx + (eo if side < 0 else -eo), sy + eyo
+        hx, hy_ = sx + (ho if side < 0 else -ho), sy + hyo
+        o1, f1 = limb((sx, sy), (ex, ey), 22, 19, sk)
+        o2, f2 = limb((ex, ey), (hx, hy_), 19, 16, sk)
+        arms += [o1, o2, f1, f2]
+        ang = math.degrees(math.atan2(ey - sy, ex - sx)) - 90
+        mx_, my_ = sx + (ex - sx) * .22, sy + (ey - sy) * .22
+        sleeve = f'<ellipse cx="{mx_:.1f}" cy="{my_:.1f}" rx="17" ry="21" fill="url(#{k}tp)" stroke="{OL}" stroke-width="3.5" transform="rotate({ang:.1f} {mx_:.1f} {my_:.1f})"/>'
+        arms.append(sleeve)
+        arms.append(f'<circle cx="{hx:.1f}" cy="{hy_:.1f}" r="11" fill="{sk}" stroke="{OL}" stroke-width="4"/><path d="M{hx-5:.1f},{hy_+4:.1f} q5,3 10,0" stroke="{skd}" stroke-width="2" fill="none"/>')
+    g.append("".join(arms))
+    # ---- neck + head
+    g.append(P(f"M{cx-14},146 L{cx-15},176 Q{cx},184 {cx+15},176 L{cx+14},146 Z", sk, 3.5))
+    hd = []
     if st["do"] == "braids":
-        g.append(f'<path d="M40,72 L26,196 M140,72 L154,196" stroke="{OL}" stroke-width="22" stroke-linecap="round"/><path d="M40,72 L26,196 M140,72 L154,196" stroke="{st["hair"]}" stroke-width="14" stroke-linecap="round"/>'
-                 + "".join(f'<path d="M{40-k*1.1-6},{90+k*12} l12,6 M{140+k*1.1-6},{90+k*12} l12,-6" stroke="#5a3a30" stroke-width="2.5"/>' for k in range(9)))
-    g.append(f'<circle cx="{cx}" cy="72" r="56" fill="{st["skin"]}" {S}/><path d="M138,60 C140,100 120,124 92,128" stroke="{st["skin_d"]}" stroke-width="8" fill="none" opacity=".45"/>')
+        for s_ in (-1, 1):
+            bx = cx + s_ * 56
+            hd.append(f'<path d="M{bx},70 C{bx+s_*8},150 {bx+s_*2},230 {bx-s_*4},290" stroke="{OL}" stroke-width="24" fill="none" stroke-linecap="round"/><path d="M{bx},70 C{bx+s_*8},150 {bx+s_*2},230 {bx-s_*4},290" stroke="url(#{k}hr)" stroke-width="16" fill="none" stroke-linecap="round"/>')
+            hd.append("".join(f'<path d="M{bx+s_*(6-i*.2)-8:.1f},{96+i*16} q8,6 16,0" stroke="{st["hair_l"]}" stroke-width="2.5" fill="none"/>' for i in range(11)))
+            hd.append(f'<rect x="{bx-s_*4-10}" y="250" width="20" height="10" rx="3" fill="url(#goldG)" stroke="{OL}" stroke-width="2"/><rect x="{bx-s_*2-10}" y="180" width="20" height="8" rx="3" fill="url(#goldG)" stroke="{OL}" stroke-width="2"/>')
+    if st["do"] == "ponytail":
+        hd.append(P(f"M{cx+40},24 C{cx+104},20 {cx+108},120 {cx+82},196 C{cx+80},140 {cx+70},86 {cx+34},60 Z", f"url(#{k}hr)"))
+        hd.append(f'<path d="M{cx+56},44 C{cx+84},76 {cx+90},120 {cx+82},170 M{cx+70},40 C{cx+96},80 {cx+96},120 {cx+90},150" stroke="{st["hair_l"]}" stroke-width="3" fill="none"/>')
+    hd.append(P(f"M{cx-62},92 C{cx-62},10 {cx+62},10 {cx+62},92 C{cx+62},138 {cx+30},156 {cx},156 C{cx-30},156 {cx-62},138 {cx-62},92 Z", f"url(#{k}fc)"))
+    hd.append(f'<path d="M{cx+54},100 C{cx+52},134 {cx+28},150 {cx+6},152" stroke="{skd}" stroke-width="7" fill="none" opacity=".35" stroke-linecap="round"/>')
     d = st["do"]
+    cap = f"M{cx-64},88 C{cx-66},6 {cx+66},6 {cx+64},88 C{cx+56},44 {cx+20},36 {cx},40 C{cx-24},38 {cx-56},48 {cx-64},88 Z"
     if d == "puffs":
-        g.append(f'<circle cx="36" cy="26" r="28" fill="{st["hair"]}" {S}/><circle cx="144" cy="26" r="28" fill="{st["hair"]}" {S}/><path d="M36,66 Q38,14 90,14 Q142,14 144,66 Q128,36 90,34 Q52,36 36,66Z" fill="{st["hair"]}" {S}/>'
-                 f'<path d="M48,46 l10,-8 10,8 -10,8 Z M112,46 l10,-8 10,8 -10,8 Z" fill="#ff8fb1" stroke="{OL}" stroke-width="2.5"/><path d="M26,16 q8,-8 18,-2 M134,16 q8,-8 18,-2" stroke="#5a3a30" stroke-width="3" fill="none"/>')
-    elif d == "fade":
-        g.append(f'<path d="M34,68 Q36,12 90,10 Q144,12 146,68 Q138,30 90,28 Q42,30 34,68Z" fill="{st["hair"]}" {S}/><path d="M50,30 q40,-14 80,0" stroke="#4a3a34" stroke-width="3" fill="none"/>')
-    elif d == "braids":
-        g.append(f'<path d="M34,72 Q36,12 90,10 Q144,12 146,72 Q130,34 92,30 Q52,34 34,72Z" fill="{st["hair"]}" {S}/><path d="M90,12 L92,30" stroke="#5a3a30" stroke-width="3"/><path d="M50,32 q20,-12 36,-14" stroke="#5a3a30" stroke-width="3" fill="none"/>')
+        for s_ in (-1, 1):
+            px = cx + s_ * 62
+            hd.append(P(f"M{px-30},34 a30,30 0 1 1 60,0 a30,30 0 1 1 -60,0 Z", f"url(#{k}hr)") + "".join(f'<circle cx="{px-14+i*9}" cy="{22+(i%2)*14}" r="5" fill="{st["hair_l"]}" opacity=".7"/>' for i in range(4)))
+            hd.append(P(f"M{px-16},58 l-14,-10 0,20 Z M{px+16},58 l14,-10 0,20 Z", "#ff6f9f", 2.5) + f'<circle cx="{px}" cy="58" r="6" fill="#ff8fb1" stroke="{OL}" stroke-width="2.5"/>')
+        hd.append(P(cap, f"url(#{k}hr)"))
+    elif d == "curls":
+        hd.append(P(f"M{cx-60},84 C{cx-62},20 {cx+62},20 {cx+60},84 C{cx+52},52 {cx+30},44 {cx},46 C{cx-30},44 {cx-52},52 {cx-60},84 Z", "#3a2a24"))
+        hd.append("".join(P(f"M{cx-48+i*16},{30+(i%2)*6} a12,12 0 1 1 0.1,0 Z", f"url(#{k}hr)", 3) for i in range(7)))
+        hd.append("".join(f'<path d="M{cx-44+i*16},{24+(i%2)*6} q4,-4 8,0" stroke="{st["hair_l"]}" stroke-width="2" fill="none"/>' for i in range(7)))
     else:
-        g.append("".join(f'<circle cx="{40+i*20}" cy="{28+(i%2)*9}" r="17" fill="{st["hair"]}" {S}/>' for i in range(6)))
-    if mood == "sleep":
-        g.append(f'<path d="M62,80 q12,9 24,0 M96,80 q12,9 24,0" stroke="{OL}" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M84,104 q6,4 12,0" stroke="#7a3a3a" stroke-width="4" fill="none"/>')
+        hd.append(P(cap, f"url(#{k}hr)"))
+        hd.append(f'<path d="M{cx-34},44 C{cx-6},30 {cx+24},32 {cx+44},46" stroke="{st["hair_l"]}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"/><path d="M{cx},28 L{cx+2},42" stroke="#120a08" stroke-width="2.5"/>')
+        if d == "ponytail":
+            hd.append(f'<circle cx="{cx+46}" cy="34" r="12" fill="#ff8fb1" stroke="{OL}" stroke-width="3"/><path d="M{cx+40},28 q6,-4 12,2" stroke="#fff" stroke-width="2.5" fill="none" opacity=".7"/>')
+    if st["girl"] and st["age"] >= 2:  # small gold hoops
+        for s_ in (-1, 1):
+            hd.append(f'<circle cx="{cx+s_*60}" cy="112" r="8" fill="none" stroke="{OL}" stroke-width="5"/><circle cx="{cx+s_*60}" cy="112" r="8" fill="none" stroke="#e2b04a" stroke-width="2.5"/>')
+    # face
+    fy = 98
+    hd.append(f'<ellipse cx="{cx-36}" cy="{fy+24}" rx="11" ry="7" fill="#e07a8a" opacity=".4"/><ellipse cx="{cx+36}" cy="{fy+24}" rx="11" ry="7" fill="#e07a8a" opacity=".4"/>'
+              f'<ellipse cx="{cx-34}" cy="{fy+14}" rx="8" ry="3.5" fill="#fff" opacity=".3"/>')
+    for s_ in (-1, 1):
+        x = cx + s_ * 24
+        if mood == "sleep":
+            hd.append(f'<path d="M{x-12},{fy} q12,9 24,0" stroke="{OL}" stroke-width="4" fill="none" stroke-linecap="round"/>' + (f'<path d="M{x+s_*10},{fy+2} l{s_*5},-4" stroke="{OL}" stroke-width="2.5"/>' if st["girl"] else ""))
+            continue
+        hd.append(f'<path d="M{x-15},{fy} Q{x},{fy-20} {x+15},{fy} Q{x},{fy+17} {x-15},{fy} Z" fill="#fff" stroke="{OL}" stroke-width="2.5"/>'
+                  f'<circle cx="{x}" cy="{fy+1}" r="9" fill="url(#irisG)"/><circle cx="{x}" cy="{fy+1}" r="4.5" fill="#120805"/><circle cx="{x+3}" cy="{fy-3}" r="3" fill="#fff"/><circle cx="{x-3}" cy="{fy+5}" r="1.4" fill="#fff"/>'
+                  f'<path d="M{x-15},{fy} Q{x},{fy-20} {x+15},{fy-1}" stroke="#140a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>')
+        if st["girl"]:
+            hd.append("".join(f'<path d="M{x+s_*(4+i*5)},{fy-9+i*2} l{s_*3},-6" stroke="#140a0a" stroke-width="2" stroke-linecap="round"/>' for i in range(3)))
+        by = fy - 24 - (4 if mood in ("happy", "cheer") else 0)
+        tilt = -7 if mood == "sad" else 0   # sad: inner end raised
+        hd.append(P(f"M{x-s_*13},{by+4+tilt} Q{x},{by-6} {x+s_*13},{by+2-tilt*.4} Q{x},{by} {x-s_*13},{by+4+tilt} Z", st["hair"], 1.5))
+    hd.append(f'<path d="M{cx-2},{fy+10} Q{cx-6},{fy+22} {cx-1},{fy+24} Q{cx+6},{fy+24} {cx+6},{fy+20}" stroke="{skd}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="{cx+1}" cy="{fy+17}" r="3" fill="#fff" opacity=".3"/>')
+    my = fy + 36
+    if mood in ("happy", "cheer"):
+        hd.append(f'<path d="M{cx-18},{my-6} Q{cx},{my+20} {cx+18},{my-6} Z" fill="#6e2030" stroke="{OL}" stroke-width="3"/><path d="M{cx-14},{my-5} L{cx+14},{my-5} L{cx+11},{my+1} L{cx-11},{my+1} Z" fill="#fff"/><path d="M{cx-8},{my+9} Q{cx},{my+4} {cx+8},{my+9}" fill="#d16a7c"/>'
+                  + (f'<path d="M{cx-19},{my-6} Q{cx},{my-12} {cx+19},{my-6}" stroke="#c87888" stroke-width="3.5" fill="none" stroke-linecap="round"/>' if st["girl"] and st["age"] >= 2 else ""))
+    elif mood == "sad":
+        hd.append(f'<path d="M{cx-12},{my+4} Q{cx},{my-6} {cx+12},{my+4}" stroke="#6e2030" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M{cx-26},{fy+10} q-4,16 0,24" stroke="#9fdcff" stroke-width="5" fill="none" stroke-linecap="round"/>')
+    elif mood == "sleep":
+        hd.append(f'<ellipse cx="{cx}" cy="{my}" rx="5" ry="4" fill="#6e2030"/><text x="{cx+56}" y="{fy-40}" font-family="Anton" font-size="26" fill="#cfc4ff">z</text><text x="{cx+74}" y="{fy-62}" font-family="Anton" font-size="20" fill="#cfc4ff">z</text>')
     else:
-        for x in (68, 112):
-            g.append(f'<ellipse cx="{x}" cy="78" rx="11" ry="13" fill="#fff" stroke="{OL}" stroke-width="3"/><circle cx="{x}" cy="80" r="7.5" fill="url(#irisG)"/><circle cx="{x}" cy="80" r="3.5" fill="#120805"/><circle cx="{x+3}" cy="76" r="2.6" fill="#fff"/>'
-                     f'<path d="M{x-10},{56} q10,-7 20,0" stroke="{OL}" stroke-width="4" fill="none" stroke-linecap="round"/>')
-        g.append(f'<ellipse cx="54" cy="100" rx="10" ry="6" fill="#e07a8a" opacity=".4"/><ellipse cx="126" cy="100" rx="10" ry="6" fill="#e07a8a" opacity=".4"/><path d="M88,88 q-4,8 4,10" stroke="{st["skin_d"]}" stroke-width="3" fill="none"/>')
-        if mood in ("happy", "cheer"):
-            g.append(f'<path d="M72,104 Q90,128 108,104 Z" fill="#6e2030" {S}/><path d="M76,106 L104,106 L101,112 L79,112 Z" fill="#fff"/>')
-        elif mood == "sad":
-            g.append(f'<path d="M76,112 Q90,100 104,112" stroke="#6e2030" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M60,86 q-2,14 2,20" stroke="#9fdcff" stroke-width="5" fill="none" stroke-linecap="round"/>')
-        else:
-            g.append(f'<path d="M78,108 Q90,114 102,108" stroke="#6e2030" stroke-width="5" fill="none" stroke-linecap="round"/>')
-    return "".join(g)
+        hd.append(f'<path d="M{cx-12},{my} Q{cx},{my+6} {cx+12},{my}" stroke="#6e2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>')
+    return "".join(g) + "".join(hd)
 
 
 def kid_head_sleeping(st):
-    S = f'stroke="{OL}" stroke-width="4"'
-    return (f'<circle cx="90" cy="72" r="50" fill="{st["skin"]}" {S}/><path d="M42,68 Q44,22 90,20 Q136,22 138,68 Q124,42 90,40 Q56,42 42,68Z" fill="{st["hair"]}" {S}/>'
-            f'<path d="M66,82 q10,8 20,0 M96,82 q10,8 20,0" stroke="{OL}" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="60" cy="98" rx="8" ry="5" fill="#e07a8a" opacity=".4"/><ellipse cx="122" cy="98" rx="8" ry="5" fill="#e07a8a" opacity=".4"/>')
+    """Head-only sleeping kid for beds: the full kid scaled into the head area."""
+    return f'<g transform="translate(-10,-10)">{"".join(kid(st, "sleep").split("<!--body-->")[-1:])}</g>'
