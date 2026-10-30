@@ -1,0 +1,409 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0710"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Fuel Like A Baddie">
+<title>Fuel Like A Baddie · Get Fit With Me</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#ff2e93;--c2:#8b2cf5;--bg:#0b0710;--card:#17101e;--ink:#fbeef6;--mut:#c9b3c6;--gold:#ffd36e;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:-20%;z-index:-1;background:
+ radial-gradient(40% 35% at 10% 0%,color-mix(in srgb,var(--c1) 40%,transparent),transparent 70%),
+ radial-gradient(40% 35% at 100% 30%,color-mix(in srgb,var(--c2) 40%,transparent),transparent 70%),
+ radial-gradient(35% 30% at 30% 100%,color-mix(in srgb,var(--c1) 25%,transparent),transparent 70%);
+ animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(4%,-3%) rotate(6deg)}}
+a{color:inherit}
+.script{font-family:Pacifico,cursive;color:var(--gold);font-size:26px;margin:0;text-shadow:0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)}
+.marq{overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,var(--c1),var(--c2));font:15px Anton,sans-serif;letter-spacing:2px;padding:7px 0;color:#fff}
+.marq div{display:inline-block;animation:marq 22s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+header{text-align:center;padding:26px 16px 8px;position:relative}
+.brand{font:13px Anton;letter-spacing:4px;color:var(--mut);margin-bottom:8px}
+h1{font:clamp(40px,11vw,76px)/.95 Anton,sans-serif;margin:6px 0 10px;text-transform:uppercase;letter-spacing:1px;
+ background:linear-gradient(180deg,#fff 30%,color-mix(in srgb,var(--c1) 70%,#fff));-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 0 22px color-mix(in srgb,var(--c1) 60%,transparent))}
+.sub{color:var(--mut);margin:0 auto 14px;max-width:520px}
+.ring{--p:0;width:92px;height:92px;border-radius:50%;margin:8px auto;display:grid;place-items:center;
+ background:conic-gradient(var(--c1) calc(var(--p)*1%),var(--c2) 0 calc(var(--p)*1%),rgba(255,255,255,.08) 0);box-shadow:0 0 30px color-mix(in srgb,var(--c1) 45%,transparent)}
+.ring div{width:74px;height:74px;border-radius:50%;background:var(--bg);display:grid;place-items:center;text-align:center;line-height:1}
+.ring b{font:24px Anton}.ring small{font-size:10px;color:var(--mut);letter-spacing:1px}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);scrollbar-width:none;border-bottom:1px solid var(--line)}
+nav::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);border-radius:999px;padding:9px 15px;font:600 14px Poppins;cursor:pointer;display:flex;gap:6px;align-items:center}
+.tab.on{background:linear-gradient(90deg,var(--c1),var(--c2));border-color:transparent;box-shadow:0 6px 20px color-mix(in srgb,var(--c1) 45%,transparent)}
+main{max-width:760px;margin:0 auto;padding:14px 16px 120px}
+.sectitle{font:30px Anton;letter-spacing:1px;margin:12px 0;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;position:relative}
+.card.glow{border-color:color-mix(in srgb,var(--c1) 45%,transparent);box-shadow:0 0 0 1px color-mix(in srgb,var(--c1) 20%,transparent),0 18px 50px -20px color-mix(in srgb,var(--c1) 70%,transparent)}
+.card p{line-height:1.6}
+.card h3{font:22px Anton;letter-spacing:.5px;margin:0 0 4px;text-transform:uppercase}
+.card h4{font:16px Anton;letter-spacing:1px;margin:18px 0 6px;color:var(--gold);text-transform:uppercase}
+.sig{font-family:Pacifico;color:var(--c1);font-size:22px;text-align:right;margin:0}
+.muted{color:var(--mut);margin:2px 0 8px;font-size:14px}.fine{color:var(--mut);font-size:12px}.center{text-align:center}
+.eyebrow{font:12px Anton;letter-spacing:2px;color:var(--c1);margin:0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none}
+.chip{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);border-radius:14px;padding:8px 14px;font:600 14px Poppins;cursor:pointer}
+.chip.on{background:var(--ink);color:var(--bg)}.chip.done:not(.on){border-color:var(--c1);color:var(--c1)}
+.phase{background:linear-gradient(90deg,color-mix(in srgb,var(--c1) 22%,transparent),color-mix(in srgb,var(--c2) 22%,transparent));border-radius:16px;padding:12px 14px;font-size:14px;line-height:1.5}
+.tag{display:inline-block;background:var(--gold);color:#1a0f12;font:13px Anton;letter-spacing:1.5px;padding:3px 9px;border-radius:8px;margin-right:8px}
+.dayhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.day.complete{border-color:var(--c1)}
+.stamp{flex:none;font:14px Anton;letter-spacing:1.5px;color:var(--c1);border:3px solid var(--c1);border-radius:10px;padding:4px 8px;transform:rotate(8deg);animation:stamp .4s cubic-bezier(.3,1.6,.6,1)}
+@keyframes stamp{from{transform:rotate(8deg) scale(2.2);opacity:0}}
+.ex{border-top:1px solid var(--line);padding:12px 0}
+.exhead{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.exhead b{flex:1 1 100%;font-size:16px}
+.pill{background:color-mix(in srgb,var(--c1) 22%,transparent);color:#fff;border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:600}
+.pill.ghost{background:rgba(255,255,255,.06);color:var(--mut)}
+.exrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.sets{display:flex;gap:8px;flex-wrap:wrap}
+.set{width:42px;height:42px;border-radius:14px;border:2px solid color-mix(in srgb,var(--c1) 55%,transparent);background:transparent;color:var(--ink);font:700 15px Poppins;cursor:pointer;transition:.15s}
+.set.on{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:transparent;transform:scale(1.06);box-shadow:0 0 16px color-mix(in srgb,var(--c1) 60%,transparent)}
+.wt{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut)}
+input,select,textarea{font:500 16px Poppins;color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+.wt input{width:78px;text-align:center}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--c1);outline-offset:1px}
+select option{background:#1b1220}
+textarea{min-height:96px;resize:vertical;margin-top:6px}
+details summary{cursor:pointer;color:var(--c1);font-size:13px;font-weight:600;margin-top:8px}
+details p{font-size:14px;color:var(--mut);margin:6px 0 0}
+.acc{border-bottom:1px solid var(--line);padding:6px 0 10px}.acc summary{font-size:16px;color:var(--ink);padding:6px 0}
+.btn{display:inline-block;text-decoration:none;text-align:center;border:none;border-radius:16px;padding:12px 18px;font:700 15px Poppins;cursor:pointer;color:#fff;background:rgba(255,255,255,.1)}
+.btn.big{display:block;width:100%;margin-top:14px;font:20px Anton;letter-spacing:1.5px;padding:15px;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 10px 30px -8px color-mix(in srgb,var(--c1) 80%,transparent);transition:transform .1s}
+.btn.big:active{transform:scale(.97)}.btn.ghost{background:rgba(255,255,255,.08);box-shadow:none;color:var(--mut)}
+.bar{position:relative;height:26px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden;margin:8px 0 12px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--c1),var(--c2),var(--gold));transition:width .5s;border-radius:999px}
+.bar span{position:absolute;inset:0;display:grid;place-items:center;font:600 12px Poppins;letter-spacing:.5px}
+.check{display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:14px;background:rgba(255,255,255,.04);margin:7px 0;cursor:pointer;user-select:none;transition:.2s}
+.check .box{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--c1);display:grid;place-items:center;font-weight:800}
+.check.done{background:color-mix(in srgb,var(--c1) 16%,transparent)}.check.done span:last-child{text-decoration:line-through;opacity:.7}
+.check.done .box{background:var(--c1);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:18px;text-align:center;padding:12px 4px}
+.stats b{display:block;font:30px Anton}.stats span{font-size:12px;color:var(--mut)}
+.grid30{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.dbtn{aspect-ratio:1;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font:18px Anton;cursor:pointer}
+.dbtn.on{background:linear-gradient(135deg,var(--c1),var(--c2));border:none}.dbtn.sel{outline:3px solid var(--gold);outline-offset:2px}
+.moves{list-style:none;padding:0;margin:8px 0}.moves li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.moves b{color:var(--gold);white-space:nowrap}
+.prompt{font-family:Pacifico;font-size:19px;color:var(--ink);line-height:1.5;margin:6px 0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
+.tile.gold{border-color:var(--gold);box-shadow:0 0 24px -6px color-mix(in srgb,var(--gold) 60%,transparent)}
+.ti{font-size:32px}.tile h4{font:18px Anton;letter-spacing:.5px;margin:6px 0 4px;text-transform:uppercase}.tile p{margin:0;color:var(--mut);font-size:14px;line-height:1.5}
+.tile .big{color:var(--gold);font-size:18px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form label{font-size:13px;color:var(--mut);display:grid;gap:4px}.form .full{grid-column:1/-1}
+.macros{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0 8px}
+.mac{background:rgba(255,255,255,.05);border-radius:16px;padding:12px 4px;text-align:center}.mac b{display:block;font:24px Anton}.mac span{font-size:12px;color:var(--mut)}
+.mac.cal{grid-column:1/-1;background:linear-gradient(90deg,var(--c1),var(--c2))}.mac.cal b{font-size:44px}.mac.cal span{color:#fff}
+.meal{border-top:1px solid var(--line);padding:10px 0}.meal p{margin:4px 0 6px}
+.hist{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.hist span:first-child{color:var(--mut);font-size:12px}
+.x{background:none;border:none;color:var(--mut);cursor:pointer;font-size:16px}
+.ups{display:grid;gap:8px;margin:12px 0}
+.up{display:flex;align-items:center;gap:10px;text-decoration:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:left}
+.up span{font-size:24px}.up b{flex:1}.up em{font-style:normal;color:var(--gold);font-weight:700}
+#tfab{position:fixed;right:16px;bottom:18px;z-index:9;width:62px;height:62px;border-radius:50%;border:none;font-size:28px;cursor:pointer;color:#fff;
+ background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 10px 30px color-mix(in srgb,var(--c1) 60%,transparent)}
+#timer{position:fixed;right:16px;bottom:92px;z-index:9;width:min(300px,calc(100vw - 32px));background:#1d1324;border:1px solid var(--c1);border-radius:22px;padding:16px;text-align:center;
+ transform:translateY(20px) scale(.9);opacity:0;pointer-events:none;transition:.2s;box-shadow:0 20px 60px #000}
+#timer.open{transform:none;opacity:1;pointer-events:auto}
+#tnum{font:56px Anton;letter-spacing:2px}#timer.run #tnum{color:var(--gold);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+#timer .row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px}#timer .btn{padding:8px 11px;font-size:14px}
+#toast{position:fixed;left:50%;top:18px;z-index:20;transform:translate(-50%,-140%);background:linear-gradient(90deg,var(--c1),var(--c2));color:#fff;font:18px Anton;letter-spacing:1px;padding:12px 20px;border-radius:999px;transition:.35s cubic-bezier(.3,1.5,.6,1);box-shadow:0 10px 30px #000a;text-align:center;max-width:90vw}
+#toast.show{transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:19}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:20px 16px 100px;max-width:640px;margin:0 auto;line-height:1.6}
+footer button{background:none;border:1px solid var(--line);color:var(--mut);border-radius:10px;padding:6px 10px;cursor:pointer;margin-top:8px}
+@media (max-width:480px){.macros{grid-template-columns:repeat(2,1fr)}.grid30{grid-template-columns:repeat(5,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--c1:#22c55e;--c2:#ff2e93}</style></head><body>
+<div class="marq" aria-hidden="true"><div>NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • </div></div>
+<header>
+ <div class="brand">GET FIT WITH ME · BY DANIELLE DAWSON</div>
+ <p class="script">eat to get snatched</p>
+ <h1>Fuel Like A Baddie</h1>
+ <p class="sub">High-protein meal plan, grocery list &amp; macro calculator</p>
+ <div class="ring" id="ring"><div><span><b id="ringn">0%</b><br><small>DONE</small></span></div></div>
+</header>
+<nav id="nav"></nav>
+<main id="main"></main>
+<footer>This program is for educational purposes and is not medical advice. Check with your doctor before starting a new exercise or nutrition plan, especially if you&#x27;re pregnant, injured or have a medical condition. Stop any exercise that causes pain.<br>© 2026 Danielle Dawson · Get Fit With Me. For personal use only — please don't share or resell 💜<br><button id="reset">Reset my progress</button></footer>
+<button id="tfab" aria-label="Rest timer">⏱</button>
+<div id="timer"><div class="eyebrow">REST TIMER</div><div id="tnum">0:00</div>
+ <div class="row"><button class="btn" data-t="45">45s</button><button class="btn" data-t="60">1:00</button><button class="btn" data-t="90">1:30</button><button class="btn" data-t="120">2:00</button><button class="btn" data-t="180">3:00</button><button class="btn" data-t="+15">+15</button><button class="btn" data-t="stop">Stop</button></div>
+ <p class="fine">Starts automatically when you tap off a set.</p></div>
+<div id="toast" role="status"></div><canvas id="confetti"></canvas>
+<script>const P={"slug": "fuel-like-a-baddie-f2q6", "c1": "#22c55e", "c2": "#ff2e93", "sections": [{"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": "<p>Hey baddie! 💜 It's Danielle. First of all — I'm SO proud of you for investing in yourself. This isn't a PDF you'll forget in your downloads. It's an interactive app: tap things, track things, and watch yourself get stronger.</p><p><b>How to use it:</b> Add this page to your home screen (Share → Add to Home Screen) so it lives on your phone like an app. Everything you check off and every weight you log saves automatically on this device.</p><p>You can't out-train your fork, babe. This kit takes the guessing out of eating for your goals: calculate your macros, follow the 7-day high-protein plan, shop with the checklist, and meal prep once on Sunday. No starving. No boring chicken-and-broccoli only. Real food with flavor.</p>"}, {"type": "macro", "id": "macro", "label": "My Macros", "icon": "🧮"}, {"type": "meals", "id": "meals", "label": "Meal Plan", "icon": "🍽️", "days": [{"name": "Mon", "meals": [["Breakfast", "Protein oats: ½ cup oats, 1 scoop vanilla protein, berries, 1 tbsp PB", 32], ["Lunch", "Chicken burrito bowl: rice, black beans, grilled chicken, pico, lettuce, light cheese", 42], ["Snack", "Greek yogurt + honey + granola sprinkle", 18], ["Dinner", "Air-fryer salmon, roasted sweet potato, garlic green beans", 36]]}, {"name": "Tue", "meals": [["Breakfast", "3 eggs + 2 egg whites scrambled w/ spinach, 1 slice toast, fruit", 30], ["Lunch", "Turkey & avocado wrap + side salad", 34], ["Snack", "Protein shake + banana (post-workout)", 26], ["Dinner", "Lean beef taco lettuce cups (or corn tortillas), salsa, rice", 40]]}, {"name": "Wed", "meals": [["Breakfast", "Cottage cheese pancakes (oats + cottage cheese + egg) w/ berries", 30], ["Lunch", "Leftover beef tacos as a bowl", 38], ["Snack", "String cheese + apple + 10 almonds", 10], ["Dinner", "Shrimp stir-fry with mixed veggies & jasmine rice", 34]]}, {"name": "Thu", "meals": [["Breakfast", "Overnight protein oats (prepped Sunday)", 30], ["Lunch", "Chicken Caesar wrap (Greek yogurt dressing)", 40], ["Snack", "Rice cakes + PB + protein shake", 30], ["Dinner", "Turkey meatballs, marinara, pasta or zucchini noodles", 38]]}, {"name": "Fri", "meals": [["Breakfast", "Egg bites (3) + turkey sausage + fruit", 32], ["Lunch", "Tuna salad (Greek yogurt) on whole grain + cucumbers", 34], ["Snack", "Beef jerky + grapes", 15], ["Dinner", "FUN MEAL 🍔 — enjoy it, no guilt, protein first", 30]]}, {"name": "Sat", "meals": [["Breakfast", "Protein waffles + Greek yogurt + strawberries", 35], ["Lunch", "Grilled chicken salad w/ quinoa, feta, cucumber, lemon vinaigrette", 40], ["Snack", "Protein shake + a handful of trail mix", 28], ["Dinner", "Jerk chicken, rice & peas (½ cup), cabbage", 42]]}, {"name": "Sun", "meals": [["Breakfast", "Breakfast burrito: eggs, egg whites, potatoes, turkey bacon, salsa", 38], ["Lunch", "Leftover jerk chicken bowl", 40], ["Snack", "Greek yogurt parfait", 18], ["Dinner", "Meal-prep night: sheet-pan chicken, broccoli & potatoes", 40]]}]}, {"type": "checklist", "id": "groc", "label": "Grocery List", "icon": "🛒", "groups": [{"title": "🍗 Protein", "items": ["Chicken breast / thighs (3 lbs)", "93% lean ground beef or turkey (2 lbs)", "Salmon fillets", "Shrimp (frozen)", "Eggs (2 dozen) + liquid egg whites", "Greek yogurt (big tub)", "Cottage cheese", "Tuna packets", "Turkey slices + turkey bacon", "Protein powder", "Beef jerky", "String cheese"]}, {"title": "🍚 Carbs", "items": ["Old-fashioned oats", "Jasmine rice", "Sweet potatoes + white potatoes", "Whole-grain bread / wraps", "Corn tortillas", "Rice cakes", "Pasta", "Quinoa", "Black beans + kidney beans"]}, {"title": "🥦 Produce", "items": ["Spinach + mixed greens", "Broccoli", "Green beans", "Zucchini", "Bell peppers + onions", "Cucumbers", "Avocados", "Berries", "Bananas + apples", "Lemons / limes", "Cabbage"]}, {"title": "🥑 Fats & Flavor", "items": ["Peanut butter", "Almonds / trail mix", "Feta + shredded cheese", "Olive oil spray", "Salsa + pico", "Marinara", "Jerk seasoning", "Hot honey (trust me)"]}]}, {"type": "checklist", "id": "prep", "label": "Sunday Prep", "icon": "🍱", "groups": [{"title": "⏰ 90-Minute Meal Prep", "items": ["Preheat oven to 425°F, start rice cooker", "Season & sheet-pan 3 lbs chicken (25 min)", "Roast potatoes & broccoli on a second pan", "Brown ground turkey/beef for tacos & meatballs", "Make 5 jars of overnight protein oats", "Bake egg bites in a muffin tin (12)", "Wash & chop veggies for the week", "Portion into containers & label the days", "Fill your water bottle + set tomorrow's gym bag 😉"]}]}, {"type": "cards", "id": "snacks", "label": "Snack Menu", "icon": "🍓", "items": [{"i": "🥤", "t": "Protein shake + banana", "d": "~26g protein · perfect post-workout"}, {"i": "🍓", "t": "Greek yogurt parfait", "d": "~18g protein · sweet tooth approved"}, {"i": "🧀", "t": "String cheese + apple", "d": "~8g protein · throw-in-your-bag easy"}, {"i": "🥩", "t": "Beef jerky + grapes", "d": "~15g protein · road trip queen"}, {"i": "🍘", "t": "Rice cakes + PB", "d": "Pre-workout carbs that won't sit heavy"}, {"i": "🥚", "t": "2 hard-boiled eggs", "d": "~12g protein · prep a dozen Sunday"}, {"i": "🧁", "t": "Protein mug cake", "d": "1 scoop protein, 1 tbsp flour, ½ tsp baking powder, splash of milk — microwave 60s"}, {"i": "🍫", "t": "Chocolate protein 'pudding'", "d": "Greek yogurt + chocolate protein powder, stir & chill"}]}, {"type": "accordion", "id": "out", "label": "Eating Out", "icon": "🌮", "items": [{"q": "Chipotle", "a": "Bowl: double chicken, rice, fajita veggies, black beans, salsa, lettuce. Skip or go light on sour cream & cheese. ~60g protein."}, {"q": "Chick-fil-A", "a": "12-count grilled nuggets + side salad or fruit cup. Or grilled chicken sandwich. Zesty Buffalo sauce is the lowest-cal flavor."}, {"q": "Starbucks", "a": "Egg white & roasted red pepper egg bites + a protein box. Order your latte with protein cold foam."}, {"q": "Wingstop / wings night", "a": "Plain or dry-rub wings (lemon pepper, garlic parm dry), veggie sticks, skip the ranch or get it on the side."}, {"q": "Mexican restaurant", "a": "Fajitas! Load up on the protein and veggies, 2 tortillas, salsa & pico. Chips: pour a portion, push the basket away."}, {"q": "Brunch with the girls", "a": "Omelet or eggs + side of turkey sausage, fruit, 1 pancake if you want it. Mimosa? Enjoy one. Balance > perfection."}]}, {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"}]};const OTHERS=[{"slug": "glute-starter-pack-free-g7f2", "short": "Free Glute Starter Pack", "emoji": "🍑", "price": "FREE"}, {"slug": "whole-baddie-bundle", "short": "The Whole Baddie Bundle", "emoji": "👑", "price": "$67"}, {"slug": "30-day-get-fit-challenge-c9x4", "short": "30-Day Get Fit With Me Challenge", "emoji": "🔥", "price": "$14.99"}, {"slug": "booty-builder-8-week-b3k8", "short": "Glute Specialist: 8-Week Booty Builder", "emoji": "🍑", "price": "$37"}, {"slug": "press-like-a-boss-p5m1", "short": "Press Like A Boss", "emoji": "💪🏽", "price": "$24"}, {"slug": "fuel-like-a-baddie-f2q6", "short": "Fuel Like A Baddie", "emoji": "🍗", "price": "$19"}, {"slug": "gym-girl-confidence-kit-k4t9", "short": "Gym Girl Confidence Kit", "emoji": "✨", "price": "$12"}];
+// Get Fit With Me product engine — renders the P object into an interactive app.
+const KEY = 'gfwm_' + P.slug;
+let S = {};
+try { S = JSON.parse(localStorage.getItem(KEY)) || {} } catch (e) {}
+S.d = S.d || {}; S.v = S.v || {}; S.pr = S.pr || [];
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)) } catch (e) {} };
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const HYPE = ['THAT\'S MY GIRL 🔥', 'Strong AND cute 💅🏽', 'Booty gains loading… 🍑', 'Another one! 💪🏽', 'You showed UP 👑', 'Main character energy ✨', 'The gym is YOURS 😤', 'Proud of you, baddie 💜'];
+const hype = () => HYPE[Math.random() * HYPE.length | 0];
+
+// ---------- completion keys for progress
+function keys(sec) {
+  if (sec.type === 'program') return sec.weeks.flatMap((w, wi) => w.days.map((_, di) => `${sec.id}:${wi}:${di}`));
+  if (sec.type === 'challenge') return sec.days.map((_, i) => `${sec.id}:${i}`);
+  if (sec.type === 'checklist') return sec.groups.flatMap((g, gi) => g.items.map((_, ii) => `${sec.id}:${gi}:${ii}`));
+  return [];
+}
+const ALL = P.sections.flatMap(keys);
+function pct(list) { return list.length ? Math.round(100 * list.filter(k => S.d[k]).length / list.length) : 0 }
+function updRing() {
+  const p = pct(ALL), r = $('#ring');
+  if (!r) return;
+  r.style.setProperty('--p', p);
+  $('#ringn').textContent = p + '%';
+}
+
+// ---------- section renderers
+const R = {
+  intro: s => `<div class="card glow">${s.html}<p class="sig">— Danielle 💜</p></div>`,
+
+  program(s) {
+    const wi = +(S.v[s.id + ':wk'] || 0), wk = s.weeks[wi];
+    const chips = s.weeks.length > 1 ? `<div class="chips">${s.weeks.map((w, i) => {
+      const done = w.days.every((_, di) => S.d[`${s.id}:${i}:${di}`]);
+      return `<button class="chip ${i == wi ? 'on' : ''} ${done ? 'done' : ''}" data-wk="${s.id}:${i}">${done ? '✓ ' : ''}${esc(w.name)}</button>`
+    }).join('')}</div>` : '';
+    return `${bar(keys(s))}${chips}
+    <div class="phase"><span class="tag">${esc(wk.phase)}</span>${esc(wk.note)}</div>
+    ${wk.days.map((d, di) => {
+      const k = `${s.id}:${wi}:${di}`, done = S.d[k];
+      return `<div class="card day ${done ? 'complete' : ''}">
+        <div class="dayhead"><div><h3>${esc(d.name)}</h3><p class="muted">${esc(d.focus)}</p></div>${done ? '<span class="stamp">CRUSHED IT</span>' : ''}</div>
+        ${d.ex.map((e, ei) => {
+          const ek = `${k}:${ei}`;
+          return `<div class="ex">
+            <div class="exhead"><b>${esc(e.n)}</b><span class="pill">${e.s} × ${esc(e.r)}</span><span class="pill ghost">⏱ ${esc(e.rest)}</span></div>
+            <div class="exrow"><div class="sets">${Array.from({ length: e.s }, (_, si) =>
+              `<button class="set ${S.d[ek + ':' + si] ? 'on' : ''}" data-set="${ek}:${si}" data-rest="${esc(e.rest)}" aria-label="Set ${si + 1}">${S.d[ek + ':' + si] ? '✓' : si + 1}</button>`).join('')}</div>
+            <label class="wt">lbs <input inputmode="decimal" data-v="${ek}:w" value="${esc(S.v[ek + ':w'] || '')}" placeholder="—"></label></div>
+            ${e.tip ? `<details><summary>Form tip</summary><p>${esc(e.tip)}</p></details>` : ''}
+          </div>`
+        }).join('')}
+        <button class="btn big ${done ? 'ghost' : ''}" data-day="${k}">${done ? '↺ Undo' : 'WORKOUT COMPLETE 🔥'}</button>
+      </div>`
+    }).join('')}`;
+  },
+
+  challenge(s) {
+    const sel = +(S.v[s.id + ':sel'] || 0), d = s.days[sel];
+    let streak = 0; while (streak < s.days.length && S.d[`${s.id}:${streak}`]) streak++;
+    const done = s.days.filter((_, i) => S.d[`${s.id}:${i}`]).length;
+    return `${bar(keys(s))}
+    <div class="stats"><div><b>${done}</b><span>days done</span></div><div><b>🔥 ${streak}</b><span>day streak</span></div><div><b>${30 - done}</b><span>to go</span></div></div>
+    <div class="grid30">${s.days.map((x, i) => `<button class="dbtn ${i == sel ? 'sel' : ''} ${S.d[s.id + ':' + i] ? 'on' : ''}" data-sel="${s.id}:${i}">${S.d[s.id + ':' + i] ? '✓' : i + 1}</button>`).join('')}</div>
+    <div class="card day ${S.d[s.id + ':' + sel] ? 'complete' : ''}">
+      <div class="dayhead"><div><p class="eyebrow">DAY ${sel + 1}</p><h3>${esc(d.t)}</h3></div>${S.d[s.id + ':' + sel] ? '<span class="stamp">DONE</span>' : ''}</div>
+      ${d.rounds ? `<p class="muted">Do <b>${d.rounds} rounds</b> of the circuit. Rest 60s between rounds.</p>` : ''}
+      <ul class="moves">${d.ex.map(e => `<li><span>${esc(e.n)}</span><b>${esc(e.r)}</b></li>`).join('')}</ul>
+      <h4>Today's non-negotiables</h4>
+      ${s.tasks.map((t, ti) => check(`${s.id}:${sel}:t${ti}`, t, `data-task="${s.id}:${sel}"`)).join('')}
+      <h4>Mindset</h4><p class="prompt">“${esc(d.prompt)}”</p>
+      <textarea data-v="${s.id}:${sel}:j" placeholder="Write it out, babe…">${esc(S.v[s.id + ':' + sel + ':j'] || '')}</textarea>
+    </div>`;
+  },
+
+  checklist: s => bar(keys(s)) + s.groups.map((g, gi) => `<div class="card"><h3>${esc(g.title)}</h3>${g.items.map((it, ii) => check(`${s.id}:${gi}:${ii}`, it, 'data-cl')).join('')}</div>`).join(''),
+
+  accordion: s => `<div class="card">${s.items.map(it => `<details class="acc"><summary>${esc(it.q)}</summary><p>${esc(it.a)}</p></details>`).join('')}</div>`,
+
+  cards: s => `<div class="tiles">${s.items.map(c => `<div class="tile"><div class="ti">${c.i}</div><h4>${esc(c.t)}</h4><p>${esc(c.d)}</p></div>`).join('')}</div>`,
+
+  journal: s => s.prompts.map((p, i) => `<div class="card"><p class="prompt">“${esc(p)}”</p><textarea data-v="${s.id}:${i}" placeholder="Start writing…">${esc(S.v[s.id + ':' + i] || '')}</textarea></div>`).join(''),
+
+  macro(s) {
+    const v = k => esc(S.v['m:' + k] || '');
+    const opt = (k, list, def) => list.map(([val, lab]) => `<option value="${val}" ${(S.v['m:' + k] || def) == val ? 'selected' : ''}>${lab}</option>`).join('');
+    return `<div class="card glow"><h3>Calculate your macros 🧮</h3>
+      <div class="form">
+        <label>Weight (lbs)<input inputmode="decimal" data-m="w" value="${v('w')}" placeholder="150"></label>
+        <label>Height (ft)<input inputmode="numeric" data-m="ft" value="${v('ft')}" placeholder="5"></label>
+        <label>Height (in)<input inputmode="numeric" data-m="in" value="${v('in')}" placeholder="5"></label>
+        <label>Age<input inputmode="numeric" data-m="age" value="${v('age')}" placeholder="27"></label>
+        <label>Sex<select data-m="sex">${opt('sex', [['f', 'Female'], ['m', 'Male']], 'f')}</select></label>
+        <label>Activity<select data-m="act">${opt('act', [['1.375', 'Lift 2–3x/week'], ['1.55', 'Lift 4–5x/week'], ['1.725', 'Daily training / active job']], '1.55')}</select></label>
+        <label class="full">Goal<select data-m="goal">${opt('goal', [['-400', '🔥 Lose fat (snatched era)'], ['0', '⚖️ Maintain & tone (recomp)'], ['250', '🍑 Build muscle (booty gains)']], '0')}</select></label>
+      </div>
+      <div id="macroOut"></div>
+      <p class="fine">Uses the Mifflin-St Jeor equation. Re-check every 4 weeks or every 5 lbs of change. Not medical advice.</p></div>`;
+  },
+
+  meals(s) {
+    const di = +(S.v[s.id + ':day'] || 0), d = s.days[di];
+    const tot = d.meals.reduce((a, m) => a + m[2], 0);
+    return `<div class="chips">${s.days.map((x, i) => `<button class="chip ${i == di ? 'on' : ''}" data-meal="${s.id}:${i}">${x.name}</button>`).join('')}</div>
+      <div class="card"><div class="dayhead"><h3>${d.name} · ~${tot}g protein</h3></div>
+      ${d.meals.map(m => `<div class="meal"><span class="eyebrow">${m[0]}</span><p>${esc(m[1])}</p><span class="pill">${m[2]}g protein</span></div>`).join('')}
+      <p class="fine">Adjust portions (rice, oats, potatoes, oil) up or down to hit your calories from the macro calculator.</p></div>`;
+  },
+
+  pr(s) {
+    const best = {};
+    S.pr.forEach(r => { if (r.sec === s.id) { const e = s.metric ? r.w : r.w * (1 + r.r / 30); if (!best[r.l] || (s.metric ? false : e > best[r.l].e)) best[r.l] = { ...r, e } } });
+    const rows = S.pr.map((r, i) => ({ ...r, i })).filter(r => r.sec === s.id).reverse();
+    return `<div class="card glow"><h3>${s.metric ? 'Log a measurement 📏' : 'Log a new PR 👑'}</h3>
+      <div class="form">
+        <label class="full">${s.metric ? 'What' : 'Lift'}<select id="prl-${s.id}">${s.lifts.map(l => `<option>${esc(l)}</option>`).join('')}</select></label>
+        <label>${s.metric ? 'Value' : 'Weight (lbs)'}<input id="prw-${s.id}" inputmode="decimal" placeholder="${s.metric ? '28' : '75'}"></label>
+        ${s.metric ? '' : `<label>Reps<input id="prr-${s.id}" inputmode="numeric" placeholder="5"></label>`}
+      </div>
+      <button class="btn big" data-addpr="${s.id}" data-metric="${s.metric ? 1 : 0}">${s.metric ? 'SAVE IT 📏' : 'ADD TO THE WALL 👑'}</button></div>
+      ${s.metric ? '' : `<div class="tiles">${s.lifts.map(l => `<div class="tile ${best[l] ? 'gold' : ''}"><div class="ti">${best[l] ? '👑' : '🔒'}</div><h4>${esc(l)}</h4><p>${best[l] ? `<b class="big">${best[l].w} lbs × ${best[l].r}</b><br>est. 1-rep max ≈ ${Math.round(best[l].e)} lbs` : 'No PR yet'}</p></div>`).join('')}</div>`}
+      <div class="card"><h3>History</h3>${rows.length ? rows.map(r => `<div class="hist"><span>${esc(r.date)}</span><b>${esc(r.l)}</b><span>${r.w}${s.metric ? '' : ' lbs × ' + r.r}</span><button class="x" data-delpr="${r.i}" aria-label="Delete">✕</button></div>`).join('') : '<p class="muted">Nothing yet. Go make history, baddie.</p>'}</div>`;
+  },
+
+  upsell: () => `<div class="card glow center"><p class="script">you did that</p><h3>Ready for your next level?</h3>
+    <p>Every Get Fit With Me program is built to work together. Keep the momentum going 💜</p>
+    <div class="ups">${OTHERS.filter(o => o.slug !== P.slug).map(o => `<a class="up" href="index.html#${o.slug}"><span>${o.emoji}</span><b>${esc(o.short)}</b><em>${esc(o.price)}</em></a>`).join('')}</div>
+    <a class="btn big" href="index.html">VISIT THE STORE 🛍️</a>
+    <p class="muted">Tag me on Instagram & TikTok with <b>#GetFitWithMe</b> so I can hype you up!</p></div>`,
+};
+
+function bar(list) { const p = pct(list); return `<div class="bar"><i style="width:${p}%"></i><span>${p}% complete</span></div>` }
+function check(k, label, attr) { return `<div class="check ${S.d[k] ? 'done' : ''}" data-chk="${k}" ${attr} role="checkbox" aria-checked="${!!S.d[k]}" tabindex="0"><span class="box">${S.d[k] ? '✓' : ''}</span><span>${esc(label)}</span></div>` }
+
+// ---------- layout
+function renderNav() {
+  const cur = S.v.tab || P.sections[0].id;
+  $('#nav').innerHTML = P.sections.map(s => `<button class="tab ${s.id === cur ? 'on' : ''}" data-tab="${s.id}"><span>${s.icon}</span>${esc(s.label)}</button>`).join('');
+}
+function render() {
+  const cur = P.sections.find(s => s.id === (S.v.tab || P.sections[0].id)) || P.sections[0];
+  $('#main').innerHTML = `<h2 class="sectitle">${cur.icon} ${esc(cur.label)}</h2>` + R[cur.type](cur);
+  if (cur.type === 'macro') calcMacros();
+  renderNav(); updRing();
+}
+
+function calcMacros() {
+  const g = k => parseFloat(S.v['m:' + k]), out = $('#macroOut');
+  const w = g('w'), ft = g('ft'), inch = g('in') || 0, age = g('age');
+  const sex = S.v['m:sex'] || 'f', act = parseFloat(S.v['m:act'] || 1.55), goal = parseFloat(S.v['m:goal'] || 0);
+  if (!(w > 60 && ft > 3 && age > 12)) { out.innerHTML = '<p class="muted center">Fill in your stats to see your numbers ✨</p>'; return }
+  const kg = w * 0.4536, cm = (ft * 12 + inch) * 2.54;
+  const bmr = 10 * kg + 6.25 * cm - 5 * age + (sex === 'm' ? 5 : -161);
+  let cal = Math.round((bmr * act + goal) / 10) * 10;
+  cal = Math.max(cal, sex === 'm' ? 1500 : 1200);
+  const pro = Math.round(w * (w > 200 ? 0.7 : 0.8)), fat = Math.round(cal * 0.27 / 9);
+  const carb = Math.max(50, Math.round((cal - pro * 4 - fat * 9) / 4)), water = Math.round(w / 2);
+  out.innerHTML = `<div class="macros">
+    <div class="mac cal"><b>${cal.toLocaleString()}</b><span>calories</span></div>
+    <div class="mac"><b>${pro}g</b><span>protein</span></div>
+    <div class="mac"><b>${carb}g</b><span>carbs</span></div>
+    <div class="mac"><b>${fat}g</b><span>fat</span></div>
+    <div class="mac"><b>${water} oz</b><span>water</span></div></div>
+    <p class="center">That's about <b>${Math.round(pro / 4)}g protein per meal</b> across 4 meals 🍗</p>`;
+}
+
+// ---------- events
+document.addEventListener('click', e => {
+  const t = e.target.closest('button,[data-chk]'); if (!t) return;
+  const d = t.dataset;
+  if (d.tab) { S.v.tab = d.tab; save(); render(); scrollTo({ top: $('#nav').offsetTop - 8, behavior: 'smooth' }); return }
+  if (d.wk) { const [id, i] = d.wk.split(':'); S.v[id + ':wk'] = +i; save(); render(); return }
+  if (d.sel) { const [id, i] = d.sel.split(':'); S.v[id + ':sel'] = +i; save(); render(); return }
+  if (d.meal) { const [id, i] = d.meal.split(':'); S.v[id + ':day'] = +i; save(); render(); return }
+  if (d.set) {
+    S.d[d.set] = !S.d[d.set]; save(); t.classList.toggle('on', S.d[d.set]);
+    t.textContent = S.d[d.set] ? '✓' : (+d.set.split(':').pop() + 1);
+    if (S.d[d.set]) { blip(); const sec = parseRest(d.rest); if (sec) startTimer(sec) }
+    return;
+  }
+  if (d.day) {
+    S.d[d.day] = !S.d[d.day]; save(); render();
+    if (S.d[d.day]) { confetti(); toast(hype()); chime() }
+    return;
+  }
+  if (d.chk) {
+    S.d[d.chk] = !S.d[d.chk]; save();
+    if (d.task) {
+      const [id, i] = d.task.split(':'), sec = P.sections.find(s => s.id === id);
+      const all = sec.tasks.every((_, ti) => S.d[`${id}:${i}:t${ti}`]), was = S.d[d.task];
+      S.d[d.task] = all; save(); render();
+      if (all && !was) { confetti(); chime(); toast(`DAY ${+i + 1} DONE ${hype()}`) }
+      return;
+    }
+    render(); if (S.d[d.chk]) blip();
+    if (d.cl !== undefined) {
+      const id = d.chk.split(':')[0], sec = P.sections.find(s => s.id === id);
+      if (keys(sec).every(k => S.d[k]) && S.d[d.chk]) { confetti(); toast('ALL DONE ✨ ' + hype()) }
+    }
+    return;
+  }
+  if (d.addpr) {
+    const id = d.addpr, w = parseFloat($('#prw-' + id).value), r = d.metric === '1' ? 0 : parseInt($('#prr-' + id).value || '1');
+    if (!(w > 0)) { toast('Add a number first, babe 😉'); return }
+    S.pr.push({ sec: id, l: $('#prl-' + id).value, w, r, date: new Date().toLocaleDateString() }); save(); render();
+    confetti(); chime(); toast(d.metric === '1' ? 'Logged 📏 progress is progress!' : 'NEW PR 👑 ' + hype());
+    return;
+  }
+  if (d.delpr !== undefined) { if (confirm('Delete this entry?')) { S.pr.splice(+d.delpr, 1); save(); render() } return }
+});
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.dataset.chk) { e.preventDefault(); e.target.click() } });
+document.addEventListener('input', e => {
+  const d = e.target.dataset;
+  if (d.v) { S.v[d.v] = e.target.value; save() }
+  if (d.m) { S.v['m:' + d.m] = e.target.value; save(); calcMacros() }
+});
+document.addEventListener('change', e => { const d = e.target.dataset; if (d.m) { S.v['m:' + d.m] = e.target.value; save(); calcMacros() } });
+
+// ---------- rest timer
+let tEnd = 0, tInt = 0;
+function parseRest(r) { const m = /([\d.]+)\s*(min|s)/.exec(r || ''); return m ? Math.round(parseFloat(m[1]) * (m[2] === 'min' ? 60 : 1)) : 0 }
+function startTimer(sec) {
+  clearInterval(tInt); tEnd = Date.now() + sec * 1000; $('#timer').classList.add('open', 'run'); tick(); tInt = setInterval(tick, 250);
+}
+function tick() {
+  const left = Math.max(0, Math.ceil((tEnd - Date.now()) / 1000));
+  $('#tnum').textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
+  if (!left) { clearInterval(tInt); $('#timer').classList.remove('run'); $('#tnum').textContent = 'GO! 💪🏽'; alarm(); try { navigator.vibrate && navigator.vibrate([200, 100, 200]) } catch (e) {} toast('Rest over — get back under that weight 😤') }
+}
+$('#tfab').onclick = () => $('#timer').classList.toggle('open');
+$('#timer').addEventListener('click', e => {
+  const b = e.target.closest('[data-t]'); if (!b) return;
+  if (b.dataset.t === 'stop') { clearInterval(tInt); $('#timer').classList.remove('run'); $('#tnum').textContent = '0:00' }
+  else if (b.dataset.t === '+15') { if (tEnd > Date.now()) tEnd += 15000; else startTimer(15) }
+  else startTimer(+b.dataset.t);
+});
+
+// ---------- sound + confetti
+let AC;
+function tone(f, d, when = 0, type = 'sine', vol = .15) {
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), g = AC.createGain(), t = AC.currentTime + when;
+    o.type = type; o.frequency.value = f; g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t + d);
+    o.connect(g).connect(AC.destination); o.start(t); o.stop(t + d);
+  } catch (e) {}
+}
+const blip = () => tone(880, .12);
+const chime = () => [523, 659, 784, 1047].forEach((f, i) => tone(f, .35, i * .1, 'triangle'));
+const alarm = () => [0, .25, .5].forEach(w => tone(988, .18, w, 'square', .08));
+function confetti(n = 160) {
+  const c = $('#confetti'), x = c.getContext('2d'); c.width = innerWidth; c.height = innerHeight;
+  const C = [P.c1, P.c2, '#ffd36e', '#ffffff', '#b0173d'];
+  const ps = Array.from({ length: n }, () => ({ x: c.width / 2 + (Math.random() - .5) * 200, y: c.height * .55, vx: (Math.random() - .5) * 14, vy: -8 - Math.random() * 12, r: Math.random() * 6, c: C[Math.random() * C.length | 0], s: 6 + Math.random() * 8 }));
+  let f = 0;
+  (function loop() {
+    x.clearRect(0, 0, c.width, c.height);
+    ps.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .35; p.vx *= .99; p.r += .15; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); x.restore() });
+    if (++f < 200) requestAnimationFrame(loop); else x.clearRect(0, 0, c.width, c.height);
+  })();
+}
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2400) }
+
+$('#reset').onclick = () => { if (confirm('Erase ALL your progress in this program? This cannot be undone.')) { S = { d: {}, v: {}, pr: [] }; save(); render() } };
+render();
+</script></body></html>
