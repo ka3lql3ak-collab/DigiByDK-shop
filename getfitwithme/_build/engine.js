@@ -242,8 +242,8 @@ const R = {
 
   upsell: () => `<section class="card hero-card"><span class="eyebrow">Keep going</span><h3>Your next program</h3>
     <p class="muted">Every Get Fit With Me program is designed to work together.</p>
-    <div class="ups">${P.others.filter(o => o.slug !== P.slug).map(o => `<a class="up" href="index.html#${o.slug}"><span><b>${esc(o.short)}</b><small>${esc(o.sub)}</small></span><em>${esc(o.price)}</em></a>`).join('')}</div>
-    <a class="btn primary wide" href="index.html">Visit the store</a>
+    <div class="ups">${P.others.filter(o => o.slug !== P.slug).map(o => `<${P.stan ? `a href="${esc(P.stan)}" target="_blank" rel="noopener"` : 'div'} class="up"><span><b>${esc(o.short)}</b><small>${esc(o.sub)}</small></span><em>${esc(o.price)}</em></${P.stan ? 'a' : 'div'}>`).join('')}</div>
+    ${P.stan ? `<a class="btn primary wide" href="${esc(P.stan)}" target="_blank" rel="noopener">Visit my store</a>` : '<p class="muted center">Find them all in my store. The link is in my Instagram bio.</p>'}
     <p class="fine center">Share your progress with <b>#GetFitWithMe</b>. I love seeing it.</p></section>`,
 };
 

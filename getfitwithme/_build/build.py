@@ -4,9 +4,13 @@
     python3 getfitwithme/_build/build.py          # app pages, store page, Stan copy
     python3 getfitwithme/_build/build.py --pdf    # + PDF books (with fillable workbook) and cover images
 
-Outputs land in getfitwithme/: <slug>.html (interactive app), pdf/<slug>.pdf, covers/<slug>.png,
-index.html (store preview) and STAN-STORE-COPY.md."""
-import html, io, json, os, re, subprocess, sys, tempfile
+Each product lands in a private access folder getfitwithme/p/<token>/:
+  index.html  "thank you" access page (the link you give buyers through Stan)
+  app.html    the interactive app
+  <Title>.pdf the PDF book with fillable workbook
+Plus covers/<slug>.png, index.html (store preview, no product links), STAN-STORE-COPY.md
+and download/Get-Fit-With-Me-Products.zip with everything."""
+import html, io, json, os, re, subprocess, sys, tempfile, zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
@@ -101,6 +105,11 @@ def load_guide(name, print_mode=False):
         text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r'<div class="quiz".*?</div>', "", h, flags=re.S))).strip()
         chapters.append({"t": title.strip(), "html": h, "text": html.unescape(text), "min": max(2, round(len(text.split()) / 220))})
     return chapters
+
+
+def pdf_name(p): return re.sub(r"[^A-Za-z0-9]+", "-", p["title"]).strip("-") + ".pdf"
+def folder(p): return os.path.join(OUT, "p", p["token"])
+def access_url(p): return f"{C.SITE}/p/{p['token']}/"
 
 
 def lib_for(p):
@@ -356,7 +365,7 @@ def product_page(p, engine):
     has_prog = any(s["type"] == "program" for s in p["sections"])
     data = {"slug": p["slug"], "sections": p["sections"], "guide": [{k: c[k] for k in ("t", "html", "text", "min")} for c in load_guide(p["guide"])],
             "lib": lib_for(p), "recipes": C.RECIPES if any(s["type"] == "recipes" for s in p["sections"]) else None,
-            "others": others(), "pdf": f"pdf/{p['slug']}.pdf"}
+            "others": others(), "pdf": pdf_name(p), "stan": C.STAN_URL}
     timer = ('<button id="tfab" aria-label="Rest timer"><svg viewBox="0 0 24 24" class="ic"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></button>'
              '<div id="timer" role="dialog" aria-label="Rest timer"><span class="eyebrow">Rest timer</span><div class="tdial"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" id="tring" cx="50" cy="50" r="45"/></svg><div id="tnum">0:00</div></div>'
              '<div class="tbtns"><button data-t="60">1:00</button><button data-t="90">1:30</button><button data-t="120">2:00</button><button data-t="180">3:00</button><button data-t="+15">+15s</button><button data-t="stop">Stop</button><button data-t="hide" style="grid-column:span 2" aria-label="Hide timer">Hide</button></div>'
@@ -366,7 +375,7 @@ def product_page(p, engine):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f6f3ef" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0d10" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="{e(p['short'])}">
-<meta name="description" content="{e(p['sub'])}">
+<meta name="description" content="{e(p['sub'])}"><meta name="robots" content="noindex,nofollow">
 <title>{e(p['title'])} · {C.BRAND}</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
 {FONTS}<style>{APP_CSS}</style></head><body>
@@ -376,7 +385,7 @@ def product_page(p, engine):
   <div class="side-title">{e(p['title'])}</div>
   <div class="side-prog"><div class="meter-top"><span>Overall progress</span><span id="overallN2"></span></div><div class="track"><i id="overall2"></i></div></div>
   <nav id="nav" aria-label="Sections">{nav}</nav>
-  <div class="side-foot"><a class="btn ghost" href="pdf/{p['slug']}.pdf" download>Download PDF book</a><button class="btn ghost" id="settingsBtn2">Settings & backup</button></div>
+  <div class="side-foot"><a class="btn ghost" href="{pdf_name(p)}" download>Download PDF book</a><button class="btn ghost" id="settingsBtn2">Settings & backup</button></div>
  </aside>
  <div class="content">
   <header class="hero"><span class="kicker">{e(p['kicker'])}</span><h1>{e(p['title'])}</h1><p class="by">by {e(C.COACH)}</p><p class="sub">{e(p['sub'])}</p>
@@ -415,6 +424,8 @@ body{margin:0;font:400 10.5pt/1.6 Inter,sans-serif;color:#1d1a1f;-webkit-print-c
 .front{break-after:page}
 .front h2,.toc h2,.part h2{font:800 26pt/1.1 "Inter Tight";letter-spacing:-.02em;margin:0 0 16px}
 .front p{max-width:5.6in}
+.tapbtn{display:block;text-align:center;background:#8c1c3d;color:#fff;text-decoration:none;font:700 15pt "Inter Tight";padding:18px;border-radius:12px;margin:22px 0 6px}
+.ctap{display:inline-block;align-self:flex-start;background:#fff;color:#120d12;text-decoration:none;font:700 11pt Inter;padding:11px 18px;border-radius:999px;margin:0 0 26px}
 .box{border:1px solid #e5ded6;border-radius:10px;padding:14px 16px;margin:16px 0;background:#faf7f4}
 .box b{color:#8c1c3d}
 .toc{break-after:page}
@@ -556,13 +567,15 @@ def book_html(p, pages=None):
 
     front = f"""<section class="front"><h2>How to use this book</h2>
 <p>This book is the companion to your interactive app. The app is the fastest way to train: it logs every set, remembers your weights, runs your rest timer and charts your progress. This PDF gives you the same material in a format you can read, print and fill in.</p>
-<div class="box"><b>Open the interactive app:</b><br><a href="{C.SITE}/{p['slug']}.html">{C.SITE}/{p['slug']}.html</a><br>Tip: on your phone, tap Share → <i>Add to Home Screen</i> so it opens like an app.</div>
+<a class="tapbtn" href="{C.SITE}/p/{p['token']}/app.html">Tap here to open your interactive program →</a>
+<div class="box">The interactive program tracks every set, runs your rest timer, charts your progress and includes every chapter with quizzes. On your phone, tap <i>Share → Add to Home Screen</i> so it opens like an app.</div>
 <p><b>This PDF is interactive.</b> Tap any entry in the table of contents to jump to it, use your PDF reader's bookmarks panel to navigate, and fill in the workbook pages at the back directly in Adobe Acrobat, Apple Books/Preview, or most PDF apps. Your entries save with the file.</p>
 <p style="margin-top:28px;font-size:9pt;color:#6f6772">{e(C.DISCLAIMER)}</p>
 <p style="font-size:9pt;color:#6f6772">© 2026 {e(C.COACH)} · {e(C.BRAND)}. All rights reserved. This book is licensed for the personal use of the purchaser only. Copying, sharing or reselling is prohibited.</p></section>"""
     return entries, f"""<!doctype html><html><head><meta charset="utf-8"><title>{e(p['title'])}</title>{FONTS}<style>{BOOK_CSS}</style></head><body style="--h:{p['hue']}">
 <section class="cover"><div class="glow"></div><div class="in"><div class="wm">Get Fit With Me</div>
 <div class="big">{big[0]}</div><div class="unit">{big[1]}</div><div class="kick">{e(p['kicker'])}</div><h1>{e(p['title'])}</h1><p class="sub">{e(p['sub'])}</p>
+<a class="ctap" href="{C.SITE}/p/{p['token']}/app.html">Tap to open the interactive program →</a>
 <div class="by"><b>{e(C.COACH)}</b><span>{' · '.join(e(m) for m in p['meta'][:3])}</span></div></div></section>
 {front}
 <section class="toc"><h2>Contents</h2><ol>{''.join(toc)}</ol></section>
@@ -647,7 +660,6 @@ def make_pdfs(slugs_only=None):
     from reportlab.pdfgen import canvas
     from reportlab.lib.colors import Color, HexColor
     tmp = tempfile.mkdtemp()
-    os.makedirs(os.path.join(OUT, "pdf"), exist_ok=True)
     jobs = []
     for p in C.PRODUCTS:
         if slugs_only and p["slug"] not in slugs_only: continue
@@ -714,7 +726,8 @@ def make_pdfs(slugs_only=None):
         w.add_outline_item("Fillable Workbook", start)
         w.add_metadata({"/Title": f"{p['title']} · {C.BRAND}", "/Author": C.COACH, "/Subject": p["sub"]})
         w.page_mode = "/UseOutlines"
-        out = os.path.join(OUT, "pdf", slug + ".pdf")
+        os.makedirs(folder(p), exist_ok=True)
+        out = os.path.join(folder(p), pdf_name(p))
         with open(out, "wb") as fh: w.write(fh)
         print(f"  {slug}.pdf: {len(w.pages)} pages ({nbook} book + {len(wbpdf.pages)} workbook), {len(fields)} fillable fields")
 
@@ -723,7 +736,7 @@ def make_pdfs(slugs_only=None):
 def store_items():
     items = []
     for p in C.PRODUCTS:
-        items.append({**p["stan"], "slug": p["slug"], "hue": p["hue"], "title": p["title"], "kicker": p["kicker"], "meta": p["meta"], "link": p["slug"] + ".html"})
+        items.append({**p["stan"], "slug": p["slug"], "token": p["token"], "hue": p["hue"], "title": p["title"], "kicker": p["kicker"], "meta": p["meta"], "link": access_url(p)})
     items.insert(1, {**C.BUNDLE, "slug": "complete-collection", "hue": 330, "title": "The Complete Collection", "kicker": "Bundle · Save 37%", "meta": ["5 programs", "5 PDF books"], "link": ""})
     for i, c in enumerate(C.COACHING):
         items.append({**c, "slug": ["form-check-call", "online-coaching"][i], "hue": [220, 300][i], "title": c["thumb_title"],
@@ -759,7 +772,7 @@ def store_page(items):
     cards = []
     for it in items:
         bump = f'<label class="bump"><input type="checkbox"><span><b>{e(it["bump"]["title"])}</b><small>{e(it["bump"]["desc"])}</small></span></label>' if it.get("bump") else ""
-        preview = f'<a class="btn ghost wide" href="{it["link"]}">Open the interactive app</a><a class="btn ghost wide" href="pdf/{it["slug"]}.pdf">Download the PDF book</a>' if it["link"] else ""
+        preview = ""
         price = f'<span class="price">{e(it["price"])}</span>' + (f' <s>{e(it["strike"])}</s>' if it["strike"] else "")
         cards.append(f"""<article class="prod" id="{it['slug']}">
  <button class="pcard" data-open="{it['slug']}">{cover(it)}<span class="pinfo"><b>{e(it['thumb_title'])}</b><small>{e(it['thumb_sub'])}</small><span>{price}</span></span></button>
@@ -772,7 +785,7 @@ def store_page(items):
   <button class="btn primary wide" type="button">{e(it['cta'])}</button>{preview}
   <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article>""")
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{C.BRAND} · {C.COACH}</title><meta name="description" content="{e(C.STORE['bio'])}">
+<title>{C.BRAND} · {C.COACH}</title><meta name="description" content="{e(C.STORE['bio'])}"><meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
 {FONTS}<style>{TOKENS}{COVER_CSS}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}}
@@ -818,8 +831,8 @@ def covers_page(items):
 
 def copy_md(items):
     L = [f"# {C.BRAND}: Stan Store Copy", "", f"Everything to paste into Stan for **{C.COACH}'s** store. Each product comes with:",
-         "", "- **Interactive app** (the `.html` link): set-by-set tracking, guide reader with quizzes, charts and tools. Paste the link into Stan as the product's redirect URL.",
-         "- **PDF book** (`pdf/<product>.pdf`): clickable table of contents, bookmarks and fillable workbook pages. Upload it to Stan as the digital file.",
+         "", "- **Buyer access link**: a private thank-you page with a big *Open your interactive program* button and a *Download your PDF book* button. Paste it into Stan as the product's delivery link (redirect URL or confirmation message).",
+         "- **PDF book**: clickable contents, bookmarks, fillable workbook and a *Tap to open the interactive program* button on the cover. Upload it to Stan as the digital file too.",
          "- **Cover image** (`covers/<product>.png`, 1080×1080) for the Stan thumbnail.", "",
          "## Store profile", "", f"- **Display name:** {C.COACH}", f"- **Store name:** {C.BRAND}", f"- **Bio:** {C.STORE['bio']}", f"- **Tagline:** {C.STORE['tagline']}",
          "- **Theme:** ivory background `#f6f3ef`, ink `#17141a`, burgundy accent `#8c1c3d`. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).",
@@ -828,7 +841,7 @@ def copy_md(items):
     for it in items:
         L += ["", "---", "", f"## {it['thumb_title']}", "", f"- **Stan product type:** {it['kind']}", f"- **Price:** {it['price']}" + (f" (shown as a discount from {it['strike']})" if it["strike"] else "")]
         if it["link"]:
-            L += [f"- **Interactive app link:** {C.SITE}/{it['link']}", f"- **PDF file to upload:** `getfitwithme/pdf/{it['slug']}.pdf`"]
+            L += [f"- **Buyer access link (put this in Stan, keep it private):** {it['link']}", "- **PDF file to upload:** in the ZIP download"]
         L += [f"- **Cover image:** `getfitwithme/covers/{it['slug']}.png`", "", "**Thumbnail**", f"- Title: {it['thumb_title']}", f"- Subtitle: {it['thumb_sub']}", f"- Button: {it['button']}", "",
               "**Checkout page**", f"- Title: {it['checkout_title']}", "- Description:", "", f"> {it['desc']}", "", "- Bullets:"]
         L += [f"  - {b}" for b in it["bullets"]]
@@ -847,12 +860,77 @@ def copy_md(items):
     return "\n".join(L)
 
 
+# ================================================================ access page + download zip
+def access_page(p):
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Your {e(p['title'])} · {C.BRAND}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
+{FONTS}<style>{TOKENS}{COVER_CSS}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}}
+.wrap{{max-width:520px;margin:0 auto;padding:28px 16px 60px}}
+.cv-wrap{{border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}}
+.wm{{font:800 12px var(--head);letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:26px 0 6px}}
+h1{{font:800 32px/1.08 var(--head);letter-spacing:-.025em;margin:0 0 8px}}.lead{{color:var(--ink2);margin:0 0 22px}}
+.go{{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--acc);color:var(--acc-ink);text-decoration:none;font:700 19px var(--head);padding:20px;border-radius:16px;box-shadow:0 12px 30px -12px var(--acc)}}
+.go:active{{transform:scale(.98)}}
+.dl{{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;background:var(--surface);color:var(--ink);text-decoration:none;font:600 16px var(--font);padding:16px;border-radius:14px;border:1px solid var(--line)}}
+.card{{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:18px}}
+.card h2{{font:700 13px var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}}
+.card ol{{margin:0;padding-left:20px}}.card li{{margin:6px 0}}.card p{{margin:0;color:var(--ink2);font-size:15px}}
+footer{{text-align:center;color:var(--mut);font-size:12.5px;margin-top:26px;line-height:1.6}}
+</style></head><body><div class="wrap">
+<div class="cv-wrap">{cover({"slug": p["slug"], "hue": p["hue"], "kicker": p["kicker"], "title": p["title"], "meta": p["meta"]})}</div>
+<div class="wm">{e(C.BRAND)}</div><h1>You're in. Welcome!</h1>
+<p class="lead">Thank you for {"grabbing" if p['stan']['price'] == "FREE" else "purchasing"} <b>{e(p['title'])}</b>. Everything you need is right here.</p>
+<a class="go" href="app.html">Open your interactive program <span aria-hidden="true">→</span></a>
+<a class="dl" href="{pdf_name(p)}" download>Download your PDF book</a>
+<div class="card"><h2>Save it to your phone</h2><ol>
+<li>Tap <b>Open your interactive program</b>.</li>
+<li><b>iPhone:</b> tap the Share icon, then <b>Add to Home Screen</b>.<br><b>Android:</b> tap the ⋮ menu, then <b>Add to Home screen</b>.</li>
+<li>Open it from your home screen like an app. Your progress saves automatically.</li></ol></div>
+<div class="card"><h2>Bookmark this page</h2><p>This is your personal access page. Bookmark it, or keep the email it came in, so you can always get back to your program and PDF.</p></div>
+<div class="card"><h2>Need help?</h2><p>Message me at <b>{e(C.SUPPORT)}</b> and I'll take care of you.</p></div>
+<footer>© 2026 {e(C.COACH)} · {e(C.BRAND)}<br>This link is for your personal use only. Please don't share it.</footer>
+</div></body></html>"""
+
+
+def make_zip(items):
+    os.makedirs(os.path.join(OUT, "download"), exist_ok=True)
+    zp = os.path.join(OUT, "download", "Get-Fit-With-Me-Products.zip")
+    with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("START HERE.txt", "\n".join([
+            "GET FIT WITH ME - YOUR PRODUCT FILES", "",
+            "Each product folder has:",
+            "  - the PDF book (upload it to Stan as the digital download)",
+            "  - the interactive app (.html file - opens in any web browser)",
+            "  - the access page (.html - the thank-you page buyers see)",
+            "  - Cover for Stan.png (the product thumbnail)",
+            "  - BUYER ACCESS LINK.txt (the private link to paste into Stan)", "",
+            "STAN-STORE-COPY.md has every title, description, button, price and order bump.", ""]))
+        for n, p in enumerate(C.PRODUCTS, 1):
+            d = f"{n:02d} {p['title']}/"
+            pdf = os.path.join(folder(p), pdf_name(p))
+            if os.path.exists(pdf): z.write(pdf, d + pdf_name(p))
+            z.write(os.path.join(folder(p), "app.html"), d + f"{p['title']} - Interactive App.html")
+            z.write(os.path.join(folder(p), "index.html"), d + f"{p['title']} - Access Page.html")
+            cv = os.path.join(OUT, "covers", p["slug"] + ".png")
+            if os.path.exists(cv): z.write(cv, d + "Cover for Stan.png")
+            z.writestr(d + "BUYER ACCESS LINK.txt", f"{p['title']}\n\nGive buyers this link through Stan (after checkout):\n{access_url(p)}\n\n"
+                       "It opens a thank-you page with an 'Open your interactive program' button and a 'Download your PDF book' button.\n")
+        for it in items:
+            cv = os.path.join(OUT, "covers", it["slug"] + ".png")
+            if os.path.exists(cv): z.write(cv, "All Stan Covers/" + it["thumb_title"].replace("/", "-") + ".png")
+        z.write(os.path.join(OUT, "STAN-STORE-COPY.md"), "STAN-STORE-COPY.md")
+    print("zip:", os.path.getsize(zp) // 1024, "KB")
+
+
 # ================================================================ main
 def main():
     engine = open(os.path.join(HERE, "engine.js"), encoding="utf-8").read()
     for p in C.PRODUCTS:
-        with open(os.path.join(OUT, p["slug"] + ".html"), "w", encoding="utf-8") as f:
-            f.write(product_page(p, engine))
+        os.makedirs(folder(p), exist_ok=True)
+        with open(os.path.join(folder(p), "app.html"), "w", encoding="utf-8") as f: f.write(product_page(p, engine))
+        with open(os.path.join(folder(p), "index.html"), "w", encoding="utf-8") as f: f.write(access_page(p))
     items = store_items()
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f: f.write(store_page(items))
     with open(os.path.join(OUT, "STAN-STORE-COPY.md"), "w", encoding="utf-8") as f: f.write(copy_md(items))
@@ -863,6 +941,7 @@ def main():
         subprocess.run(["node", os.path.join(HERE, "covers.js"), cp, os.path.join(OUT, "covers")] + [it["slug"] for it in items], check=True)
         print("rendered", len(items), "covers")
         make_pdfs()
+    make_zip(items)
 
 
 if __name__ == "__main__":

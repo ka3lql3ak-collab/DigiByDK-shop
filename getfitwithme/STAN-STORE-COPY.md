@@ -2,8 +2,8 @@
 
 Everything to paste into Stan for **Danielle Dawson's** store. Each product comes with:
 
-- **Interactive app** (the `.html` link): set-by-set tracking, guide reader with quizzes, charts and tools. Paste the link into Stan as the product's redirect URL.
-- **PDF book** (`pdf/<product>.pdf`): clickable table of contents, bookmarks and fillable workbook pages. Upload it to Stan as the digital file.
+- **Buyer access link**: a private thank-you page with a big *Open your interactive program* button and a *Download your PDF book* button. Paste it into Stan as the product's delivery link (redirect URL or confirmation message).
+- **PDF book**: clickable contents, bookmarks, fillable workbook and a *Tap to open the interactive program* button on the cover. Upload it to Stan as the digital file too.
 - **Cover image** (`covers/<product>.png`, 1080×1080) for the Stan thumbnail.
 
 ## Store profile
@@ -33,8 +33,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Lead Magnet (Free)
 - **Price:** FREE
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/glute-starter-pack-free-g7f2.html
-- **PDF file to upload:** `getfitwithme/pdf/glute-starter-pack-free-g7f2.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/5b1381b178c18ffb/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/glute-starter-pack-free-g7f2.png`
 
 **Thumbnail**
@@ -103,8 +103,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Digital Product
 - **Price:** $14.99 (shown as a discount from $29)
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/30-day-get-fit-challenge-c9x4.html
-- **PDF file to upload:** `getfitwithme/pdf/30-day-get-fit-challenge-c9x4.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/45134ec5611f2bcc/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/30-day-get-fit-challenge-c9x4.png`
 
 **Thumbnail**
@@ -142,8 +142,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Digital Product
 - **Price:** $37 (shown as a discount from $67)
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/booty-builder-8-week-b3k8.html
-- **PDF file to upload:** `getfitwithme/pdf/booty-builder-8-week-b3k8.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/e6a91b0daa9a5e31/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/booty-builder-8-week-b3k8.png`
 
 **Thumbnail**
@@ -181,8 +181,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Digital Product
 - **Price:** $24 (shown as a discount from $47)
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/press-like-a-boss-p5m1.html
-- **PDF file to upload:** `getfitwithme/pdf/press-like-a-boss-p5m1.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/0b1c14ee2edde991/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/press-like-a-boss-p5m1.png`
 
 **Thumbnail**
@@ -220,8 +220,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Digital Product
 - **Price:** $19 (shown as a discount from $39)
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/fuel-like-a-baddie-f2q6.html
-- **PDF file to upload:** `getfitwithme/pdf/fuel-like-a-baddie-f2q6.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/2a9db03cdc77f650/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/fuel-like-a-baddie-f2q6.png`
 
 **Thumbnail**
@@ -259,8 +259,8 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 - **Stan product type:** Digital Product
 - **Price:** $12 (shown as a discount from $27)
-- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/gym-girl-confidence-kit-k4t9.html
-- **PDF file to upload:** `getfitwithme/pdf/gym-girl-confidence-kit-k4t9.pdf`
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/1bb609988373c49d/
+- **PDF file to upload:** in the ZIP download
 - **Cover image:** `getfitwithme/covers/gym-girl-confidence-kit-k4t9.png`
 
 **Thumbnail**

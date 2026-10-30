@@ -6,6 +6,8 @@ COACH = "Danielle Dawson"
 BRAND = "Get Fit With Me"
 HANDLE = "@getfitwithme"  # swap for your real handle
 SITE = "https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme"
+STAN_URL = ""  # paste your Stan store link here, e.g. "https://stan.store/yourname"
+SUPPORT = HANDLE  # where buyers can reach you (DM handle or email)
 
 STORE = {
     "bio": "Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. "
@@ -261,7 +263,7 @@ EATING_OUT = [
 # ---------------------------------------------------------------- products
 PRODUCTS = [
     {
-        "slug": "glute-starter-pack-free-g7f2", "short": "Glute Starter Guide", "title": "The Glute Starter Guide",
+        "slug": "glute-starter-pack-free-g7f2", "token": "5b1381b178c18ffb", "short": "Glute Starter Guide", "title": "The Glute Starter Guide",
         "kicker": "Free guide", "sub": "Three glute workouts and the principles behind them.",
         "meta": ["3 workouts", "1 week", "Free"], "hue": 340, "guide": "glute-starter",
         "sections": [
@@ -283,7 +285,7 @@ PRODUCTS = [
         },
     },
     {
-        "slug": "30-day-get-fit-challenge-c9x4", "short": "30-Day Challenge", "title": "The 30-Day Get Fit With Me Challenge",
+        "slug": "30-day-get-fit-challenge-c9x4", "token": "45134ec5611f2bcc", "short": "30-Day Challenge", "title": "The 30-Day Get Fit With Me Challenge",
         "kicker": "30-day program", "sub": "Daily workouts, four habits and a mindset practice.",
         "meta": ["30 days", "20–35 min/day", "Home or gym"], "hue": 18, "guide": "30-day-challenge",
         "sections": [
@@ -307,7 +309,7 @@ PRODUCTS = [
         },
     },
     {
-        "slug": "booty-builder-8-week-b3k8", "short": "Glute Specialist Program", "title": "The Glute Specialist Program",
+        "slug": "booty-builder-8-week-b3k8", "token": "e6a91b0daa9a5e31", "short": "Glute Specialist Program", "title": "The Glute Specialist Program",
         "kicker": "8-week program", "sub": "My signature 4-day program to build stronger, fuller glutes.",
         "meta": ["8 weeks", "4 days/week", "32 workouts", "Gym"], "hue": 345, "guide": "glute-specialist",
         "sections": [
@@ -332,7 +334,7 @@ PRODUCTS = [
         },
     },
     {
-        "slug": "press-like-a-boss-p5m1", "short": "Press Like A Boss", "title": "Press Like A Boss",
+        "slug": "press-like-a-boss-p5m1", "token": "0b1c14ee2edde991", "short": "Press Like A Boss", "title": "Press Like A Boss",
         "kicker": "6-week strength program", "sub": "Upper-body strength for women: a stronger press, back and shoulders.",
         "meta": ["6 weeks", "3 days/week", "18 workouts", "Gym"], "hue": 265, "guide": "press-like-a-boss",
         "sections": [
@@ -357,7 +359,7 @@ PRODUCTS = [
         },
     },
     {
-        "slug": "fuel-like-a-baddie-f2q6", "short": "Fuel Like A Baddie", "title": "Fuel Like A Baddie",
+        "slug": "fuel-like-a-baddie-f2q6", "token": "2a9db03cdc77f650", "short": "Fuel Like A Baddie", "title": "Fuel Like A Baddie",
         "kicker": "Nutrition guide", "sub": "The complete high-protein nutrition system for women who train.",
         "meta": ["17 chapters", "12 recipes", "7-day plan", "Macro calculator"], "hue": 150, "guide": "fuel-like-a-baddie",
         "sections": [
@@ -385,7 +387,7 @@ PRODUCTS = [
         },
     },
     {
-        "slug": "gym-girl-confidence-kit-k4t9", "short": "Gym Confidence Kit", "title": "The Gym Girl Confidence Kit",
+        "slug": "gym-girl-confidence-kit-k4t9", "token": "1bb609988373c49d", "short": "Gym Confidence Kit", "title": "The Gym Girl Confidence Kit",
         "kicker": "Beginner guide", "sub": "Everything you need to walk into the gym and know exactly what to do.",
         "meta": ["14 chapters", "2-week plan", "Beginner"], "hue": 40, "guide": "gym-girl-confidence-kit",
         "sections": [
