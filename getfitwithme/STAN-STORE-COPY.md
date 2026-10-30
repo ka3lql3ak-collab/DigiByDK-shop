@@ -1,376 +1,388 @@
-# Get Fit With Me — Stan Store Copy
+# Get Fit With Me: Stan Store Copy
 
-Everything to paste into Stan for **Danielle Dawson's** store. Cover images are in `getfitwithme/covers/`.
+Everything to paste into Stan for **Danielle Dawson's** store. Each product comes with:
+
+- **Interactive app** (the `.html` link): set-by-set tracking, guide reader with quizzes, charts and tools. Paste the link into Stan as the product's redirect URL.
+- **PDF book** (`pdf/<product>.pdf`): clickable table of contents, bookmarks and fillable workbook pages. Upload it to Stan as the digital file.
+- **Cover image** (`covers/<product>.png`, 1080×1080) for the Stan thumbnail.
 
 ## Store profile
 
-- **Store name / display name:** Get Fit With Me
-- **Name:** Danielle Dawson
-- **Bio:** Hey baddie, I'm Danielle 💪🏽 Online fitness coach | Heavy weights, real results & zero gym anxiety. Programs, meal plans & coaching to help you get STRONG, snatched & confident. Let's get fit together 👇🏽
-- **Tagline (header):** Lift heavy. Glow loud. Get fit with me.
-- **Theme:** dark background, hot pink `#ff2e93` + purple `#8b2cf5`, gold accent `#ffd36e`. Fonts: Anton (headings) and Poppins (body).
-- **Profile photo:** a bright, close-up gym selfie (you smiling with the dumbbells works great).
+- **Display name:** Danielle Dawson
+- **Store name:** Get Fit With Me
+- **Bio:** Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. Evidence-based programs, nutrition guides and 1:1 coaching.
+- **Tagline:** Lift heavy. Eat well. Show up for yourself.
+- **Theme:** ivory background `#f6f3ef`, ink `#17141a`, burgundy accent `#8c1c3d`. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).
+- **Profile photo:** a clean, well-lit photo of you in the gym. Natural light, neutral background.
 
-## Product order (top to bottom)
+## Product order
 
-1. FREE Glute Starter Pack 🍑 — FREE
-2. THE WHOLE BADDIE BUNDLE 👑 — $67
-3. 30-Day Get Fit With Me Challenge 🔥 — $14.99
-4. 8-Week Booty Builder 🍑 — $37
-5. Press Like A Boss 💪🏽 — $24
-6. Fuel Like A Baddie 🍗 — $19
-7. Gym Girl Confidence Kit ✨ — $12
-8. 1:1 Form Check Call 🎥 — $49
-9. Online Coaching With Danielle 💜 — $149/mo
-
----
-
-## FREE Glute Starter Pack 🍑
-
-**Stan product type:** Lead Magnet (Free)  
-**Price:** FREE
-
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/glute-starter-pack-free-g7f2.html
-
-### Thumbnail (store button)
-- **Title:** FREE Glute Starter Pack 🍑
-- **Subtitle:** 3 booty workouts you can start TODAY
-- **Button:** Send It To Me 💌
-- **Cover image:** `covers/glute-starter-pack-free-g7f2.png`
-
-### Checkout page
-- **Title:** Get My FREE Glute Starter Pack 🍑
-- **Description:**
-
-> Want to grow your glutes but don't know where to start? I got you, baddie. This is the exact way I train — packed into 3 workouts you can start TODAY. Track every set right from your phone. No boring PDF, no guessing. Just drop your email and it's yours.
-
-- **Bullets:**
-  - ✅ 3 glute-focused workouts (gym or home with dumbbells)
-  - ✅ Interactive tracker — tap off sets & log your weights
-  - ✅ Built-in rest timer so you never lose count
-  - ✅ Form tips for every single exercise
-  - ✅ My 4 non-negotiable Glute Rules
-- **Checkout button:** GIVE ME THE BOOTY PLAN 🍑
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
-
-### Confirmation / thank-you message
-> Check your email, baddie! 💌 Your Glute Starter Pack is on the way. Screenshot your first workout and tag me — I WILL repost you.
+1. Free Glute Starter Guide: FREE
+2. The Complete Collection: $67
+3. 30-Day Get Fit With Me Challenge: $14.99
+4. The Glute Specialist Program: $37
+5. Press Like A Boss: $24
+6. Fuel Like A Baddie: $19
+7. The Gym Girl Confidence Kit: $12
+8. 1:1 Form Check Call: $49
+9. 1:1 Online Coaching: $149/mo
 
 ---
 
-## THE WHOLE BADDIE BUNDLE 👑
+## Free Glute Starter Guide
 
-**Stan product type:** Bundle  
-**Price:** $67 (strike-through/discount from $106.99)
+- **Stan product type:** Lead Magnet (Free)
+- **Price:** FREE
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/glute-starter-pack-free-g7f2.html
+- **PDF file to upload:** `getfitwithme/pdf/glute-starter-pack-free-g7f2.pdf`
+- **Cover image:** `getfitwithme/covers/glute-starter-pack-free-g7f2.png`
 
-### Thumbnail (store button)
-- **Title:** THE WHOLE BADDIE BUNDLE 👑
-- **Subtitle:** Every program, meal plan & kit — save 37%
-- **Button:** Get Everything 👑
-- **Cover image:** `covers/whole-baddie-bundle.png`
+**Thumbnail**
+- Title: Free Glute Starter Guide
+- Subtitle: 3 glute workouts you can start today
+- Button: Get the Free Guide
 
-### Checkout page
-- **Title:** The Whole Baddie Bundle 👑
-- **Description:**
+**Checkout page**
+- Title: The Glute Starter Guide (Free)
+- Description:
 
-> Want it ALL? Of course you do. 👑 Get every single Get Fit With Me product in one bundle and save over $40. Your workouts, your nutrition, your confidence — all handled. This is the complete glow-up system I wish I had when I started.
+> Want to grow your glutes but don't know where to start? This free guide gives you three of my favorite glute workouts and the four principles behind every program I write. You get an interactive tracker for your phone and a PDF you can print. Enter your email and it's yours.
 
-- **Bullets:**
-  - ✅ 8-Week Booty Builder ($37)
-  - ✅ Press Like A Boss ($24)
-  - ✅ Fuel Like A Baddie ($19)
-  - ✅ 30-Day Get Fit With Me Challenge ($14.99)
-  - ✅ Gym Girl Confidence Kit ($12)
-  - ✅ Lifetime access + every future update FREE
-- **Checkout button:** GIVE ME EVERYTHING 👑
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
+- Bullets:
+  - 3 glute-focused gym workouts
+  - Interactive tracker: log every set, built-in rest timer
+  - Step-by-step technique for every exercise
+  - The 4 rules of glute growth
+  - Printable PDF with fillable workout logs
+- Checkout button: Send Me the Guide
+- Collect: name + email only
 
-### Order bump
-- **Headline:** Add a 30-min Form Check Call for $29 (reg. $49)
-- **Description:** Send me your lift videos and we'll fix your form together on a 1:1 video call.
-
-### Confirmation / thank-you message
-> BADDIE STATUS UNLOCKED 👑 All 5 links are in your email. Start with the Confidence Kit + Fuel Like A Baddie, then hit Week 1 of the Booty Builder. I'm so proud of you!
+**Confirmation message**
+> Your Glute Starter Guide is on its way to your inbox. Open the interactive version on your phone and save it to your home screen. Tag me in your first workout!
 
 ---
 
-## 30-Day Get Fit With Me Challenge 🔥
+## The Complete Collection
 
-**Stan product type:** Digital Product  
-**Price:** $14.99 (strike-through/discount from $29)
+- **Stan product type:** Bundle
+- **Price:** $67 (shown as a discount from $106.99)
+- **Cover image:** `getfitwithme/covers/complete-collection.png`
 
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/30-day-get-fit-challenge-c9x4.html
+**Thumbnail**
+- Title: The Complete Collection
+- Subtitle: All 5 programs & guides. Save 37%
+- Button: Get Everything
 
-### Thumbnail (store button)
-- **Title:** 30-Day Get Fit With Me Challenge 🔥
-- **Subtitle:** Daily workouts + habits + mindset. Glow-up guaranteed.
-- **Button:** Join The Challenge 🔥
-- **Cover image:** `covers/30-day-get-fit-challenge-c9x4.png`
+**Checkout page**
+- Title: The Complete Get Fit With Me Collection
+- Description:
 
-### Checkout page
-- **Title:** The 30-Day Get Fit With Me Challenge
-- **Description:**
+> Everything I teach in one place: training, nutrition and confidence. Get all five programs and guides, each with its interactive app and printable PDF book, and save over $40 compared with buying them separately.
 
-> You keep saying “I'm starting Monday.” Babe… THIS is your Monday. For 30 days, you and me are getting it IN — quick daily workouts you can do at home or the gym, 4 simple habits that change EVERYTHING, and a daily mindset prompt so your head glows up with your body. Check off your day, watch your streak grow, and feel yourself become HER.
+- Bullets:
+  - The Glute Specialist Program ($37)
+  - Press Like A Boss ($24)
+  - Fuel Like A Baddie ($19)
+  - 30-Day Get Fit With Me Challenge ($14.99)
+  - The Gym Girl Confidence Kit ($12)
+  - 5 interactive apps + 5 printable PDF books
+  - Lifetime access and all future updates
+- Checkout button: Get the Collection
+- Collect: name + email only
 
-- **Bullets:**
-  - ✅ 30 days of 20–30 min workouts that level up every week
-  - ✅ Daily habit tracker with streaks + confetti (yes, really 🎉)
-  - ✅ 30 mindset journal prompts
-  - ✅ Built-in workout timer
-  - ✅ Measurement tracker to see your progress
-  - ✅ Final Boss workout + Show-Off Day 👑
-  - ✅ Works on any phone — no app download
-- **Checkout button:** I'M IN — LET'S GET FIT 🔥
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
+**Order bump**
+- Headline: Add a 30-min Form Check Call for $29 (reg. $49)
+- Description: Send me your lift videos and we'll review your technique together on a 1:1 video call.
 
-### Order bump
-- **Headline:** Add Fuel Like A Baddie for just $9 (reg. $19)
-- **Description:** Get my 7-day high-protein meal plan, grocery list & macro calculator so your nutrition matches your effort.
-
-### Confirmation / thank-you message
-> WELCOME TO THE CHALLENGE 🔥 Your link is in your email. Add it to your home screen, take your Day 1 pics and post a story tagging me with #GetFitWithMeChallenge!
+**Confirmation message**
+> Welcome to the full collection! All five links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss when you're ready.
 
 ---
 
-## 8-Week Booty Builder 🍑
+## 30-Day Get Fit With Me Challenge
 
-**Stan product type:** Digital Product  
-**Price:** $37 (strike-through/discount from $67)
+- **Stan product type:** Digital Product
+- **Price:** $14.99 (shown as a discount from $29)
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/30-day-get-fit-challenge-c9x4.html
+- **PDF file to upload:** `getfitwithme/pdf/30-day-get-fit-challenge-c9x4.pdf`
+- **Cover image:** `getfitwithme/covers/30-day-get-fit-challenge-c9x4.png`
 
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/booty-builder-8-week-b3k8.html
+**Thumbnail**
+- Title: 30-Day Get Fit With Me Challenge
+- Subtitle: Daily workouts, habits & mindset in 30 days
+- Button: Join the Challenge
 
-### Thumbnail (store button)
-- **Title:** 8-Week Booty Builder 🍑
-- **Subtitle:** My signature glute program — the one everybody asks for
-- **Button:** Build My Booty 🍑
-- **Cover image:** `covers/booty-builder-8-week-b3k8.png`
+**Checkout page**
+- Title: The 30-Day Get Fit With Me Challenge
+- Description:
 
-### Checkout page
-- **Title:** Glute Specialist: The 8-Week Booty Builder
-- **Description:**
+> Stop waiting for Monday. For 30 days, you'll do one short workout a day at home or the gym, four habits that change everything (water, steps, protein, movement) and a daily mindset prompt. Workouts get harder every week. A built-in tracker keeps your streak going, and the guide teaches you how to scale every move to your level.
 
-> Y'all ask me EVERY day “what do you do for your glutes?” This is it. My full signature program — 4 days a week, 8 weeks, built in 4 phases so your body never gets bored and never stops growing. Every set, rep, rest time and form tip is laid out for you in an app-style tracker right on your phone. Walk into the gym knowing EXACTLY what to do. No more copying random TikTok workouts and hoping for the best.
+- Bullets:
+  - 30 progressive daily workouts (20–35 min)
+  - Habit tracker with streaks and daily check-ins
+  - 30 guided journal prompts
+  - Scaling chart: easier and harder versions of every move
+  - Measurement tracker with progress charts
+  - Full guide: habits, NEAT, consistency, what to expect each week
+  - Printable PDF with a fillable 30-day tracker and journal
+- Checkout button: Start My 30 Days
+- Collect: name + email only
 
-- **Bullets:**
-  - ✅ 8 weeks · 4 workouts/week · 4 progressive phases
-  - ✅ 32 done-for-you workouts that auto-progress each week
-  - ✅ Log your weight for every exercise + tap off every set
-  - ✅ Form tips for all 25+ exercises
-  - ✅ Built-in rest timer with alarm
-  - ✅ PR Wall to track your strongest lifts 👑
-  - ✅ Includes upper body day so you're snatched head to toe
-- **Checkout button:** START BUILDING 🍑
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
+**Order bump**
+- Headline: Add Fuel Like A Baddie for $9 (reg. $19)
+- Description: My complete nutrition guide: macro calculator, 7-day meal plan, 12 recipes and grocery list.
 
-### Order bump
-- **Headline:** Add the PR Press Program for $15 (reg. $24)
-- **Description:** Want to chest press 75s like me? Add my 6-week upper body strength program.
-
-### Confirmation / thank-you message
-> Ayyyye welcome to the Booty Builder 🍑 Your program link is in your email. Save it to your home screen, start Week 1, and tag me in your first hip thrust video!
-
----
-
-## Press Like A Boss 💪🏽
-
-**Stan product type:** Digital Product  
-**Price:** $24 (strike-through/discount from $47)
-
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/press-like-a-boss-p5m1.html
-
-### Thumbnail (store button)
-- **Title:** Press Like A Boss 💪🏽
-- **Subtitle:** 6 weeks to your strongest upper body ever
-- **Button:** Get Strong 💪🏽
-- **Cover image:** `covers/press-like-a-boss-p5m1.png`
-
-### Checkout page
-- **Title:** Press Like A Boss: 6-Week Upper Body Strength
-- **Description:**
-
-> Y'all went CRAZY over my 70 & 75 lb chest press video 😤 So here's the exact plan. 6 weeks, 3 upper body days a week, built to make you STRONG — not bulky. Sculpted shoulders, a snatched back, toned arms and a chest press that makes the gym bros look twice. Week 6 is PR Week, and you're gonna surprise yourself.
-
-- **Bullets:**
-  - ✅ 6-week progressive strength program (3 days/week)
-  - ✅ Heavy push, pull & volume days
-  - ✅ Weight logger + tap-off sets for every exercise
-  - ✅ PR Wall with automatic 1-rep-max estimate
-  - ✅ My secrets for getting heavy dumbbells into position
-  - ✅ Rest timer built in
-- **Checkout button:** LET'S PRESS 💪🏽
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
-
-### Order bump
-- **Headline:** Add the 8-Week Booty Builder for $25 (reg. $37)
-- **Description:** Complete your split with my signature lower-body & glute program.
-
-### Confirmation / thank-you message
-> Let's GO 💪🏽 Your program is in your email. Week 6 = PR week… film it and tag me, I want to SEE it!
+**Confirmation message**
+> Welcome to the challenge! Your link is in your email. Take your Day 1 photos and measurements today, then post your first workout and tag me with #GetFitWithMeChallenge.
 
 ---
 
-## Fuel Like A Baddie 🍗
+## The Glute Specialist Program
 
-**Stan product type:** Digital Product  
-**Price:** $19 (strike-through/discount from $39)
+- **Stan product type:** Digital Product
+- **Price:** $37 (shown as a discount from $67)
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/booty-builder-8-week-b3k8.html
+- **PDF file to upload:** `getfitwithme/pdf/booty-builder-8-week-b3k8.pdf`
+- **Cover image:** `getfitwithme/covers/booty-builder-8-week-b3k8.png`
 
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/fuel-like-a-baddie-f2q6.html
+**Thumbnail**
+- Title: The Glute Specialist Program
+- Subtitle: My signature 8-week glute program
+- Button: Start the Program
 
-### Thumbnail (store button)
-- **Title:** Fuel Like A Baddie 🍗
-- **Subtitle:** Meal plan + grocery list + macro calculator
-- **Button:** Feed Me Right 🍗
-- **Cover image:** `covers/fuel-like-a-baddie-f2q6.png`
+**Checkout page**
+- Title: The Glute Specialist Program: 8 Weeks
+- Description:
 
-### Checkout page
-- **Title:** Fuel Like A Baddie: High-Protein Meal Plan Kit
-- **Description:**
+> Everyone asks what I do for my glutes. This is it: my complete 8-week program, built in four progressive phases (Foundation, Build, Strength, Peak) with three lower-body days and one upper-body day each week. You also get a 14-chapter handbook covering the science of glute growth, progressive overload, effort (RIR), warm-ups, nutrition and troubleshooting. Track every set in the app, see what you lifted last time, and watch your strength climb on your progress charts.
 
-> You're killing it in the gym but the scale and the mirror aren't moving? It's the food, babe. This kit tells you EXACTLY how much to eat for your goal, then hands you a 7-day high-protein meal plan with real, flavorful food (jerk chicken, burrito bowls, protein waffles 😍), a tap-to-check grocery list, a 90-minute Sunday meal prep plan, and my eating-out cheat sheet so you can still go out with the girls.
+- Bullets:
+  - 32 progressive workouts across 8 weeks
+  - 14-chapter training handbook with knowledge checks
+  - Set-by-set logging with 'last time' comparisons
+  - Progress charts, PR Wall and measurement tracking
+  - Exercise library: setup, cues, mistakes & swaps for 25+ moves
+  - 1RM and warm-up calculators, auto rest timer
+  - Printable PDF book with 32 fillable workout logs
+- Checkout button: Get the Program
+- Collect: name + email only
 
-- **Bullets:**
-  - ✅ Personal macro calculator (calories, protein, carbs, fat, water)
-  - ✅ 7-day high-protein meal plan (28 meals)
-  - ✅ Interactive grocery checklist
-  - ✅ 90-minute Sunday meal prep game plan
-  - ✅ 8 high-protein snacks + sweet treats
-  - ✅ Eating-out cheat sheet: Chipotle, Chick-fil-A, Starbucks & more
-- **Checkout button:** FUEL ME UP 🍗
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
+**Order bump**
+- Headline: Add Press Like A Boss for $15 (reg. $24)
+- Description: My 6-week upper-body strength program. It pairs perfectly as a full upper/lower split.
 
-### Order bump
-- **Headline:** Add the 30-Day Challenge for $9 (reg. $14.99)
-- **Description:** Pair your new meal plan with 30 days of workouts, habits & mindset.
-
-### Confirmation / thank-you message
-> Your kitchen is about to be a gains factory 🍗 Check your email for your link and calculate your macros first!
-
----
-
-## Gym Girl Confidence Kit ✨
-
-**Stan product type:** Digital Product  
-**Price:** $12 (strike-through/discount from $27)
-
-**Product link to deliver (paste as the URL / redirect):** https://ka3lql3ak-collab.github.io/digibydk-shop/getfitwithme/gym-girl-confidence-kit-k4t9.html
-
-### Thumbnail (store button)
-- **Title:** Gym Girl Confidence Kit ✨
-- **Subtitle:** Beat gym anxiety & own the weight room
-- **Button:** Boost My Confidence ✨
-- **Cover image:** `covers/gym-girl-confidence-kit-k4t9.png`
-
-### Checkout page
-- **Title:** The Gym Girl Confidence Kit
-- **Description:**
-
-> Scared of the weight room? Don't know how the machines work? Feel like everyone's staring? Sis… I've been there. This kit takes you from nervous to NOTHING-CAN-STOP-ME in 2 weeks. You'll know what to pack, how to use 10 of the most common machines, exactly what to say in awkward moments, and you'll follow a beginner plan that eases you in — machines first, then dumbbells, then cables. You belong in that gym.
-
-- **Bullets:**
-  - ✅ 2-week beginner gym plan (machines → dumbbells → cables)
-  - ✅ Step-by-step guide to 10 gym machines
-  - ✅ Word-for-word gym scripts for awkward moments
-  - ✅ Gym bag + confidence ritual checklists
-  - ✅ 6 gym affirmations + 5 journal prompts
-  - ✅ Interactive tracker with rest timer
-- **Checkout button:** I'M READY TO OWN IT ✨
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
-
-### Order bump
-- **Headline:** Add the 8-Week Booty Builder for $25 (reg. $37)
-- **Description:** Once you're confident, keep the momentum with my signature 8-week program.
-
-### Confirmation / thank-you message
-> I'm SO proud of you for this step 💜 Your kit is in your email. Pack your bag tonight and tag me in your first gym selfie!
+**Confirmation message**
+> You're in! Your program link and PDF are in your email. Start with the Handbook (Chapters 1–6), then do Week 1 as your calibration week. Tag me in your first hip thrust!
 
 ---
 
-## 1:1 Form Check Call 🎥
+## Press Like A Boss
 
-**Stan product type:** Coaching Call (Calendar)  
-**Price:** $49
+- **Stan product type:** Digital Product
+- **Price:** $24 (shown as a discount from $47)
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/press-like-a-boss-p5m1.html
+- **PDF file to upload:** `getfitwithme/pdf/press-like-a-boss-p5m1.pdf`
+- **Cover image:** `getfitwithme/covers/press-like-a-boss-p5m1.png`
 
-### Thumbnail (store button)
-- **Title:** 1:1 Form Check Call 🎥
-- **Subtitle:** 30 min on video — let's fix your form together
-- **Button:** Book My Call 📅
-- **Cover image:** `covers/form-check-call.png`
+**Thumbnail**
+- Title: Press Like A Boss
+- Subtitle: 6 weeks to your strongest upper body
+- Button: Get Stronger
 
-### Checkout page
-- **Title:** 1:1 Form Check + Strategy Call
-- **Description:**
+**Checkout page**
+- Title: Press Like A Boss: 6-Week Upper Body Strength
+- Description:
 
-> Not sure if you're doing it right? Stop guessing and get eyes on your form. Send me videos of your lifts before the call, then we hop on a 30-minute video call where I break down your technique, fix what's holding you back, and build you a game plan for your goals.
+> You saw me press 70s and 75s. This is the exact plan behind it. Three upper-body days a week for six weeks: a heavy push day, a pull and posture day and a volume day, ending with a structured PR Week. The handbook teaches you dumbbell press technique step by step, how to beat the dumbbell jump problem, shoulder health, spotting and how to test your max safely.
 
-- **Bullets:**
-  - ✅ 30-minute 1:1 video call with me
-  - ✅ I review up to 5 of your lift videos beforehand
-  - ✅ Personal form corrections + cues
-  - ✅ Custom next-steps plan for your goals
-  - ✅ Recording of the call so you can rewatch
-- **Checkout button:** BOOK IT 📅
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
+- Bullets:
+  - 18 progressive workouts across 6 weeks
+  - 11-chapter strength handbook with knowledge checks
+  - Dumbbell press masterclass, including the kick-up technique
+  - Strategies for breaking through dumbbell plateaus
+  - PR Week warm-up protocol + 1RM calculator
+  - Set-by-set logging and progress charts
+  - Printable PDF book with fillable workout logs
+- Checkout button: Get the Program
+- Collect: name + email only
 
-### Confirmation / thank-you message
-> You're booked! 🎉 Reply to your confirmation email with up to 5 lift videos (side angle is best) at least 24 hours before our call.
+**Order bump**
+- Headline: Add the Glute Specialist Program for $25 (reg. $37)
+- Description: Complete your split with my signature 8-week lower-body program.
 
----
-
-## Online Coaching With Danielle 💜
-
-**Stan product type:** Membership / Application  
-**Price:** $149/mo
-
-### Thumbnail (store button)
-- **Title:** Online Coaching With Danielle 💜
-- **Subtitle:** Custom program, macros & weekly check-ins
-- **Button:** Apply Now 💜
-- **Cover image:** `covers/online-coaching.png`
-
-### Checkout page
-- **Title:** 1:1 Online Coaching With Danielle
-- **Description:**
-
-> This is for the girl who's DONE starting over. You get a fully custom training program built around your body, schedule and gym, your own macros, weekly check-ins, form reviews and direct access to me in your DMs. I only take a small number of clients so I can actually give you my attention — so apply and let's see if we're a fit.
-
-- **Bullets:**
-  - ✅ Custom training program updated every 4 weeks
-  - ✅ Personal macros + nutrition guidance
-  - ✅ Weekly check-ins & adjustments
-  - ✅ Unlimited form check videos
-  - ✅ Direct messaging access to me
-  - ✅ All 5 Get Fit With Me products included FREE
-- **Checkout button:** APPLY FOR COACHING 💜
-- **Collect:** Name + Email (keep it short; every extra field costs sales)
-
-### Confirmation / thank-you message
-> Application received! 💜 I personally review every one. Keep an eye on your email (and DMs) within 48 hours.
+**Confirmation message**
+> Let's get strong! Your program and PDF are in your email. Read Chapter 3 before your first session. Week 6 is PR Week, so film it and tag me.
 
 ---
 
-## Launch promo kit
+## Fuel Like A Baddie
 
-### Captions
-1. POV: you finally stopped making the girl who's been asking “what's your glute workout?” wait 😂🍑 My Get Fit With Me store is OFFICIALLY LIVE. Free Glute Starter Pack is in my bio — go grab it before I change my mind 💜 #getfitwithme #glutes #gymgirl
-2. I chest pressed 75s and y'all lost it 😤 So I made the program. Press Like A Boss is live — 6 weeks to the strongest upper body you've ever had. Link in bio 💪🏽 #womenwholift #chestpress #strongwomen
-3. Scared of the gym? I was too. Built the Gym Girl Confidence Kit for every girl who's ever walked in and walked right back out. You belong here, sis ✨ Link in bio. #gymanxiety #beginnergym
-4. 30 days. You + me. Daily workouts, habits & mindset. The 30-Day Get Fit With Me Challenge starts whenever YOU say so 🔥 Comment “CHALLENGE” and I'll DM you the link.
+- **Stan product type:** Digital Product
+- **Price:** $19 (shown as a discount from $39)
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/fuel-like-a-baddie-f2q6.html
+- **PDF file to upload:** `getfitwithme/pdf/fuel-like-a-baddie-f2q6.pdf`
+- **Cover image:** `getfitwithme/covers/fuel-like-a-baddie-f2q6.png`
 
-### Launch-day Instagram story sequence
-- Slide 1 (video of you lifting): “Y'all have been asking for MONTHS…”
-- Slide 2: “My store is finally LIVE 😭💜” + screenshot of the store
-- Slide 3: Poll — “What do you need most? 🍑 Glutes / 💪🏽 Upper body / 🍗 Food / ✨ Confidence”
-- Slide 4: “Start with the FREE Glute Starter Pack” + link sticker
-- Slide 5: “Launch week only: the Whole Baddie Bundle is $67 👑” + link sticker
-- Slide 6: Countdown sticker “Launch sale ends” (set for 72 hrs)
+**Thumbnail**
+- Title: Fuel Like A Baddie
+- Subtitle: Macros, meal plan, recipes & grocery list
+- Button: Get the Guide
 
-### Comment-to-DM funnel
-Pin a reel that says “Comment GLUTES for my free workout.” Then send everyone who comments the Free Glute Starter Pack link (Stan has an Instagram AutoDM feature that can do this automatically).
+**Checkout page**
+- Title: Fuel Like A Baddie: The Nutrition Guide
+- Description:
 
-### Pricing strategy
-- **Free Glute Starter Pack** collects emails, so every follower can become a buyer later.
-- **$12 to $37 products** are easy impulse buys from a Reel.
-- **The $67 bundle** sits at #2 so it's the obvious deal next to the individual prices.
-- **$49 call and $149/mo coaching** are your highest-paying offers. Mention them in your stories every week.
-- **Order bumps** on every checkout raise your average order without extra content.
+> Training hard but not seeing it in the mirror? It's usually nutrition. This guide teaches you how to eat for your goal in 17 clear chapters: energy balance, macros, protein, meal timing, hydration, supplements, your cycle, plateaus, eating out and meal prep. Then it gives you the tools: a personal macro calculator, a 7-day high-protein meal plan, 12 recipes with macros, a grocery checklist and a 90-minute meal prep system.
+
+- Bullets:
+  - 17-chapter nutrition guide with knowledge checks
+  - Personal macro calculator (calories, protein, carbs, fat, water)
+  - 7-day high-protein meal plan
+  - 12 recipes with ingredients, steps and macros
+  - Interactive grocery list + 90-minute meal prep checklist
+  - Eating-out guide for 8 popular restaurants
+  - Printable PDF book with a fillable meal planner and check-in log
+- Checkout button: Get the Guide
+- Collect: name + email only
+
+**Order bump**
+- Headline: Add the 30-Day Challenge for $9 (reg. $14.99)
+- Description: Pair your nutrition with 30 days of workouts, habits and mindset.
+
+**Confirmation message**
+> Your guide is in your email. Start with the My Macros tab, then read Chapters 1–4. Shop with the grocery list this weekend.
+
+---
+
+## The Gym Girl Confidence Kit
+
+- **Stan product type:** Digital Product
+- **Price:** $12 (shown as a discount from $27)
+- **Interactive app link:** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/gym-girl-confidence-kit-k4t9.html
+- **PDF file to upload:** `getfitwithme/pdf/gym-girl-confidence-kit-k4t9.pdf`
+- **Cover image:** `getfitwithme/covers/gym-girl-confidence-kit-k4t9.png`
+
+**Thumbnail**
+- Title: The Gym Girl Confidence Kit
+- Subtitle: Beat gym anxiety & own the weight room
+- Button: Build My Confidence
+
+**Checkout page**
+- Title: The Gym Girl Confidence Kit
+- Description:
+
+> Nervous about the weight room? Not sure how the machines work? This kit is the orientation I wish I'd had. In 14 chapters you'll learn how gym anxiety works and how to beat it, the layout of a gym, how every piece of equipment works, etiquette, exactly what to say in awkward moments, how to read a program and choose weights. Then a 2-week plan eases you in: machines first, then dumbbells, then cables.
+
+- Bullets:
+  - 14-chapter beginner's guide to the gym
+  - 2-week starter plan with set-by-set tracking
+  - Exercise library with step-by-step technique
+  - Word-for-word gym scripts
+  - Gym bag and first-visit checklists
+  - Guided confidence journal
+  - Printable PDF with fillable checklists and logs
+- Checkout button: Get the Kit
+- Collect: name + email only
+
+**Order bump**
+- Headline: Add the Glute Specialist Program for $25 (reg. $37)
+- Description: When you're ready, keep the momentum with my signature 8-week program.
+
+**Confirmation message**
+> I'm so proud of you for taking this step. Your kit is in your email. Read Chapters 1–5 tonight and pack your bag. Tag me in your first gym selfie!
+
+---
+
+## 1:1 Form Check Call
+
+- **Stan product type:** Coaching Call (Calendar)
+- **Price:** $49
+- **Cover image:** `getfitwithme/covers/form-check-call.png`
+
+**Thumbnail**
+- Title: 1:1 Form Check Call
+- Subtitle: 30 minutes on video to perfect your technique
+- Button: Book a Call
+
+**Checkout page**
+- Title: 1:1 Form Check & Strategy Call
+- Description:
+
+> Stop guessing whether your form is right. Send me videos of up to five lifts before the call, then we'll meet for 30 minutes on video. I'll break down your technique, give you the cues that fix it and build a plan for your next 4–8 weeks.
+
+- Bullets:
+  - 30-minute 1:1 video call
+  - Review of up to 5 lift videos before the call
+  - Personalized technique corrections and cues
+  - Custom next-steps plan for your goals
+  - Call recording to rewatch
+- Checkout button: Book My Call
+- Collect: name + email only
+
+**Confirmation message**
+> You're booked! Reply to your confirmation email with up to 5 lift videos (side angle is best) at least 24 hours before the call.
+
+---
+
+## 1:1 Online Coaching
+
+- **Stan product type:** Membership / Application
+- **Price:** $149/mo
+- **Cover image:** `getfitwithme/covers/online-coaching.png`
+
+**Thumbnail**
+- Title: 1:1 Online Coaching
+- Subtitle: Custom training, nutrition & weekly check-ins
+- Button: Apply Now
+
+**Checkout page**
+- Title: 1:1 Online Coaching with Danielle
+- Description:
+
+> For women who are ready to stop starting over. You get a fully custom training program built around your body, schedule and gym; personalized macros; weekly check-ins with adjustments; unlimited form reviews; and direct messaging access to me. I keep my client roster small so every client gets real attention, so please apply.
+
+- Bullets:
+  - Custom program updated every 4 weeks
+  - Personalized macros and nutrition guidance
+  - Weekly check-ins and adjustments
+  - Unlimited form-check videos
+  - Direct messaging access
+  - All 5 Get Fit With Me programs included
+- Checkout button: Apply for Coaching
+- Collect: name + email only
+
+**Confirmation message**
+> Application received. I personally review every one and will be in touch within 48 hours.
+
+---
+
+## Launch kit
+
+**Captions**
+
+1. You asked what I do for my glutes, so I wrote it all down. The Glute Specialist Program is live: 8 weeks, 32 workouts, a full training handbook and an app that tracks every set. Start with the free Glute Starter Guide in my bio. #getfitwithme #glutes #womenwholift
+2. 75 lb dumbbell press. Six weeks ago that felt impossible. Press Like A Boss is the exact program and technique breakdown, and it's live now. Link in bio. #strongwomen #upperbody
+3. If gym anxiety has ever made you walk in and walk right back out, this one's for you. The Gym Girl Confidence Kit covers the layout, the equipment, the etiquette and exactly what to say. Link in bio.
+4. 30 days. One short workout, four habits and a journal prompt every day. Comment CHALLENGE and I'll send you the link.
+
+**Launch-day story sequence**
+
+- Slide 1: video of you lifting. Text: "You've been asking for months..."
+- Slide 2: screen recording scrolling through an app. Text: "It's finally here."
+- Slide 3: poll. "What do you need most? Glutes / Upper body / Nutrition / Confidence"
+- Slide 4: "Start free" + link sticker to the Glute Starter Guide
+- Slide 5: "Launch week: the Complete Collection is $67" + link sticker
+- Slide 6: countdown sticker for the end of the launch price (72 hours)
+
+**Comment-to-DM funnel**
+
+Pin a Reel that says "Comment GLUTES for my free workout guide." Send everyone who comments the Glute Starter Guide link. Stan's AutoDM feature can do this automatically.
+
+**Pricing strategy**
+
+- The free guide builds your email list, so every follower can become a buyer later.
+- $12–$37 programs are easy first purchases straight from a Reel.
+- The $67 bundle sits second in the list so its value is obvious next to the individual prices.
+- The $49 call and $149/month coaching are your highest-paying offers. Mention them in your stories every week.
+- Order bumps on every checkout raise your average order value without any new content.

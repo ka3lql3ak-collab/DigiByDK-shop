@@ -1,258 +1,139 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b0710"><title>Get Fit With Me · Danielle Dawson</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪🏽</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
-:root{--c1:#ff2e93;--c2:#8b2cf5;--bg:#0b0710;--card:#17101e;--ink:#fbeef6;--mut:#c9b3c6;--gold:#ffd36e;--line:rgba(255,255,255,.09)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:-20%;z-index:-1;background:
- radial-gradient(40% 35% at 10% 0%,color-mix(in srgb,var(--c1) 40%,transparent),transparent 70%),
- radial-gradient(40% 35% at 100% 30%,color-mix(in srgb,var(--c2) 40%,transparent),transparent 70%),
- radial-gradient(35% 30% at 30% 100%,color-mix(in srgb,var(--c1) 25%,transparent),transparent 70%);
- animation:drift 18s ease-in-out infinite alternate}
-@keyframes drift{to{transform:translate(4%,-3%) rotate(6deg)}}
-a{color:inherit}
-.script{font-family:Pacifico,cursive;color:var(--gold);font-size:26px;margin:0;text-shadow:0 0 18px color-mix(in srgb,var(--gold) 60%,transparent)}
-.marq{overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,var(--c1),var(--c2));font:15px Anton,sans-serif;letter-spacing:2px;padding:7px 0;color:#fff}
-.marq div{display:inline-block;animation:marq 22s linear infinite}
-@keyframes marq{to{transform:translateX(-50%)}}
+<title>Get Fit With Me · Danielle Dawson</title><meta name="description" content="Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. Evidence-based programs, nutrition guides and 1:1 coaching.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><style>
+:root{--bg:#f6f3ef;--surface:#fff;--surface2:#f1ece6;--ink:#17141a;--ink2:#3a343d;--mut:#6f6772;--line:#e5ded6;
+ --acc:#8c1c3d;--acc2:#b02a52;--acc-ink:#fff;--acc-soft:#f5e6eb;--ok:#2f7d5b;--warn:#b25b12;--shadow:0 1px 2px rgba(23,20,26,.04),0 8px 24px -12px rgba(23,20,26,.12);
+ --r:16px;--font:Inter,system-ui,-apple-system,Segoe UI,sans-serif;--head:"Inter Tight",Inter,system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f0d10;--surface:#18151a;--surface2:#221e24;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
+ --acc:#e0688c;--acc2:#f08aa8;--acc-ink:#1b0a10;--acc-soft:#33181f;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f0d10;--surface:#18151a;--surface2:#221e24;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
+ --acc:#e0688c;--acc2:#f08aa8;--acc-ink:#1b0a10;--acc-soft:#33181f;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}
 
-.cover{--c1:#ff2e93;--c2:#8b2cf5;position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;background:#0b0710;container-type:inline-size}
-.cover:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 20% 10%,var(--c1),transparent 70%),radial-gradient(70% 60% at 100% 100%,var(--c2),transparent 70%);opacity:.9}
-.cover:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px)}
-.cv-in{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8cqw;color:#fff}
-.cv-brand{font:4.6cqw Anton,sans-serif;letter-spacing:1.2cqw;opacity:.9}
-.cv-emoji{font-size:20cqw;line-height:1.1;filter:drop-shadow(0 2cqw 4cqw rgba(0,0,0,.4))}
-.cv-script{font:7cqw Pacifico,cursive;color:#ffd36e;text-shadow:0 0 4cqw rgba(0,0,0,.5)}
-.cv-title{font:13cqw/.95 Anton,sans-serif;text-transform:uppercase;text-shadow:0 1cqw 0 rgba(0,0,0,.35),0 0 6cqw rgba(0,0,0,.4)}
-.cv-by{font:3.8cqw Poppins,sans-serif;font-weight:700;letter-spacing:.8cqw;margin-top:4cqw;opacity:.85}
+.cover{--h:340;position:relative;aspect-ratio:1;overflow:hidden;background:#120d12;color:#fff;container-type:inline-size;border-radius:inherit}
+.cover:before{content:"";position:absolute;inset:0;background:radial-gradient(75% 60% at 90% 0%,hsl(var(--h) 70% 40% / .95),transparent 70%),radial-gradient(70% 60% at 0% 100%,hsl(var(--h) 60% 24% / .9),transparent 70%)}
+.cv{position:absolute;inset:7cqw;display:flex;flex-direction:column}
+.cv-wm{font:800 2.6cqw/1 "Inter Tight",sans-serif;letter-spacing:.32em;text-transform:uppercase}
+.cv-big{font:800 34cqw/.78 "Inter Tight",sans-serif;letter-spacing:-.04em;margin-top:auto;color:transparent;-webkit-text-stroke:.35cqw rgba(255,255,255,.6)}
+.cv-unit{font:600 2.6cqw Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin:2.2cqw 0 4cqw}
+.cv-kick{font:600 2.6cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:hsl(var(--h) 85% 80%)}
+.cv-title{font:800 8.4cqw/1 "Inter Tight",sans-serif;letter-spacing:-.03em;margin:1.6cqw 0 4cqw}
+.cv-by{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.3);padding-top:2.6cqw}
+.cv-by b{font:italic 400 5cqw "Instrument Serif",serif}.cv-by span{font:600 2.2cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 
-.wrap{max-width:480px;margin:0 auto;padding:28px 16px 60px}
-.hero{text-align:center}
-.av{width:118px;height:118px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font:44px Anton;color:#fff;position:relative;
- background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 0 0 4px var(--bg),0 0 0 7px var(--gold),0 0 50px var(--c1)}
-.av:after{content:"✨";position:absolute;right:-6px;top:0;font-size:26px;animation:spin 4s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-h1{font:44px/1 Anton;margin:6px 0 2px;text-transform:uppercase;letter-spacing:1px;filter:drop-shadow(0 0 16px var(--c1))}
-.who{font-weight:600;margin:0}.bio{color:var(--mut);font-size:14.5px;line-height:1.55;margin:10px 0}
-.soc{display:flex;justify-content:center;gap:10px;margin:12px 0 22px}
-.soc a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);text-decoration:none;font:700 13px Poppins}
-.prod{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:12px;margin:14px 0}
-.pcard{all:unset;cursor:pointer;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;width:100%}
-.pcard .cover{border-radius:14px}
-.pinfo h3{font:19px/1.15 Anton;letter-spacing:.3px;margin:0 0 4px;text-transform:uppercase}.pinfo p{margin:0 0 6px;color:var(--mut);font-size:13px;line-height:1.4}
-.price{font:20px Anton;color:var(--gold)}s{color:var(--mut);font-size:14px}
-.cta{display:block;width:100%;margin-top:12px;border:none;border-radius:16px;padding:14px;font:18px Anton;letter-spacing:1.2px;color:#fff;cursor:pointer;
- background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 10px 26px -10px var(--c1);text-transform:uppercase}
-.prod:nth-of-type(2){border:2px solid var(--gold);box-shadow:0 0 40px -10px var(--gold)}
-.prod:nth-of-type(2):before{content:"🔥 BEST VALUE";display:block;font:13px Anton;letter-spacing:2px;color:var(--gold);margin:0 0 8px 4px}
-dialog{width:min(520px,calc(100vw - 24px));max-height:92vh;border:1px solid var(--c1);border-radius:26px;background:#140d1a;color:var(--ink);padding:18px;overflow-y:auto}
-dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
-dialog .cover{width:100%}
-dialog h2{font:30px/1.05 Anton;text-transform:uppercase;margin:16px 0 6px}dialog p{line-height:1.6;color:#e8d7e4}
-dialog ul{padding:0;list-style:none}dialog li{padding:7px 0 7px 30px;position:relative;border-bottom:1px solid var(--line)}
-dialog li:before{content:"✓";position:absolute;left:4px;color:var(--c1);font-weight:800}
-.close{position:sticky;top:0;float:right;z-index:3;width:38px;height:38px;border-radius:50%;border:none;background:#fff2;color:#fff;font-size:18px;cursor:pointer}
-.bump{border:2px dashed var(--gold);border-radius:16px;padding:12px;margin:14px 0;background:#ffd36e12}.bump p{margin:4px 0 0;font-size:14px}
-.form{display:grid;gap:8px}.form input{font:16px Poppins;padding:12px;border-radius:12px;border:1px solid var(--line);background:#ffffff0d;color:#fff}
-.cta.big{font-size:22px;padding:17px}
-.btn.ghost{display:block;text-align:center;margin-top:10px;padding:12px;border-radius:14px;background:#ffffff10;text-decoration:none;font-weight:600}
-.note{font-size:12px;color:var(--mut);text-align:center}
-footer{text-align:center;color:var(--mut);font-size:12px;margin-top:30px}
-</style></head><body>
-<div class="marq" aria-hidden="true"><div>NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • NO EXCUSES • GET FIT WITH ME • LIFT HEAVY • GLOW LOUD • STRONG IS SEXY • BOOTY GAINS LOADING • YOU BELONG HERE • </div></div>
-<div class="wrap"><section class="hero">
- <div class="av" aria-label="Profile photo">DD</div>
- <p class="script">Lift heavy. Glow loud. Get fit with me.</p>
- <h1>Get Fit With Me</h1><p class="who">Danielle Dawson · @getfitwithme</p>
- <p class="bio">Hey baddie, I&#x27;m Danielle 💪🏽 Online fitness coach | Heavy weights, real results &amp; zero gym anxiety. Programs, meal plans &amp; coaching to help you get STRONG, snatched &amp; confident. Let&#x27;s get fit together 👇🏽</p>
- <div class="soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="TikTok">TT</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="Email">✉️</a></div>
-</section>
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:40px 16px 60px}
+.hero{text-align:center}.av{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:var(--ink);color:var(--bg);font:800 34px var(--head);letter-spacing:-.02em;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}
+.wm{font:800 12px var(--head);letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+h1{font:800 40px/1.05 var(--head);letter-spacing:-.03em;margin:8px 0 4px}.tag{font:italic 400 21px var(--serif);color:var(--mut);margin:0}
+.bio{color:var(--ink2);font-size:15px;margin:14px auto 18px;max-width:420px}
+.soc{display:flex;justify-content:center;gap:8px;margin:0 0 30px}.soc a{font:600 13px var(--font);color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px;margin:0 0 14px;box-shadow:var(--shadow)}
+.prod:nth-of-type(2){border:1.5px solid var(--acc)}.prod:nth-of-type(2):before{content:"Best value";display:inline-block;font:700 11px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--acc-ink);background:var(--acc);border-radius:999px;padding:4px 10px;margin:2px 0 10px 2px}
+.pcard{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;width:100%}
+.pcard .cover{border-radius:12px}.pinfo b{display:block;font:700 17px/1.25 var(--head)}.pinfo small{display:block;color:var(--mut);font-size:13.5px;line-height:1.4;margin:3px 0 6px}
+.price{font:800 18px var(--head);color:var(--ink)}s{color:var(--mut);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:12px;padding:13px 18px;font:600 15px var(--font);cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--acc);color:var(--acc-ink)}.btn.ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}.btn.wide{width:100%;margin-top:10px}
+dialog{width:min(560px,100vw);max-height:94vh;border:0;border-radius:20px;padding:0;background:var(--surface);color:var(--ink);overflow:auto}
+dialog::backdrop{background:rgba(15,13,16,.6);backdrop-filter:blur(3px)}
+.dl-cover .cover{border-radius:0}.dl-body{padding:22px 22px 26px}
+dialog h2{font:800 28px/1.12 var(--head);letter-spacing:-.02em;margin:0 0 6px}.pr{margin:0 0 12px}dialog p{color:var(--ink2)}
+dialog ul{list-style:none;padding:0;margin:14px 0}dialog li{padding:9px 0 9px 28px;border-top:1px solid var(--line);position:relative;font-size:15px}
+dialog li:before{content:"";position:absolute;left:4px;top:15px;width:12px;height:7px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.bump{display:flex;gap:12px;border:1.5px dashed var(--acc);border-radius:12px;padding:12px 14px;background:var(--acc-soft);cursor:pointer;margin:14px 0}
+.bump input{width:20px;height:20px;accent-color:var(--acc);flex:none;margin-top:2px}.bump b{display:block;font-size:14.5px}.bump small{color:var(--ink2);font-size:13.5px}
+.fields{display:grid;gap:8px;margin:12px 0 0}.fields input{font:16px var(--font);padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.x{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:22px;cursor:pointer}
+.note{font-size:12px;color:var(--mut);text-align:center;margin-top:12px}footer{text-align:center;color:var(--mut);font-size:12.5px;margin-top:28px}
+</style></head><body><div class="wrap"><section class="hero"><div class="av" role="img" aria-label="Profile photo placeholder">DD</div>
+<div class="wm">Get Fit With Me</div><h1>Danielle Dawson</h1><p class="tag">Lift heavy. Eat well. Show up for yourself.</p><p class="bio">Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. Evidence-based programs, nutrition guides and 1:1 coaching.</p>
+<div class="soc"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">YouTube</a></div></section>
 <article class="prod" id="glute-starter-pack-free-g7f2">
-  <button class="pcard" data-open="glute-starter-pack-free-g7f2"><div class="cover sm" style="--c1:#ff2e93;--c2:#8b2cf5"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍑</div>
- <div class="cv-script">free gift</div><div class="cv-title">The Glute Starter Pack</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>FREE Glute Starter Pack 🍑</h3><p>3 booty workouts you can start TODAY</p><div><span class="price">FREE</span></div></div></button>
-  <button class="cta" data-open="glute-starter-pack-free-g7f2">Send It To Me 💌</button>
-  <dialog id="d-glute-starter-pack-free-g7f2"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#ff2e93;--c2:#8b2cf5"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍑</div>
- <div class="cv-script">free gift</div><div class="cv-title">The Glute Starter Pack</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>Get My FREE Glute Starter Pack 🍑</h2><div class="pr"><span class="price">FREE</span></div>
-   <p>Want to grow your glutes but don&#x27;t know where to start? I got you, baddie. This is the exact way I train — packed into 3 workouts you can start TODAY. Track every set right from your phone. No boring PDF, no guessing. Just drop your email and it&#x27;s yours.</p>
-   <ul><li>3 glute-focused workouts (gym or home with dumbbells)</li><li>Interactive tracker — tap off sets &amp; log your weights</li><li>Built-in rest timer so you never lose count</li><li>Form tips for every single exercise</li><li>My 4 non-negotiable Glute Rules</li></ul>
-   
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">GIVE ME THE BOOTY PLAN 🍑</button>
-   <a class="btn ghost" href="glute-starter-pack-free-g7f2.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="whole-baddie-bundle">
-  <button class="pcard" data-open="whole-baddie-bundle"><div class="cover sm" style="--c1:#ffd36e;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">👑</div>
- <div class="cv-script">everything. all of it.</div><div class="cv-title">Whole Baddie Bundle</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>THE WHOLE BADDIE BUNDLE 👑</h3><p>Every program, meal plan &amp; kit — save 37%</p><div><span class="price">$67</span> <s>$106.99</s></div></div></button>
-  <button class="cta" data-open="whole-baddie-bundle">Get Everything 👑</button>
-  <dialog id="d-whole-baddie-bundle"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#ffd36e;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">👑</div>
- <div class="cv-script">everything. all of it.</div><div class="cv-title">Whole Baddie Bundle</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>The Whole Baddie Bundle 👑</h2><div class="pr"><span class="price">$67</span> <s>$106.99</s></div>
-   <p>Want it ALL? Of course you do. 👑 Get every single Get Fit With Me product in one bundle and save over $40. Your workouts, your nutrition, your confidence — all handled. This is the complete glow-up system I wish I had when I started.</p>
-   <ul><li>8-Week Booty Builder ($37)</li><li>Press Like A Boss ($24)</li><li>Fuel Like A Baddie ($19)</li><li>30-Day Get Fit With Me Challenge ($14.99)</li><li>Gym Girl Confidence Kit ($12)</li><li>Lifetime access + every future update FREE</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add a 30-min Form Check Call for $29 (reg. $49)</b></label><p>Send me your lift videos and we&#x27;ll fix your form together on a 1:1 video call.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">GIVE ME EVERYTHING 👑</button>
-   
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="30-day-get-fit-challenge-c9x4">
-  <button class="pcard" data-open="30-day-get-fit-challenge-c9x4"><div class="cover sm" style="--c1:#ff7a18;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🔥</div>
- <div class="cv-script">the glow-up starts now</div><div class="cv-title">30-Day Get Fit With Me Challenge</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>30-Day Get Fit With Me Challenge 🔥</h3><p>Daily workouts + habits + mindset. Glow-up guaranteed.</p><div><span class="price">$14.99</span> <s>$29</s></div></div></button>
-  <button class="cta" data-open="30-day-get-fit-challenge-c9x4">Join The Challenge 🔥</button>
-  <dialog id="d-30-day-get-fit-challenge-c9x4"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#ff7a18;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🔥</div>
- <div class="cv-script">the glow-up starts now</div><div class="cv-title">30-Day Get Fit With Me Challenge</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>The 30-Day Get Fit With Me Challenge</h2><div class="pr"><span class="price">$14.99</span> <s>$29</s></div>
-   <p>You keep saying “I&#x27;m starting Monday.” Babe… THIS is your Monday. For 30 days, you and me are getting it IN — quick daily workouts you can do at home or the gym, 4 simple habits that change EVERYTHING, and a daily mindset prompt so your head glows up with your body. Check off your day, watch your streak grow, and feel yourself become HER.</p>
-   <ul><li>30 days of 20–30 min workouts that level up every week</li><li>Daily habit tracker with streaks + confetti (yes, really 🎉)</li><li>30 mindset journal prompts</li><li>Built-in workout timer</li><li>Measurement tracker to see your progress</li><li>Final Boss workout + Show-Off Day 👑</li><li>Works on any phone — no app download</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add Fuel Like A Baddie for just $9 (reg. $19)</b></label><p>Get my 7-day high-protein meal plan, grocery list &amp; macro calculator so your nutrition matches your effort.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">I&#x27;M IN — LET&#x27;S GET FIT 🔥</button>
-   <a class="btn ghost" href="30-day-get-fit-challenge-c9x4.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="booty-builder-8-week-b3k8">
-  <button class="pcard" data-open="booty-builder-8-week-b3k8"><div class="cover sm" style="--c1:#ff2e93;--c2:#b0173d"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍑</div>
- <div class="cv-script">glute specialist</div><div class="cv-title">8-Week Booty Builder</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>8-Week Booty Builder 🍑</h3><p>My signature glute program — the one everybody asks for</p><div><span class="price">$37</span> <s>$67</s></div></div></button>
-  <button class="cta" data-open="booty-builder-8-week-b3k8">Build My Booty 🍑</button>
-  <dialog id="d-booty-builder-8-week-b3k8"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#ff2e93;--c2:#b0173d"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍑</div>
- <div class="cv-script">glute specialist</div><div class="cv-title">8-Week Booty Builder</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>Glute Specialist: The 8-Week Booty Builder</h2><div class="pr"><span class="price">$37</span> <s>$67</s></div>
-   <p>Y&#x27;all ask me EVERY day “what do you do for your glutes?” This is it. My full signature program — 4 days a week, 8 weeks, built in 4 phases so your body never gets bored and never stops growing. Every set, rep, rest time and form tip is laid out for you in an app-style tracker right on your phone. Walk into the gym knowing EXACTLY what to do. No more copying random TikTok workouts and hoping for the best.</p>
-   <ul><li>8 weeks · 4 workouts/week · 4 progressive phases</li><li>32 done-for-you workouts that auto-progress each week</li><li>Log your weight for every exercise + tap off every set</li><li>Form tips for all 25+ exercises</li><li>Built-in rest timer with alarm</li><li>PR Wall to track your strongest lifts 👑</li><li>Includes upper body day so you&#x27;re snatched head to toe</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add the PR Press Program for $15 (reg. $24)</b></label><p>Want to chest press 75s like me? Add my 6-week upper body strength program.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">START BUILDING 🍑</button>
-   <a class="btn ghost" href="booty-builder-8-week-b3k8.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="press-like-a-boss-p5m1">
-  <button class="pcard" data-open="press-like-a-boss-p5m1"><div class="cover sm" style="--c1:#8b2cf5;--c2:#3b82f6"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">💪🏽</div>
- <div class="cv-script">75 lbs &amp; counting</div><div class="cv-title">Press Like A Boss</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>Press Like A Boss 💪🏽</h3><p>6 weeks to your strongest upper body ever</p><div><span class="price">$24</span> <s>$47</s></div></div></button>
-  <button class="cta" data-open="press-like-a-boss-p5m1">Get Strong 💪🏽</button>
-  <dialog id="d-press-like-a-boss-p5m1"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#8b2cf5;--c2:#3b82f6"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">💪🏽</div>
- <div class="cv-script">75 lbs &amp; counting</div><div class="cv-title">Press Like A Boss</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>Press Like A Boss: 6-Week Upper Body Strength</h2><div class="pr"><span class="price">$24</span> <s>$47</s></div>
-   <p>Y&#x27;all went CRAZY over my 70 &amp; 75 lb chest press video 😤 So here&#x27;s the exact plan. 6 weeks, 3 upper body days a week, built to make you STRONG — not bulky. Sculpted shoulders, a snatched back, toned arms and a chest press that makes the gym bros look twice. Week 6 is PR Week, and you&#x27;re gonna surprise yourself.</p>
-   <ul><li>6-week progressive strength program (3 days/week)</li><li>Heavy push, pull &amp; volume days</li><li>Weight logger + tap-off sets for every exercise</li><li>PR Wall with automatic 1-rep-max estimate</li><li>My secrets for getting heavy dumbbells into position</li><li>Rest timer built in</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add the 8-Week Booty Builder for $25 (reg. $37)</b></label><p>Complete your split with my signature lower-body &amp; glute program.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">LET&#x27;S PRESS 💪🏽</button>
-   <a class="btn ghost" href="press-like-a-boss-p5m1.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="fuel-like-a-baddie-f2q6">
-  <button class="pcard" data-open="fuel-like-a-baddie-f2q6"><div class="cover sm" style="--c1:#22c55e;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍗</div>
- <div class="cv-script">eat to get snatched</div><div class="cv-title">Fuel Like A Baddie</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>Fuel Like A Baddie 🍗</h3><p>Meal plan + grocery list + macro calculator</p><div><span class="price">$19</span> <s>$39</s></div></div></button>
-  <button class="cta" data-open="fuel-like-a-baddie-f2q6">Feed Me Right 🍗</button>
-  <dialog id="d-fuel-like-a-baddie-f2q6"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#22c55e;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🍗</div>
- <div class="cv-script">eat to get snatched</div><div class="cv-title">Fuel Like A Baddie</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>Fuel Like A Baddie: High-Protein Meal Plan Kit</h2><div class="pr"><span class="price">$19</span> <s>$39</s></div>
-   <p>You&#x27;re killing it in the gym but the scale and the mirror aren&#x27;t moving? It&#x27;s the food, babe. This kit tells you EXACTLY how much to eat for your goal, then hands you a 7-day high-protein meal plan with real, flavorful food (jerk chicken, burrito bowls, protein waffles 😍), a tap-to-check grocery list, a 90-minute Sunday meal prep plan, and my eating-out cheat sheet so you can still go out with the girls.</p>
-   <ul><li>Personal macro calculator (calories, protein, carbs, fat, water)</li><li>7-day high-protein meal plan (28 meals)</li><li>Interactive grocery checklist</li><li>90-minute Sunday meal prep game plan</li><li>8 high-protein snacks + sweet treats</li><li>Eating-out cheat sheet: Chipotle, Chick-fil-A, Starbucks &amp; more</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add the 30-Day Challenge for $9 (reg. $14.99)</b></label><p>Pair your new meal plan with 30 days of workouts, habits &amp; mindset.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">FUEL ME UP 🍗</button>
-   <a class="btn ghost" href="fuel-like-a-baddie-f2q6.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="gym-girl-confidence-kit-k4t9">
-  <button class="pcard" data-open="gym-girl-confidence-kit-k4t9"><div class="cover sm" style="--c1:#f5b70a;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">✨</div>
- <div class="cv-script">from scared to stage</div><div class="cv-title">Gym Girl Confidence Kit</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>Gym Girl Confidence Kit ✨</h3><p>Beat gym anxiety &amp; own the weight room</p><div><span class="price">$12</span> <s>$27</s></div></div></button>
-  <button class="cta" data-open="gym-girl-confidence-kit-k4t9">Boost My Confidence ✨</button>
-  <dialog id="d-gym-girl-confidence-kit-k4t9"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#f5b70a;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">✨</div>
- <div class="cv-script">from scared to stage</div><div class="cv-title">Gym Girl Confidence Kit</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>The Gym Girl Confidence Kit</h2><div class="pr"><span class="price">$12</span> <s>$27</s></div>
-   <p>Scared of the weight room? Don&#x27;t know how the machines work? Feel like everyone&#x27;s staring? Sis… I&#x27;ve been there. This kit takes you from nervous to NOTHING-CAN-STOP-ME in 2 weeks. You&#x27;ll know what to pack, how to use 10 of the most common machines, exactly what to say in awkward moments, and you&#x27;ll follow a beginner plan that eases you in — machines first, then dumbbells, then cables. You belong in that gym.</p>
-   <ul><li>2-week beginner gym plan (machines → dumbbells → cables)</li><li>Step-by-step guide to 10 gym machines</li><li>Word-for-word gym scripts for awkward moments</li><li>Gym bag + confidence ritual checklists</li><li>6 gym affirmations + 5 journal prompts</li><li>Interactive tracker with rest timer</li></ul>
-   <div class="bump"><label><input type="checkbox"> <b>YES! Add the 8-Week Booty Builder for $25 (reg. $37)</b></label><p>Once you&#x27;re confident, keep the momentum with my signature 8-week program.</p></div>
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">I&#x27;M READY TO OWN IT ✨</button>
-   <a class="btn ghost" href="gym-girl-confidence-kit-k4t9.html" target="_blank">👀 Preview the product</a>
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="form-check-call">
-  <button class="pcard" data-open="form-check-call"><div class="cover sm" style="--c1:#3b82f6;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🎥</div>
- <div class="cv-script">let&#x27;s fix it</div><div class="cv-title">Form Check Call</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>1:1 Form Check Call 🎥</h3><p>30 min on video — let&#x27;s fix your form together</p><div><span class="price">$49</span></div></div></button>
-  <button class="cta" data-open="form-check-call">Book My Call 📅</button>
-  <dialog id="d-form-check-call"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#3b82f6;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">🎥</div>
- <div class="cv-script">let&#x27;s fix it</div><div class="cv-title">Form Check Call</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>1:1 Form Check + Strategy Call</h2><div class="pr"><span class="price">$49</span></div>
-   <p>Not sure if you&#x27;re doing it right? Stop guessing and get eyes on your form. Send me videos of your lifts before the call, then we hop on a 30-minute video call where I break down your technique, fix what&#x27;s holding you back, and build you a game plan for your goals.</p>
-   <ul><li>30-minute 1:1 video call with me</li><li>I review up to 5 of your lift videos beforehand</li><li>Personal form corrections + cues</li><li>Custom next-steps plan for your goals</li><li>Recording of the call so you can rewatch</li></ul>
-   
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">BOOK IT 📅</button>
-   
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article><article class="prod" id="online-coaching">
-  <button class="pcard" data-open="online-coaching"><div class="cover sm" style="--c1:#8b2cf5;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">💜</div>
- <div class="cv-script">work with me</div><div class="cv-title">1:1 Coaching</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <div class="pinfo"><h3>Online Coaching With Danielle 💜</h3><p>Custom program, macros &amp; weekly check-ins</p><div><span class="price">$149/mo</span></div></div></button>
-  <button class="cta" data-open="online-coaching">Apply Now 💜</button>
-  <dialog id="d-online-coaching"><form method="dialog"><button class="close" aria-label="Close">✕</button></form>
-   <div class="cover " style="--c1:#8b2cf5;--c2:#ff2e93"><div class="cv-in">
- <div class="cv-brand">GET FIT WITH ME</div><div class="cv-emoji">💜</div>
- <div class="cv-script">work with me</div><div class="cv-title">1:1 Coaching</div>
- <div class="cv-by">BY DANIELLE DAWSON</div></div></div>
-   <h2>1:1 Online Coaching With Danielle</h2><div class="pr"><span class="price">$149/mo</span></div>
-   <p>This is for the girl who&#x27;s DONE starting over. You get a fully custom training program built around your body, schedule and gym, your own macros, weekly check-ins, form reviews and direct access to me in your DMs. I only take a small number of clients so I can actually give you my attention — so apply and let&#x27;s see if we&#x27;re a fit.</p>
-   <ul><li>Custom training program updated every 4 weeks</li><li>Personal macros + nutrition guidance</li><li>Weekly check-ins &amp; adjustments</li><li>Unlimited form check videos</li><li>Direct messaging access to me</li><li>All 5 Get Fit With Me products included FREE</li></ul>
-   
-   <div class="form"><input placeholder="Full name"><input placeholder="Email address" type="email"></div>
-   <button class="cta big" type="button">APPLY FOR COACHING 💜</button>
-   
-   <p class="note">Mock checkout — on Stan the real checkout replaces this.</p>
-  </dialog></article>
-<footer>© 2026 Danielle Dawson · Get Fit With Me</footer></div>
+ <button class="pcard" data-open="glute-starter-pack-free-g7f2"><div class="cover" style="--h:340"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">03</div><div class="cv-unit">Workouts</div><div class="cv-kick">Free guide</div><div class="cv-title">The Glute Starter Guide</div><div class="cv-by"><b>Danielle Dawson</b><span>3 workouts · 1 week</span></div></div></div><span class="pinfo"><b>Free Glute Starter Guide</b><small>3 glute workouts you can start today</small><span><span class="price">FREE</span></span></span></button>
+ <button class="btn primary wide" data-open="glute-starter-pack-free-g7f2">Get the Free Guide</button>
+ <dialog id="d-glute-starter-pack-free-g7f2"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:340"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">03</div><div class="cv-unit">Workouts</div><div class="cv-kick">Free guide</div><div class="cv-title">The Glute Starter Guide</div><div class="cv-by"><b>Danielle Dawson</b><span>3 workouts · 1 week</span></div></div></div></div><div class="dl-body">
+  <h2>The Glute Starter Guide (Free)</h2><div class="pr"><span class="price">FREE</span></div><p>Want to grow your glutes but don&#x27;t know where to start? This free guide gives you three of my favorite glute workouts and the four principles behind every program I write. You get an interactive tracker for your phone and a PDF you can print. Enter your email and it&#x27;s yours.</p>
+  <ul><li>3 glute-focused gym workouts</li><li>Interactive tracker: log every set, built-in rest timer</li><li>Step-by-step technique for every exercise</li><li>The 4 rules of glute growth</li><li>Printable PDF with fillable workout logs</li></ul>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Send Me the Guide</button><a class="btn ghost wide" href="glute-starter-pack-free-g7f2.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/glute-starter-pack-free-g7f2.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="complete-collection">
+ <button class="pcard" data-open="complete-collection"><div class="cover" style="--h:330"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">05</div><div class="cv-unit">Programs</div><div class="cv-kick">Bundle · Save 37%</div><div class="cv-title">The Complete Collection</div><div class="cv-by"><b>Danielle Dawson</b><span>5 programs · 5 PDF books</span></div></div></div><span class="pinfo"><b>The Complete Collection</b><small>All 5 programs &amp; guides. Save 37%</small><span><span class="price">$67</span> <s>$106.99</s></span></span></button>
+ <button class="btn primary wide" data-open="complete-collection">Get Everything</button>
+ <dialog id="d-complete-collection"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:330"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">05</div><div class="cv-unit">Programs</div><div class="cv-kick">Bundle · Save 37%</div><div class="cv-title">The Complete Collection</div><div class="cv-by"><b>Danielle Dawson</b><span>5 programs · 5 PDF books</span></div></div></div></div><div class="dl-body">
+  <h2>The Complete Get Fit With Me Collection</h2><div class="pr"><span class="price">$67</span> <s>$106.99</s></div><p>Everything I teach in one place: training, nutrition and confidence. Get all five programs and guides, each with its interactive app and printable PDF book, and save over $40 compared with buying them separately.</p>
+  <ul><li>The Glute Specialist Program ($37)</li><li>Press Like A Boss ($24)</li><li>Fuel Like A Baddie ($19)</li><li>30-Day Get Fit With Me Challenge ($14.99)</li><li>The Gym Girl Confidence Kit ($12)</li><li>5 interactive apps + 5 printable PDF books</li><li>Lifetime access and all future updates</li></ul><label class="bump"><input type="checkbox"><span><b>Add a 30-min Form Check Call for $29 (reg. $49)</b><small>Send me your lift videos and we&#x27;ll review your technique together on a 1:1 video call.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Get the Collection</button>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="30-day-get-fit-challenge-c9x4">
+ <button class="pcard" data-open="30-day-get-fit-challenge-c9x4"><div class="cover" style="--h:18"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">30</div><div class="cv-unit">Days</div><div class="cv-kick">30-day program</div><div class="cv-title">The 30-Day Get Fit With Me Challenge</div><div class="cv-by"><b>Danielle Dawson</b><span>30 days · 20–35 min/day</span></div></div></div><span class="pinfo"><b>30-Day Get Fit With Me Challenge</b><small>Daily workouts, habits &amp; mindset in 30 days</small><span><span class="price">$14.99</span> <s>$29</s></span></span></button>
+ <button class="btn primary wide" data-open="30-day-get-fit-challenge-c9x4">Join the Challenge</button>
+ <dialog id="d-30-day-get-fit-challenge-c9x4"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:18"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">30</div><div class="cv-unit">Days</div><div class="cv-kick">30-day program</div><div class="cv-title">The 30-Day Get Fit With Me Challenge</div><div class="cv-by"><b>Danielle Dawson</b><span>30 days · 20–35 min/day</span></div></div></div></div><div class="dl-body">
+  <h2>The 30-Day Get Fit With Me Challenge</h2><div class="pr"><span class="price">$14.99</span> <s>$29</s></div><p>Stop waiting for Monday. For 30 days, you&#x27;ll do one short workout a day at home or the gym, four habits that change everything (water, steps, protein, movement) and a daily mindset prompt. Workouts get harder every week. A built-in tracker keeps your streak going, and the guide teaches you how to scale every move to your level.</p>
+  <ul><li>30 progressive daily workouts (20–35 min)</li><li>Habit tracker with streaks and daily check-ins</li><li>30 guided journal prompts</li><li>Scaling chart: easier and harder versions of every move</li><li>Measurement tracker with progress charts</li><li>Full guide: habits, NEAT, consistency, what to expect each week</li><li>Printable PDF with a fillable 30-day tracker and journal</li></ul><label class="bump"><input type="checkbox"><span><b>Add Fuel Like A Baddie for $9 (reg. $19)</b><small>My complete nutrition guide: macro calculator, 7-day meal plan, 12 recipes and grocery list.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Start My 30 Days</button><a class="btn ghost wide" href="30-day-get-fit-challenge-c9x4.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/30-day-get-fit-challenge-c9x4.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="booty-builder-8-week-b3k8">
+ <button class="pcard" data-open="booty-builder-8-week-b3k8"><div class="cover" style="--h:345"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">08</div><div class="cv-unit">Weeks</div><div class="cv-kick">8-week program</div><div class="cv-title">The Glute Specialist Program</div><div class="cv-by"><b>Danielle Dawson</b><span>8 weeks · 4 days/week</span></div></div></div><span class="pinfo"><b>The Glute Specialist Program</b><small>My signature 8-week glute program</small><span><span class="price">$37</span> <s>$67</s></span></span></button>
+ <button class="btn primary wide" data-open="booty-builder-8-week-b3k8">Start the Program</button>
+ <dialog id="d-booty-builder-8-week-b3k8"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:345"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">08</div><div class="cv-unit">Weeks</div><div class="cv-kick">8-week program</div><div class="cv-title">The Glute Specialist Program</div><div class="cv-by"><b>Danielle Dawson</b><span>8 weeks · 4 days/week</span></div></div></div></div><div class="dl-body">
+  <h2>The Glute Specialist Program: 8 Weeks</h2><div class="pr"><span class="price">$37</span> <s>$67</s></div><p>Everyone asks what I do for my glutes. This is it: my complete 8-week program, built in four progressive phases (Foundation, Build, Strength, Peak) with three lower-body days and one upper-body day each week. You also get a 14-chapter handbook covering the science of glute growth, progressive overload, effort (RIR), warm-ups, nutrition and troubleshooting. Track every set in the app, see what you lifted last time, and watch your strength climb on your progress charts.</p>
+  <ul><li>32 progressive workouts across 8 weeks</li><li>14-chapter training handbook with knowledge checks</li><li>Set-by-set logging with &#x27;last time&#x27; comparisons</li><li>Progress charts, PR Wall and measurement tracking</li><li>Exercise library: setup, cues, mistakes &amp; swaps for 25+ moves</li><li>1RM and warm-up calculators, auto rest timer</li><li>Printable PDF book with 32 fillable workout logs</li></ul><label class="bump"><input type="checkbox"><span><b>Add Press Like A Boss for $15 (reg. $24)</b><small>My 6-week upper-body strength program. It pairs perfectly as a full upper/lower split.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Get the Program</button><a class="btn ghost wide" href="booty-builder-8-week-b3k8.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/booty-builder-8-week-b3k8.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="press-like-a-boss-p5m1">
+ <button class="pcard" data-open="press-like-a-boss-p5m1"><div class="cover" style="--h:265"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">06</div><div class="cv-unit">Weeks</div><div class="cv-kick">6-week strength program</div><div class="cv-title">Press Like A Boss</div><div class="cv-by"><b>Danielle Dawson</b><span>6 weeks · 3 days/week</span></div></div></div><span class="pinfo"><b>Press Like A Boss</b><small>6 weeks to your strongest upper body</small><span><span class="price">$24</span> <s>$47</s></span></span></button>
+ <button class="btn primary wide" data-open="press-like-a-boss-p5m1">Get Stronger</button>
+ <dialog id="d-press-like-a-boss-p5m1"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:265"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">06</div><div class="cv-unit">Weeks</div><div class="cv-kick">6-week strength program</div><div class="cv-title">Press Like A Boss</div><div class="cv-by"><b>Danielle Dawson</b><span>6 weeks · 3 days/week</span></div></div></div></div><div class="dl-body">
+  <h2>Press Like A Boss: 6-Week Upper Body Strength</h2><div class="pr"><span class="price">$24</span> <s>$47</s></div><p>You saw me press 70s and 75s. This is the exact plan behind it. Three upper-body days a week for six weeks: a heavy push day, a pull and posture day and a volume day, ending with a structured PR Week. The handbook teaches you dumbbell press technique step by step, how to beat the dumbbell jump problem, shoulder health, spotting and how to test your max safely.</p>
+  <ul><li>18 progressive workouts across 6 weeks</li><li>11-chapter strength handbook with knowledge checks</li><li>Dumbbell press masterclass, including the kick-up technique</li><li>Strategies for breaking through dumbbell plateaus</li><li>PR Week warm-up protocol + 1RM calculator</li><li>Set-by-set logging and progress charts</li><li>Printable PDF book with fillable workout logs</li></ul><label class="bump"><input type="checkbox"><span><b>Add the Glute Specialist Program for $25 (reg. $37)</b><small>Complete your split with my signature 8-week lower-body program.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Get the Program</button><a class="btn ghost wide" href="press-like-a-boss-p5m1.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/press-like-a-boss-p5m1.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="fuel-like-a-baddie-f2q6">
+ <button class="pcard" data-open="fuel-like-a-baddie-f2q6"><div class="cover" style="--h:150"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">17</div><div class="cv-unit">Chapters</div><div class="cv-kick">Nutrition guide</div><div class="cv-title">Fuel Like A Baddie</div><div class="cv-by"><b>Danielle Dawson</b><span>17 chapters · 12 recipes</span></div></div></div><span class="pinfo"><b>Fuel Like A Baddie</b><small>Macros, meal plan, recipes &amp; grocery list</small><span><span class="price">$19</span> <s>$39</s></span></span></button>
+ <button class="btn primary wide" data-open="fuel-like-a-baddie-f2q6">Get the Guide</button>
+ <dialog id="d-fuel-like-a-baddie-f2q6"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:150"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">17</div><div class="cv-unit">Chapters</div><div class="cv-kick">Nutrition guide</div><div class="cv-title">Fuel Like A Baddie</div><div class="cv-by"><b>Danielle Dawson</b><span>17 chapters · 12 recipes</span></div></div></div></div><div class="dl-body">
+  <h2>Fuel Like A Baddie: The Nutrition Guide</h2><div class="pr"><span class="price">$19</span> <s>$39</s></div><p>Training hard but not seeing it in the mirror? It&#x27;s usually nutrition. This guide teaches you how to eat for your goal in 17 clear chapters: energy balance, macros, protein, meal timing, hydration, supplements, your cycle, plateaus, eating out and meal prep. Then it gives you the tools: a personal macro calculator, a 7-day high-protein meal plan, 12 recipes with macros, a grocery checklist and a 90-minute meal prep system.</p>
+  <ul><li>17-chapter nutrition guide with knowledge checks</li><li>Personal macro calculator (calories, protein, carbs, fat, water)</li><li>7-day high-protein meal plan</li><li>12 recipes with ingredients, steps and macros</li><li>Interactive grocery list + 90-minute meal prep checklist</li><li>Eating-out guide for 8 popular restaurants</li><li>Printable PDF book with a fillable meal planner and check-in log</li></ul><label class="bump"><input type="checkbox"><span><b>Add the 30-Day Challenge for $9 (reg. $14.99)</b><small>Pair your nutrition with 30 days of workouts, habits and mindset.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Get the Guide</button><a class="btn ghost wide" href="fuel-like-a-baddie-f2q6.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/fuel-like-a-baddie-f2q6.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="gym-girl-confidence-kit-k4t9">
+ <button class="pcard" data-open="gym-girl-confidence-kit-k4t9"><div class="cover" style="--h:40"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">02</div><div class="cv-unit">Weeks</div><div class="cv-kick">Beginner guide</div><div class="cv-title">The Gym Girl Confidence Kit</div><div class="cv-by"><b>Danielle Dawson</b><span>14 chapters · 2-week plan</span></div></div></div><span class="pinfo"><b>The Gym Girl Confidence Kit</b><small>Beat gym anxiety &amp; own the weight room</small><span><span class="price">$12</span> <s>$27</s></span></span></button>
+ <button class="btn primary wide" data-open="gym-girl-confidence-kit-k4t9">Build My Confidence</button>
+ <dialog id="d-gym-girl-confidence-kit-k4t9"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:40"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">02</div><div class="cv-unit">Weeks</div><div class="cv-kick">Beginner guide</div><div class="cv-title">The Gym Girl Confidence Kit</div><div class="cv-by"><b>Danielle Dawson</b><span>14 chapters · 2-week plan</span></div></div></div></div><div class="dl-body">
+  <h2>The Gym Girl Confidence Kit</h2><div class="pr"><span class="price">$12</span> <s>$27</s></div><p>Nervous about the weight room? Not sure how the machines work? This kit is the orientation I wish I&#x27;d had. In 14 chapters you&#x27;ll learn how gym anxiety works and how to beat it, the layout of a gym, how every piece of equipment works, etiquette, exactly what to say in awkward moments, how to read a program and choose weights. Then a 2-week plan eases you in: machines first, then dumbbells, then cables.</p>
+  <ul><li>14-chapter beginner&#x27;s guide to the gym</li><li>2-week starter plan with set-by-set tracking</li><li>Exercise library with step-by-step technique</li><li>Word-for-word gym scripts</li><li>Gym bag and first-visit checklists</li><li>Guided confidence journal</li><li>Printable PDF with fillable checklists and logs</li></ul><label class="bump"><input type="checkbox"><span><b>Add the Glute Specialist Program for $25 (reg. $37)</b><small>When you&#x27;re ready, keep the momentum with my signature 8-week program.</small></span></label>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Get the Kit</button><a class="btn ghost wide" href="gym-girl-confidence-kit-k4t9.html">Open the interactive app</a><a class="btn ghost wide" href="pdf/gym-girl-confidence-kit-k4t9.pdf">Download the PDF book</a>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="form-check-call">
+ <button class="pcard" data-open="form-check-call"><div class="cover" style="--h:220"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">30</div><div class="cv-unit">Minutes</div><div class="cv-kick">30-minute call</div><div class="cv-title">1:1 Form Check Call</div><div class="cv-by"><b>Danielle Dawson</b><span>1:1 · Video call</span></div></div></div><span class="pinfo"><b>1:1 Form Check Call</b><small>30 minutes on video to perfect your technique</small><span><span class="price">$49</span></span></span></button>
+ <button class="btn primary wide" data-open="form-check-call">Book a Call</button>
+ <dialog id="d-form-check-call"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:220"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">30</div><div class="cv-unit">Minutes</div><div class="cv-kick">30-minute call</div><div class="cv-title">1:1 Form Check Call</div><div class="cv-by"><b>Danielle Dawson</b><span>1:1 · Video call</span></div></div></div></div><div class="dl-body">
+  <h2>1:1 Form Check &amp; Strategy Call</h2><div class="pr"><span class="price">$49</span></div><p>Stop guessing whether your form is right. Send me videos of up to five lifts before the call, then we&#x27;ll meet for 30 minutes on video. I&#x27;ll break down your technique, give you the cues that fix it and build a plan for your next 4–8 weeks.</p>
+  <ul><li>30-minute 1:1 video call</li><li>Review of up to 5 lift videos before the call</li><li>Personalized technique corrections and cues</li><li>Custom next-steps plan for your goals</li><li>Call recording to rewatch</li></ul>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Book My Call</button>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><article class="prod" id="online-coaching">
+ <button class="pcard" data-open="online-coaching"><div class="cover" style="--h:300"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">1:1</div><div class="cv-unit">Coaching</div><div class="cv-kick">Monthly coaching</div><div class="cv-title">1:1 Online Coaching</div><div class="cv-by"><b>Danielle Dawson</b><span>1:1 · Custom plan</span></div></div></div><span class="pinfo"><b>1:1 Online Coaching</b><small>Custom training, nutrition &amp; weekly check-ins</small><span><span class="price">$149/mo</span></span></span></button>
+ <button class="btn primary wide" data-open="online-coaching">Apply Now</button>
+ <dialog id="d-online-coaching"><button class="x" data-close aria-label="Close">×</button>
+  <div class="dl-cover"><div class="cover" style="--h:300"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">1:1</div><div class="cv-unit">Coaching</div><div class="cv-kick">Monthly coaching</div><div class="cv-title">1:1 Online Coaching</div><div class="cv-by"><b>Danielle Dawson</b><span>1:1 · Custom plan</span></div></div></div></div><div class="dl-body">
+  <h2>1:1 Online Coaching with Danielle</h2><div class="pr"><span class="price">$149/mo</span></div><p>For women who are ready to stop starting over. You get a fully custom training program built around your body, schedule and gym; personalized macros; weekly check-ins with adjustments; unlimited form reviews; and direct messaging access to me. I keep my client roster small so every client gets real attention, so please apply.</p>
+  <ul><li>Custom program updated every 4 weeks</li><li>Personalized macros and nutrition guidance</li><li>Weekly check-ins and adjustments</li><li>Unlimited form-check videos</li><li>Direct messaging access</li><li>All 5 Get Fit With Me programs included</li></ul>
+  <div class="fields"><input placeholder="Full name"><input type="email" placeholder="Email address"></div>
+  <button class="btn primary wide" type="button">Apply for Coaching</button>
+  <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article><footer>© 2026 Danielle Dawson · Get Fit With Me</footer></div>
 <script>
 document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>document.getElementById('d-'+b.dataset.open).showModal());
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
 document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',ev=>{if(ev.target===d)d.close()}));
 const h=location.hash.slice(1);if(h&&document.getElementById('d-'+h))document.getElementById('d-'+h).showModal();
 </script></body></html>

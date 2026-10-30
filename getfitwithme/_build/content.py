@@ -1,214 +1,173 @@
-# Get Fit With Me — all product content + Stan store copy lives here.
-# Edit this file, then run:  python3 getfitwithme/_build/build.py
+# Get Fit With Me — product structure, programs and Stan store copy.
+# Long-form chapters live in guides/*.md, exercise technique in library.py.
+# Edit, then run:  python3 getfitwithme/_build/build.py
 
 COACH = "Danielle Dawson"
 BRAND = "Get Fit With Me"
 HANDLE = "@getfitwithme"  # swap for your real handle
+SITE = "https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme"
 
 STORE = {
-    "name": BRAND,
-    "bio": "Hey baddie, I'm Danielle 💪🏽 Online fitness coach | Heavy weights, real results & zero gym anxiety. "
-           "Programs, meal plans & coaching to help you get STRONG, snatched & confident. Let's get fit together 👇🏽",
-    "tagline": "Lift heavy. Glow loud. Get fit with me.",
+    "bio": "Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. "
+           "Evidence-based programs, nutrition guides and 1:1 coaching.",
+    "tagline": "Lift heavy. Eat well. Show up for yourself.",
 }
 
-# ---------------------------------------------------------------- exercise tips
-TIPS = {
-    "Barbell Hip Thrust": "Upper back on the bench edge, bar on a pad over your hips. Chin tucked, ribs down, drive through your heels and squeeze at the top for 1–2 sec. Shins vertical at lockout.",
-    "Romanian Deadlift": "Soft knees, push your hips BACK like closing a car door with your booty. Bar/dumbbells slide down your thighs. Stop when you feel a big hamstring stretch, then squeeze glutes to stand.",
-    "Bulgarian Split Squat": "Back foot on the bench, front foot far enough forward that you can lean your torso slightly. Lower straight down; drive through the front heel. More lean = more glutes.",
-    "Cable Kickback": "Ankle strap on, hinge forward slightly, hold the machine. Kick back AND slightly out — don't arch your lower back. Squeeze, pause, control it back.",
-    "Hip Abduction Machine": "Lean forward over the seat and grab the sides for more glute med. Push out, pause, control in. Last set: do partial reps until it burns.",
-    "DB Chest Press": "Shoulder blades pinched and tucked into the bench, feet planted. Lower dumbbells to chest level with elbows ~45°, press up and slightly in. Kick the dumbbells up with your knees to get set.",
-    "Lat Pulldown": "Lean back slightly, chest up. Pull the bar to your upper chest by driving elbows DOWN into your back pockets. Don't yank with your arms.",
-    "Seated Cable Row": "Sit tall, pull the handle to your belly button, squeeze your shoulder blades together like holding a pencil between them.",
-    "DB Shoulder Press": "Sit tall with your back on the pad. Press dumbbells up and slightly in, don't flare the ribs. Lower to ear level.",
-    "Lateral Raise": "Light weight, slight bend in the elbows. Lead with your elbows, raise to shoulder height. Think 'pouring water out of a pitcher' at the top.",
-    "Tricep Rope Pushdown": "Elbows glued to your sides. Push down and split the rope apart at the bottom. Control it back up.",
-    "Smith Machine Squat": "Feet slightly in front of the bar, a little wider than hips. Sit back and down, keep your chest proud, drive through your whole foot.",
-    "Lying Hamstring Curl": "Hips pressed into the pad, curl your heels to your booty, slow 3-second lower.",
-    "Walking Lunges": "Long steps, front shin stays fairly vertical, back knee kisses the floor. Push through the front heel.",
-    "45° Back Extension": "Pad below your hip bones, round your upper back slightly and tuck your chin — this keeps it GLUTES, not lower back. Squeeze to lift.",
-    "Frog Pumps": "Lie on your back, soles of the feet together, knees out. Drive hips up fast and squeeze. High reps = maximum pump.",
-    "Sumo Deadlift": "Wide stance, toes out, hands inside your knees. Chest up, push the floor away and squeeze your glutes to lock out.",
-    "Step-Ups": "Use a box or bench at knee height. Drive through the heel of the top leg — don't push off the bottom foot.",
-    "Single-Leg Hip Thrust": "Same setup as hip thrust, one foot planted. Keep hips level and squeeze hard at the top.",
-    "Weighted Plank": "Elbows under shoulders, squeeze glutes and pull belly button in. Add a plate on your back when you're ready.",
-    "Hanging Knee Raise": "Hang from the bar, curl your knees toward your chest by tucking your pelvis. No swinging.",
-    "Goblet Squat": "Hold the dumbbell at your chest, elbows inside knees at the bottom. Sit between your hips, chest tall.",
-    "Glute Bridge": "On your back, heels close to your booty. Drive hips up, squeeze 2 sec, lower with control.",
-    "Banded Lateral Walk": "Band above your knees, quarter squat, step out wide and slow. Keep tension in the band the whole time.",
-    "Dumbbell Kickback": "On all fours, dumbbell behind your knee. Kick your heel to the ceiling without arching your back.",
-    "Fire Hydrants": "On all fours, lift your knee out to the side, keep hips square. Slow and controlled.",
-    "Reverse Lunge": "Step back, lower until both knees are about 90°, push through the front heel to return.",
-    "Single-Leg Glute Bridge": "One foot planted, other leg up. Drive up through the planted heel, keep hips level.",
-    "Incline DB Press": "Bench at 30°. Same set-up as flat press: blades back and down, lower to upper chest, press up.",
-    "Push-Ups": "Hands under shoulders, body in one straight line. Drop to your knees when form breaks — that's still a rep!",
-    "Bench Dips": "Hands on bench, legs out in front. Lower until elbows hit 90°, press up through your palms.",
-    "Single-Arm DB Row": "Knee and hand on the bench, flat back. Pull the dumbbell to your hip, not your chest.",
-    "Face Pulls": "Rope at face height. Pull toward your eyebrows, elbows high, and rotate your hands back like a double bicep pose.",
-    "Rear Delt Fly": "Hinge forward, light dumbbells, slight elbow bend. Open your arms wide like a hug in reverse.",
-    "Hammer Curl": "Palms facing each other, elbows still. Curl up, slow lower.",
-    "Paused DB Bench Press": "Same as DB press but pause 2 sec at the bottom. Builds power off your chest — the secret to heavier presses.",
-    "Machine Chest Press": "Adjust the seat so handles line up with mid-chest. Press, don't lock out hard, control the return.",
-    "Cable Fly": "Slight bend in the elbows, bring hands together like hugging a tree. Squeeze your chest at the middle.",
-    "Arnold Press": "Start palms facing you at chin level, rotate as you press overhead. Reverse on the way down.",
-    "Overhead Tricep Extension": "Hold one dumbbell with both hands overhead. Lower behind your head, elbows pointing forward, press up.",
-    "Leg Press": "Feet high and wide on the platform for more glutes. Lower until your hips want to tuck, then press through your heels.",
-    "Treadmill Incline Walk": "Incline 8–12, speed 2.8–3.3. No holding the rails, baddie.",
-}
+DISCLAIMER = ("This program is for educational purposes and is not medical advice. Consult your doctor before starting a new "
+              "exercise or nutrition plan, especially if you are pregnant, injured or have a medical condition. Stop any exercise that causes pain.")
+
 
 # ---------------------------------------------------------------- programs
 def build_program(days, phases):
-    """days: list of (name, focus, [(exercise, role, per_side)])
-    phases: list of week dicts {name, phase, note, scheme:{role:(sets, reps, rest)}}"""
+    """days: [(name, focus, [(exercise, role, per_side)])]; phases: [{name, phase, note, scheme:{role:(sets, reps, rest, rir)}}]"""
     weeks = []
     for ph in phases:
         wdays = []
         for name, focus, exs in days:
             ex = []
             for n, role, side in exs:
-                s, r, rest = ph["scheme"][role]
-                ex.append({"n": n, "s": s, "r": r + (" /side" if side and "side" not in r else ""),
-                           "rest": rest, "tip": TIPS.get(n, "")})
+                s, r, rest, rir = ph["scheme"][role]
+                ex.append({"n": n, "s": s, "r": r + (" /side" if side else ""), "rest": rest, "rir": rir, "role": role})
             wdays.append({"name": name, "focus": focus, "ex": ex})
         weeks.append({"name": ph["name"], "phase": ph["phase"], "note": ph["note"], "days": wdays})
     return weeks
 
-BOOTY_DAYS = [
-    ("Day 1 · Glute Strength", "Heavy hips. Big lifts. Main-character energy.", [
+
+GLUTE_DAYS = [
+    ("Day 1 · Glute Strength", "Heavy hip extension: the foundation of glute size.", [
         ("Barbell Hip Thrust", "main", False), ("Romanian Deadlift", "main", False),
         ("Bulgarian Split Squat", "acc", True), ("Cable Kickback", "acc", True), ("Hip Abduction Machine", "fin", False)]),
-    ("Day 2 · Upper Body Sculpt", "Snatched back, sculpted shoulders, strong arms.", [
+    ("Day 2 · Upper Body Sculpt", "Back, shoulders and arms for a balanced, athletic shape.", [
         ("DB Chest Press", "main", False), ("Lat Pulldown", "main", False), ("Seated Cable Row", "acc", False),
         ("DB Shoulder Press", "acc", False), ("Lateral Raise", "acc", False), ("Tricep Rope Pushdown", "fin", False)]),
-    ("Day 3 · Glute & Hamstring Pump", "Chase the pump. Feel every single rep.", [
+    ("Day 3 · Glute & Hamstring", "Stretch-focused work for the glutes and hamstrings.", [
         ("Smith Machine Squat", "main", False), ("Lying Hamstring Curl", "acc", False), ("Walking Lunges", "acc", True),
         ("45° Back Extension", "acc", False), ("Frog Pumps", "fin", False)]),
-    ("Day 4 · Lower Burn + Core", "Legs, booty and a core that holds it all together.", [
+    ("Day 4 · Lower Body + Core", "Heavy pulls, single-leg strength and core.", [
         ("Sumo Deadlift", "main", False), ("Step-Ups", "acc", True), ("Single-Leg Hip Thrust", "acc", True),
         ("Leg Press", "acc", False), ("Weighted Plank", "fin", False), ("Hanging Knee Raise", "fin", False)]),
 ]
-BOOTY_PHASES = [
-    {"name": "Week 1", "phase": "FOUNDATION", "note": "Learn the moves, find your weights. Leave 2–3 reps in the tank.",
-     "scheme": {"main": (3, "12", "90s"), "acc": (3, "12–15", "60s"), "fin": (2, "20 / 30s", "45s")}},
-    {"name": "Week 2", "phase": "FOUNDATION", "note": "Same reps, slightly heavier than Week 1. Write your weights down!",
-     "scheme": {"main": (3, "12", "90s"), "acc": (3, "12–15", "60s"), "fin": (2, "20 / 30s", "45s")}},
-    {"name": "Week 3", "phase": "BUILD", "note": "Extra set on your main lifts. 1–2 reps left in the tank.",
-     "scheme": {"main": (4, "10", "2 min"), "acc": (3, "12", "60s"), "fin": (3, "20 / 40s", "45s")}},
-    {"name": "Week 4", "phase": "BUILD", "note": "Beat last week: +5 lbs or +1 rep on every main lift.",
-     "scheme": {"main": (4, "10", "2 min"), "acc": (3, "12", "60s"), "fin": (3, "20 / 40s", "45s")}},
-    {"name": "Week 5", "phase": "STRENGTH", "note": "Heavier, fewer reps. Rest longer. This is where the shape comes in.",
-     "scheme": {"main": (4, "6–8", "2.5 min"), "acc": (3, "10–12", "75s"), "fin": (3, "20 / 45s", "45s")}},
-    {"name": "Week 6", "phase": "STRENGTH", "note": "Push the main lifts. Film a set and check your form 🎥",
-     "scheme": {"main": (4, "6–8", "2.5 min"), "acc": (3, "10–12", "75s"), "fin": (3, "20 / 45s", "45s")}},
-    {"name": "Week 7", "phase": "PEAK", "note": "Heaviest week. Hype music ON. Spotter if you need one.",
-     "scheme": {"main": (5, "5", "3 min"), "acc": (3, "10", "75s"), "fin": (3, "Burnout", "60s")}},
-    {"name": "Week 8", "phase": "SHOW-OFF WEEK", "note": "Work up to a heavy 5 on your main lifts and log your PRs. Then retake your progress pics 📸",
-     "scheme": {"main": (4, "Build to heavy 5", "3 min"), "acc": (3, "12", "60s"), "fin": (2, "Drop set", "60s")}},
+GLUTE_PHASES = [
+    {"name": "Week 1", "phase": "Foundation", "note": "Calibration week. Learn each movement and find your working weights (Chapter 6).",
+     "scheme": {"main": (3, "10–12", "2 min", "3"), "acc": (3, "12–15", "75s", "3"), "fin": (2, "15–20", "60s", "2")}},
+    {"name": "Week 2", "phase": "Foundation", "note": "Same structure. Beat Week 1 by a rep or a few pounds on every exercise.",
+     "scheme": {"main": (3, "10–12", "2 min", "2"), "acc": (3, "12–15", "75s", "2"), "fin": (2, "15–20", "60s", "1")}},
+    {"name": "Week 3", "phase": "Build", "note": "Volume increases: an extra set on your main lifts. Expect some soreness this week.",
+     "scheme": {"main": (4, "8–10", "2 min", "2"), "acc": (3, "10–12", "75s", "2"), "fin": (3, "15–20", "60s", "1")}},
+    {"name": "Week 4", "phase": "Build", "note": "Double progression: add weight on any exercise where you hit the top of the range last week.",
+     "scheme": {"main": (4, "8–10", "2 min", "1–2"), "acc": (3, "10–12", "75s", "1–2"), "fin": (3, "15–20", "60s", "0–1")}},
+    {"name": "Week 5", "phase": "Strength", "note": "Heavier loads, lower reps, longer rest. Focus on bar speed and technique.",
+     "scheme": {"main": (4, "6–8", "2.5 min", "2"), "acc": (3, "8–12", "90s", "2"), "fin": (3, "12–15", "60s", "1")}},
+    {"name": "Week 6", "phase": "Strength", "note": "Push your main lifts. Film one set of hip thrusts and compare with the library cues.",
+     "scheme": {"main": (4, "6–8", "2.5 min", "1–2"), "acc": (3, "8–12", "90s", "1–2"), "fin": (3, "12–15", "60s", "0–1")}},
+    {"name": "Week 7", "phase": "Peak", "note": "Heaviest week of the program. Full rest periods. Bring a spotter for heavy sets.",
+     "scheme": {"main": (5, "5", "3 min", "1–2"), "acc": (3, "8–10", "90s", "1"), "fin": (3, "12–15", "60s", "0")}},
+    {"name": "Week 8", "phase": "Test", "note": "Reduced volume. Work up to a heavy 5 on main lifts, log PRs, then retake photos and measurements.",
+     "scheme": {"main": (3, "Heavy 5", "3 min", "1"), "acc": (2, "10–12", "75s", "2"), "fin": (2, "15", "60s", "1")}},
 ]
 
 PRESS_DAYS = [
-    ("Day 1 · Heavy Push", "The money day. Heavy dumbbells, full confidence.", [
+    ("Day 1 · Heavy Push", "Heavy pressing: the main strength day.", [
         ("DB Chest Press", "main", False), ("Incline DB Press", "main", False), ("DB Shoulder Press", "acc", False),
         ("Bench Dips", "acc", False), ("Push-Ups", "fin", False)]),
-    ("Day 2 · Pull + Posture", "A strong back = a stronger press. Period.", [
+    ("Day 2 · Pull + Posture", "A strong back builds a stronger press.", [
         ("Lat Pulldown", "main", False), ("Single-Arm DB Row", "main", True), ("Face Pulls", "acc", False),
         ("Rear Delt Fly", "acc", False), ("Hammer Curl", "fin", False)]),
-    ("Day 3 · Volume Push", "Lighter weight, more reps, slow and strong.", [
+    ("Day 3 · Volume Push", "Paused presses and isolation for volume.", [
         ("Paused DB Bench Press", "main", False), ("Machine Chest Press", "acc", False), ("Cable Fly", "acc", False),
         ("Arnold Press", "acc", False), ("Overhead Tricep Extension", "fin", False)]),
 ]
 PRESS_PHASES = [
-    {"name": "Week 1", "phase": "FOUNDATION", "note": "Pick a weight you can press 12 times. Do 10 clean reps.",
-     "scheme": {"main": (3, "10", "2 min"), "acc": (3, "12", "60s"), "fin": (2, "AMRAP", "60s")}},
-    {"name": "Week 2", "phase": "FOUNDATION", "note": "Go up 5 lbs per dumbbell if every rep was clean.",
-     "scheme": {"main": (3, "10", "2 min"), "acc": (3, "12", "60s"), "fin": (2, "AMRAP", "60s")}},
-    {"name": "Week 3", "phase": "BUILD", "note": "Heavier and an extra set. Kick the dumbbells up with your knees.",
-     "scheme": {"main": (4, "8", "2.5 min"), "acc": (3, "10", "75s"), "fin": (3, "AMRAP", "60s")}},
-    {"name": "Week 4", "phase": "BUILD", "note": "+1 rep or +5 lbs from last week. Every. Single. Week.",
-     "scheme": {"main": (4, "8", "2.5 min"), "acc": (3, "10", "75s"), "fin": (3, "AMRAP", "60s")}},
-    {"name": "Week 5", "phase": "STRENGTH", "note": "Heavy fives. Get a spotter or film it.",
-     "scheme": {"main": (5, "5", "3 min"), "acc": (3, "8–10", "90s"), "fin": (2, "AMRAP", "60s")}},
-    {"name": "Week 6", "phase": "PR WEEK 👑", "note": "Work up to a heavy 3 on Day 1 and log it in your PR Wall. Then POST IT and tag me.",
-     "scheme": {"main": (4, "Build to heavy 3", "3 min"), "acc": (2, "10", "90s"), "fin": (1, "AMRAP", "60s")}},
+    {"name": "Week 1", "phase": "Foundation", "note": "Choose a weight you could press 12–13 times and do 10 clean reps.",
+     "scheme": {"main": (3, "10", "2 min", "2–3"), "acc": (3, "12", "75s", "2"), "fin": (2, "AMRAP", "60s", "1")}},
+    {"name": "Week 2", "phase": "Foundation", "note": "If every rep was clean last week, go up 2.5–5 lb per dumbbell.",
+     "scheme": {"main": (3, "10", "2 min", "2"), "acc": (3, "12", "75s", "2"), "fin": (2, "AMRAP", "60s", "1")}},
+    {"name": "Week 3", "phase": "Build", "note": "Heavier with an extra set. Use the kick-up technique from Chapter 3.",
+     "scheme": {"main": (4, "8", "2.5 min", "2"), "acc": (3, "10", "75s", "1–2"), "fin": (3, "AMRAP", "60s", "0–1")}},
+    {"name": "Week 4", "phase": "Build", "note": "Beat Week 3 by a rep or use the one-set-heavier bridge (Chapter 4).",
+     "scheme": {"main": (4, "8", "2.5 min", "1–2"), "acc": (3, "10", "75s", "1"), "fin": (3, "AMRAP", "60s", "0")}},
+    {"name": "Week 5", "phase": "Strength", "note": "Heavy fives. Spotter or filming recommended.",
+     "scheme": {"main": (5, "5", "3 min", "1–2"), "acc": (3, "8–10", "90s", "1–2"), "fin": (2, "AMRAP", "60s", "0")}},
+    {"name": "Week 6", "phase": "PR Week", "note": "Day 1: follow the PR Week Protocol (Chapter 10) and work up to a heavy 3. Log it on the PR Wall.",
+     "scheme": {"main": (4, "Heavy 3", "3 min", "1"), "acc": (2, "10", "90s", "2"), "fin": (1, "AMRAP", "60s", "1")}},
 ]
 
 STARTER_DAYS = [
-    ("Workout A · Glute Wake-Up", "Get your glutes firing. Perfect for home or gym.", [
+    ("Workout A · Glute Wake-Up", "Activation and foundational patterns.", [
         ("Glute Bridge", "acc", False), ("Banded Lateral Walk", "acc", True), ("Goblet Squat", "main", False),
         ("Romanian Deadlift", "main", False), ("Dumbbell Kickback", "acc", True)]),
-    ("Workout B · Booty Builder Lite", "A sneak peek of the full 8-week program.", [
+    ("Workout B · Glute Builder Lite", "A preview of the Glute Specialist Program.", [
         ("Barbell Hip Thrust", "main", False), ("Bulgarian Split Squat", "acc", True), ("Cable Kickback", "acc", True),
         ("Hip Abduction Machine", "acc", False), ("Frog Pumps", "fin", False)]),
-    ("Workout C · Lower Body Burn", "Legs + booty + sweat.", [
+    ("Workout C · Lower Body Burn", "Strength and single-leg work.", [
         ("Sumo Deadlift", "main", False), ("Step-Ups", "acc", True), ("Single-Leg Glute Bridge", "acc", True),
         ("Reverse Lunge", "acc", True), ("Fire Hydrants", "fin", True)]),
 ]
-STARTER_PHASES = [{"name": "Your Free Week", "phase": "STARTER", "note": "Do A, B and C this week with a rest day between each. Track your weights so you can beat them next week.",
-                   "scheme": {"main": (3, "10", "90s"), "acc": (3, "12", "60s"), "fin": (2, "20", "45s")}}]
+STARTER_PHASES = [{"name": "Week 1", "phase": "Starter", "note": "Do A, B and C this week with a rest day between each. Log your weights to beat them next week.",
+                   "scheme": {"main": (3, "10–12", "90s", "2–3"), "acc": (3, "12–15", "60s", "2"), "fin": (2, "20", "45s", "1")}}]
 
 CONF_DAYS = [
-    ("Day 1 · Machines Only", "Zero pressure. Machines guide the movement for you.", [
+    ("Day 1 · Machines", "Guided machines: zero guesswork.", [
         ("Leg Press", "acc", False), ("Lat Pulldown", "acc", False), ("Machine Chest Press", "acc", False),
         ("Lying Hamstring Curl", "acc", False), ("Hip Abduction Machine", "acc", False), ("Treadmill Incline Walk", "fin", False)]),
-    ("Day 2 · Dumbbell Corner", "Grab a set of dumbbells + a bench and claim your spot.", [
+    ("Day 2 · Dumbbells", "Claim a bench and a set of dumbbells.", [
         ("Goblet Squat", "acc", False), ("DB Chest Press", "acc", False), ("Single-Arm DB Row", "acc", True),
         ("Romanian Deadlift", "acc", False), ("DB Shoulder Press", "acc", False)]),
-    ("Day 3 · Cable Queen", "Cables look scary. They're not. Let's go.", [
+    ("Day 3 · Cables", "Learn the most versatile station in the gym.", [
         ("Cable Kickback", "acc", True), ("Seated Cable Row", "acc", False), ("Face Pulls", "acc", False),
         ("Tricep Rope Pushdown", "acc", False), ("Glute Bridge", "acc", False), ("Treadmill Incline Walk", "fin", False)]),
 ]
 CONF_PHASES = [
-    {"name": "Week 1", "phase": "JUST SHOW UP", "note": "Light weights. The only goal is to walk in, do the thing and leave proud.",
-     "scheme": {"main": (2, "12", "90s"), "acc": (2, "12", "60s"), "fin": (1, "10 min", "—")}},
-    {"name": "Week 2", "phase": "OWN THE ROOM", "note": "Add a set and go a little heavier. You belong here.",
-     "scheme": {"main": (3, "12", "90s"), "acc": (3, "12", "60s"), "fin": (1, "15 min", "—")}},
+    {"name": "Week 1", "phase": "Learn", "note": "Light weights. The only goal is to learn each station and leave proud.",
+     "scheme": {"main": (2, "12", "90s", "3–4"), "acc": (2, "12", "75s", "3–4"), "fin": (1, "10 min", "—", "—")}},
+    {"name": "Week 2", "phase": "Own It", "note": "Add a set and go slightly heavier. Same stations, more confidence.",
+     "scheme": {"main": (3, "10–12", "90s", "2–3"), "acc": (3, "10–12", "75s", "2–3"), "fin": (1, "15 min", "—", "—")}},
 ]
+
 
 # ---------------------------------------------------------------- 30-day challenge
 def build_challenge():
     T = {
         "Glutes": [("Glute bridges", 15, ""), ("Donkey kicks", 12, " /side"), ("Fire hydrants", 12, " /side"), ("Sumo squats", 15, ""), ("Frog pumps", 20, "")],
-        "Upper Body": [("Push-ups (knees are fine!)", 8, ""), ("Tricep dips", 10, ""), ("Shoulder taps", 16, ""), ("Plank up-downs", 8, ""), ("Superman pulls", 12, "")],
+        "Upper Body": [("Push-ups (incline or knees as needed)", 8, ""), ("Tricep dips", 10, ""), ("Shoulder taps", 16, ""), ("Plank up-downs", 8, ""), ("Superman pulls", 12, "")],
         "Core + Cardio": [("Mountain climbers", 20, ""), ("Bicycle crunches", 20, ""), ("Plank", 30, "s"), ("Leg raises", 10, ""), ("Jumping jacks", 30, "")],
         "Legs": [("Squats", 15, ""), ("Reverse lunges", 10, " /side"), ("Wall sit", 30, "s"), ("Calf raises", 20, ""), ("Squat jumps", 8, "")],
         "Full Body Burn": [("Burpees", 6, ""), ("Squat to press (dumbbells or water bottles)", 12, ""), ("Walking lunges", 10, " /side"), ("Push-ups", 8, ""), ("High knees", 30, "s")],
     }
-    recovery = [("Walk outside", "20–30 min"), ("Hip flexor stretch", "45s /side"), ("Pigeon stretch", "45s /side"), ("Cat-cow", "10 slow reps"), ("Child's pose", "60s")]
-    reset = [("Sleep 7–9 hours tonight", "💤"), ("Meal prep 3 meals for the week", "🍱"), ("10-min full body stretch", "🧘🏽‍♀️"), ("Take your weekly progress pic", "📸")]
+    recovery = [("Brisk outdoor walk", "20–30 min"), ("Hip flexor stretch", "45s /side"), ("Pigeon stretch", "45s /side"), ("Cat-cow", "10 slow reps"), ("Child's pose", "60s")]
+    reset = [("Sleep 7–9 hours tonight", "Recovery"), ("Meal prep 3+ meals for the week", "Nutrition"), ("10-minute full-body stretch", "Mobility"), ("Take your weekly progress photo", "Tracking")]
     order = ["Glutes", "Upper Body", "Core + Cardio", "Legs", "Full Body Burn", "Active Recovery", "Rest & Reset"]
     prompts = [
-        "Why did you REALLY start this challenge? Write it down — you'll need it on Day 12.",
-        "Name 3 things your body did for you today.",
-        "What's one excuse you're officially retiring this month?",
-        "Describe how you want to FEEL walking into the gym on Day 30.",
-        "Who are you doing this for? (The answer should be you.)",
-        "What did you eat today that fueled you? What would you swap?",
+        "Why did you really start this challenge? Be specific. You'll come back to this on harder days.",
+        "Name three things your body did for you today.",
+        "What's one excuse you're officially retiring this month, and what will you replace it with?",
+        "Describe how you want to feel walking into Day 30.",
+        "Who are you doing this for? Write about why it needs to be you.",
+        "What did you eat today that fueled you well? What would you swap tomorrow?",
         "Rest is productive. How are you recharging today?",
-        "What's one rep, set or move that felt easier than Day 1?",
-        "Write a hype message to yourself for your hardest day.",
-        "What does 'strong' mean to you?",
+        "Which move felt easier today than it did on Day 1?",
+        "Write the message you need to hear on your hardest day.",
+        "What does 'strong' mean to you, physically and mentally?",
         "Rate your energy 1–10. What helped or hurt it today?",
-        "What song gets you through the last set? Add 5 to a playlist today.",
+        "What environment changes would make your habits easier (kitchen, phone, schedule)?",
         "Name a woman whose strength inspires you, and why.",
-        "Rest day reflection: what are you most proud of from week 2?",
-        "Halfway there! What's changed — physically AND mentally?",
+        "Two weeks done. What are you most proud of so far?",
+        "Halfway. What's changed physically and mentally?",
         "What would you tell Day-1 you?",
-        "What's your non-scale victory this week?",
-        "Where do you still hold back? Why?",
-        "How are you speaking to yourself in the mirror lately?",
-        "Plan your Day 30 celebration. Make it extra.",
-        "Rest day: write 5 things you love about your body.",
-        "What habit from this challenge are you keeping forever?",
-        "Who noticed your glow-up? How did that feel?",
-        "What's a goal that felt impossible a month ago but doesn't now?",
-        "If you could only do one move for the rest of your life, what would it be?",
-        "What will 'Get Fit With Me' look like for you NEXT month?",
+        "What's your biggest non-scale victory this week?",
+        "Where are you still holding back? What's the fear underneath it?",
+        "How do you speak to yourself in the mirror lately? Rewrite one negative thought.",
+        "Plan your Day 30 celebration. Make it meaningful.",
+        "Write five things you appreciate about your body.",
+        "Which habit from this challenge are you keeping for good, and how will you protect it?",
+        "Has anyone noticed a change in you? How did it feel?",
+        "What goal felt impossible a month ago but doesn't now?",
+        "What's your favorite move from this challenge and why?",
+        "What does your next 30 days look like? Write the plan.",
         "Write a thank-you note to your body.",
-        "What does the girl who finishes this challenge believe about herself?",
+        "What does the woman who finishes this challenge believe about herself?",
         "Final Boss tomorrow. How are you preparing mentally?",
-        "YOU DID IT. Compare Day 1 vs Day 30 — photos, energy, mindset. Write it all down. 👑",
+        "Compare Day 1 and Day 30: photos, energy, mindset. Write it all down.",
     ]
     days = []
     for i in range(30):
@@ -217,10 +176,9 @@ def build_challenge():
         rounds = [3, 3, 4, 4, 4][wk]
         mult = 1 + 0.25 * wk
         if i == 28:
-            kind, ex = "Final Boss 🔥", [(n, f"{round(r * 1.75)}{u}") for k in ("Glutes", "Legs", "Full Body Burn") for n, r, u in T[k][:2]]
-            rounds = 3
+            kind, ex, rounds = "Final Boss", [(n, f"{round(r * 1.75)}{u}") for k in ("Glutes", "Legs", "Full Body Burn") for n, r, u in T[k][:2]], 3
         elif i == 29:
-            kind, ex, rounds = "Show-Off Day 👑", [("Redo the Day 1 workout and compare", "📝"), ("Retake your progress photos", "📸"), ("Post your glow-up & tag me", "💜")], 0
+            kind, ex, rounds = "Show-Off Day", [("Repeat the Day 1 workout and compare", "Test"), ("Retake progress photos & measurements", "Track"), ("Share your results and tag me", "Celebrate")], 0
         elif kind == "Active Recovery":
             ex, rounds = recovery, 0
         elif kind == "Rest & Reset":
@@ -230,334 +188,288 @@ def build_challenge():
         days.append({"t": kind, "rounds": rounds, "ex": [{"n": n, "r": r} for n, r in ex], "prompt": prompts[i]})
     return days
 
-# ---------------------------------------------------------------- meal plan
+
+# ---------------------------------------------------------------- nutrition
 MEALS = [
-    {"name": "Mon", "meals": [("Breakfast", "Protein oats: ½ cup oats, 1 scoop vanilla protein, berries, 1 tbsp PB", 32),
-                              ("Lunch", "Chicken burrito bowl: rice, black beans, grilled chicken, pico, lettuce, light cheese", 42),
-                              ("Snack", "Greek yogurt + honey + granola sprinkle", 18),
-                              ("Dinner", "Air-fryer salmon, roasted sweet potato, garlic green beans", 36)]},
-    {"name": "Tue", "meals": [("Breakfast", "3 eggs + 2 egg whites scrambled w/ spinach, 1 slice toast, fruit", 30),
-                              ("Lunch", "Turkey & avocado wrap + side salad", 34),
-                              ("Snack", "Protein shake + banana (post-workout)", 26),
-                              ("Dinner", "Lean beef taco lettuce cups (or corn tortillas), salsa, rice", 40)]},
-    {"name": "Wed", "meals": [("Breakfast", "Cottage cheese pancakes (oats + cottage cheese + egg) w/ berries", 30),
-                              ("Lunch", "Leftover beef tacos as a bowl", 38),
-                              ("Snack", "String cheese + apple + 10 almonds", 10),
-                              ("Dinner", "Shrimp stir-fry with mixed veggies & jasmine rice", 34)]},
-    {"name": "Thu", "meals": [("Breakfast", "Overnight protein oats (prepped Sunday)", 30),
-                              ("Lunch", "Chicken Caesar wrap (Greek yogurt dressing)", 40),
-                              ("Snack", "Rice cakes + PB + protein shake", 30),
-                              ("Dinner", "Turkey meatballs, marinara, pasta or zucchini noodles", 38)]},
-    {"name": "Fri", "meals": [("Breakfast", "Egg bites (3) + turkey sausage + fruit", 32),
-                              ("Lunch", "Tuna salad (Greek yogurt) on whole grain + cucumbers", 34),
-                              ("Snack", "Beef jerky + grapes", 15),
-                              ("Dinner", "FUN MEAL 🍔 — enjoy it, no guilt, protein first", 30)]},
-    {"name": "Sat", "meals": [("Breakfast", "Protein waffles + Greek yogurt + strawberries", 35),
-                              ("Lunch", "Grilled chicken salad w/ quinoa, feta, cucumber, lemon vinaigrette", 40),
-                              ("Snack", "Protein shake + a handful of trail mix", 28),
-                              ("Dinner", "Jerk chicken, rice & peas (½ cup), cabbage", 42)]},
-    {"name": "Sun", "meals": [("Breakfast", "Breakfast burrito: eggs, egg whites, potatoes, turkey bacon, salsa", 38),
-                              ("Lunch", "Leftover jerk chicken bowl", 40),
-                              ("Snack", "Greek yogurt parfait", 18),
-                              ("Dinner", "Meal-prep night: sheet-pan chicken, broccoli & potatoes", 40)]},
+    {"name": "Monday", "meals": [("Breakfast", "Protein Overnight Oats", 42), ("Lunch", "Chicken Burrito Bowl", 60), ("Snack", "Greek yogurt + berries + 1 tbsp granola", 22), ("Dinner", "Air-Fryer Salmon, Sweet Potato & Green Beans", 33)]},
+    {"name": "Tuesday", "meals": [("Breakfast", "3 eggs + 1 cup egg whites, spinach, 1 slice toast, fruit", 44), ("Lunch", "Tuna Salad Wrap + side salad", 34), ("Snack", "Protein shake + banana (post-workout)", 26), ("Dinner", "Turkey Taco Bowl", 32)]},
+    {"name": "Wednesday", "meals": [("Breakfast", "Cottage Cheese Protein Pancakes", 31), ("Lunch", "Leftover Turkey Taco Bowl", 32), ("Snack", "String cheese + apple + 10 almonds", 10), ("Dinner", "Shrimp Stir-Fry", 43)]},
+    {"name": "Thursday", "meals": [("Breakfast", "Protein Overnight Oats", 42), ("Lunch", "Chicken Burrito Bowl", 60), ("Snack", "Chocolate Protein Pudding", 35), ("Dinner", "Turkey Meatballs & Marinara", 42)]},
+    {"name": "Friday", "meals": [("Breakfast", "Egg Bites (3) + fruit", 29), ("Lunch", "Leftover Turkey Meatballs", 42), ("Snack", "Beef jerky + grapes", 12), ("Dinner", "Planned flexible meal: protein first, enjoy it", 30)]},
+    {"name": "Saturday", "meals": [("Breakfast", "Cottage Cheese Protein Pancakes", 31), ("Lunch", "Grilled chicken salad with quinoa, feta & lemon vinaigrette", 40), ("Snack", "Protein Mug Cake", 29), ("Dinner", "Jerk Chicken Rice Bowl", 42)]},
+    {"name": "Sunday", "meals": [("Breakfast", "Breakfast burrito: eggs, egg whites, potatoes, turkey bacon, salsa", 38), ("Lunch", "Leftover Jerk Chicken Rice Bowl", 42), ("Snack", "Greek yogurt + berries", 20), ("Dinner", "Sheet-pan chicken, broccoli & potatoes (meal prep night)", 40)]},
+]
+
+RECIPES = [
+    {"n": "Protein Overnight Oats", "t": "Breakfast", "time": "5 min + overnight", "m": (405, 42, 45, 7),
+     "ing": ["½ cup old-fashioned oats", "1 scoop vanilla whey protein", "½ cup nonfat Greek yogurt", "½ cup unsweetened almond milk", "1 tsp chia seeds", "½ cup berries"],
+     "steps": ["Stir oats, protein powder and chia seeds in a jar.", "Add yogurt and milk and mix until smooth (add a splash more milk if thick).", "Refrigerate overnight. Top with berries before eating.", "Make 5 jars on Sunday. They keep 4 days."]},
+    {"n": "Chicken Burrito Bowl", "t": "Lunch", "time": "15 min (with prepped chicken)", "m": (565, 60, 58, 9),
+     "ing": ["5 oz cooked chicken breast, chopped", "¾ cup cooked white or brown rice", "½ cup black beans, rinsed", "¼ cup pico de gallo or salsa", "1 cup shredded lettuce", "2 tbsp reduced-fat shredded cheese", "2 tbsp nonfat Greek yogurt (as sour cream)", "Lime, cumin, chili powder"],
+     "steps": ["Season chicken with cumin, chili powder, garlic powder, salt and lime.", "Layer rice, beans, chicken and lettuce in a bowl.", "Top with pico, cheese and Greek yogurt."]},
+    {"n": "Air-Fryer Salmon, Sweet Potato & Green Beans", "t": "Dinner", "time": "25 min", "m": (520, 33, 42, 23),
+     "ing": ["5 oz salmon fillet", "6 oz sweet potato, cubed", "1 cup green beans", "1 tsp olive oil", "Garlic powder, paprika, salt, pepper, lemon"],
+     "steps": ["Toss sweet potato with half the oil and seasonings. Air-fry at 400°F for 10 min.", "Add green beans and seasoned salmon to the basket.", "Air-fry 8–10 more minutes until the salmon flakes easily. Finish with lemon."]},
+    {"n": "Turkey Taco Bowl", "t": "Dinner", "time": "20 min", "m": (390, 32, 28, 15),
+     "ing": ["5 oz raw 93% lean ground turkey", "1 tbsp taco seasoning", "½ cup cooked rice", "¼ cup salsa", "Lettuce, onion, peppers", "2 tbsp reduced-fat cheese"],
+     "steps": ["Brown the turkey in a nonstick pan, breaking it up.", "Add taco seasoning and a splash of water and simmer 3 minutes.", "Serve over rice and lettuce with salsa and cheese. (Or use lettuce cups.)"]},
+    {"n": "Cottage Cheese Protein Pancakes", "t": "Breakfast", "time": "15 min", "m": (390, 31, 40, 9),
+     "ing": ["½ cup oats", "½ cup low-fat cottage cheese", "1 egg + 2 egg whites", "½ tsp baking powder", "Cinnamon, vanilla", "½ cup berries + sugar-free syrup"],
+     "steps": ["Blend everything except toppings until smooth.", "Cook ¼-cup portions on a medium-hot nonstick pan, about 2 minutes per side.", "Top with berries and syrup."]},
+    {"n": "Shrimp Stir-Fry", "t": "Dinner", "time": "15 min", "m": (480, 43, 54, 10),
+     "ing": ["6 oz raw shrimp, peeled", "2 cups stir-fry vegetables", "2 tsp sesame oil", "2 tbsp low-sodium soy sauce + 1 tsp honey", "Garlic, ginger, chili flakes", "¾ cup cooked jasmine rice"],
+     "steps": ["Heat half the oil in a pan over high heat and cook the shrimp 1–2 min per side. Set aside.", "Add remaining oil and vegetables and stir-fry 4 minutes.", "Add garlic, ginger, soy and honey. Return the shrimp, toss and serve over rice."]},
+    {"n": "Turkey Meatballs & Marinara", "t": "Dinner", "time": "30 min", "m": (575, 42, 62, 17),
+     "ing": ["5 oz raw 93% lean ground turkey", "2 tbsp breadcrumbs", "1 egg white", "Italian seasoning, garlic, salt", "½ cup marinara", "2 oz dry pasta (or zucchini noodles)", "1 tbsp parmesan"],
+     "steps": ["Mix turkey, breadcrumbs, egg white and seasonings. Roll into 6 balls.", "Bake at 400°F for 15–18 min.", "Warm the marinara, add the meatballs and serve over pasta with parmesan."]},
+    {"n": "Egg Bites (makes 12)", "t": "Breakfast", "time": "30 min", "m": (295, 29, 5, 17),
+     "ing": ["10 eggs", "1 cup liquid egg whites", "½ cup low-fat cottage cheese", "1 cup chopped spinach, peppers & onions", "½ cup shredded cheese", "Salt, pepper, garlic powder"],
+     "steps": ["Blend eggs, egg whites and cottage cheese until smooth.", "Divide vegetables and cheese among 12 greased muffin cups and pour the egg mix over.", "Bake at 350°F for 20–25 min. Macros shown are for 3 bites. Keeps 4 days refrigerated."]},
+    {"n": "Chocolate Protein Pudding", "t": "Snack", "time": "3 min", "m": (215, 35, 17, 1),
+     "ing": ["1 cup nonfat Greek yogurt", "½ scoop chocolate whey protein", "1 tsp cocoa powder", "1 tsp honey"],
+     "steps": ["Stir everything together until smooth.", "Chill 10 minutes for a thicker texture."]},
+    {"n": "Jerk Chicken Rice Bowl", "t": "Dinner", "time": "30 min + marinating", "m": (545, 42, 49, 20),
+     "ing": ["5 oz boneless skinless chicken thighs", "2 tbsp jerk marinade", "¾ cup rice & peas", "1 cup shredded cabbage", "1 tsp oil"],
+     "steps": ["Marinate chicken at least 1 hour (overnight is best).", "Grill, air-fry or bake at 425°F for 18–22 min to 165°F internal.", "Sauté cabbage in oil with salt and pepper. Serve with rice & peas."]},
+    {"n": "Protein Mug Cake", "t": "Snack", "time": "3 min", "m": (185, 29, 12, 3),
+     "ing": ["1 scoop whey protein", "1 tbsp flour", "1 tbsp cocoa powder", "½ tsp baking powder", "1 egg white", "3 tbsp unsweetened almond milk"],
+     "steps": ["Mix dry ingredients in a large mug.", "Stir in egg white and milk until smooth.", "Microwave 60–75 seconds. Don't overcook or it gets rubbery."]},
+    {"n": "Tuna Salad Wrap", "t": "Lunch", "time": "5 min", "m": (260, 34, 21, 4),
+     "ing": ["1 can (5 oz) tuna in water, drained", "3 tbsp nonfat Greek yogurt", "1 tsp Dijon mustard", "Diced celery & red onion", "1 high-fiber wrap", "Handful of spinach"],
+     "steps": ["Mix tuna, yogurt, mustard, celery, onion, salt and pepper.", "Spread on the wrap with spinach and roll tightly."]},
 ]
 
 GROCERY = [
-    {"title": "🍗 Protein", "items": ["Chicken breast / thighs (3 lbs)", "93% lean ground beef or turkey (2 lbs)", "Salmon fillets", "Shrimp (frozen)", "Eggs (2 dozen) + liquid egg whites", "Greek yogurt (big tub)", "Cottage cheese", "Tuna packets", "Turkey slices + turkey bacon", "Protein powder", "Beef jerky", "String cheese"]},
-    {"title": "🍚 Carbs", "items": ["Old-fashioned oats", "Jasmine rice", "Sweet potatoes + white potatoes", "Whole-grain bread / wraps", "Corn tortillas", "Rice cakes", "Pasta", "Quinoa", "Black beans + kidney beans"]},
-    {"title": "🥦 Produce", "items": ["Spinach + mixed greens", "Broccoli", "Green beans", "Zucchini", "Bell peppers + onions", "Cucumbers", "Avocados", "Berries", "Bananas + apples", "Lemons / limes", "Cabbage"]},
-    {"title": "🥑 Fats & Flavor", "items": ["Peanut butter", "Almonds / trail mix", "Feta + shredded cheese", "Olive oil spray", "Salsa + pico", "Marinara", "Jerk seasoning", "Hot honey (trust me)"]},
+    {"title": "Protein", "items": ["Chicken breast (3 lb)", "Boneless skinless chicken thighs (1.5 lb)", "93% lean ground turkey (2 lb)", "Salmon fillets (2)", "Frozen raw shrimp (1 bag)", "Eggs (2 dozen)", "Liquid egg whites (32 oz)", "Nonfat Greek yogurt (large tub)", "Low-fat cottage cheese", "Tuna packets/cans", "Turkey bacon", "Whey protein (vanilla + chocolate)", "Beef jerky", "String cheese"]},
+    {"title": "Carbohydrates", "items": ["Old-fashioned oats", "Jasmine or brown rice", "Sweet potatoes", "White potatoes", "High-fiber wraps", "Whole-grain bread", "Pasta", "Quinoa", "Black beans", "Rice & peas (or kidney beans)", "Granola"]},
+    {"title": "Produce", "items": ["Spinach", "Mixed greens / lettuce", "Broccoli", "Green beans", "Stir-fry vegetable mix", "Bell peppers & onions", "Cabbage", "Celery", "Berries", "Bananas", "Apples", "Grapes", "Lemons & limes"]},
+    {"title": "Fats, Sauces & Seasonings", "items": ["Olive oil + sesame oil", "Almonds", "Chia seeds", "Reduced-fat shredded cheese", "Parmesan & feta", "Salsa / pico de gallo", "Marinara", "Jerk marinade", "Low-sodium soy sauce", "Honey", "Dijon mustard", "Taco & Italian seasoning", "Cocoa powder"]},
 ]
 
+EATING_OUT = [
+    {"q": "Chipotle", "a": "Bowl with double chicken, rice, fajita veggies, black beans, fresh tomato salsa and lettuce. Skip or go light on sour cream, cheese and chips. Roughly 60 g+ protein."},
+    {"q": "Chick-fil-A", "a": "12-count grilled nuggets with a side salad or fruit cup, or the grilled chicken sandwich. Zesty Buffalo is one of the lower-calorie sauces."},
+    {"q": "Starbucks", "a": "Egg-white egg bites or the Protein Box. Add protein cold foam to your coffee or choose a protein drink."},
+    {"q": "Subway / sandwich shops", "a": "Double meat (chicken, turkey or steak) on a 6-inch or as a salad, extra veggies, mustard or light sauce."},
+    {"q": "Wings night", "a": "Dry-rub wings (lemon pepper, garlic parm dry, Cajun), celery and carrots, sauce on the side."},
+    {"q": "Mexican restaurant", "a": "Fajitas: load up on protein and peppers, use 2 tortillas, salsa and pico. Portion the chips once, then move the basket."},
+    {"q": "Sushi", "a": "Sashimi or nigiri plus a hand roll, edamame and miso soup. Limit tempura and creamy rolls."},
+    {"q": "Brunch", "a": "Omelet or eggs with turkey sausage and fruit. Share the pancakes if you want them. One mimosa is fine."},
+]
+
+
 # ---------------------------------------------------------------- products
-WELCOME = ("<p>Hey baddie! 💜 It's Danielle. First of all — I'm SO proud of you for investing in yourself. "
-           "This isn't a PDF you'll forget in your downloads. It's an interactive app: tap things, track things, "
-           "and watch yourself get stronger.</p>"
-           "<p><b>How to use it:</b> Add this page to your home screen (Share → Add to Home Screen) so it lives on your phone like an app. "
-           "Everything you check off and every weight you log saves automatically on this device.</p>")
-
-DISCLAIMER = ("This program is for educational purposes and is not medical advice. Check with your doctor before starting a new "
-              "exercise or nutrition plan, especially if you're pregnant, injured or have a medical condition. Stop any exercise that causes pain.")
-
 PRODUCTS = [
     {
-        "slug": "glute-starter-pack-free-g7f2", "short": "Free Glute Starter Pack",
-        "title": "The Glute Starter Pack", "script": "free gift", "emoji": "🍑",
-        "sub": "3 booty workouts to start your glow-up TODAY",
-        "c1": "#ff2e93", "c2": "#8b2cf5",
+        "slug": "glute-starter-pack-free-g7f2", "short": "Glute Starter Guide", "title": "The Glute Starter Guide",
+        "kicker": "Free guide", "sub": "Three glute workouts and the principles behind them.",
+        "meta": ["3 workouts", "1 week", "Free"], "hue": 340, "guide": "glute-starter",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>This is a FREE taste of how I train. 3 workouts, one week. Do them, track them, and DM me “STARTER” on Instagram when you finish so I can hype you up.</p>"},
-            {"type": "program", "id": "wk", "label": "Workouts", "icon": "🍑", "weeks": build_program(STARTER_DAYS, STARTER_PHASES)},
-            {"type": "cards", "id": "rules", "label": "Glute Rules", "icon": "📏", "items": [
-                {"i": "🧠", "t": "Mind-muscle connection", "d": "Before each set, squeeze your glute for 3 seconds. You'll feel the difference immediately."},
-                {"i": "⏸️", "t": "Pause at the top", "d": "Every hip thrust and bridge gets a 1–2 second squeeze. No bouncing."},
-                {"i": "📈", "t": "Progressive overload", "d": "Next week, beat this week: +5 lbs or +1 rep. That's how the booty grows."},
-                {"i": "🍗", "t": "Eat your protein", "d": "Aim for ~0.8g per lb of your goal body weight. Muscles are built in the kitchen too."}]},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+            {"type": "guide", "id": "guide", "label": "Guide"},
+            {"type": "program", "id": "prog", "label": "Workouts", "weeks": build_program(STARTER_DAYS, STARTER_PHASES)},
+            {"type": "library", "id": "lib", "label": "Exercise Library"},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Lead Magnet (Free)", "price": "FREE", "strike": "",
-            "thumb_title": "FREE Glute Starter Pack 🍑", "thumb_sub": "3 booty workouts you can start TODAY",
-            "button": "Send It To Me 💌",
-            "checkout_title": "Get My FREE Glute Starter Pack 🍑",
-            "desc": "Want to grow your glutes but don't know where to start? I got you, baddie. This is the exact way I train — packed into 3 workouts you can start TODAY. Track every set right from your phone. No boring PDF, no guessing. Just drop your email and it's yours.",
-            "bullets": ["3 glute-focused workouts (gym or home with dumbbells)", "Interactive tracker — tap off sets & log your weights", "Built-in rest timer so you never lose count", "Form tips for every single exercise", "My 4 non-negotiable Glute Rules"],
-            "cta": "GIVE ME THE BOOTY PLAN 🍑",
+            "thumb_title": "Free Glute Starter Guide", "thumb_sub": "3 glute workouts you can start today",
+            "button": "Get the Free Guide",
+            "checkout_title": "The Glute Starter Guide (Free)",
+            "desc": "Want to grow your glutes but don't know where to start? This free guide gives you three of my favorite glute workouts and the four principles behind every program I write. You get an interactive tracker for your phone and a PDF you can print. Enter your email and it's yours.",
+            "bullets": ["3 glute-focused gym workouts", "Interactive tracker: log every set, built-in rest timer", "Step-by-step technique for every exercise", "The 4 rules of glute growth", "Printable PDF with fillable workout logs"],
+            "cta": "Send Me the Guide",
             "bump": None,
-            "thanks": "Check your email, baddie! 💌 Your Glute Starter Pack is on the way. Screenshot your first workout and tag me — I WILL repost you.",
+            "thanks": "Your Glute Starter Guide is on its way to your inbox. Open the interactive version on your phone and save it to your home screen. Tag me in your first workout!",
         },
     },
     {
-        "slug": "30-day-get-fit-challenge-c9x4", "short": "30-Day Get Fit With Me Challenge",
-        "title": "30-Day Get Fit With Me Challenge", "script": "the glow-up starts now", "emoji": "🔥",
-        "sub": "30 days. Daily workouts, habits & mindset. Let's GO.",
-        "c1": "#ff7a18", "c2": "#ff2e93",
+        "slug": "30-day-get-fit-challenge-c9x4", "short": "30-Day Challenge", "title": "The 30-Day Get Fit With Me Challenge",
+        "kicker": "30-day program", "sub": "Daily workouts, four habits and a mindset practice.",
+        "meta": ["30 days", "20–35 min/day", "Home or gym"], "hue": 18, "guide": "30-day-challenge",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>Every day you'll get a 20–30 minute workout (home or gym, dumbbells optional), 4 daily habits and a mindset prompt. Check off all 4 habits to complete the day and build your streak 🔥</p>"
-             "<p><b>Day 1 homework:</b> take front, side and back photos. Day-30 you is going to want them.</p>"},
-            {"type": "challenge", "id": "ch", "label": "Challenge", "icon": "🔥",
-             "tasks": ["🏋🏽‍♀️ Did today's workout", "💧 Drank 80+ oz of water", "👟 Hit 8,000 steps", "🍗 Protein at every meal"],
+            {"type": "guide", "id": "guide", "label": "Guide"},
+            {"type": "challenge", "id": "ch", "label": "Daily Tracker",
+             "tasks": ["Completed today's workout", "Drank 80+ oz of water", "Walked 8,000+ steps", "Protein at every meal"],
              "days": build_challenge()},
-            {"type": "pr", "id": "pr", "label": "Measurements", "icon": "📏", "metric": True,
-             "lifts": ["Weight", "Waist", "Hips", "Booty", "Thigh", "Arm"], "unit": "lbs / in"},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+            {"type": "progress", "id": "prog", "label": "Progress", "measure": True},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Digital Product", "price": "$14.99", "strike": "$29",
-            "thumb_title": "30-Day Get Fit With Me Challenge 🔥", "thumb_sub": "Daily workouts + habits + mindset. Glow-up guaranteed.",
-            "button": "Join The Challenge 🔥",
+            "thumb_title": "30-Day Get Fit With Me Challenge", "thumb_sub": "Daily workouts, habits & mindset in 30 days",
+            "button": "Join the Challenge",
             "checkout_title": "The 30-Day Get Fit With Me Challenge",
-            "desc": "You keep saying “I'm starting Monday.” Babe… THIS is your Monday. For 30 days, you and me are getting it IN — quick daily workouts you can do at home or the gym, 4 simple habits that change EVERYTHING, and a daily mindset prompt so your head glows up with your body. Check off your day, watch your streak grow, and feel yourself become HER.",
-            "bullets": ["30 days of 20–30 min workouts that level up every week", "Daily habit tracker with streaks + confetti (yes, really 🎉)", "30 mindset journal prompts", "Built-in workout timer", "Measurement tracker to see your progress", "Final Boss workout + Show-Off Day 👑", "Works on any phone — no app download"],
-            "cta": "I'M IN — LET'S GET FIT 🔥",
-            "bump": {"title": "Add Fuel Like A Baddie for just $9 (reg. $19)", "desc": "Get my 7-day high-protein meal plan, grocery list & macro calculator so your nutrition matches your effort."},
-            "thanks": "WELCOME TO THE CHALLENGE 🔥 Your link is in your email. Add it to your home screen, take your Day 1 pics and post a story tagging me with #GetFitWithMeChallenge!",
+            "desc": "Stop waiting for Monday. For 30 days, you'll do one short workout a day at home or the gym, four habits that change everything (water, steps, protein, movement) and a daily mindset prompt. Workouts get harder every week. A built-in tracker keeps your streak going, and the guide teaches you how to scale every move to your level.",
+            "bullets": ["30 progressive daily workouts (20–35 min)", "Habit tracker with streaks and daily check-ins", "30 guided journal prompts", "Scaling chart: easier and harder versions of every move", "Measurement tracker with progress charts", "Full guide: habits, NEAT, consistency, what to expect each week", "Printable PDF with a fillable 30-day tracker and journal"],
+            "cta": "Start My 30 Days",
+            "bump": {"title": "Add Fuel Like A Baddie for $9 (reg. $19)", "desc": "My complete nutrition guide: macro calculator, 7-day meal plan, 12 recipes and grocery list."},
+            "thanks": "Welcome to the challenge! Your link is in your email. Take your Day 1 photos and measurements today, then post your first workout and tag me with #GetFitWithMeChallenge.",
         },
     },
     {
-        "slug": "booty-builder-8-week-b3k8", "short": "Glute Specialist: 8-Week Booty Builder",
-        "title": "8-Week Booty Builder", "script": "glute specialist", "emoji": "🍑",
-        "sub": "My signature 4-day gym program to grow & lift your glutes",
-        "c1": "#ff2e93", "c2": "#b0173d",
+        "slug": "booty-builder-8-week-b3k8", "short": "Glute Specialist Program", "title": "The Glute Specialist Program",
+        "kicker": "8-week program", "sub": "My signature 4-day program to build stronger, fuller glutes.",
+        "meta": ["8 weeks", "4 days/week", "32 workouts", "Gym"], "hue": 345, "guide": "glute-specialist",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>This is my SIGNATURE program — the way I train my own glutes. 4 days a week, 8 weeks, 4 phases: <b>Foundation → Build → Strength → Peak</b>. "
-             "Every week the sets, reps and rest change automatically. Your only job: show up, log your weights, and beat last week.</p>"
-             "<p><b>Suggested schedule:</b> Mon Day 1 · Tue Day 2 · Thu Day 3 · Sat Day 4.</p>"},
-            {"type": "program", "id": "prog", "label": "Program", "icon": "🏋🏽‍♀️", "weeks": build_program(BOOTY_DAYS, BOOTY_PHASES)},
-            {"type": "pr", "id": "pr", "label": "PR Wall", "icon": "👑",
-             "lifts": ["Barbell Hip Thrust", "Romanian Deadlift", "Sumo Deadlift", "Smith Machine Squat", "DB Chest Press", "Lat Pulldown"], "unit": "lbs"},
-            {"type": "cards", "id": "rules", "label": "Glute Science", "icon": "🧠", "items": [
-                {"i": "📈", "t": "Progressive overload", "d": "Muscles grow when you ask them to do MORE over time. +5 lbs or +1 rep every week is the whole secret."},
-                {"i": "🍑", "t": "3 glute muscles", "d": "Glute max (hip thrusts, RDLs), glute med & min (abductions, kickbacks). This program hits all three."},
-                {"i": "⏱️", "t": "Rest is part of the set", "d": "Heavy lifts need 2–3 min rest. Use the timer. Scrolling for 7 minutes doesn't count 😂"},
-                {"i": "🍗", "t": "Fuel the growth", "d": "Eat at maintenance or a small surplus with ~0.8g protein per lb. You can't build a booty on salad alone."},
-                {"i": "😴", "t": "Sleep = gains", "d": "7–9 hours. That's when your muscles actually repair and grow."},
-                {"i": "📸", "t": "Track, don't guess", "d": "Photos every 2 weeks, same lighting, same angle. The mirror lies — the log doesn't."}]},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+            {"type": "guide", "id": "guide", "label": "Handbook"},
+            {"type": "program", "id": "prog", "label": "Program", "weeks": build_program(GLUTE_DAYS, GLUTE_PHASES)},
+            {"type": "progress", "id": "stats", "label": "Progress", "measure": True,
+             "lifts": ["Barbell Hip Thrust", "Romanian Deadlift", "Sumo Deadlift", "Smith Machine Squat", "Bulgarian Split Squat", "DB Chest Press", "Lat Pulldown"]},
+            {"type": "library", "id": "lib", "label": "Exercise Library"},
+            {"type": "tools", "id": "tools", "label": "Tools"},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Digital Product", "price": "$37", "strike": "$67",
-            "thumb_title": "8-Week Booty Builder 🍑", "thumb_sub": "My signature glute program — the one everybody asks for",
-            "button": "Build My Booty 🍑",
-            "checkout_title": "Glute Specialist: The 8-Week Booty Builder",
-            "desc": "Y'all ask me EVERY day “what do you do for your glutes?” This is it. My full signature program — 4 days a week, 8 weeks, built in 4 phases so your body never gets bored and never stops growing. Every set, rep, rest time and form tip is laid out for you in an app-style tracker right on your phone. Walk into the gym knowing EXACTLY what to do. No more copying random TikTok workouts and hoping for the best.",
-            "bullets": ["8 weeks · 4 workouts/week · 4 progressive phases", "32 done-for-you workouts that auto-progress each week", "Log your weight for every exercise + tap off every set", "Form tips for all 25+ exercises", "Built-in rest timer with alarm", "PR Wall to track your strongest lifts 👑", "Includes upper body day so you're snatched head to toe"],
-            "cta": "START BUILDING 🍑",
-            "bump": {"title": "Add the PR Press Program for $15 (reg. $24)", "desc": "Want to chest press 75s like me? Add my 6-week upper body strength program."},
-            "thanks": "Ayyyye welcome to the Booty Builder 🍑 Your program link is in your email. Save it to your home screen, start Week 1, and tag me in your first hip thrust video!",
+            "thumb_title": "The Glute Specialist Program", "thumb_sub": "My signature 8-week glute program",
+            "button": "Start the Program",
+            "checkout_title": "The Glute Specialist Program: 8 Weeks",
+            "desc": "Everyone asks what I do for my glutes. This is it: my complete 8-week program, built in four progressive phases (Foundation, Build, Strength, Peak) with three lower-body days and one upper-body day each week. You also get a 14-chapter handbook covering the science of glute growth, progressive overload, effort (RIR), warm-ups, nutrition and troubleshooting. Track every set in the app, see what you lifted last time, and watch your strength climb on your progress charts.",
+            "bullets": ["32 progressive workouts across 8 weeks", "14-chapter training handbook with knowledge checks", "Set-by-set logging with 'last time' comparisons", "Progress charts, PR Wall and measurement tracking", "Exercise library: setup, cues, mistakes & swaps for 25+ moves", "1RM and warm-up calculators, auto rest timer", "Printable PDF book with 32 fillable workout logs"],
+            "cta": "Get the Program",
+            "bump": {"title": "Add Press Like A Boss for $15 (reg. $24)", "desc": "My 6-week upper-body strength program. It pairs perfectly as a full upper/lower split."},
+            "thanks": "You're in! Your program link and PDF are in your email. Start with the Handbook (Chapters 1–6), then do Week 1 as your calibration week. Tag me in your first hip thrust!",
         },
     },
     {
-        "slug": "press-like-a-boss-p5m1", "short": "Press Like A Boss",
-        "title": "Press Like A Boss", "script": "75 lbs & counting", "emoji": "💪🏽",
-        "sub": "6-week upper body strength program for women",
-        "c1": "#8b2cf5", "c2": "#3b82f6",
+        "slug": "press-like-a-boss-p5m1", "short": "Press Like A Boss", "title": "Press Like A Boss",
+        "kicker": "6-week strength program", "sub": "Upper-body strength for women: a stronger press, back and shoulders.",
+        "meta": ["6 weeks", "3 days/week", "18 workouts", "Gym"], "hue": 265, "guide": "press-like-a-boss",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>Y'all saw me chest press 70s and 75s 😤 This is how I got there. 3 upper days a week for 6 weeks: one heavy push day, one pull day for a strong back and posture, and one volume day. "
-             "Week 6 is PR Week — you're going to work up to the heaviest press of your LIFE and log it on the PR Wall.</p>"
-             "<p><b>Pair it with:</b> the 8-Week Booty Builder lower days for a full split, or do it on its own.</p>"},
-            {"type": "program", "id": "prog", "label": "Program", "icon": "💪🏽", "weeks": build_program(PRESS_DAYS, PRESS_PHASES)},
-            {"type": "pr", "id": "pr", "label": "PR Wall", "icon": "👑",
-             "lifts": ["DB Chest Press (per DB)", "Incline DB Press (per DB)", "DB Shoulder Press (per DB)", "Lat Pulldown", "Single-Arm DB Row"], "unit": "lbs"},
-            {"type": "accordion", "id": "faq", "label": "Press Secrets", "icon": "🤫", "items": [
-                {"q": "How do I get heavy dumbbells into position?", "a": "Sit on the end of the bench with the dumbbells standing on your thighs. As you lie back, kick one knee up at a time to pop each dumbbell to your chest. Reverse it to put them down — never drop them out to the side."},
-                {"q": "Will lifting heavy make me bulky?", "a": "No, babe. Women build muscle slowly. Heavy lifting makes you strong, toned, and snatched. 'Bulky' takes years of intentional eating and training."},
-                {"q": "My press is stuck. Now what?", "a": "1) Make sure you're eating enough protein. 2) Sleep 7+ hours. 3) Do the paused presses on Day 3 seriously. 4) Strengthen your back — Day 2 is not optional!"},
-                {"q": "Should I use a spotter?", "a": "For Week 5–6 heavy sets, yes. Ask someone: “Can you spot me for one set? Just help if I get stuck.” Gym people LOVE being asked."},
-                {"q": "How do I know when to go up in weight?", "a": "If you hit every rep of every set with good form, go up 5 lbs per dumbbell next session."}]},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+            {"type": "guide", "id": "guide", "label": "Handbook"},
+            {"type": "program", "id": "prog", "label": "Program", "weeks": build_program(PRESS_DAYS, PRESS_PHASES)},
+            {"type": "progress", "id": "stats", "label": "Progress",
+             "lifts": ["DB Chest Press", "Incline DB Press", "DB Shoulder Press", "Lat Pulldown", "Single-Arm DB Row", "Paused DB Bench Press"]},
+            {"type": "library", "id": "lib", "label": "Exercise Library"},
+            {"type": "tools", "id": "tools", "label": "Tools"},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Digital Product", "price": "$24", "strike": "$47",
-            "thumb_title": "Press Like A Boss 💪🏽", "thumb_sub": "6 weeks to your strongest upper body ever",
-            "button": "Get Strong 💪🏽",
+            "thumb_title": "Press Like A Boss", "thumb_sub": "6 weeks to your strongest upper body",
+            "button": "Get Stronger",
             "checkout_title": "Press Like A Boss: 6-Week Upper Body Strength",
-            "desc": "Y'all went CRAZY over my 70 & 75 lb chest press video 😤 So here's the exact plan. 6 weeks, 3 upper body days a week, built to make you STRONG — not bulky. Sculpted shoulders, a snatched back, toned arms and a chest press that makes the gym bros look twice. Week 6 is PR Week, and you're gonna surprise yourself.",
-            "bullets": ["6-week progressive strength program (3 days/week)", "Heavy push, pull & volume days", "Weight logger + tap-off sets for every exercise", "PR Wall with automatic 1-rep-max estimate", "My secrets for getting heavy dumbbells into position", "Rest timer built in"],
-            "cta": "LET'S PRESS 💪🏽",
-            "bump": {"title": "Add the 8-Week Booty Builder for $25 (reg. $37)", "desc": "Complete your split with my signature lower-body & glute program."},
-            "thanks": "Let's GO 💪🏽 Your program is in your email. Week 6 = PR week… film it and tag me, I want to SEE it!",
+            "desc": "You saw me press 70s and 75s. This is the exact plan behind it. Three upper-body days a week for six weeks: a heavy push day, a pull and posture day and a volume day, ending with a structured PR Week. The handbook teaches you dumbbell press technique step by step, how to beat the dumbbell jump problem, shoulder health, spotting and how to test your max safely.",
+            "bullets": ["18 progressive workouts across 6 weeks", "11-chapter strength handbook with knowledge checks", "Dumbbell press masterclass, including the kick-up technique", "Strategies for breaking through dumbbell plateaus", "PR Week warm-up protocol + 1RM calculator", "Set-by-set logging and progress charts", "Printable PDF book with fillable workout logs"],
+            "cta": "Get the Program",
+            "bump": {"title": "Add the Glute Specialist Program for $25 (reg. $37)", "desc": "Complete your split with my signature 8-week lower-body program."},
+            "thanks": "Let's get strong! Your program and PDF are in your email. Read Chapter 3 before your first session. Week 6 is PR Week, so film it and tag me.",
         },
     },
     {
-        "slug": "fuel-like-a-baddie-f2q6", "short": "Fuel Like A Baddie",
-        "title": "Fuel Like A Baddie", "script": "eat to get snatched", "emoji": "🍗",
-        "sub": "High-protein meal plan, grocery list & macro calculator",
-        "c1": "#22c55e", "c2": "#ff2e93",
+        "slug": "fuel-like-a-baddie-f2q6", "short": "Fuel Like A Baddie", "title": "Fuel Like A Baddie",
+        "kicker": "Nutrition guide", "sub": "The complete high-protein nutrition system for women who train.",
+        "meta": ["17 chapters", "12 recipes", "7-day plan", "Macro calculator"], "hue": 150, "guide": "fuel-like-a-baddie",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>You can't out-train your fork, babe. This kit takes the guessing out of eating for your goals: calculate your macros, follow the 7-day high-protein plan, shop with the checklist, and meal prep once on Sunday. "
-             "No starving. No boring chicken-and-broccoli only. Real food with flavor.</p>"},
-            {"type": "macro", "id": "macro", "label": "My Macros", "icon": "🧮"},
-            {"type": "meals", "id": "meals", "label": "Meal Plan", "icon": "🍽️", "days": MEALS},
-            {"type": "checklist", "id": "groc", "label": "Grocery List", "icon": "🛒", "groups": GROCERY},
-            {"type": "checklist", "id": "prep", "label": "Sunday Prep", "icon": "🍱", "groups": [
-                {"title": "⏰ 90-Minute Meal Prep", "items": ["Preheat oven to 425°F, start rice cooker", "Season & sheet-pan 3 lbs chicken (25 min)", "Roast potatoes & broccoli on a second pan", "Brown ground turkey/beef for tacos & meatballs", "Make 5 jars of overnight protein oats", "Bake egg bites in a muffin tin (12)", "Wash & chop veggies for the week", "Portion into containers & label the days", "Fill your water bottle + set tomorrow's gym bag 😉"]}]},
-            {"type": "cards", "id": "snacks", "label": "Snack Menu", "icon": "🍓", "items": [
-                {"i": "🥤", "t": "Protein shake + banana", "d": "~26g protein · perfect post-workout"},
-                {"i": "🍓", "t": "Greek yogurt parfait", "d": "~18g protein · sweet tooth approved"},
-                {"i": "🧀", "t": "String cheese + apple", "d": "~8g protein · throw-in-your-bag easy"},
-                {"i": "🥩", "t": "Beef jerky + grapes", "d": "~15g protein · road trip queen"},
-                {"i": "🍘", "t": "Rice cakes + PB", "d": "Pre-workout carbs that won't sit heavy"},
-                {"i": "🥚", "t": "2 hard-boiled eggs", "d": "~12g protein · prep a dozen Sunday"},
-                {"i": "🧁", "t": "Protein mug cake", "d": "1 scoop protein, 1 tbsp flour, ½ tsp baking powder, splash of milk — microwave 60s"},
-                {"i": "🍫", "t": "Chocolate protein 'pudding'", "d": "Greek yogurt + chocolate protein powder, stir & chill"}]},
-            {"type": "accordion", "id": "out", "label": "Eating Out", "icon": "🌮", "items": [
-                {"q": "Chipotle", "a": "Bowl: double chicken, rice, fajita veggies, black beans, salsa, lettuce. Skip or go light on sour cream & cheese. ~60g protein."},
-                {"q": "Chick-fil-A", "a": "12-count grilled nuggets + side salad or fruit cup. Or grilled chicken sandwich. Zesty Buffalo sauce is the lowest-cal flavor."},
-                {"q": "Starbucks", "a": "Egg white & roasted red pepper egg bites + a protein box. Order your latte with protein cold foam."},
-                {"q": "Wingstop / wings night", "a": "Plain or dry-rub wings (lemon pepper, garlic parm dry), veggie sticks, skip the ranch or get it on the side."},
-                {"q": "Mexican restaurant", "a": "Fajitas! Load up on the protein and veggies, 2 tortillas, salsa & pico. Chips: pour a portion, push the basket away."},
-                {"q": "Brunch with the girls", "a": "Omelet or eggs + side of turkey sausage, fruit, 1 pancake if you want it. Mimosa? Enjoy one. Balance > perfection."}]},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+            {"type": "guide", "id": "guide", "label": "Guide"},
+            {"type": "macro", "id": "macro", "label": "My Macros"},
+            {"type": "meals", "id": "meals", "label": "Meal Plan", "days": MEALS},
+            {"type": "recipes", "id": "recipes", "label": "Recipes", "items": RECIPES},
+            {"type": "checklist", "id": "groc", "label": "Grocery List", "groups": GROCERY},
+            {"type": "checklist", "id": "prep", "label": "Sunday Prep", "groups": [
+                {"title": "90-Minute Meal Prep", "items": ["Preheat the oven to 425°F and start the rice cooker", "Season and sheet-pan the chicken (22–25 min)", "Roast potatoes, sweet potatoes and broccoli on a second pan", "Brown the ground turkey for tacos; roll and bake meatballs", "Make 4–5 jars of protein overnight oats", "Bake a tray of 12 egg bites", "Wash and chop vegetables for the week", "Portion meals into containers and label by day", "Freeze Thursday–Saturday portions", "Fill your water bottle and pack tomorrow's gym bag"]}]},
+            {"type": "accordion", "id": "out", "label": "Eating Out", "items": EATING_OUT},
+            {"type": "progress", "id": "stats", "label": "Check-Ins", "measure": True},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Digital Product", "price": "$19", "strike": "$39",
-            "thumb_title": "Fuel Like A Baddie 🍗", "thumb_sub": "Meal plan + grocery list + macro calculator",
-            "button": "Feed Me Right 🍗",
-            "checkout_title": "Fuel Like A Baddie: High-Protein Meal Plan Kit",
-            "desc": "You're killing it in the gym but the scale and the mirror aren't moving? It's the food, babe. This kit tells you EXACTLY how much to eat for your goal, then hands you a 7-day high-protein meal plan with real, flavorful food (jerk chicken, burrito bowls, protein waffles 😍), a tap-to-check grocery list, a 90-minute Sunday meal prep plan, and my eating-out cheat sheet so you can still go out with the girls.",
-            "bullets": ["Personal macro calculator (calories, protein, carbs, fat, water)", "7-day high-protein meal plan (28 meals)", "Interactive grocery checklist", "90-minute Sunday meal prep game plan", "8 high-protein snacks + sweet treats", "Eating-out cheat sheet: Chipotle, Chick-fil-A, Starbucks & more"],
-            "cta": "FUEL ME UP 🍗",
-            "bump": {"title": "Add the 30-Day Challenge for $9 (reg. $14.99)", "desc": "Pair your new meal plan with 30 days of workouts, habits & mindset."},
-            "thanks": "Your kitchen is about to be a gains factory 🍗 Check your email for your link and calculate your macros first!",
+            "thumb_title": "Fuel Like A Baddie", "thumb_sub": "Macros, meal plan, recipes & grocery list",
+            "button": "Get the Guide",
+            "checkout_title": "Fuel Like A Baddie: The Nutrition Guide",
+            "desc": "Training hard but not seeing it in the mirror? It's usually nutrition. This guide teaches you how to eat for your goal in 17 clear chapters: energy balance, macros, protein, meal timing, hydration, supplements, your cycle, plateaus, eating out and meal prep. Then it gives you the tools: a personal macro calculator, a 7-day high-protein meal plan, 12 recipes with macros, a grocery checklist and a 90-minute meal prep system.",
+            "bullets": ["17-chapter nutrition guide with knowledge checks", "Personal macro calculator (calories, protein, carbs, fat, water)", "7-day high-protein meal plan", "12 recipes with ingredients, steps and macros", "Interactive grocery list + 90-minute meal prep checklist", "Eating-out guide for 8 popular restaurants", "Printable PDF book with a fillable meal planner and check-in log"],
+            "cta": "Get the Guide",
+            "bump": {"title": "Add the 30-Day Challenge for $9 (reg. $14.99)", "desc": "Pair your nutrition with 30 days of workouts, habits and mindset."},
+            "thanks": "Your guide is in your email. Start with the My Macros tab, then read Chapters 1–4. Shop with the grocery list this weekend.",
         },
     },
     {
-        "slug": "gym-girl-confidence-kit-k4t9", "short": "Gym Girl Confidence Kit",
-        "title": "Gym Girl Confidence Kit", "script": "from scared to stage", "emoji": "✨",
-        "sub": "Beat gym anxiety & walk in like you own the place",
-        "c1": "#f5b70a", "c2": "#ff2e93",
+        "slug": "gym-girl-confidence-kit-k4t9", "short": "Gym Confidence Kit", "title": "The Gym Girl Confidence Kit",
+        "kicker": "Beginner guide", "sub": "Everything you need to walk into the gym and know exactly what to do.",
+        "meta": ["14 chapters", "2-week plan", "Beginner"], "hue": 40, "guide": "gym-girl-confidence-kit",
         "sections": [
-            {"type": "intro", "id": "start", "label": "Start Here", "icon": "💜", "html": WELCOME +
-             "<p>Real talk: I was once the girl who walked in, did 10 minutes on the treadmill and left because I didn't know what to do. Gym anxiety is REAL, and it's keeping so many of us from our goals. "
-             "This kit fixes that: what to pack, what to wear, how to use the machines, gym etiquette, word-for-word scripts, and a 2-week plan that eases you in. You belong in that weight room, sis.</p>"},
-            {"type": "program", "id": "prog", "label": "2-Week Plan", "icon": "🗓️", "weeks": build_program(CONF_DAYS, CONF_PHASES)},
-            {"type": "accordion", "id": "mach", "label": "Machine Guide", "icon": "⚙️", "items": [
-                {"q": "Leg Press", "a": TIPS["Leg Press"] + " Seat: adjust so your knees reach ~90° at the bottom. Always lock the safety handles before getting out."},
-                {"q": "Hip Abduction (the 'booty machine')", "a": TIPS["Hip Abduction Machine"] + " Set the start lever so your legs start together."},
-                {"q": "Lat Pulldown", "a": TIPS["Lat Pulldown"] + " Lock your thighs under the pad first."},
-                {"q": "Seated Cable Row", "a": TIPS["Seated Cable Row"]},
-                {"q": "Smith Machine", "a": "The bar is on a track and hooks into slots. Rotate your wrists to unhook/re-hook. " + TIPS["Smith Machine Squat"]},
-                {"q": "Cable Machine", "a": "Pull the pin on the side to slide the pulley up/down. Clip on the attachment you need (rope, handle, ankle strap). The weight stack pin sets your load."},
-                {"q": "Lying Hamstring Curl", "a": TIPS["Lying Hamstring Curl"] + " Pad should sit just above your heels."},
-                {"q": "Chest Press Machine", "a": TIPS["Machine Chest Press"]},
-                {"q": "Hip Thrust Machine / Bench", "a": TIPS["Barbell Hip Thrust"] + " Use a bar pad — your hip bones will thank you."},
-                {"q": "Stair Master", "a": "Start at level 4–6, stand tall, don't lean on the rails. 10–15 min is a WORKOUT."}]},
-            {"type": "cards", "id": "scripts", "label": "Gym Scripts", "icon": "💬", "items": [
-                {"i": "🔁", "t": "Want a machine someone's on", "d": "“Hey, how many sets do you have left?” or “Mind if I work in?”"},
-                {"i": "🙋🏽‍♀️", "t": "Need a spot", "d": "“Can you spot me for one set? Just help if I get stuck around rep 8.”"},
-                {"i": "🎧", "t": "Someone won't stop talking", "d": "Point at your headphones, smile, “Sorry, in the zone!” and keep it moving."},
-                {"i": "🏋🏽‍♀️", "t": "Taking the dumbbells to your bench", "d": "Totally allowed. Just bring them back when you're done."},
-                {"i": "📱", "t": "Filming your set", "d": "Set up out of walkways and don't film other people without asking. Your content, your space."},
-                {"i": "🤷🏽‍♀️", "t": "Someone gives unsolicited advice", "d": "“Thanks! I'm following my coach's program.” 😌 Then go back to work."}]},
-            {"type": "checklist", "id": "bag", "label": "Gym Bag", "icon": "🎒", "groups": [
-                {"title": "🎒 Pack The Night Before", "items": ["Water bottle (40 oz+)", "Headphones — charged!", "Pre-made playlist", "Lifting gloves or straps", "Ankle strap for cable kickbacks", "Resistance band (booty band)", "Small towel", "Deodorant + body spray", "Hair ties + edge brush 😂", "Post-workout snack or shake", "Phone tripod for content", "Your program open on your phone"]},
-                {"title": "✨ Confidence Rituals", "items": ["Outfit I feel GOOD in laid out", "Hype song for the parking lot", "Plan which machines I'm using today", "Say my affirmation in the mirror", "Walk in with my shoulders back"]}]},
-            {"type": "cards", "id": "aff", "label": "Affirmations", "icon": "🪞", "items": [
-                {"i": "💜", "t": "I belong here.", "d": "Every person in this gym was a beginner once."},
-                {"i": "👑", "t": "Nobody is watching me the way I think.", "d": "They're thinking about their own set, babe."},
-                {"i": "💪🏽", "t": "Strong is beautiful.", "d": "I lift for me — not for anyone's approval."},
-                {"i": "🔥", "t": "Progress, not perfection.", "d": "Showing up today is the win."},
-                {"i": "✨", "t": "I'm becoming HER.", "d": "The confident girl I see in my head is me in 90 days."},
-                {"i": "🦋", "t": "Discomfort means growth.", "d": "Nervous and doing it anyway = brave."}]},
-            {"type": "journal", "id": "jr", "label": "Journal", "icon": "📝", "prompts": [
-                "What exactly makes me nervous about the gym? Name it so it loses its power.",
+            {"type": "guide", "id": "guide", "label": "Guide"},
+            {"type": "program", "id": "prog", "label": "2-Week Plan", "weeks": build_program(CONF_DAYS, CONF_PHASES)},
+            {"type": "library", "id": "lib", "label": "Exercise Library"},
+            {"type": "checklist", "id": "bag", "label": "Checklists", "groups": [
+                {"title": "Gym Bag", "items": ["Water bottle (32 oz+)", "Headphones (charged)", "Workout playlist", "Today's workout open in this app", "Lifting straps or grips", "Ankle strap for cable kickbacks", "Mini resistance band", "Small towel", "Deodorant", "Hair ties", "Post-workout snack or shake", "Phone tripod (optional)"]},
+                {"title": "Before Your First Visit", "items": ["Book a free gym tour/orientation", "Choose a quiet time to go", "Read today's workout and watch the cues in the library", "Lay out an outfit you feel good in", "Pack your bag the night before", "Tell a friend your plan (accountability)"]},
+                {"title": "Confidence Rituals", "items": ["Play my hype song on the way in", "Review my plan in the parking lot", "Say my affirmation", "Walk in with shoulders back", "Journal after the session"]}]},
+            {"type": "journal", "id": "jr", "label": "Journal", "prompts": [
+                "What exactly makes me nervous about the gym? Naming it takes away its power.",
                 "What would I do in the gym if I knew nobody was judging me?",
-                "After my first workout in this plan, how did I feel walking out?",
-                "What's one thing I did this week that past-me would've been too scared to do?",
-                "Write a letter to the girl who will walk into the gym confidently 3 months from now."]},
-            {"type": "upsell", "id": "next", "label": "What's Next", "icon": "👑"},
+                "After my first session: how did I feel walking out?",
+                "What did I do this week that past-me would have been too nervous to do?",
+                "Which station felt most intimidating, and how did it go?",
+                "Write a letter to the woman who walks into the gym confidently three months from now."]},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
         ],
         "stan": {
             "kind": "Digital Product", "price": "$12", "strike": "$27",
-            "thumb_title": "Gym Girl Confidence Kit ✨", "thumb_sub": "Beat gym anxiety & own the weight room",
-            "button": "Boost My Confidence ✨",
+            "thumb_title": "The Gym Girl Confidence Kit", "thumb_sub": "Beat gym anxiety & own the weight room",
+            "button": "Build My Confidence",
             "checkout_title": "The Gym Girl Confidence Kit",
-            "desc": "Scared of the weight room? Don't know how the machines work? Feel like everyone's staring? Sis… I've been there. This kit takes you from nervous to NOTHING-CAN-STOP-ME in 2 weeks. You'll know what to pack, how to use 10 of the most common machines, exactly what to say in awkward moments, and you'll follow a beginner plan that eases you in — machines first, then dumbbells, then cables. You belong in that gym.",
-            "bullets": ["2-week beginner gym plan (machines → dumbbells → cables)", "Step-by-step guide to 10 gym machines", "Word-for-word gym scripts for awkward moments", "Gym bag + confidence ritual checklists", "6 gym affirmations + 5 journal prompts", "Interactive tracker with rest timer"],
-            "cta": "I'M READY TO OWN IT ✨",
-            "bump": {"title": "Add the 8-Week Booty Builder for $25 (reg. $37)", "desc": "Once you're confident, keep the momentum with my signature 8-week program."},
-            "thanks": "I'm SO proud of you for this step 💜 Your kit is in your email. Pack your bag tonight and tag me in your first gym selfie!",
+            "desc": "Nervous about the weight room? Not sure how the machines work? This kit is the orientation I wish I'd had. In 14 chapters you'll learn how gym anxiety works and how to beat it, the layout of a gym, how every piece of equipment works, etiquette, exactly what to say in awkward moments, how to read a program and choose weights. Then a 2-week plan eases you in: machines first, then dumbbells, then cables.",
+            "bullets": ["14-chapter beginner's guide to the gym", "2-week starter plan with set-by-set tracking", "Exercise library with step-by-step technique", "Word-for-word gym scripts", "Gym bag and first-visit checklists", "Guided confidence journal", "Printable PDF with fillable checklists and logs"],
+            "cta": "Get the Kit",
+            "bump": {"title": "Add the Glute Specialist Program for $25 (reg. $37)", "desc": "When you're ready, keep the momentum with my signature 8-week program."},
+            "thanks": "I'm so proud of you for taking this step. Your kit is in your email. Read Chapters 1–5 tonight and pack your bag. Tag me in your first gym selfie!",
         },
     },
 ]
 
 BUNDLE = {
     "kind": "Bundle", "price": "$67", "strike": "$106.99",
-    "thumb_title": "THE WHOLE BADDIE BUNDLE 👑", "thumb_sub": "Every program, meal plan & kit — save 37%",
-    "button": "Get Everything 👑",
-    "checkout_title": "The Whole Baddie Bundle 👑",
-    "desc": "Want it ALL? Of course you do. 👑 Get every single Get Fit With Me product in one bundle and save over $40. Your workouts, your nutrition, your confidence — all handled. This is the complete glow-up system I wish I had when I started.",
-    "bullets": ["8-Week Booty Builder ($37)", "Press Like A Boss ($24)", "Fuel Like A Baddie ($19)", "30-Day Get Fit With Me Challenge ($14.99)", "Gym Girl Confidence Kit ($12)", "Lifetime access + every future update FREE"],
-    "cta": "GIVE ME EVERYTHING 👑",
-    "bump": {"title": "Add a 30-min Form Check Call for $29 (reg. $49)", "desc": "Send me your lift videos and we'll fix your form together on a 1:1 video call."},
-    "thanks": "BADDIE STATUS UNLOCKED 👑 All 5 links are in your email. Start with the Confidence Kit + Fuel Like A Baddie, then hit Week 1 of the Booty Builder. I'm so proud of you!",
+    "thumb_title": "The Complete Collection", "thumb_sub": "All 5 programs & guides. Save 37%",
+    "button": "Get Everything",
+    "checkout_title": "The Complete Get Fit With Me Collection",
+    "desc": "Everything I teach in one place: training, nutrition and confidence. Get all five programs and guides, each with its interactive app and printable PDF book, and save over $40 compared with buying them separately.",
+    "bullets": ["The Glute Specialist Program ($37)", "Press Like A Boss ($24)", "Fuel Like A Baddie ($19)", "30-Day Get Fit With Me Challenge ($14.99)", "The Gym Girl Confidence Kit ($12)", "5 interactive apps + 5 printable PDF books", "Lifetime access and all future updates"],
+    "cta": "Get the Collection",
+    "bump": {"title": "Add a 30-min Form Check Call for $29 (reg. $49)", "desc": "Send me your lift videos and we'll review your technique together on a 1:1 video call."},
+    "thanks": "Welcome to the full collection! All five links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss when you're ready.",
 }
 
 COACHING = [
     {
         "kind": "Coaching Call (Calendar)", "price": "$49", "strike": "",
-        "thumb_title": "1:1 Form Check Call 🎥", "thumb_sub": "30 min on video — let's fix your form together",
-        "button": "Book My Call 📅",
-        "checkout_title": "1:1 Form Check + Strategy Call",
-        "desc": "Not sure if you're doing it right? Stop guessing and get eyes on your form. Send me videos of your lifts before the call, then we hop on a 30-minute video call where I break down your technique, fix what's holding you back, and build you a game plan for your goals.",
-        "bullets": ["30-minute 1:1 video call with me", "I review up to 5 of your lift videos beforehand", "Personal form corrections + cues", "Custom next-steps plan for your goals", "Recording of the call so you can rewatch"],
-        "cta": "BOOK IT 📅",
+        "thumb_title": "1:1 Form Check Call", "thumb_sub": "30 minutes on video to perfect your technique",
+        "button": "Book a Call",
+        "checkout_title": "1:1 Form Check & Strategy Call",
+        "desc": "Stop guessing whether your form is right. Send me videos of up to five lifts before the call, then we'll meet for 30 minutes on video. I'll break down your technique, give you the cues that fix it and build a plan for your next 4–8 weeks.",
+        "bullets": ["30-minute 1:1 video call", "Review of up to 5 lift videos before the call", "Personalized technique corrections and cues", "Custom next-steps plan for your goals", "Call recording to rewatch"],
+        "cta": "Book My Call",
         "bump": None,
-        "thanks": "You're booked! 🎉 Reply to your confirmation email with up to 5 lift videos (side angle is best) at least 24 hours before our call.",
+        "thanks": "You're booked! Reply to your confirmation email with up to 5 lift videos (side angle is best) at least 24 hours before the call.",
     },
     {
         "kind": "Membership / Application", "price": "$149/mo", "strike": "",
-        "thumb_title": "Online Coaching With Danielle 💜", "thumb_sub": "Custom program, macros & weekly check-ins",
-        "button": "Apply Now 💜",
-        "checkout_title": "1:1 Online Coaching With Danielle",
-        "desc": "This is for the girl who's DONE starting over. You get a fully custom training program built around your body, schedule and gym, your own macros, weekly check-ins, form reviews and direct access to me in your DMs. I only take a small number of clients so I can actually give you my attention — so apply and let's see if we're a fit.",
-        "bullets": ["Custom training program updated every 4 weeks", "Personal macros + nutrition guidance", "Weekly check-ins & adjustments", "Unlimited form check videos", "Direct messaging access to me", "All 5 Get Fit With Me products included FREE"],
-        "cta": "APPLY FOR COACHING 💜",
+        "thumb_title": "1:1 Online Coaching", "thumb_sub": "Custom training, nutrition & weekly check-ins",
+        "button": "Apply Now",
+        "checkout_title": "1:1 Online Coaching with Danielle",
+        "desc": "For women who are ready to stop starting over. You get a fully custom training program built around your body, schedule and gym; personalized macros; weekly check-ins with adjustments; unlimited form reviews; and direct messaging access to me. I keep my client roster small so every client gets real attention, so please apply.",
+        "bullets": ["Custom program updated every 4 weeks", "Personalized macros and nutrition guidance", "Weekly check-ins and adjustments", "Unlimited form-check videos", "Direct messaging access", "All 5 Get Fit With Me programs included"],
+        "cta": "Apply for Coaching",
         "bump": None,
-        "thanks": "Application received! 💜 I personally review every one. Keep an eye on your email (and DMs) within 48 hours.",
+        "thanks": "Application received. I personally review every one and will be in touch within 48 hours.",
     },
 ]
 
 LAUNCH = {
     "captions": [
-        "POV: you finally stopped making the girl who's been asking “what's your glute workout?” wait 😂🍑 My Get Fit With Me store is OFFICIALLY LIVE. Free Glute Starter Pack is in my bio — go grab it before I change my mind 💜 #getfitwithme #glutes #gymgirl",
-        "I chest pressed 75s and y'all lost it 😤 So I made the program. Press Like A Boss is live — 6 weeks to the strongest upper body you've ever had. Link in bio 💪🏽 #womenwholift #chestpress #strongwomen",
-        "Scared of the gym? I was too. Built the Gym Girl Confidence Kit for every girl who's ever walked in and walked right back out. You belong here, sis ✨ Link in bio. #gymanxiety #beginnergym",
-        "30 days. You + me. Daily workouts, habits & mindset. The 30-Day Get Fit With Me Challenge starts whenever YOU say so 🔥 Comment “CHALLENGE” and I'll DM you the link.",
+        "You asked what I do for my glutes, so I wrote it all down. The Glute Specialist Program is live: 8 weeks, 32 workouts, a full training handbook and an app that tracks every set. Start with the free Glute Starter Guide in my bio. #getfitwithme #glutes #womenwholift",
+        "75 lb dumbbell press. Six weeks ago that felt impossible. Press Like A Boss is the exact program and technique breakdown, and it's live now. Link in bio. #strongwomen #upperbody",
+        "If gym anxiety has ever made you walk in and walk right back out, this one's for you. The Gym Girl Confidence Kit covers the layout, the equipment, the etiquette and exactly what to say. Link in bio.",
+        "30 days. One short workout, four habits and a journal prompt every day. Comment CHALLENGE and I'll send you the link.",
     ],
     "story": [
-        "Slide 1 (video of you lifting): “Y'all have been asking for MONTHS…”",
-        "Slide 2: “My store is finally LIVE 😭💜” + screenshot of the store",
-        "Slide 3: Poll — “What do you need most? 🍑 Glutes / 💪🏽 Upper body / 🍗 Food / ✨ Confidence”",
-        "Slide 4: “Start with the FREE Glute Starter Pack” + link sticker",
-        "Slide 5: “Launch week only: the Whole Baddie Bundle is $67 👑” + link sticker",
-        "Slide 6: Countdown sticker “Launch sale ends” (set for 72 hrs)",
+        "Slide 1: video of you lifting. Text: \"You've been asking for months...\"",
+        "Slide 2: screen recording scrolling through an app. Text: \"It's finally here.\"",
+        "Slide 3: poll. \"What do you need most? Glutes / Upper body / Nutrition / Confidence\"",
+        "Slide 4: \"Start free\" + link sticker to the Glute Starter Guide",
+        "Slide 5: \"Launch week: the Complete Collection is $67\" + link sticker",
+        "Slide 6: countdown sticker for the end of the launch price (72 hours)",
     ],
-    "dm_keywords": "Pin a reel that says “Comment GLUTES for my free workout.” Then send everyone who comments the Free Glute Starter Pack link (Stan has an Instagram AutoDM feature that can do this automatically).",
+    "dm_keywords": "Pin a Reel that says \"Comment GLUTES for my free workout guide.\" Send everyone who comments the Glute Starter Guide link. Stan's AutoDM feature can do this automatically.",
 }
