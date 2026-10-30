@@ -13,6 +13,11 @@ Tap a link and the file downloads.
 - [Fuel Like A Baddie (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/2a9db03cdc77f650/Fuel-Like-A-Baddie.pdf)
 - [The Gym Girl Confidence Kit (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/1bb609988373c49d/The-Gym-Girl-Confidence-Kit.pdf)
 
+**Brand files**
+- [Logo (with name)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/brand/logo.png)
+- [Round logo (profile picture)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/brand/logo-mark.png)
+- [Body cutout (transparent background)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/brand/body-cutout.png)
+
 ## What's in the ZIP
 
 The ZIP has one folder per product, each containing:

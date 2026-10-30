@@ -265,7 +265,7 @@ PRODUCTS = [
     {
         "slug": "glute-starter-pack-free-g7f2", "token": "5b1381b178c18ffb", "short": "Glute Starter Guide", "title": "The Glute Starter Guide",
         "kicker": "Free guide", "sub": "Three glute workouts and the principles behind them.",
-        "meta": ["3 workouts", "1 week", "Free"], "hue": 340, "guide": "glute-starter",
+        "meta": ["3 workouts", "1 week", "Free"], "hue": 280, "guide": "glute-starter",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Guide"},
             {"type": "program", "id": "prog", "label": "Workouts", "weeks": build_program(STARTER_DAYS, STARTER_PHASES)},
@@ -287,7 +287,7 @@ PRODUCTS = [
     {
         "slug": "30-day-get-fit-challenge-c9x4", "token": "45134ec5611f2bcc", "short": "30-Day Challenge", "title": "The 30-Day Get Fit With Me Challenge",
         "kicker": "30-day program", "sub": "Daily workouts, four habits and a mindset practice.",
-        "meta": ["30 days", "20–35 min/day", "Home or gym"], "hue": 18, "guide": "30-day-challenge",
+        "meta": ["30 days", "20–35 min/day", "Home or gym"], "hue": 300, "guide": "30-day-challenge",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Guide"},
             {"type": "challenge", "id": "ch", "label": "Daily Tracker",
@@ -311,7 +311,7 @@ PRODUCTS = [
     {
         "slug": "booty-builder-8-week-b3k8", "token": "e6a91b0daa9a5e31", "short": "Glute Specialist Program", "title": "The Glute Specialist Program",
         "kicker": "8-week program", "sub": "My signature 4-day program to build stronger, fuller glutes.",
-        "meta": ["8 weeks", "4 days/week", "32 workouts", "Gym"], "hue": 345, "guide": "glute-specialist",
+        "meta": ["8 weeks", "4 days/week", "32 workouts", "Gym"], "hue": 268, "guide": "glute-specialist",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Handbook"},
             {"type": "program", "id": "prog", "label": "Program", "weeks": build_program(GLUTE_DAYS, GLUTE_PHASES)},
@@ -336,7 +336,7 @@ PRODUCTS = [
     {
         "slug": "press-like-a-boss-p5m1", "token": "0b1c14ee2edde991", "short": "Press Like A Boss", "title": "Press Like A Boss",
         "kicker": "6-week strength program", "sub": "Upper-body strength for women: a stronger press, back and shoulders.",
-        "meta": ["6 weeks", "3 days/week", "18 workouts", "Gym"], "hue": 265, "guide": "press-like-a-boss",
+        "meta": ["6 weeks", "3 days/week", "18 workouts", "Gym"], "hue": 250, "guide": "press-like-a-boss",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Handbook"},
             {"type": "program", "id": "prog", "label": "Program", "weeks": build_program(PRESS_DAYS, PRESS_PHASES)},
@@ -361,7 +361,7 @@ PRODUCTS = [
     {
         "slug": "fuel-like-a-baddie-f2q6", "token": "2a9db03cdc77f650", "short": "Fuel Like A Baddie", "title": "Fuel Like A Baddie",
         "kicker": "Nutrition guide", "sub": "The complete high-protein nutrition system for women who train.",
-        "meta": ["17 chapters", "12 recipes", "7-day plan", "Macro calculator"], "hue": 150, "guide": "fuel-like-a-baddie",
+        "meta": ["17 chapters", "12 recipes", "7-day plan", "Macro calculator"], "hue": 290, "guide": "fuel-like-a-baddie",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Guide"},
             {"type": "macro", "id": "macro", "label": "My Macros"},
@@ -389,7 +389,7 @@ PRODUCTS = [
     {
         "slug": "gym-girl-confidence-kit-k4t9", "token": "1bb609988373c49d", "short": "Gym Confidence Kit", "title": "The Gym Girl Confidence Kit",
         "kicker": "Beginner guide", "sub": "Everything you need to walk into the gym and know exactly what to do.",
-        "meta": ["14 chapters", "2-week plan", "Beginner"], "hue": 40, "guide": "gym-girl-confidence-kit",
+        "meta": ["14 chapters", "2-week plan", "Beginner"], "hue": 310, "guide": "gym-girl-confidence-kit",
         "sections": [
             {"type": "guide", "id": "guide", "label": "Guide"},
             {"type": "program", "id": "prog", "label": "2-Week Plan", "weeks": build_program(CONF_DAYS, CONF_PHASES)},

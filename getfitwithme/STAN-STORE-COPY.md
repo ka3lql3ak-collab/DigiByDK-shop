@@ -12,7 +12,7 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 - **Store name:** Get Fit With Me
 - **Bio:** Online fitness coach helping women get strong, build their glutes and walk into the gym with confidence. Evidence-based programs, nutrition guides and 1:1 coaching.
 - **Tagline:** Lift heavy. Eat well. Show up for yourself.
-- **Theme:** ivory background `#f6f3ef`, ink `#17141a`, burgundy accent `#8c1c3d`. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).
+- **Theme:** soft lavender-white background `#f7f4fb`, ink `#17121f`, purple accent `#6b2fd6` (her favorite color). Logo and body cutout are in the ZIP's Brand folder. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).
 - **Profile photo:** a clean, well-lit photo of you in the gym. Natural light, neutral background.
 
 ## Product order

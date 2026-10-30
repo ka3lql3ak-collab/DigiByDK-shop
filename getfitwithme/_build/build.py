@@ -23,6 +23,17 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
          '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">')
 
 
+# ================================================================ brand assets (purple)
+import base64
+BRAND = os.path.join(OUT, "brand")
+def datauri(name, mime): return f"data:{mime};base64," + base64.b64encode(open(os.path.join(BRAND, name), "rb").read()).decode()
+BODY = datauri("body-cutout.webp", "image/webp")      # Danielle's physique cutout
+MARK = datauri("logo-mark-256.webp", "image/webp")    # round face logo
+LOGO = datauri("logo-600.webp", "image/webp")         # full stacked logo
+FAV = datauri("favicon.png", "image/png")
+ICON = f'<link rel="icon" href="{FAV}"><link rel="apple-touch-icon" href="{MARK}">'
+
+
 # ================================================================ markdown → html
 def inline(t):
     t = e(t, quote=False)
@@ -125,13 +136,13 @@ def lib_for(p):
 
 # ================================================================ app styles
 TOKENS = """
-:root{--bg:#f6f3ef;--surface:#fff;--surface2:#f1ece6;--ink:#17141a;--ink2:#3a343d;--mut:#6f6772;--line:#e5ded6;
- --acc:#8c1c3d;--acc2:#b02a52;--acc-ink:#fff;--acc-soft:#f5e6eb;--ok:#2f7d5b;--warn:#b25b12;--shadow:0 1px 2px rgba(23,20,26,.04),0 8px 24px -12px rgba(23,20,26,.12);
+:root{--bg:#f7f4fb;--surface:#fff;--surface2:#efeaf6;--ink:#17121f;--ink2:#3a3245;--mut:#6c6478;--line:#e4dcee;
+ --acc:#6b2fd6;--acc2:#7f45ea;--acc-ink:#fff;--acc-soft:#efe6ff;--ok:#2f7d5b;--warn:#b25b12;--shadow:0 1px 2px rgba(23,20,26,.04),0 8px 24px -12px rgba(23,20,26,.12);
  --r:16px;--font:Inter,system-ui,-apple-system,Segoe UI,sans-serif;--head:"Inter Tight",Inter,system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f0d10;--surface:#18151a;--surface2:#221e24;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
- --acc:#e0688c;--acc2:#f08aa8;--acc-ink:#1b0a10;--acc-soft:#33181f;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}}
-:root[data-theme=dark]{--bg:#0f0d10;--surface:#18151a;--surface2:#221e24;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
- --acc:#e0688c;--acc2:#f08aa8;--acc-ink:#1b0a10;--acc-soft:#33181f;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f0c15;--surface:#18141f;--surface2:#221c2b;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
+ --acc:#b48cff;--acc2:#c9abff;--acc-ink:#1a0d33;--acc-soft:#2a1a45;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f0c15;--surface:#18141f;--surface2:#221c2b;--ink:#f4eff2;--ink2:#d9d1d7;--mut:#a59ba6;--line:#2d282f;
+ --acc:#b48cff;--acc2:#c9abff;--acc-ink:#1a0d33;--acc-soft:#2a1a45;--ok:#5cc196;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);color-scheme:dark}
 """
 
 APP_CSS = TOKENS + """
@@ -146,6 +157,9 @@ a{color:var(--acc)}
 .brandbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px 4px}
 .wordmark{font:800 12px/1 var(--head);letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 .wordmark span{color:var(--acc)}
+.brandlock{display:flex;align-items:center;gap:10px}.bmark{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 2px var(--acc-soft)}
+.hero{position:relative}.hero-body{display:none}
+@media (min-width:760px){.content .hero{padding-right:280px;min-height:430px}.hero-body{display:block;position:absolute;right:8px;bottom:0;width:250px;height:400px;background:url(BODYURI) center bottom/contain no-repeat;filter:drop-shadow(0 18px 30px rgba(60,20,120,.25))}}
 .iconbtn{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .side-title,.side-prog,.side-foot{display:none}
 #nav{display:flex;gap:4px;overflow-x:auto;padding:8px 12px 10px;scrollbar-width:none}
@@ -373,22 +387,22 @@ def product_page(p, engine):
     nav = "".join(f'<button data-tab="{s["id"]}">{e(s["label"])}</button>' for s in p["sections"])
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f6f3ef" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0d10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f4fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f0c15" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="{e(p['short'])}">
 <meta name="description" content="{e(p['sub'])}"><meta name="robots" content="noindex,nofollow">
 <title>{e(p['title'])} · {C.BRAND}</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
-{FONTS}<style>{APP_CSS}</style></head><body>
+{ICON}
+{FONTS}<style>{APP_CSS.replace("BODYURI", BODY)}</style></head><body>
 <div class="app">
  <aside class="side">
-  <div class="brandbar"><div class="wordmark">Get Fit <span>With Me</span></div><button class="iconbtn" id="settingsBtn" aria-label="Settings">{GEAR}</button></div>
+  <div class="brandbar"><div class="brandlock"><img class="bmark" src="{MARK}" alt="Danielle Dawson logo"><div class="wordmark">Get Fit <span>With Me</span></div></div><button class="iconbtn" id="settingsBtn" aria-label="Settings">{GEAR}</button></div>
   <div class="side-title">{e(p['title'])}</div>
   <div class="side-prog"><div class="meter-top"><span>Overall progress</span><span id="overallN2"></span></div><div class="track"><i id="overall2"></i></div></div>
   <nav id="nav" aria-label="Sections">{nav}</nav>
   <div class="side-foot"><a class="btn ghost" href="{pdf_name(p)}" download>Download PDF book</a><button class="btn ghost" id="settingsBtn2">Settings & backup</button></div>
  </aside>
  <div class="content">
-  <header class="hero"><span class="kicker">{e(p['kicker'])}</span><h1>{e(p['title'])}</h1><p class="by">by {e(C.COACH)}</p><p class="sub">{e(p['sub'])}</p>
+  <header class="hero"><div class="hero-body" role="img" aria-label="Danielle Dawson"></div><span class="kicker">{e(p['kicker'])}</span><h1>{e(p['title'])}</h1><p class="by">by {e(C.COACH)}</p><p class="sub">{e(p['sub'])}</p>
    <ul class="meta">{''.join(f'<li>{e(m)}</li>' for m in p['meta'])}</ul>
    <div class="overall"><div class="track"><i id="overall"></i></div><span id="overallN">0%</span></div></header>
   <main id="main"></main>
@@ -412,51 +426,54 @@ BOOK_CSS = """
 body{margin:0;font:400 10.5pt/1.6 Inter,sans-serif;color:#1d1a1f;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .cover{page:cover;width:8.5in;height:11in;position:relative;overflow:hidden;color:#fff;background:#120d12;break-after:page}
 .cover .glow{position:absolute;inset:0;background:radial-gradient(70% 55% at 85% 10%,hsl(var(--h) 70% 38% / .95),transparent 70%),radial-gradient(60% 50% at 0% 100%,hsl(var(--h) 60% 25% / .9),transparent 70%)}
-.cover .in{position:absolute;inset:.85in;display:flex;flex-direction:column}
+.cover .in{position:absolute;inset:.85in;display:flex;flex-direction:column;z-index:1}
+.cover .cbody{position:absolute;right:-.1in;bottom:0;height:9.2in;width:4.4in;background:var(--bodyimg) right bottom/contain no-repeat;z-index:0;filter:drop-shadow(0 .2in .4in rgba(0,0,0,.5))}
+.cover .cmark{width:.9in;height:.9in;border-radius:50%;background:var(--markimg) center/cover;box-shadow:0 0 0 3px rgba(255,255,255,.7);margin-bottom:.25in}
+.cover .in h1,.cover .in .sub,.cover .in .kick,.cover .in .unit{max-width:4in}.cover .in .by{max-width:3.9in;flex-direction:column;align-items:flex-start;gap:6px}
 .cover .wm{font:800 9pt "Inter Tight";letter-spacing:.3em;text-transform:uppercase;opacity:.9}
 .cover .big{font:800 150pt/0.8 "Inter Tight";letter-spacing:-.04em;margin-top:auto;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55)}
 .cover .unit{font:600 11pt Inter;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin:10px 0 28px}
 .cover .kick{font:600 10pt Inter;letter-spacing:.2em;text-transform:uppercase;color:hsl(var(--h) 80% 78%)}
-.cover h1{font:800 46pt/1 "Inter Tight";letter-spacing:-.03em;margin:12px 0 14px;max-width:6in}
+.cover h1{font:800 40pt/1.02 "Inter Tight";letter-spacing:-.03em;margin:12px 0 14px;max-width:6in}
 .cover .sub{font:400 13pt/1.45 Inter;opacity:.85;max-width:5in;margin:0 0 30px}
 .cover .by{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.3);padding-top:16px}
 .cover .by b{font:italic 400 22pt "Instrument Serif"}.cover .by span{font:600 8.5pt Inter;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
 .front{break-after:page}
 .front h2,.toc h2,.part h2{font:800 26pt/1.1 "Inter Tight";letter-spacing:-.02em;margin:0 0 16px}
 .front p{max-width:5.6in}
-.tapbtn{display:block;text-align:center;background:#8c1c3d;color:#fff;text-decoration:none;font:700 15pt "Inter Tight";padding:18px;border-radius:12px;margin:22px 0 6px}
+.tapbtn{display:block;text-align:center;background:#6b2fd6;color:#fff;text-decoration:none;font:700 15pt "Inter Tight";padding:18px;border-radius:12px;margin:22px 0 6px}
 .ctap{display:inline-block;align-self:flex-start;background:#fff;color:#120d12;text-decoration:none;font:700 11pt Inter;padding:11px 18px;border-radius:999px;margin:0 0 26px}
-.box{border:1px solid #e5ded6;border-radius:10px;padding:14px 16px;margin:16px 0;background:#faf7f4}
-.box b{color:#8c1c3d}
+.box{border:1px solid #e5ded6;border-radius:10px;padding:14px 16px;margin:16px 0;background:#f8f5fc}
+.box b{color:#6b2fd6}
 .toc{break-after:page}
 .toc ol{list-style:none;padding:0;margin:0}
-.toc .ph{font:700 8.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#8c1c3d;margin:18px 0 6px}
+.toc .ph{font:700 8.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#6b2fd6;margin:18px 0 6px}
 .toc a{display:flex;gap:10px;align-items:baseline;color:#1d1a1f;text-decoration:none;padding:5px 0;border-bottom:1px solid #eee7df;font-size:10.5pt}
 .toc a .n{width:26px;color:#9a9199;font-weight:600}.toc a .t{flex:1}.toc a .p{font-weight:600;color:#6f6772}
 .part{break-before:page;padding-top:2.2in}
-.part .pk{font:700 9pt Inter;letter-spacing:.2em;text-transform:uppercase;color:#8c1c3d}
+.part .pk{font:700 9pt Inter;letter-spacing:.2em;text-transform:uppercase;color:#6b2fd6}
 .part h2{font-size:38pt}.part p{max-width:5in;color:#4a434d;font-size:12pt}
 .chap{break-before:page}
-.chap .ck{font:700 8.5pt Inter;letter-spacing:.18em;text-transform:uppercase;color:#8c1c3d;margin-bottom:6px}
+.chap .ck{font:700 8.5pt Inter;letter-spacing:.18em;text-transform:uppercase;color:#6b2fd6;margin-bottom:6px}
 .chap h2{font:800 24pt/1.12 "Inter Tight";letter-spacing:-.02em;margin:0 0 18px;padding-bottom:14px;border-bottom:2px solid #1d1a1f}
 .chap h3{font:700 13pt/1.3 "Inter Tight";margin:20px 0 6px;break-after:avoid}
-.chap p{margin:0 0 9px}.chap ul,.chap ol{padding-left:18px;margin:0 0 10px}.chap li{margin:3px 0}.chap li::marker{color:#8c1c3d}
-.callout{border-left:3px solid #8c1c3d;background:#f7ecef;padding:10px 14px;margin:14px 0;break-inside:avoid}.callout p{margin:0}
+.chap p{margin:0 0 9px}.chap ul,.chap ol{padding-left:18px;margin:0 0 10px}.chap li{margin:3px 0}.chap li::marker{color:#6b2fd6}
+.callout{border-left:3px solid #6b2fd6;background:#f1e9ff;padding:10px 14px;margin:14px 0;break-inside:avoid}.callout p{margin:0}
 .table-wrap{margin:10px 0 14px;break-inside:avoid}
 .tbl{width:100%;border-collapse:collapse;font-size:9pt;line-height:1.4}
 .tbl th{text-align:left;font:700 7.5pt Inter;letter-spacing:.06em;text-transform:uppercase;color:#6f6772;background:#f3eee8;padding:6px 8px}
 .tbl td{padding:6px 8px;border-top:1px solid #e9e2da;vertical-align:top}
 .quiz{border:1px solid #e5ded6;border-radius:8px;padding:10px 14px;margin:14px 0;break-inside:avoid;background:#fbf9f7}
-.q-k{font:700 7.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#8c1c3d}.q-q{font-weight:600;margin:4px 0}.q-o{margin:4px 0 6px;padding-left:20px}
+.q-k{font:700 7.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#6b2fd6}.q-q{font-weight:600;margin:4px 0}.q-o{margin:4px 0 6px;padding-left:20px}
 .q-a{font-size:9pt;color:#4a434d;margin:0;border-top:1px dashed #ddd;padding-top:6px}
 .wk{break-before:page}
 .wk-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1d1a1f;padding-bottom:8px;margin-bottom:6px}
-.wk-h h2{font:800 22pt "Inter Tight";margin:0}.wk-h span{font:700 8.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#8c1c3d}
+.wk-h h2{font:800 22pt "Inter Tight";margin:0}.wk-h span{font:700 8.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#6b2fd6}
 .wk .note{color:#4a434d;margin:6px 0 10px}
 .pday{break-inside:avoid;margin:12px 0 4px}.pday h3{font:700 12pt "Inter Tight";margin:0 0 2px}.pday .f{color:#6f6772;font-size:9pt;margin:0 0 6px}
 .lex{break-inside:avoid;border-top:1px solid #e5ded6;padding:12px 0}
 .lex h3{font:700 13pt "Inter Tight";margin:0 0 2px}.lex .lm{font-size:8.5pt;color:#6f6772;margin:0 0 6px}
-.lex .cols{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}.lex h4{font:700 7.5pt Inter;letter-spacing:.12em;text-transform:uppercase;color:#8c1c3d;margin:6px 0 2px}
+.lex .cols{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}.lex h4{font:700 7.5pt Inter;letter-spacing:.12em;text-transform:uppercase;color:#6b2fd6;margin:6px 0 2px}
 .lex ol,.lex ul{margin:0;padding-left:16px;font-size:9pt}.lex li{margin:1px 0}.lex p{font-size:9pt;margin:0}
 .rec{break-inside:avoid;border-top:1px solid #e5ded6;padding:12px 0}.rec h3{font:700 13pt "Inter Tight";margin:0}
 .rec .mm{display:flex;gap:14px;font:600 8.5pt Inter;color:#6f6772;margin:3px 0 6px}.rec .cols{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}
@@ -473,7 +490,7 @@ body{margin:0;font:400 9.5pt/1.4 Inter,sans-serif;color:#1d1a1f;-webkit-print-co
 .page{width:816px;height:1056px;padding:62px 66px 70px;position:relative;overflow:hidden;break-after:page}
 .page:last-child{break-after:auto}
 .hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1d1a1f;padding-bottom:8px;margin-bottom:12px}
-.hd h2{font:800 20pt/1.1 "Inter Tight";margin:0;letter-spacing:-.01em}.hd span{font:700 7.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#8c1c3d}
+.hd h2{font:800 20pt/1.1 "Inter Tight";margin:0;letter-spacing:-.01em}.hd span{font:700 7.5pt Inter;letter-spacing:.16em;text-transform:uppercase;color:#6b2fd6}
 .sub{color:#6f6772;margin:0 0 10px;font-size:9pt}
 .f{display:inline-block;border-bottom:1px solid #b9b0a8;height:20px;vertical-align:bottom}
 .fb{display:block;border:1px solid #cfc6bd;border-radius:6px;background:#fbf9f7}
@@ -573,7 +590,7 @@ def book_html(p, pages=None):
 <p style="margin-top:28px;font-size:9pt;color:#6f6772">{e(C.DISCLAIMER)}</p>
 <p style="font-size:9pt;color:#6f6772">© 2026 {e(C.COACH)} · {e(C.BRAND)}. All rights reserved. This book is licensed for the personal use of the purchaser only. Copying, sharing or reselling is prohibited.</p></section>"""
     return entries, f"""<!doctype html><html><head><meta charset="utf-8"><title>{e(p['title'])}</title>{FONTS}<style>{BOOK_CSS}</style></head><body style="--h:{p['hue']}">
-<section class="cover"><div class="glow"></div><div class="in"><div class="wm">Get Fit With Me</div>
+<section class="cover" style="--bodyimg:url({BODY});--markimg:url({MARK})"><div class="glow"></div><div class="cbody"></div><div class="in"><div class="cmark"></div><div class="wm">Get Fit With Me</div>
 <div class="big">{big[0]}</div><div class="unit">{big[1]}</div><div class="kick">{e(p['kicker'])}</div><h1>{e(p['title'])}</h1><p class="sub">{e(p['sub'])}</p>
 <a class="ctap" href="{C.SITE}/p/{p['token']}/app.html">Tap to open the interactive program →</a>
 <div class="by"><b>{e(C.COACH)}</b><span>{' · '.join(e(m) for m in p['meta'][:3])}</span></div></div></section>
@@ -703,7 +720,7 @@ def make_pdfs(slugs_only=None):
                 x, y, fw, fh = f["x"] * .75, 792 - (f["y"] + f["h"]) * .75, f["w"] * .75, f["h"] * .75
                 n = f"{slug[:6]}_{f['name']}"
                 if f["k"] == "check":
-                    form.checkbox(name=n, x=x, y=y, size=min(fw, fh), buttonStyle="check", borderWidth=0, borderColor=clear, fillColor=clear, textColor=HexColor("#8c1c3d"), forceBorder=False)
+                    form.checkbox(name=n, x=x, y=y, size=min(fw, fh), buttonStyle="check", borderWidth=0, borderColor=clear, fillColor=clear, textColor=HexColor("#6b2fd6"), forceBorder=False)
                 else:
                     form.textfield(name=n, x=x + 1, y=y + 1, width=fw - 2, height=fh - 2, borderWidth=0, borderColor=clear, fillColor=clear, textColor=HexColor("#1d1a1f"),
                                    fontName="Helvetica", fontSize=0 if f["k"] == "multi" else 8, fieldFlags="multiline" if f["k"] == "multi" else "", forceBorder=False)
@@ -737,9 +754,9 @@ def store_items():
     items = []
     for p in C.PRODUCTS:
         items.append({**p["stan"], "slug": p["slug"], "token": p["token"], "hue": p["hue"], "title": p["title"], "kicker": p["kicker"], "meta": p["meta"], "link": access_url(p)})
-    items.insert(1, {**C.BUNDLE, "slug": "complete-collection", "hue": 330, "title": "The Complete Collection", "kicker": "Bundle · Save 37%", "meta": ["5 programs", "5 PDF books"], "link": ""})
+    items.insert(1, {**C.BUNDLE, "slug": "complete-collection", "hue": 272, "title": "The Complete Collection", "kicker": "Bundle · Save 37%", "meta": ["5 programs", "5 PDF books"], "link": ""})
     for i, c in enumerate(C.COACHING):
-        items.append({**c, "slug": ["form-check-call", "online-coaching"][i], "hue": [220, 300][i], "title": c["thumb_title"],
+        items.append({**c, "slug": ["form-check-call", "online-coaching"][i], "hue": [258, 292][i], "title": c["thumb_title"],
                       "kicker": ["30-minute call", "Monthly coaching"][i], "meta": [["1:1", "Video call"], ["1:1", "Custom plan"]][i], "link": ""})
     return items
 
@@ -748,23 +765,28 @@ BIG = {"glute-starter-pack-free-g7f2": ("03", "Workouts"), "complete-collection"
        "booty-builder-8-week-b3k8": ("08", "Weeks"), "press-like-a-boss-p5m1": ("06", "Weeks"), "fuel-like-a-baddie-f2q6": ("17", "Chapters"),
        "gym-girl-confidence-kit-k4t9": ("02", "Weeks"), "form-check-call": ("30", "Minutes"), "online-coaching": ("1:1", "Coaching")}
 
-COVER_CSS = """
+COVER_CSS_BASE = """
 .cover{--h:340;position:relative;aspect-ratio:1;overflow:hidden;background:#120d12;color:#fff;container-type:inline-size;border-radius:inherit}
+.cv-body{position:absolute;right:-2%;bottom:0;height:88%;aspect-ratio:670/1400;background:var(--bodyimg) right bottom/contain no-repeat;z-index:0;filter:drop-shadow(0 2cqw 4cqw rgba(0,0,0,.45))}
 .cover:before{content:"";position:absolute;inset:0;background:radial-gradient(75% 60% at 90% 0%,hsl(var(--h) 70% 40% / .95),transparent 70%),radial-gradient(70% 60% at 0% 100%,hsl(var(--h) 60% 24% / .9),transparent 70%)}
-.cv{position:absolute;inset:7cqw;display:flex;flex-direction:column}
+.cv{position:absolute;inset:7cqw;display:flex;flex-direction:column;z-index:1}
+.cv-title,.cv-kick,.cv-unit{max-width:58%}.cv-by{max-width:56%}.cv-top{display:flex;align-items:center;gap:2.4cqw}.cv-mark{flex:none;width:9cqw;height:9cqw;border-radius:50%;background:var(--markimg) center/cover;box-shadow:0 0 0 .45cqw rgba(255,255,255,.75)}
 .cv-wm{font:800 2.6cqw/1 "Inter Tight",sans-serif;letter-spacing:.32em;text-transform:uppercase}
-.cv-big{font:800 34cqw/.78 "Inter Tight",sans-serif;letter-spacing:-.04em;margin-top:auto;color:transparent;-webkit-text-stroke:.35cqw rgba(255,255,255,.6)}
+.cv-big{font:800 30cqw/.78 "Inter Tight",sans-serif;letter-spacing:-.04em;margin-top:auto;color:transparent;-webkit-text-stroke:.35cqw rgba(255,255,255,.6)}
 .cv-unit{font:600 2.6cqw Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin:2.2cqw 0 4cqw}
 .cv-kick{font:600 2.6cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:hsl(var(--h) 85% 80%)}
-.cv-title{font:800 8.4cqw/1 "Inter Tight",sans-serif;letter-spacing:-.03em;margin:1.6cqw 0 4cqw}
+.cv-title{font:800 7.4cqw/1.02 "Inter Tight",sans-serif;letter-spacing:-.03em;margin:1.6cqw 0 4cqw}
 .cv-by{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.3);padding-top:2.6cqw}
-.cv-by b{font:italic 400 5cqw "Instrument Serif",serif}.cv-by span{font:600 2.2cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
+.cv-by{flex-direction:column;align-items:flex-start;gap:1cqw}.cv-by b{font:italic 400 5cqw "Instrument Serif",serif}.cv-by span{font:600 2.2cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 """
+
+
+COVER_CSS = COVER_CSS_BASE + f":root{{--bodyimg:url({BODY});--markimg:url({MARK})}}\n"
 
 
 def cover(it):
     b = BIG[it["slug"]]
-    return (f'<div class="cover" style="--h:{it["hue"]}"><div class="cv"><div class="cv-wm">Get Fit With Me</div><div class="cv-big">{b[0]}</div><div class="cv-unit">{b[1]}</div>'
+    return (f'<div class="cover" style="--h:{it["hue"]}"><div class="cv-body"></div><div class="cv"><div class="cv-top"><div class="cv-mark"></div><div class="cv-wm">Get Fit With Me</div></div><div class="cv-big">{b[0]}</div><div class="cv-unit">{b[1]}</div>'
             f'<div class="cv-kick">{e(it["kicker"])}</div><div class="cv-title">{e(it["title"])}</div><div class="cv-by"><b>{e(C.COACH)}</b><span>{" · ".join(e(m) for m in it["meta"][:2])}</span></div></div></div>')
 
 
@@ -786,11 +808,16 @@ def store_page(items):
   <p class="note">Store preview: Stan's real checkout replaces this form.</p></div></dialog></article>""")
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{C.BRAND} · {C.COACH}</title><meta name="description" content="{e(C.STORE['bio'])}"><meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
+{ICON}
 {FONTS}<style>{TOKENS}{COVER_CSS}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}}
 .wrap{{max-width:520px;margin:0 auto;padding:40px 16px 60px}}
-.hero{{text-align:center}}.av{{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:var(--ink);color:var(--bg);font:800 34px var(--head);letter-spacing:-.02em;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}}
+.hero{{position:relative;overflow:hidden;text-align:left;border-radius:24px;padding:26px 22px 24px;margin:0 0 22px;color:#fff;background:radial-gradient(90% 70% at 100% 0%,#9b5cff,transparent 70%),linear-gradient(160deg,#4a1aa6,#22104d)}}
+.hero .bd{{position:absolute;right:-18px;bottom:0;height:96%;aspect-ratio:670/1400;background:var(--bodyimg) right bottom/contain no-repeat;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45))}}
+.hero>*:not(.bd){{position:relative;max-width:60%}}.hero .wm{{color:#d9c4ff}}.hero h1{{color:#fff}}.hero .tag{{color:#e3d6ff}}.hero .bio{{color:#eee6ff;margin:12px 0 16px}}
+.hero .soc{{justify-content:flex-start;flex-wrap:wrap;margin:0}}.hero .soc a{{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}}
+.logoimg{{width:96px;height:96px;border-radius:50%;box-shadow:0 0 0 3px #d9c4ff;margin-bottom:14px;display:block}}
+.av{{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:var(--ink);color:var(--bg);font:800 34px var(--head);letter-spacing:-.02em;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}}
 .wm{{font:800 12px var(--head);letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}}
 h1{{font:800 40px/1.05 var(--head);letter-spacing:-.03em;margin:8px 0 4px}}.tag{{font:italic 400 21px var(--serif);color:var(--mut);margin:0}}
 .bio{{color:var(--ink2);font-size:15px;margin:14px auto 18px;max-width:420px}}
@@ -813,7 +840,7 @@ dialog li:before{{content:"";position:absolute;left:4px;top:15px;width:12px;heig
 .fields{{display:grid;gap:8px;margin:12px 0 0}}.fields input{{font:16px var(--font);padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}}
 .x{{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:22px;cursor:pointer}}
 .note{{font-size:12px;color:var(--mut);text-align:center;margin-top:12px}}footer{{text-align:center;color:var(--mut);font-size:12.5px;margin-top:28px}}
-</style></head><body><div class="wrap"><section class="hero"><div class="av" role="img" aria-label="Profile photo placeholder">DD</div>
+</style></head><body><div class="wrap"><section class="hero"><div class="bd" role="img" aria-label="Danielle Dawson"></div><img class="logoimg" src="{MARK}" alt="Get Fit With Me logo">
 <div class="wm">{e(C.BRAND)}</div><h1>{e(C.COACH)}</h1><p class="tag">{e(C.STORE['tagline'])}</p><p class="bio">{e(C.STORE['bio'])}</p>
 <div class="soc"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">YouTube</a></div></section>
 {''.join(cards)}<footer>© 2026 {e(C.COACH)} · {e(C.BRAND)}</footer></div>
@@ -835,7 +862,7 @@ def copy_md(items):
          "- **PDF book**: clickable contents, bookmarks, fillable workbook and a *Tap to open the interactive program* button on the cover. Upload it to Stan as the digital file too.",
          "- **Cover image** (`covers/<product>.png`, 1080×1080) for the Stan thumbnail.", "",
          "## Store profile", "", f"- **Display name:** {C.COACH}", f"- **Store name:** {C.BRAND}", f"- **Bio:** {C.STORE['bio']}", f"- **Tagline:** {C.STORE['tagline']}",
-         "- **Theme:** ivory background `#f6f3ef`, ink `#17141a`, burgundy accent `#8c1c3d`. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).",
+         "- **Theme:** soft lavender-white background `#f7f4fb`, ink `#17121f`, purple accent `#6b2fd6` (her favorite color). Logo and body cutout are in the ZIP's Brand folder. Fonts: Inter Tight (headings), Inter (body), Instrument Serif italic (accents).",
          "- **Profile photo:** a clean, well-lit photo of you in the gym. Natural light, neutral background.", "", "## Product order", ""]
     L += [f"{i + 1}. {it['thumb_title']}: {it['price']}" for i, it in enumerate(items)]
     for it in items:
@@ -864,7 +891,7 @@ def copy_md(items):
 def access_page(p):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Your {e(p['title'])} · {C.BRAND}</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%238c1c3d'/><text x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'>GF</text></svg>">
+{ICON}
 {FONTS}<style>{TOKENS}{COVER_CSS}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}}
 .wrap{{max-width:520px;margin:0 auto;padding:28px 16px 60px}}
@@ -880,7 +907,7 @@ h1{{font:800 32px/1.08 var(--head);letter-spacing:-.025em;margin:0 0 8px}}.lead{
 footer{{text-align:center;color:var(--mut);font-size:12.5px;margin-top:26px;line-height:1.6}}
 </style></head><body><div class="wrap">
 <div class="cv-wrap">{cover({"slug": p["slug"], "hue": p["hue"], "kicker": p["kicker"], "title": p["title"], "meta": p["meta"]})}</div>
-<div class="wm">{e(C.BRAND)}</div><h1>You're in. Welcome!</h1>
+<div style="display:flex;align-items:center;gap:12px;margin-top:24px"><img src="{MARK}" alt="" style="width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 2px var(--acc-soft)"><div class="wm" style="margin:0">{e(C.BRAND)}</div></div><h1 style="margin-top:12px">You're in. Welcome!</h1>
 <p class="lead">Thank you for {"grabbing" if p['stan']['price'] == "FREE" else "purchasing"} <b>{e(p['title'])}</b>. Everything you need is right here.</p>
 <a class="go" href="app.html">Open your interactive program <span aria-hidden="true">→</span></a>
 <a class="dl" href="{pdf_name(p)}" download>Download your PDF book</a>
@@ -920,6 +947,8 @@ def make_zip(items):
         for it in items:
             cv = os.path.join(OUT, "covers", it["slug"] + ".png")
             if os.path.exists(cv): z.write(cv, "All Stan Covers/" + it["thumb_title"].replace("/", "-") + ".png")
+        for f in ("logo.png", "logo-mark.png", "body-cutout.png"):
+            z.write(os.path.join(BRAND, f), "Brand/" + f)
         z.write(os.path.join(OUT, "STAN-STORE-COPY.md"), "STAN-STORE-COPY.md")
     print("zip:", os.path.getsize(zp) // 1024, "KB")
 
