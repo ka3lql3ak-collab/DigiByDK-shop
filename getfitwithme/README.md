@@ -1,8 +1,19 @@
 # Get Fit With Me · Danielle Dawson
 
-## Download everything
+## One-tap downloads
 
-**[download/Get-Fit-With-Me-Products.zip](download/Get-Fit-With-Me-Products.zip)**: open it, then tap the **download (↓)** button at the top right.
+Tap a link and the file downloads.
+
+- **[Download EVERYTHING (ZIP)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/download/Get-Fit-With-Me-Products.zip)**: all PDFs, apps, access pages, covers and the Stan copy
+
+- [The Glute Starter Guide (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/5b1381b178c18ffb/The-Glute-Starter-Guide.pdf)
+- [The 30-Day Get Fit With Me Challenge (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/45134ec5611f2bcc/The-30-Day-Get-Fit-With-Me-Challenge.pdf)
+- [The Glute Specialist Program (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/e6a91b0daa9a5e31/The-Glute-Specialist-Program.pdf)
+- [Press Like A Boss (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/0b1c14ee2edde991/Press-Like-A-Boss.pdf)
+- [Fuel Like A Baddie (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/2a9db03cdc77f650/Fuel-Like-A-Baddie.pdf)
+- [The Gym Girl Confidence Kit (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/1bb609988373c49d/The-Gym-Girl-Confidence-Kit.pdf)
+
+## What's in the ZIP
 
 The ZIP has one folder per product, each containing:
 - the **PDF book** (upload to Stan as the digital download)
