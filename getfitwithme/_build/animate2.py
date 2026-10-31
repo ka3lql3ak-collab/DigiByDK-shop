@@ -357,6 +357,9 @@ def build(preview=None):
                                                      .replace(Rm.bunk_bed(590, C.KIDS[1], C.KIDS[3], "quilt2", "quilt4"), Rm.bunk_bed(590, None, None, "quilt2", "quilt4")),
            "bathroom": Rm.bathroom_candle()}
     nframes = int((preview or total) * FPS)
+    if os.environ.get("DRY"):
+        for i in range(0, int(total * FPS), 7): frame(i / FPS)
+        print("dry run ok", round(total, 1)); return
     silent = os.path.join(tmp, "video.mp4")
     proc = subprocess.Popen(["node", os.path.join(HERE, "anim_render.js"), silent, str(FPS)], stdin=subprocess.PIPE)
     proc.stdin.write((json.dumps({"defs": C.DEFS + Sc.SCENE_DEFS + Rm.ROOM_DEFS, "bgs": bgs}) + "\n").encode())
