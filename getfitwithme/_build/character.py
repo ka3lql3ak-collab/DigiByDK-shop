@@ -76,10 +76,29 @@ POSES = {  # (elbow, hand) offsets from the viewer-LEFT shoulder; right arm mirr
 }
 
 
-def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=False):
+def pose_offsets(name, b=0.0):
+    """Numeric (elbow, hand) offsets for a named pose so poses can be interpolated."""
+    sh, wa = lerp(96, 112, b), lerp(48, 114, b)
+    belly = lerp(0, 34, max(0, (b - .35) / .65))
+    sl = sh - 12
+    out = {}
+    for k in ("L", "R"):
+        (e, h) = POSES[name][k]
+        hx = (sl - (wa + belly * .6 + 12)) if h[0] == "waist" else h[0]
+        out[k] = ((e[0], e[1]), (hx, h[1]))
+    return out
+
+
+def lerp_pose(p1, p2, t):
+    t = max(0, min(1, t)); t = t * t * (3 - 2 * t)
+    return {k: tuple(tuple(lerp(a, b_, t) for a, b_ in zip(pa, pb)) for pa, pb in zip(p1[k], p2[k])) for k in ("L", "R")}
+
+
+def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=False, blink=False, talk=0.0, head_drop=None, prop_rot=0):
     cx = 230
     glam = 1 - b                     # makeup / jewelry / shine grow over the 30 days
-    hy = 176 + (16 if pose in ("slump", "face") else 0)
+    pose_d = pose if isinstance(pose, dict) else pose_offsets(pose, b)
+    hy = 176 + (head_drop if head_drop is not None else (16 if pose in ("slump", "face") else 0))
     hrx, hry = lerp(88, 96, b), lerp(96, 98, b)
     sh, ch, wa, hp, th = lerp(96, 112, b), lerp(84, 110, b), lerp(48, 114, b), lerp(94, 118, b), lerp(72, 92, b)
     up, fo = lerp(44, 58, b), lerp(34, 47, b)
@@ -180,10 +199,10 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
     sleeve_solid = {"hoodie": "#8f87a6", "tee": "#9b7fd4"}.get(outfit)
     arm_out, arm_fill, hands, handR = [], [], [], None
     for side, key in ((-1, "L"), (1, "R")):
-        (exo, eyo), (hxo, hyo) = POSES[pose][key]
+        (exo, eyo), (hxo, hyo) = pose_d[key]
         sx, sy = cx + side * sl, 318
         ex, ey = sx + (exo if side < 0 else -exo), sy + eyo
-        hx = cx + side * (wa + belly * .6 + 12) if hxo == "waist" else sx + (hxo if side < 0 else -hxo)
+        hx = sx + (hxo if side < 0 else -hxo)
         hyy = sy + hyo
         o1, f1 = limb((sx, sy), (ex, ey), up, up * .82, sleeve_solid if (full or upper_sleeve) else SKIN)
         o2, f2 = limb((ex, ey), (hx, hyy), fo, fo * .8, sleeve_solid if full else SKIN)
@@ -193,7 +212,7 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
         if not (full or upper_sleeve) and b < .65:
             arm_fill.append(f'<path d="M{sx+side*up*.45:.1f},{sy-4} q{side*14},{18} {side*4},{up*.9:.1f}" stroke="{SKIN_DD}" stroke-width="3.5" fill="none" opacity=".6"/>'
                             f'<path d="M{sx-side*4},{sy-up*.3:.1f} q{side*14},-4 {side*22},10" stroke="{SKIN_L}" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>')
-            if pose in ("flex", "cheer"):
+            if eyo < 20 and hyo < -40:  # arm raised in a flex: bicep peak
                 mx, my = (sx + ex) / 2, (sy + ey) / 2 - up * .22
                 arm_fill.append(f'<path d="M{sx+side*6:.1f},{sy-up*.42:.1f} Q{mx:.1f},{my-up*.75:.1f} {ex+side*10:.1f},{ey-up*.4:.1f}" stroke="{OL}" stroke-width="{up*.5+2*SW:.0f}" fill="none" stroke-linecap="round" opacity="0"/>'
                                 f'<ellipse cx="{mx:.1f}" cy="{my:.1f}" rx="{lerp(30,20,b):.0f}" ry="{lerp(22,14,b):.0f}" fill="{SKIN}"/>'
@@ -206,7 +225,7 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
                      f'<path d="M{hx-fo*.28:.1f},{hyy+fo*.18:.1f} q{fo*.28:.1f},6 {fo*.56:.1f},0" stroke="{SKIN_DD}" stroke-width="2.5" fill="none" opacity=".6"/>'
                      + "".join(f'<ellipse cx="{hx-fo*.24+i*fo*.16:.1f}" cy="{hyy+fo*.38:.1f}" rx="3" ry="2.4" fill="{nail}"/>' for i in range(4)))
         if side > 0: handR = (hx, hyy)
-    behind = pose in ("slump",)
+    behind = pose == "slump" or (isinstance(pose, dict) and pose_d["L"][1][0] > 20 and pose_d["L"][1][1] > 120)
     arms = "".join(arm_out) + "".join(arm_fill) + "".join(hands)
     if behind: g.append(arms)
     # ---------------- head
@@ -250,19 +269,24 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
         for s_ in (-1, 1):
             hd.append(f'<rect x="{cx + s_*(hrx+8) - 23}" y="{hy-38}" width="46" height="80" rx="18" fill="#3a3a46" stroke="{OL}" stroke-width="{SW}"/>'
                       f'<rect x="{cx + s_*(hrx+8) - 13}" y="{hy-26}" width="26" height="56" rx="10" fill="#26262f"/><circle cx="{cx + s_*(hrx+8)}" cy="{hy+2}" r="5" fill="{PURPLE_L}"/>')
-    hd.append(face_svg(face, cx, hy, b))
+    hd.append(face_svg(face, cx, hy, b, blink, talk))
     out = "".join(g) + "".join(hd) + ("" if behind else arms)
-    if prop and handR: out += prop_svg(prop, *handR)
+    if prop and handR:
+        ps = prop_svg(prop, *handR)
+        out += f'<g transform="rotate({prop_rot} {handR[0]:.1f} {handR[1]:.1f})">{ps}</g>' if prop_rot else ps
     return out
 
 
-def face_svg(face, cx, hy, b=0):
+def face_svg(face, cx, hy, b=0, blink=False, talk=0.0):
     glam = 1 - b
     ex, ey = 34, hy + 10
     f = [f'<ellipse cx="{cx-54}" cy="{hy+40}" rx="{17+6*b:.0f}" ry="10" fill="#e07a8a" opacity="{.25+.15*glam:.2f}"/><ellipse cx="{cx+54}" cy="{hy+40}" rx="{17+6*b:.0f}" ry="10" fill="#e07a8a" opacity="{.25+.15*glam:.2f}"/>']
 
     def eye(x, o=1.0, look=0, side=1):
         s = ""
+        if blink:
+            return f'<path d="M{x-20},{ey} Q{x},{ey+10} {x+20},{ey-2} l{side*8},-5" stroke="#140a0a" stroke-width="5" fill="none" stroke-linecap="round"/>'
+
         if glam > .25:  # purple eyeshadow
             s += f'<path d="M{x-21},{ey-4} Q{x},{ey-30-6*glam:.0f} {x+21},{ey-6} Q{x},{ey-14} {x-21},{ey-4} Z" fill="#8a4fd0" opacity="{.25+.35*glam:.2f}"/>'
         h = 15 * o
@@ -323,6 +347,10 @@ def face_svg(face, cx, hy, b=0):
         my = hy + 60
         f.append(f'<path d="M{cx-24},{my+8} Q{cx},{my-12} {cx+24},{my+8} Q{cx},{my} {cx-24},{my+8} Z" fill="url(#lipG)" stroke="{OL}" stroke-width="2.5"/>')
         f.append(f'<path d="M{cx-ex-16},{ey+20} q16,10 32,0 M{cx+ex-16},{ey+20} q16,10 32,0" stroke="#6b3a2a" stroke-width="4" fill="none" opacity=".7"/>')
+    if talk > .05:  # talking mouth replaces the expression's mouth
+        my = hy + 58
+        f.append(f'<rect x="{cx-40}" y="{hy+38}" width="80" height="50" fill="url(#faceG)"/>')
+        f.append(f'<ellipse cx="{cx}" cy="{my}" rx="{16+6*talk:.1f}" ry="{4+14*talk:.1f}" fill="#4e1220" stroke="url(#lipG)" stroke-width="8"/><ellipse cx="{cx}" cy="{my}" rx="{20+6*talk:.1f}" ry="{8+14*talk:.1f}" fill="none" stroke="{OL}" stroke-width="2.5"/>')
     # nose + stud
     f.append(f'<path d="M{cx-2},{hy+4} L{cx-4},{hy+26}" stroke="#fff" stroke-width="4" opacity=".28" stroke-linecap="round"/>'
              f'<path d="M{cx-6},{hy+16} Q{cx-4},{hy+30} {cx-16},{hy+34} Q{cx-2},{hy+44} {cx},{hy+40} Q{cx+2},{hy+44} {cx+16},{hy+34}" stroke="{SKIN_DD}" stroke-width="3.5" fill="none" stroke-linecap="round"/>'
@@ -363,7 +391,7 @@ KIDS = [  # oldest sister, slightly younger sister, little sister, little brothe
 ]
 
 
-def kid(st, mood="happy"):
+def kid(st, mood="happy", talk=0.0, blink=False, arms=None):
     """Detailed kid in a 200x390 box (feet at ~380)."""
     k, cx = st["id"], 100
     sk, skd, skl = st["skin"], st["skin_d"], st["skin_l"]
@@ -411,7 +439,7 @@ def kid(st, mood="happy"):
     if gr == "rainbow": g.append(f'<path d="M{cx-26},236 a26,26 0 0 1 52,0" stroke="#ff5f5f" stroke-width="7" fill="none"/><path d="M{cx-19},236 a19,19 0 0 1 38,0" stroke="#ffd84d" stroke-width="7" fill="none"/><path d="M{cx-12},236 a12,12 0 0 1 24,0" stroke="#5fc7a8" stroke-width="7" fill="none"/><circle cx="{cx-28}" cy="238" r="7" fill="#fff"/><circle cx="{cx+28}" cy="238" r="7" fill="#fff"/>')
     if gr == "dino": g.append(P(f"M{cx-34},248 q4,-32 30,-32 q16,-20 34,-6 q-6,8 -16,8 q4,16 -2,30 Z", "#5fc7a8", 3) + f'<circle cx="{cx+22}" cy="214" r="2.6" fill="{OL}"/><path d="M{cx-20},218 l5,-9 5,9 M{cx-6},214 l5,-9 5,9" stroke="{OL}" stroke-width="2.5" fill="#3fa587"/>')
     # ---- arms
-    pose = {"cheer": [((-70, -40), (-60, -92))] * 2}.get(mood, [((-12, 50), (-10, 96))] * 2)
+    pose = arms or {"cheer": [((-70, -40), (-60, -92))] * 2}.get(mood, [((-12, 50), (-10, 96))] * 2)
     arms = []
     for side, ((eo, eyo), (ho, hyo)) in zip((-1, 1), pose):
         sx, sy = cx + side * 42, 186
@@ -466,7 +494,7 @@ def kid(st, mood="happy"):
               f'<ellipse cx="{cx-34}" cy="{fy+14}" rx="8" ry="3.5" fill="#fff" opacity=".3"/>')
     for s_ in (-1, 1):
         x = cx + s_ * 24
-        if mood == "sleep":
+        if mood == "sleep" or blink:
             hd.append(f'<path d="M{x-12},{fy} q12,9 24,0" stroke="{OL}" stroke-width="4" fill="none" stroke-linecap="round"/>' + (f'<path d="M{x+s_*10},{fy+2} l{s_*5},-4" stroke="{OL}" stroke-width="2.5"/>' if st["girl"] else ""))
             continue
         hd.append(f'<path d="M{x-15},{fy} Q{x},{fy-20} {x+15},{fy} Q{x},{fy+17} {x-15},{fy} Z" fill="#fff" stroke="{OL}" stroke-width="2.5"/>'
@@ -479,7 +507,10 @@ def kid(st, mood="happy"):
         hd.append(P(f"M{x-s_*13},{by+4+tilt} Q{x},{by-6} {x+s_*13},{by+2-tilt*.4} Q{x},{by} {x-s_*13},{by+4+tilt} Z", st["hair"], 1.5))
     hd.append(f'<path d="M{cx-2},{fy+10} Q{cx-6},{fy+22} {cx-1},{fy+24} Q{cx+6},{fy+24} {cx+6},{fy+20}" stroke="{skd}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="{cx+1}" cy="{fy+17}" r="3" fill="#fff" opacity=".3"/>')
     my = fy + 36
-    if mood in ("happy", "cheer"):
+    if talk > .05:
+        hd.append(f'<ellipse cx="{cx}" cy="{my+2}" rx="{8+4*talk:.1f}" ry="{3+10*talk:.1f}" fill="#6e2030" stroke="{OL}" stroke-width="3"/>'
+                  + (f'<path d="M{cx-26},{fy+10} q-4,16 0,24" stroke="#9fdcff" stroke-width="5" fill="none" stroke-linecap="round"/>' if mood == "sad" else ""))
+    elif mood in ("happy", "cheer"):
         hd.append(f'<path d="M{cx-18},{my-6} Q{cx},{my+20} {cx+18},{my-6} Z" fill="#6e2030" stroke="{OL}" stroke-width="3"/><path d="M{cx-14},{my-5} L{cx+14},{my-5} L{cx+11},{my+1} L{cx-11},{my+1} Z" fill="#fff"/><path d="M{cx-8},{my+9} Q{cx},{my+4} {cx+8},{my+9}" fill="#d16a7c"/>'
                   + (f'<path d="M{cx-19},{my-6} Q{cx},{my-12} {cx+19},{my-6}" stroke="#c87888" stroke-width="3.5" fill="none" stroke-linecap="round"/>' if st["girl"] and st["age"] >= 2 else ""))
     elif mood == "sad":
