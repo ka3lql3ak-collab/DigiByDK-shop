@@ -72,7 +72,7 @@ POSES = {  # (elbow, hand) offsets from the viewer-LEFT shoulder; right arm mirr
     "curl":  {"L": ((-74, 82), ("waist", 166)), "R": ((-24, 104), (-32, 18))},
     "point": {"L": ((-74, 82), ("waist", 166)), "R": ((-70, -32), (-94, -134))},
     "cheer": {"L": ((-78, -44), (-62, -146)), "R": ((-78, -44), (-62, -146))},
-    "face":  {"L": ((-20, 96), (52, -6)), "R": ((-20, 96), (52, -6))},   # hands covering face
+    "face":  {"L": ((-24, 90), (58, -40)), "R": ((-24, 90), (58, -40))},   # hands covering face
 }
 
 
@@ -94,7 +94,7 @@ def lerp_pose(p1, p2, t):
     return {k: tuple(tuple(lerp(a, b_, t) for a, b_ in zip(pa, pb)) for pa, pb in zip(p1[k], p2[k])) for k in ("L", "R")}
 
 
-def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=False, blink=False, talk=0.0, head_drop=None, prop_rot=0):
+def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=False, blink=False, talk=0.0, head_drop=None, prop_rot=0, head_rot=0.0):
     cx = 230
     glam = 1 - b                     # makeup / jewelry / shine grow over the 30 days
     pose_d = pose if isinstance(pose, dict) else pose_offsets(pose, b)
@@ -274,7 +274,9 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
             hd.append(f'<rect x="{cx + s_*(hrx+8) - 23}" y="{hy-38}" width="46" height="80" rx="18" fill="#3a3a46" stroke="{OL}" stroke-width="{SW}"/>'
                       f'<rect x="{cx + s_*(hrx+8) - 13}" y="{hy-26}" width="26" height="56" rx="10" fill="#26262f"/><circle cx="{cx + s_*(hrx+8)}" cy="{hy+2}" r="5" fill="{PURPLE_L}"/>')
     hd.append(face_svg(face, cx, hy, b, blink, talk))
-    out = "".join(g) + "".join(hd) + ("" if behind else arms)
+    head = "".join(hd)
+    if head_rot: head = f'<g transform="rotate({head_rot:.2f} {cx} {hy+92})">{head}</g>'
+    out = "".join(g) + head + ("" if behind else arms)
     if prop and handR:
         ps = prop_svg(prop, *handR)
         out += f'<g transform="rotate({prop_rot} {handR[0]:.1f} {handR[1]:.1f})">{ps}</g>' if prop_rot else ps

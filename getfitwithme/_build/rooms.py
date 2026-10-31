@@ -240,3 +240,51 @@ def doctor_office():
                f'<circle cx="980" cy="230" r="54" fill="#fff" {S}/><path d="M980,230 v-36 M980,230 l24,10" stroke="{OL}" stroke-width="6" stroke-linecap="round"/>')
     out.append('<rect y="1500" width="1080" height="420" fill="#9fb8c2"/>' + "".join(f'<rect x="{x}" y="1500" width="135" height="420" fill="{"#a8c0ca" if (x//135)%2 else "#98b2bc"}"/>' for x in range(0, 1080, 135)))
     return "".join(out)
+
+
+def kitchen_day():
+    out = ['<rect width="1080" height="1920" fill="#f6e9dc"/>']
+    out.append("".join(f'<rect x="{x}" y="{y}" width="58" height="38" fill="#fff8f0" stroke="#e8d8c8" stroke-width="3"/>' for x in range(0, 1080, 60) for y in range(820, 1180, 40)))
+    # window with morning sun
+    out.append(f'<rect x="380" y="300" width="300" height="300" rx="10" fill="#bfe3ff" {S}/><circle cx="600" cy="380" r="46" fill="#ffd84d"/><path d="M380,520 q80,-60 160,-10 q80,-50 140,-10 v100 h-300 Z" fill="#9fd88a"/>'
+               f'<line x1="530" y1="300" x2="530" y2="600" stroke="{OL}" stroke-width="6"/><path d="M380,300 L120,1500 L700,1500 L680,300 Z" fill="#fff6c8" opacity=".25"/>'
+               f'<path d="M350,280 q30,160 10,340 h50 q-20,-180 0,-340 Z" fill="#ff8fb1" {S3}/><path d="M710,280 q-30,160 -10,340 h-50 q20,-180 0,-340 Z" fill="#ff8fb1" {S3}/>')
+    # upper cabinets, one ajar with the hidden bottle
+    out.append(f'<rect x="20" y="300" width="330" height="320" rx="10" fill="#8b57ee" {S}/><line x1="185" y1="300" x2="185" y2="620" stroke="{OL}" stroke-width="4"/><circle cx="165" cy="470" r="8" fill="#ffd84d"/>'
+               f'<rect x="720" y="300" width="330" height="320" rx="10" fill="#8b57ee" {S}/><rect x="890" y="316" width="140" height="288" fill="#3a2a5c"/>'
+               f'<path d="M940,600 v-120 q0,-20 10,-30 v-40 h16 v40 q10,10 10,30 v120 Z" fill="#4a1530" {S3}/><rect x="944" y="540" width="28" height="30" fill="#e9dcc3"/>'
+               f'<path d="M1030,316 L1060,330 L1060,610 L1030,604 Z" fill="#7a45dc" {S3}/>')
+    # fridge with drawings + magnets
+    out.append(f'<rect x="830" y="660" width="220" height="840" rx="16" fill="#e9eef5" {S}/><line x1="830" y1="980" x2="1050" y2="980" stroke="{OL}" stroke-width="3"/><rect x="846" y="760" width="12" height="120" rx="6" fill="#a8b0bf"/>'
+               + crayon_drawing(880, 690, -5, "family", "MOMMY") + crayon_drawing(910, 1020, 6, "rainbow")
+               + f'<circle cx="1000" cy="700" r="14" fill="#ff5f5f" {S3}/><circle cx="1030" cy="1200" r="12" fill="#5fc7a8" {S3}/>')
+    # counter, sink, coffee maker, cereal, lunchboxes, mail pile with rejections
+    out.append(f'<rect y="1180" width="800" height="320" fill="#b08a6e" {S}/><rect x="-10" y="1150" width="830" height="44" rx="8" fill="#efe6dc" {S}/>'
+               f'<rect x="60" y="1040" width="90" height="110" rx="10" fill="#2a2a32" {S3}/><rect x="74" y="1100" width="60" height="44" rx="6" fill="#5a3a2a"/>'
+               f'<rect x="180" y="1030" width="80" height="120" rx="6" fill="#ffbf3a" {S3}/><text x="220" y="1100" text-anchor="middle" font-family="Anton" font-size="22" fill="#c0392b">O\'s</text>'
+               + "".join(f'<rect x="{290+i*100}" y="1080" width="86" height="70" rx="14" fill="{c}" {S3}/><path d="M{306+i*100},1080 q27,-26 54,0" stroke="{OL}" stroke-width="5" fill="none"/>' for i, c in enumerate(("#ff8fb1", "#8fbaff", "#5fc7a8", "#ffd166")))
+               + f'<g transform="translate(620,1070) rotate(-5)"><rect width="140" height="90" fill="#fbf8f0" {S3}/><rect x="10" y="-12" width="140" height="90" fill="#f4efe4" {S3}/>'
+               f'<text x="80" y="40" text-anchor="middle" font-family="Anton" font-size="22" fill="#e23b3b">REJECTED</text><text x="80" y="68" text-anchor="middle" font-family="Anton" font-size="16" fill="#888">we regret to inform you</text></g>')
+    # table with bowls
+    out.append(f'<ellipse cx="420" cy="1560" rx="320" ry="60" fill="#c79a6e" {S}/><rect x="200" y="1560" width="22" height="200" fill="#8a6a52" {S3}/><rect x="620" y="1560" width="22" height="200" fill="#8a6a52" {S3}/>'
+               + "".join(f'<ellipse cx="{x}" cy="1540" rx="44" ry="16" fill="#fff" {S3}/><ellipse cx="{x}" cy="1536" rx="34" ry="9" fill="#ffd166"/>' for x in (260, 380, 500, 610)))
+    out.append('<rect y="1500" width="1080" height="420" fill="#d8c3ad"/>' + "".join(f'<rect x="{x}" y="1500" width="120" height="420" fill="{"#d2bca5" if (x//120)%2 else "#dec9b4"}"/>' for x in range(0, 1080, 120))
+               + f'<ellipse cx="420" cy="1560" rx="320" ry="60" fill="#c79a6e" {S}/>' + "".join(f'<ellipse cx="{x}" cy="1540" rx="44" ry="16" fill="#fff" {S3}/><ellipse cx="{x}" cy="1536" rx="34" ry="9" fill="#ffd166"/>' for x in (260, 380, 500, 610)))
+    return "".join(out)
+
+
+def street_rain():
+    out = ['<defs><linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05060f"/><stop offset="1" stop-color="#1f2550"/></linearGradient></defs>',
+           '<rect width="1080" height="1920" fill="url(#nightSky)"/>']
+    for x, y, w, c in ((-20, 520, 260, "#141832"), (220, 380, 220, "#191d3c"), (430, 600, 200, "#141832"), (620, 440, 240, "#191d3c"), (850, 560, 260, "#141832")):
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{1300-y}" fill="{c}"/>')
+        out.append("".join(f'<rect x="{x+16+(k%4)*(w-40)/4:.0f}" y="{y+30+(k//4)*70}" width="22" height="34" fill="#ffd98a" opacity="{R.uniform(.15,.85):.2f}"/>' for k in range(4 * ((1300 - y) // 90))))
+    out.append(f'<rect x="0" y="1300" width="1080" height="620" fill="#22253a"/><rect x="0" y="1300" width="1080" height="40" fill="#3a3d55"/>'
+               f'<path d="M0,1500 h1080" stroke="#ffd84d" stroke-width="10" stroke-dasharray="80 60" opacity=".55"/>'
+               + "".join(f'<ellipse cx="{x}" cy="{1640 + (x % 3) * 60}" rx="{90 + x % 50}" ry="14" fill="#6a78b8" opacity=".25"/>' for x in (160, 470, 780, 980)))
+    for x in (140, 900):  # street lamps + glow + reflection
+        out.append(f'<rect x="{x}" y="760" width="18" height="560" fill="#2a2d44" {S3}/><path d="M{x+9},770 q40,-40 90,-20" stroke="#2a2d44" stroke-width="14" fill="none"/>'
+                   f'<ellipse cx="{x+96}" cy="760" rx="30" ry="14" fill="#fff3c4"/><path d="M{x+76},770 L{x-60},1320 L{x+260},1320 L{x+116},770 Z" fill="#fff3c4" opacity=".12"/>'
+                   f'<ellipse cx="{x+96}" cy="1420" rx="40" ry="140" fill="#fff3c4" opacity=".1"/>')
+    out.append(f'<g transform="translate(560,1180)"><rect width="240" height="130" rx="10" fill="#2e3350" {S3}/><text x="120" y="80" text-anchor="middle" font-family="Anton" font-size="44" fill="#ff5f5f">PHARMACY</text></g>')
+    return "".join(out)
