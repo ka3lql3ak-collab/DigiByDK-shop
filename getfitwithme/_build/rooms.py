@@ -215,3 +215,28 @@ def bathroom_candle():
                f'<rect x="40" y="420" width="40" height="560" fill="#ff8fb1" {S3}/><rect x="60" y="420" width="140" height="300" rx="10" fill="#b9a2e8" {S3}/><path d="M60,600 h140" stroke="#fff" stroke-width="6" opacity=".5"/>')
     out.append('<rect y="1500" width="1080" height="420" fill="#181b30"/>')
     return "".join(out)
+
+
+def doctor_office():
+    out = ['<rect width="1080" height="1920" fill="#cfe3ea"/>', '<rect y="0" width="1080" height="160" fill="#b9d3dc"/>']
+    out.append("".join(f'<rect x="{x}" y="1180" width="120" height="240" fill="{"#bcd6de" if (x//120)%2 else "#c6dde4"}"/>' for x in range(0, 1080, 120)))
+    # X-ray lightbox with ribs + highlighted liver
+    out.append(f'<rect x="60" y="300" width="420" height="380" rx="12" fill="#2a3442" {S}/><rect x="80" y="320" width="380" height="340" fill="#dff2ff"/>'
+               f'<rect x="80" y="320" width="380" height="340" fill="#0d1a2a" opacity=".85"/>'
+               + "".join(f'<path d="M{270-10},{360+k*34} q-{80+k*6},10 -{110+k*4},{40}" stroke="#e8f4ff" stroke-width="7" fill="none" opacity=".8"/><path d="M{270+10},{360+k*34} q{80+k*6},10 {110+k*4},{40}" stroke="#e8f4ff" stroke-width="7" fill="none" opacity=".8"/>' for k in range(6))
+               + f'<rect x="262" y="340" width="16" height="300" rx="6" fill="#e8f4ff" opacity=".8"/>'
+               f'<path d="M150,540 q60,-50 150,-20 q30,30 -20,70 q-80,30 -130,-50 Z" fill="#ff4f4f" opacity=".75"/><circle cx="210" cy="550" r="70" fill="#ff4f4f" opacity=".2"/>'
+               f'<text x="270" y="710" text-anchor="middle" font-family="Anton" font-size="26" fill="#2a3442">PATIENT: D. DAWSON</text>')
+    # liver poster
+    out.append(f'<g transform="translate(560,300) rotate(2)"><rect width="200" height="260" fill="#fffdf6" {S}/><text x="100" y="40" text-anchor="middle" font-family="Anton" font-size="28" fill="#c0392b">YOUR LIVER</text>'
+               f'<path d="M30,150 q50,-70 140,-36 q20,36 -20,70 q-70,30 -120,-34 Z" fill="#b94a48" {S3}/><path d="M60,200 q30,30 80,10" stroke="#c0392b" stroke-width="4" fill="none"/>'
+               f'<text x="100" y="236" text-anchor="middle" font-family="Anton" font-size="18" fill="#2a3442">ALCOHOL DAMAGE</text></g>')
+    # heart monitor stand (animated line drawn in the episode)
+    out.append(f'<rect x="820" y="420" width="220" height="170" rx="14" fill="#1b2430" {S}/><rect x="836" y="436" width="188" height="120" fill="#06120c"/><rect x="920" y="590" width="20" height="600" fill="#8a94a4" {S3}/>'
+               f'<rect x="870" y="1180" width="120" height="24" rx="10" fill="#6a7484" {S3}/><text x="930" y="580" text-anchor="middle" font-family="Anton" font-size="18" fill="#5fe39a">HR 112</text>')
+    # exam table + sanitizer + sink + clock
+    out.append(f'<rect x="80" y="1250" width="520" height="70" rx="14" fill="#7fb4c8" {S}/><rect x="80" y="1236" width="520" height="24" rx="10" fill="#f4f8fa" {S3}/><rect x="120" y="1320" width="30" height="180" fill="#8a94a4" {S3}/><rect x="530" y="1320" width="30" height="180" fill="#8a94a4" {S3}/>'
+               f'<rect x="740" y="760" width="56" height="90" rx="10" fill="#9fd3f0" {S3}/><rect x="756" y="736" width="24" height="26" rx="5" fill="#fff" {S3}/>'
+               f'<circle cx="980" cy="230" r="54" fill="#fff" {S}/><path d="M980,230 v-36 M980,230 l24,10" stroke="{OL}" stroke-width="6" stroke-linecap="round"/>')
+    out.append('<rect y="1500" width="1080" height="420" fill="#9fb8c2"/>' + "".join(f'<rect x="{x}" y="1500" width="135" height="420" fill="{"#a8c0ca" if (x//135)%2 else "#98b2bc"}"/>' for x in range(0, 1080, 135)))
+    return "".join(out)

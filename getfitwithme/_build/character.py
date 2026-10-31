@@ -244,6 +244,8 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
         hd.append(P(f"M{cx-hrx-8},{hy+16} C{cx-hrx-12},{hy-118} {cx+hrx+12},{hy-118} {cx+hrx+8},{hy+16} C{cx+hrx-8},{hy-46} {cx+26},{hy-64} {cx-6},{hy-58} "
                     f"C{cx-44},{hy-52} {cx-hrx+4},{hy-32} {cx-hrx-8},{hy+16} Z", f"url(#hair{hk})"))
         hd.append(P(f"M{cx-44},{hy-100} C{cx-72},{hy-160} {cx+56},{hy-186} {cx+52},{hy-108} C{cx+38},{hy-84} {cx-22},{hy-82} {cx-44},{hy-100} Z", f"url(#hair{hk})"))
+        hd.append(f'<path d="M{cx-30},{hy-74} C{cx-10},{hy-92} {cx+20},{hy-90} {cx+46},{hy-70}" stroke="#cfcfd6" stroke-width="7" fill="none" stroke-linecap="round" opacity=".9"/>'
+                  f'<path d="M{cx-10},{hy-140} q20,-16 40,-6 M{cx-hrx-6},{hy-6} q-14,46 -2,92" stroke="#d8d8de" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/>')
         hd.append("".join(f'<path d="{d}" stroke="{c}" stroke-width="{w}" fill="none" stroke-linecap="round"/>' for d, c, w in (
             (f"M{cx-30},{hy-140} q34,-18 60,4", hair_l, 5), (f"M{cx-20},{hy-118} q28,-10 48,8", hair_d, 4), (f"M{cx-40},{hy-108} q-6,-30 20,-44", hair_d, 3),
             (f"M{cx+44},{hy-156} q36,-24 44,12", hair, 5), (f"M{cx-54},{hy-138} q-30,-16 -34,16", hair, 5), (f"M{cx+30},{hy-170} q8,-26 30,-26", hair, 4),
@@ -256,6 +258,8 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
             hd.append(P(f"M{x1},{hy-8} C{x1+s_*26},{hy+86} {x1+s_*18},{hy+182} {x1+s_*6},{hy+226} L{x1-s_*24},{hy+226} C{x1-s_*10},{hy+160} {x1-s_*10},{hy+76} {x1-s_*16},{hy+6} Z", f"url(#hair{hk})"))
             hd.append("".join(f'<path d="M{x1-s_*(2+k*7)},{hy+20+k*8} C{x1+s_*(10-k*4)},{hy+100} {x1+s_*(6-k*5)},{hy+170} {x1-s_*(4+k*6)},{hy+218}" stroke="{c}" stroke-width="{w}" fill="none" opacity=".85"/>'
                               for k, (c, w) in enumerate(((hair_l, 4), (hair_d, 2.5), (hair_l, 2.5)))))
+        if b > .3:
+            hd.append(f'<path d="M{cx-44},{hy-60} C{cx-20},{hy-84} {cx+10},{hy-86} {cx+30},{hy-74}" stroke="#d8d8de" stroke-width="5" fill="none" stroke-linecap="round" opacity="{min(1,(b-.3)*2):.2f}"/>')
         hd.append(f'<path d="M{cx-30},{hy-70} C{cx+8},{hy-86} {cx+46},{hy-72} {cx+62},{hy-38}" stroke="{hair_l}" stroke-width="{6+5*glam:.0f}" fill="none" stroke-linecap="round" opacity=".9"/>'
                   f'<path d="M{cx-56},{hy-50} C{cx-30},{hy-74} {cx-4},{hy-78} {cx+14},{hy-76}" stroke="#ffd1d8" stroke-width="3" fill="none" stroke-linecap="round" opacity="{.25+.45*glam:.2f}"/>'
                   )
@@ -280,6 +284,7 @@ def danielle(b=0.0, outfit="bra", pose="idle", face="happy", prop=None, phones=F
 def face_svg(face, cx, hy, b=0, blink=False, talk=0.0):
     glam = 1 - b
     ex, ey = 34, hy + 10
+    sclera = mix("#ffffff", "#ecd77a", max(0, (b - .3) / .7))  # liver damage tint
     f = [f'<ellipse cx="{cx-54}" cy="{hy+40}" rx="{17+6*b:.0f}" ry="10" fill="#e07a8a" opacity="{.25+.15*glam:.2f}"/><ellipse cx="{cx+54}" cy="{hy+40}" rx="{17+6*b:.0f}" ry="10" fill="#e07a8a" opacity="{.25+.15*glam:.2f}"/>']
 
     def eye(x, o=1.0, look=0, side=1):
@@ -290,7 +295,7 @@ def face_svg(face, cx, hy, b=0, blink=False, talk=0.0):
         if glam > .25:  # purple eyeshadow
             s += f'<path d="M{x-21},{ey-4} Q{x},{ey-30-6*glam:.0f} {x+21},{ey-6} Q{x},{ey-14} {x-21},{ey-4} Z" fill="#8a4fd0" opacity="{.25+.35*glam:.2f}"/>'
         h = 15 * o
-        s += f'<path d="M{x-22},{ey} Q{x},{ey-h*1.4:.1f} {x+22},{ey-2} Q{x},{ey+h*1.05:.1f} {x-22},{ey} Z" fill="#fff" stroke="{OL}" stroke-width="2.5"/>'
+        s += f'<path d="M{x-22},{ey} Q{x},{ey-h*1.4:.1f} {x+22},{ey-2} Q{x},{ey+h*1.05:.1f} {x-22},{ey} Z" fill="{sclera}" stroke="{OL}" stroke-width="2.5"/>'
         if o > .2:
             s += (f'<circle cx="{x+look}" cy="{ey}" r="{11 if o>.6 else 8}" fill="url(#irisG)"/><circle cx="{x+look}" cy="{ey}" r="5.5" fill="#120805"/>'
                   f'<circle cx="{x+look+4}" cy="{ey-4}" r="3.4" fill="#fff"/><circle cx="{x+look-3}" cy="{ey+4}" r="1.6" fill="#fff" opacity=".8"/>')
@@ -319,7 +324,8 @@ def face_svg(face, cx, hy, b=0, blink=False, talk=0.0):
         return (f'<path d="M{cx-28},{my-up} Q{cx-14},{my-12} {cx-3},{my-7} Q{cx},{my-5} {cx+3},{my-7} Q{cx+14},{my-12} {cx+28},{my+up} Q{cx},{my+2} {cx-28},{my-up} Z" fill="url(#lipG)" stroke="{OL}" stroke-width="2.5"/>'
                 f'<path d="M{cx-26},{my-up+1} Q{cx},{my+24+curve} {cx+26},{my+up+1} Q{cx},{my+4} {cx-26},{my-up+1} Z" fill="url(#lipG)" stroke="{OL}" stroke-width="2.5"/>'
                 f'<path d="M{cx-26},{my-up+1} Q{cx},{my+5+curve*.3} {cx+26},{my+up+1}" stroke="#6e2232" stroke-width="2.5" fill="none"/>'
-                f'<ellipse cx="{cx-5}" cy="{my+12+curve*.4}" rx="{7+3*glam:.0f}" ry="3" fill="#fff" opacity="{.3+.4*glam:.2f}"/>')
+                f'<ellipse cx="{cx-5}" cy="{my+12+curve*.4}" rx="{7+3*glam:.0f}" ry="3" fill="#fff" opacity="{.3+.4*glam:.2f}"/>'
+                f'<path d="M{cx-10},{my+1} h20 v7 q-5,3 -10,0 q-5,3 -10,0 Z" fill="#fffdf2" stroke="{OL}" stroke-width="1.8"/><path d="M{cx},{my+1} v8" stroke="#d8d2c4" stroke-width="1.5"/>')
     if face == "happy":
         f += [eye(cx - ex, 1, 0, -1), eye(cx + ex, 1, 0, 1), brow(cx - ex, 0, 2, -1), brow(cx + ex, 0, 2, 1), lips(open_=True)]
     elif face == "smirk":
@@ -369,6 +375,10 @@ def prop_svg(p, x, y):
     if p == "jeans": return f'<g transform="translate({x-54},{y-86})"><path d="M0,0 H108 L102,180 H62 L54,62 L46,180 H6 Z" fill="#4a72b8" {S}/><path d="M0,0 H108 V18 H0 Z" fill="#3b5d99" {S}/><circle cx="54" cy="9" r="5" fill="#e5c07b"/><path d="M20,30 q10,40 6,120 M88,30 q-10,40 -6,120" stroke="#fff" stroke-opacity=".2" stroke-width="6" fill="none"/></g>'
     if p == "plate": return f'<g transform="translate({x},{y})"><circle r="74" fill="#26232c" {S}/><circle r="52" fill="none" stroke="#3a3642" stroke-width="8"/><circle r="13" fill="#9a94a6" {S}/><text y="-28" text-anchor="middle" font-family="Anton" font-size="22" fill="#cfc8da">45 LB</text></g>'
     if p == "wine": return f'<g transform="translate({x-18},{y-120})"><path d="M11,0 H25 V32 Q38,46 38,68 V150 Q38,158 30,158 H6 Q-2,158 -2,150 V68 Q-2,46 11,32 Z" fill="#3d1626" {S}/><rect x="0" y="84" width="36" height="38" fill="#e9dcc3"/><rect x="4" y="40" width="6" height="100" rx="3" fill="#fff" opacity=".18"/></g>'
+    if p == "labs": return (f'<g transform="translate({x-60},{y-80}) rotate(-6)"><rect width="124" height="150" rx="4" fill="#fbfdff" {S}/><rect width="124" height="26" fill="#3b82c4"/>'
+                            f'<text x="62" y="19" text-anchor="middle" font-family="Anton" font-size="15" fill="#fff">LAB RESULTS</text><path d="M12,40 h70 M12,56 h90 M12,72 h60" stroke="#c9cdd6" stroke-width="5"/>'
+                            f'<text x="62" y="104" text-anchor="middle" font-family="Anton" font-size="17" fill="#e23b3b">LIVER: CRITICAL</text><rect x="14" y="114" width="96" height="26" fill="none" stroke="#e23b3b" stroke-width="3"/>'
+                            f'<text x="62" y="133" text-anchor="middle" font-family="Anton" font-size="14" fill="#e23b3b">STOP DRINKING</text></g>')
     if p == "glass": return f'<g transform="translate({x},{y+10})"><path d="M-26,-92 h52 q0,58 -26,64 q-26,-6 -26,-64 Z" fill="#ffffff30" {S}/><path d="M-23,-70 h46 q-4,38 -23,42 q-19,-4 -23,-42 Z" fill="#8a1530"/><path d="M0,-28 v40 M-22,12 h44" {S} fill="none"/><path d="M-18,-84 q-2,20 4,34" stroke="#fff" stroke-width="3" opacity=".5" fill="none"/></g>'
     if p == "mealprep": return f'<g transform="translate({x-70},{y-36})"><rect width="140" height="72" rx="12" fill="#f6f3fb" {S}/><rect x="10" y="10" width="56" height="52" rx="6" fill="#fff8e7"/><rect x="72" y="10" width="58" height="24" rx="6" fill="#d7a26b"/><rect x="72" y="38" width="58" height="24" rx="6" fill="#58b368"/></g>'
     return ""
@@ -503,11 +513,13 @@ def kid(st, mood="happy", talk=0.0, blink=False, arms=None):
         if st["girl"]:
             hd.append("".join(f'<path d="M{x+s_*(4+i*5)},{fy-9+i*2} l{s_*3},-6" stroke="#140a0a" stroke-width="2" stroke-linecap="round"/>' for i in range(3)))
         by = fy - 24 - (4 if mood in ("happy", "cheer") else 0)
-        tilt = -7 if mood == "sad" else 0   # sad: inner end raised
+        tilt = -7 if mood == "sad" else (9 if mood == "mad" else 0)   # sad: inner end raised, mad: inner end down
         hd.append(P(f"M{x-s_*13},{by+4+tilt} Q{x},{by-6} {x+s_*13},{by+2-tilt*.4} Q{x},{by} {x-s_*13},{by+4+tilt} Z", st["hair"], 1.5))
     hd.append(f'<path d="M{cx-2},{fy+10} Q{cx-6},{fy+22} {cx-1},{fy+24} Q{cx+6},{fy+24} {cx+6},{fy+20}" stroke="{skd}" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="{cx+1}" cy="{fy+17}" r="3" fill="#fff" opacity=".3"/>')
     my = fy + 36
-    if talk > .05:
+    if talk > .05 and mood == "mad":
+        hd.append(f'<path d="M{cx-16},{my-4} Q{cx},{my-10} {cx+16},{my-4} Q{cx+12},{my+6+12*talk:.1f} {cx},{my+8+12*talk:.1f} Q{cx-12},{my+6+12*talk:.1f} {cx-16},{my-4} Z" fill="#6e2030" stroke="{OL}" stroke-width="3"/><path d="M{cx-12},{my-4} h24 v4 h-24 Z" fill="#fff"/>')
+    elif talk > .05:
         hd.append(f'<ellipse cx="{cx}" cy="{my+2}" rx="{8+4*talk:.1f}" ry="{3+10*talk:.1f}" fill="#6e2030" stroke="{OL}" stroke-width="3"/>'
                   + (f'<path d="M{cx-26},{fy+10} q-4,16 0,24" stroke="#9fdcff" stroke-width="5" fill="none" stroke-linecap="round"/>' if mood == "sad" else ""))
     elif mood in ("happy", "cheer"):
