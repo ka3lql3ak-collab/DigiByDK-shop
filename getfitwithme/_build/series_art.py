@@ -68,12 +68,29 @@ def profile(variant):
             f'<rect x="200" y="800" width="680" height="120" rx="60" fill="#0f0a1f" stroke="#ffd84d" stroke-width="6"/>{txt(540, 885, "DAYS TO HER", 76, "#fff", stroke=0, extra="letter-spacing=\'4\'")}</svg>')
 
 
+def profile_strong(variant):
+    """Cute profile picture: strong Danielle flexing (Day-30 look), circle-crop safe, no text."""
+    spark = "".join(f'<path d="M{x},{y-r} L{x+r*.25},{y-r*.25} L{x+r},{y} L{x+r*.25},{y+r*.25} L{x},{y+r} L{x-r*.25},{y+r*.25} L{x-r},{y} L{x-r*.25},{y-r*.25} Z" fill="#fff" opacity=".9"/>'
+                    for x, y, r in ((190, 260, 26), (880, 230, 20), (930, 640, 16), (150, 640, 18), (300, 140, 12), (780, 120, 14)))
+    if variant == 1:
+        bg = ('<radialGradient id="ps1" cx=".5" cy=".45" r=".7"><stop offset="0" stop-color="#b98cff"/><stop offset=".55" stop-color="#6d32d4"/><stop offset="1" stop-color="#2a1260"/></radialGradient>'
+              '<rect width="1080" height="1080" fill="url(#ps1)"/><circle cx="540" cy="520" r="360" fill="#ffffff" opacity=".08"/>')
+        face, x, foot, sc = "happy", 540, 1700, 1.75
+    else:
+        bg = ('<linearGradient id="ps2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fc4"/><stop offset="1" stop-color="#8b57ee"/></linearGradient>'
+              '<rect width="1080" height="1080" fill="url(#ps2)"/>' + "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#fff" opacity=".18"/>' for x, y, r in ((120, 900, 160), (980, 160, 190), (900, 980, 110))))
+        face, x, foot, sc = "smirk", 540, 1700, 1.75
+    body = C.danielle(0, "bra", "flex", face, None, False, False, 0, None)
+    return (f'<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">{DEFS}{bg}'
+            f'<g transform="translate({x - 230*sc:.1f},{foot - 905*sc:.1f}) scale({sc})">{body}</g>{spark}</svg>')
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     tmp = tempfile.mkdtemp()
     jobs = [[os.path.join(OUT, "Episode-1-Thumbnail.png"), thumbnail(), 1080, 1920],
-            [os.path.join(OUT, "Profile-Picture-1.png"), profile(1), 1080, 1080],
-            [os.path.join(OUT, "Profile-Picture-2.png"), profile(2), 1080, 1080]]
+            [os.path.join(OUT, "Profile-Picture-Strong-1.png"), profile_strong(1), 1080, 1080],
+            [os.path.join(OUT, "Profile-Picture-Strong-2.png"), profile_strong(2), 1080, 1080]]
     js = os.path.join(tmp, "r.js")
     open(js, "w").write("""const { chromium } = require('playwright'); const fs=require('fs');
 (async()=>{const jobs=JSON.parse(fs.readFileSync(process.argv[2]));const b=await chromium.launch();
