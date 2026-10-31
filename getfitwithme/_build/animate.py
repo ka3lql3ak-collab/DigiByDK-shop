@@ -33,6 +33,8 @@ def kf(t, keys):
 
 
 def cam(s, x, y):
+    s = max(1.0, s)  # keep the camera inside the scene so no black edges show
+    x = min(max(x, 540 / s), 1080 - 540 / s); y = min(max(y, 960 / s), 1920 - 960 / s)
     return f"translate(540,960) scale({s:.4f}) translate({-x:.1f},{-y:.1f})"
 
 
@@ -258,9 +260,9 @@ def build(preview=False):
     boy_t0 = starts["hall"] + vd["hall"] + 1.5
 
     # ---------------- audio mix
-    M = Mix(total)
+    M = Mix(total); MV = Mix(total)
     for name, d, cues in shots:
-        for key, off in cues: M.add(starts[name] + off, V[key], 1.0)
+        for key, off in cues: MV.add(starts[name] + off, V[key], 1.0)
     M.add(0, music_pad(starts["rewind"], (220, 277.2, 329.6), .035))
     M.add(.95, sfx_impact(), .9); M.add(.9, sfx_sparkle(), 1)
     M.add(starts["rewind"], sfx_rewind(1.3), .9)
@@ -273,11 +275,12 @@ def build(preview=False):
     M.add(starts["mirror"] + vd["mirror"] * .72, sfx_sparkle(), 1.3)
     for k in range(3): M.add(starts["title"] + .45 + k * 1.05, sfx_impact(), .8)
     M.add(starts["choice"], sfx_impact(), .6)
-    a = M.buf[:int(total * SR)]
-    a = a / max(1, np.abs(a).max() / .95)
-    wav = os.path.join(tmp, "mix.wav")
-    with wave.open(wav, "wb") as w:
-        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((a * 32767).astype(np.int16).tobytes())
+    def write(a, path):
+        a = a[:int(total * SR)]; a = a / max(1, np.abs(a).max() / .95)
+        with wave.open(path, "wb") as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((a * 32767).astype(np.int16).tobytes())
+    wav, wav_novo = os.path.join(tmp, "mix.wav"), os.path.join(tmp, "mix_novoice.wav")
+    write(M.buf * .7 + MV.buf, wav); write(M.buf * .55, wav_novo)
 
     # ---------------- frames
     def frame(T):
@@ -416,7 +419,7 @@ def build(preview=False):
             if uL > .3:
                 left += "".join(f'<ellipse cx="{300 + k*6:.0f}" cy="{1180 + ((t*2.2 + k*.17) % 1)*520:.0f}" rx="7" ry="12" fill="#8a1530" opacity=".85"/>' for k in range(6))
             pulse = 1 + .08 * math.sin(t * 7)
-            fg = left + right + f'<rect x="532" y="360" width="16" height="{1400*sl:.0f}" fill="#ffd84d"/>'
+            fg = left + right + f'<rect x="532" y="500" width="16" height="{1260*sl:.0f}" fill="#ffd84d"/>'
             ui = (Sc.hud(1, 0) + f'<g transform="translate(540,440) scale({pulse:.3f})"><text text-anchor="middle" font-family="Anton" font-size="74" fill="#ffd84d" stroke="#000" stroke-width="12" paint-order="stroke" letter-spacing="4">COMMENT ONE WORD</text></g>'
                   f'<path d="M540,{1760 + 16*math.sin(t*8):.0f} l-40,-50 h80 Z" fill="#ffd84d" stroke="#000" stroke-width="6"/>')
             f["cam"] = ""
@@ -440,6 +443,9 @@ def build(preview=False):
     proc.stdin.close(); proc.wait()
     out = os.path.join(OUT, "Episode-1-Day-1-ANIMATED.mp4" if not preview else "preview.mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", silent, "-i", wav, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], check=True)
+    if not preview:
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", silent, "-i", wav_novo, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart",
+                        os.path.join(OUT, "Episode-1-Day-1-ANIMATED-no-voice.mp4")], check=True)
     print(out, f"{nframes/FPS:.1f}s", {k: round(v, 2) for k, v in starts.items()})
     # script
     lines = ["EPISODE 1 · DAY 1 · ROCK BOTTOM  (30 Days to Her)", ""]
