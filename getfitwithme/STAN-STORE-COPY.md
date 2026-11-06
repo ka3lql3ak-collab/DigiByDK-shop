@@ -18,14 +18,15 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 ## Product order
 
 1. Free Glute Starter Guide: FREE
-2. The Complete Collection: $67
+2. The Complete Collection: $77
 3. 30-Day Get Fit With Me Challenge: $14.99
 4. The Glute Specialist Program: $37
 5. Press Like A Boss: $24
-6. Fuel Like A Baddie: $19
-7. The Gym Girl Confidence Kit: $12
-8. 1:1 Form Check Call: $49
-9. 1:1 Online Coaching: $149/mo
+6. Pull-Up Queen: $24
+7. Fuel Like A Baddie: $19
+8. The Gym Girl Confidence Kit: $12
+9. 1:1 Form Check Call: $49
+10. 1:1 Online Coaching: $149/mo
 
 ---
 
@@ -65,27 +66,28 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 ## The Complete Collection
 
 - **Stan product type:** Bundle
-- **Price:** $67 (shown as a discount from $106.99)
+- **Price:** $77 (shown as a discount from $130.99)
 - **Cover image:** `getfitwithme/covers/complete-collection.png`
 
 **Thumbnail**
 - Title: The Complete Collection
-- Subtitle: All 5 programs & guides. Save 37%
+- Subtitle: All 6 programs & guides. Save over $50
 - Button: Get Everything
 
 **Checkout page**
 - Title: The Complete Get Fit With Me Collection
 - Description:
 
-> Everything I teach in one place: training, nutrition and confidence. Get all five programs and guides, each with its interactive app and printable PDF book, and save over $40 compared with buying them separately.
+> Everything I teach in one place: training, nutrition and confidence. Get all six programs and guides, each with its interactive app and printable PDF book, and save over $50 compared with buying them separately.
 
 - Bullets:
   - The Glute Specialist Program ($37)
   - Press Like A Boss ($24)
+  - Pull-Up Queen ($24)
   - Fuel Like A Baddie ($19)
   - 30-Day Get Fit With Me Challenge ($14.99)
   - The Gym Girl Confidence Kit ($12)
-  - 5 interactive apps + 5 printable PDF books
+  - 6 interactive apps + 6 printable PDF books
   - Lifetime access and all future updates
 - Checkout button: Get the Collection
 - Collect: name + email only
@@ -95,7 +97,7 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 - Description: Send me your lift videos and we'll review your technique together on a 1:1 video call.
 
 **Confirmation message**
-> Welcome to the full collection! All five links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss when you're ready.
+> Welcome to the full collection! All six links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss and Pull-Up Queen when you're ready.
 
 ---
 
@@ -213,6 +215,45 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 
 **Confirmation message**
 > Let's get strong! Your program and PDF are in your email. Read Chapter 3 before your first session. Week 6 is PR Week, so film it and tag me.
+
+---
+
+## Pull-Up Queen
+
+- **Stan product type:** Digital Product
+- **Price:** $24 (shown as a discount from $47)
+- **Buyer access link (put this in Stan, keep it private):** https://ka3lql3ak-collab.github.io/DigiByDK-shop/getfitwithme/p/9c4e71d2a85f3b60/
+- **PDF file to upload:** in the ZIP download
+- **Cover image:** `getfitwithme/covers/pull-up-queen-u8r3.png`
+
+**Thumbnail**
+- Title: Pull-Up Queen
+- Subtitle: Your first real pull-up in 8 weeks
+- Button: Get My First Pull-Up
+
+**Checkout page**
+- Title: Pull-Up Queen: Your First Pull-Up in 8 Weeks
+- Description:
+
+> Can't do a single pull-up yet? Perfect. That's exactly who this is for. Most women are told they "just don't have the upper body strength." That's a lie. You just never had a plan. This 8-week program takes you from hanging on the bar to pulling your chin over it, using assisted pull-ups, slow negatives, holds and lat work that build the exact strength a pull-up needs. Every week you'll need a little less help. In Week 8 you'll test your first real, unassisted pull-up, and film it.
+
+- Bullets:
+  - 24 progressive workouts across 8 weeks (3 days a week)
+  - An 11-chapter pull-up handbook with knowledge checks
+  - The 4-step pull-up ladder: assisted → negatives → holds → real reps
+  - Exactly how to lower your assistance every week
+  - Grip, shoulder health and 'why can't I do one?' troubleshooting
+  - Pull-Up Day test protocol + PR Wall to log your reps
+  - An app that logs every set, plus a printable PDF with fillable workout logs
+- Checkout button: Get the Program
+- Collect: name + email only
+
+**Order bump**
+- Headline: Add Press Like A Boss for $15 (reg. $24)
+- Description: Strong pull, strong press. Add my 6-week pressing program for a complete upper body.
+
+**Confirmation message**
+> Welcome, Queen! Your program is in your inbox. Read Chapters 1–3, then do your Test Day before Week 1. Film your first hang and tag me. I want to see the before AND the after!
 
 ---
 
@@ -348,7 +389,7 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
   - Weekly check-ins and adjustments
   - Unlimited form-check videos
   - Direct messaging access
-  - All 5 Get Fit With Me programs included
+  - All 6 Get Fit With Me programs included
 - Checkout button: Apply for Coaching
 - Collect: name + email only
 
@@ -372,7 +413,7 @@ Everything to paste into Stan for **Danielle Dawson's** store. Each product come
 - Slide 2: screen recording scrolling through an app. Text: "It's finally here."
 - Slide 3: poll. "What do you need most? Glutes / Upper body / Nutrition / Confidence"
 - Slide 4: "Start free" + link sticker to the Glute Starter Guide
-- Slide 5: "Launch week: the Complete Collection is $67" + link sticker
+- Slide 5: "Launch week: the Complete Collection is $77" + link sticker
 - Slide 6: countdown sticker for the end of the launch price (72 hours)
 
 **Comment-to-DM funnel**
@@ -383,6 +424,6 @@ Pin a Reel that says "Comment GLUTES for my free workout guide." Send everyone w
 
 - The free guide builds your email list, so every follower can become a buyer later.
 - $12–$37 programs are easy first purchases straight from a Reel.
-- The $67 bundle sits second in the list so its value is obvious next to the individual prices.
+- The $77 bundle sits second in the list so its value is obvious next to the individual prices.
 - The $49 call and $149/month coaching are your highest-paying offers. Mention them in your stories every week.
 - Order bumps on every checkout raise your average order value without any new content.

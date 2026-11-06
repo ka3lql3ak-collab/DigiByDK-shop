@@ -22,10 +22,11 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 3. The Glute Specialist Program
 4. 30-Day Get Fit With Me Challenge
 5. Press Like A Boss
-6. Fuel Like A Baddie
-7. The Gym Girl Confidence Kit
-8. 1:1 Form Check Call
-9. 1:1 Online Coaching
+6. Pull-Up Queen
+7. Fuel Like A Baddie
+8. The Gym Girl Confidence Kit
+9. 1:1 Form Check Call
+10. 1:1 Online Coaching
 
 ---
 
@@ -61,23 +62,24 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 
 ## 2. The Complete Collection 👑 (BEST VALUE)
 
-**Thumbnail title:** 👑 EVERYTHING: All 5 Programs (Save $40)
+**Thumbnail title:** 👑 EVERYTHING: All 6 Programs (Save $50+)
 **Thumbnail subtitle:** Workouts, nutrition and confidence. Your complete glow-up.
 **Button:** Get Everything 👑
-**Price:** $67 ~~$106.99~~
+**Price:** $77 ~~$130.99~~
 
 **Checkout title:** The Complete Get Fit With Me Collection
 
 **Description:**
 > Why buy one piece of the puzzle when you can have the whole thing?
 >
-> This is EVERYTHING I teach, in one bundle: how to train your glutes, build upper-body strength, eat for your goals, beat gym anxiety, and stay consistent for 30 days straight.
+> This is EVERYTHING I teach, in one bundle: how to train your glutes, build upper-body strength, get your first pull-up, eat for your goals, beat gym anxiety, and stay consistent for 30 days straight.
 >
-> 5 programs. 5 interactive apps. 5 printable PDF books. Over 250 pages of real coaching, for less than the price of one month with a personal trainer.
+> 6 programs. 6 interactive apps. 6 printable PDF books. Over 300 pages of real coaching, for less than the price of one month with a personal trainer.
 
 **What you get:**
 - ✅ The Glute Specialist Program (8 weeks) · $37 value
 - ✅ Press Like A Boss (6 weeks) · $24 value
+- ✅ Pull-Up Queen (8 weeks) · $24 value
 - ✅ Fuel Like A Baddie (nutrition) · $19 value
 - ✅ 30-Day Get Fit With Me Challenge · $14.99 value
 - ✅ The Gym Girl Confidence Kit · $12 value
@@ -88,7 +90,7 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 **Order bump:** ✅ YES! Add a 1:1 Form Check Call for just $29 (normally $49). Send me your lift videos and I'll fix your form personally.
 
 **Thank-you message:**
-> WELCOME TO THE FAMILY 👑 All 5 programs are in your inbox. My advice: start with the Confidence Kit and Fuel Like A Baddie this week, then begin Week 1 of the Glute Specialist Program. I'm SO proud of you. 💜
+> WELCOME TO THE FAMILY 👑 All 6 programs are in your inbox. My advice: start with the Confidence Kit and Fuel Like A Baddie this week, then begin Week 1 of the Glute Specialist Program. I'm SO proud of you. 💜
 
 ---
 
@@ -193,7 +195,42 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 
 ---
 
-## 6. Fuel Like A Baddie 🍗
+## 6. Pull-Up Queen 👑 (NEW)
+
+**Thumbnail title:** Pull-Up Queen: Your First Pull-Up in 8 Weeks 👑
+**Thumbnail subtitle:** Can't do one yet? Perfect. That's who this is for.
+**Button:** Get My First Pull-Up 👑
+**Price:** $24 ~~$47~~
+
+**Checkout title:** Go From ZERO to Your First Real Pull-Up
+
+**Description:**
+> Hanging from the bar and going absolutely nowhere? 😩 Babe, it's not you. Nobody ever gave you a plan.
+>
+> Most women are told they "just don't have the upper body strength." That's a LIE. This 8-week program takes you from hanging on the bar to pulling your chin over it, step by step: assisted pull-ups, slow negatives, holds and lat work that build the EXACT strength a pull-up needs.
+>
+> Every week you'll need a little less help. In Week 8 you'll test your first real, unassisted pull-up. And you're going to film it. 👑
+
+**What you get:**
+- ✅ 24 progressive workouts across 8 weeks (3 days a week)
+- ✅ A Test Day to find your starting level (4 levels, total beginner to "I can do 1")
+- ✅ An 11-chapter pull-up handbook with knowledge checks
+- ✅ The pull-up ladder: assisted reps → negatives → holds → REAL reps
+- ✅ Exactly how much assistance to drop every week
+- ✅ Grip, calluses and shoulder health, plus "why can't I do one?" answers
+- ✅ A Pull-Up Day test protocol + PR Wall to log your reps
+- ✅ An app that logs every set + a 64-page printable PDF with fillable workout logs
+
+**Checkout button:** I'M READY TO PULL 👑
+
+**Order bump:** ✅ YES! Add Press Like A Boss for just $15 (normally $24). Strong pull + strong press = a complete upper body.
+
+**Thank-you message:**
+> Welcome, Queen 👑 Your program is in your inbox. Read Chapters 1–3, then do your Test Day before Week 1. Film your first hang and tag me. I want to see the before AND the after!
+
+---
+
+## 7. Fuel Like A Baddie 🍗
 
 **Thumbnail title:** Fuel Like A Baddie: Meal Plan + Macros 🍗
 **Thumbnail subtitle:** Eat real food, hit your goals, stop guessing.
@@ -228,7 +265,7 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 
 ---
 
-## 7. The Gym Girl Confidence Kit ✨
+## 8. The Gym Girl Confidence Kit ✨
 
 **Thumbnail title:** Gym Anxiety? This Kit Fixes It ✨
 **Thumbnail subtitle:** Walk into the gym like you OWN it, even if you're a total beginner.
@@ -262,7 +299,7 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 
 ---
 
-## 8. 1:1 Form Check Call 🎥
+## 9. 1:1 Form Check Call 🎥
 
 **Thumbnail title:** 1:1 Form Check With Me 🎥
 **Thumbnail subtitle:** 30 minutes. Your lifts. Fixed for good.
@@ -290,7 +327,7 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 
 ---
 
-## 9. 1:1 Online Coaching 💜
+## 10. 1:1 Online Coaching 💜
 
 **Thumbnail title:** Work With Me 1:1 💜 (Limited Spots)
 **Thumbnail subtitle:** Custom training, custom macros, weekly check-ins with ME.
@@ -312,7 +349,7 @@ Copy and paste each section into Stan. Every number (workouts, chapters, pages, 
 - ✅ Weekly check-ins and adjustments
 - ✅ Unlimited form-check videos
 - ✅ Direct messaging access to me
-- ✅ ALL 5 Get Fit With Me programs included FREE
+- ✅ ALL 6 Get Fit With Me programs included FREE
 
 **Checkout button:** APPLY FOR COACHING 💜
 

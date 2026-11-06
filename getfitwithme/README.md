@@ -10,6 +10,7 @@ Tap a link and the file downloads.
 - [The 30-Day Get Fit With Me Challenge (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/45134ec5611f2bcc/The-30-Day-Get-Fit-With-Me-Challenge.pdf)
 - [The Glute Specialist Program (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/e6a91b0daa9a5e31/The-Glute-Specialist-Program.pdf)
 - [Press Like A Boss (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/0b1c14ee2edde991/Press-Like-A-Boss.pdf)
+- [Pull-Up Queen (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/9c4e71d2a85f3b60/Pull-Up-Queen.pdf)
 - [Fuel Like A Baddie (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/2a9db03cdc77f650/Fuel-Like-A-Baddie.pdf)
 - [The Gym Girl Confidence Kit (PDF)](https://github.com/ka3lql3ak-collab/DigiByDK-shop/raw/claude/get-fit-with-me-store/getfitwithme/p/1bb609988373c49d/The-Gym-Girl-Confidence-Kit.pdf)
 

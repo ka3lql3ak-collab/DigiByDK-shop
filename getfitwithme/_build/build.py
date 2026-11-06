@@ -518,7 +518,7 @@ def book_html(p, pages=None):
     """pages: {anchor: page_number} from a previous pass, used to fill the table of contents."""
     pages = pages or {}
     guide = load_guide(p["guide"], print_mode=True)
-    big = {"glute-starter": ("03", "Workouts"), "30-day-challenge": ("30", "Days"), "glute-specialist": ("08", "Weeks"), "press-like-a-boss": ("06", "Weeks"),
+    big = {"glute-starter": ("03", "Workouts"), "30-day-challenge": ("30", "Days"), "glute-specialist": ("08", "Weeks"), "press-like-a-boss": ("06", "Weeks"), "pull-up-queen": ("08", "Weeks"),
            "fuel-like-a-baddie": ("17", "Chapters"), "gym-girl-confidence-kit": ("02", "Weeks")}[p["guide"]]
     toc, body = [], []
 
@@ -664,7 +664,7 @@ def workbook(p):
             th = "<tr><th>Date</th><th>Weight</th><th>Waist</th><th>Hips</th><th>Glutes</th><th>Thigh</th><th>Arm</th><th>Notes</th></tr>"
             rows = "".join("<tr>" + "".join(f"<td>{wb.text()}</td>" for _ in range(8)) + "</tr>" for _ in range(14))
             wb.page("Measurements & Check-Ins", "Every 2 weeks", f'<p class="sub">Measure in the morning, before eating, at the same spots each time. Photos: front, side and back, same lighting.</p><table>{th}{rows}</table><div class="lbl">Reflections</div>{wb.box(150)}')
-    if p["guide"] in ("glute-specialist", "press-like-a-boss"):
+    if p["guide"] in ("glute-specialist", "press-like-a-boss", "pull-up-queen"):
         th = "<tr><th>Lift</th><th>Date</th><th>Weight</th><th>Reps</th><th>Est. 1RM</th><th>Notes</th></tr>"
         rows = "".join("<tr>" + "".join(f"<td>{wb.text()}</td>" for _ in range(6)) + "</tr>" for _ in range(22))
         wb.page("PR Log", "Personal records", f'<p class="sub">Estimated 1RM = weight × (1 + reps ÷ 30).</p><table>{th}{rows}</table>')
@@ -754,15 +754,15 @@ def store_items():
     items = []
     for p in C.PRODUCTS:
         items.append({**p["stan"], "slug": p["slug"], "token": p["token"], "hue": p["hue"], "title": p["title"], "kicker": p["kicker"], "meta": p["meta"], "link": access_url(p)})
-    items.insert(1, {**C.BUNDLE, "slug": "complete-collection", "hue": 272, "title": "The Complete Collection", "kicker": "Bundle · Save 37%", "meta": ["5 programs", "5 PDF books"], "link": ""})
+    items.insert(1, {**C.BUNDLE, "slug": "complete-collection", "hue": 272, "title": "The Complete Collection", "kicker": "Bundle · Save 41%", "meta": ["6 programs", "6 PDF books"], "link": ""})
     for i, c in enumerate(C.COACHING):
         items.append({**c, "slug": ["form-check-call", "online-coaching"][i], "hue": [258, 292][i], "title": c["thumb_title"],
                       "kicker": ["30-minute call", "Monthly coaching"][i], "meta": [["1:1", "Video call"], ["1:1", "Custom plan"]][i], "link": ""})
     return items
 
 
-BIG = {"glute-starter-pack-free-g7f2": ("03", "Workouts"), "complete-collection": ("05", "Programs"), "30-day-get-fit-challenge-c9x4": ("30", "Days"),
-       "booty-builder-8-week-b3k8": ("08", "Weeks"), "press-like-a-boss-p5m1": ("06", "Weeks"), "fuel-like-a-baddie-f2q6": ("17", "Chapters"),
+BIG = {"glute-starter-pack-free-g7f2": ("03", "Workouts"), "complete-collection": ("06", "Programs"), "30-day-get-fit-challenge-c9x4": ("30", "Days"),
+       "booty-builder-8-week-b3k8": ("08", "Weeks"), "press-like-a-boss-p5m1": ("06", "Weeks"), "pull-up-queen-u8r3": ("08", "Weeks"), "fuel-like-a-baddie-f2q6": ("17", "Chapters"),
        "gym-girl-confidence-kit-k4t9": ("02", "Weeks"), "form-check-call": ("30", "Minutes"), "online-coaching": ("1:1", "Coaching")}
 
 COVER_CSS_BASE = """
@@ -882,7 +882,7 @@ def copy_md(items):
     L += ["", "**Comment-to-DM funnel**", "", C.LAUNCH["dm_keywords"], "", "**Pricing strategy**", "",
           "- The free guide builds your email list, so every follower can become a buyer later.",
           "- $12–$37 programs are easy first purchases straight from a Reel.",
-          "- The $67 bundle sits second in the list so its value is obvious next to the individual prices.",
+          "- The $77 bundle sits second in the list so its value is obvious next to the individual prices.",
           "- The $49 call and $149/month coaching are your highest-paying offers. Mention them in your stories every week.",
           "- Order bumps on every checkout raise your average order value without any new content.", ""]
     return "\n".join(L)

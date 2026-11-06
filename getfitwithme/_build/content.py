@@ -94,6 +94,36 @@ PRESS_PHASES = [
      "scheme": {"main": (4, "Heavy 3", "3 min", "1"), "acc": (2, "10", "90s", "2"), "fin": (1, "AMRAP", "60s", "1")}},
 ]
 
+PULL_DAYS = [
+    ("Day 1 · Pull Strength", "Heavy assisted pull-ups and slow negatives build the strength to pull your own body.", [
+        ("Assisted Pull-Up", "main", False), ("Negative Pull-Up", "ecc", False), ("Single-Arm DB Row", "acc", True),
+        ("Scapular Pull-Up", "acc", False), ("Dead Hang", "hold", False)]),
+    ("Day 2 · Lats + Core", "Bigger, stronger lats and a tight core for a body that moves as one.", [
+        ("Lat Pulldown", "main", False), ("Inverted Row", "main", False), ("Straight-Arm Pulldown", "acc", False),
+        ("Hammer Curl", "fin", False), ("Hollow Body Hold", "hold", False)]),
+    ("Day 3 · Skill + Volume", "Practice the real movement with a band and own the top position.", [
+        ("Band-Assisted Pull-Up", "main", False), ("Flexed-Arm Hang", "hold", False), ("Seated Cable Row", "acc", False),
+        ("Face Pulls", "acc", False), ("Hanging Knee Raise", "fin", False)]),
+]
+PULL_PHASES = [
+    {"name": "Week 1", "phase": "Foundation", "note": "Test day first (Chapter 2). Then set your assistance so 8 reps feel hard but clean.",
+     "scheme": {"main": (3, "8", "2 min", "2–3"), "ecc": (3, "3 (3-sec lower)", "2 min", "2"), "hold": (3, "20s", "60s", "2"), "acc": (3, "12", "75s", "2"), "fin": (2, "12", "60s", "1")}},
+    {"name": "Week 2", "phase": "Foundation", "note": "Remove 5 lb of assistance (or use a thinner band) if every rep last week was clean.",
+     "scheme": {"main": (3, "8", "2 min", "2"), "ecc": (3, "3 (4-sec lower)", "2 min", "2"), "hold": (3, "25s", "60s", "2"), "acc": (3, "12", "75s", "2"), "fin": (2, "12", "60s", "1")}},
+    {"name": "Week 3", "phase": "Build", "note": "Fewer reps, less help. Drop assistance again and add a set.",
+     "scheme": {"main": (4, "6", "2 min", "2"), "ecc": (4, "3 (5-sec lower)", "2 min", "1–2"), "hold": (3, "30s", "60s", "1–2"), "acc": (3, "10", "75s", "1–2"), "fin": (3, "10", "60s", "1")}},
+    {"name": "Week 4", "phase": "Build", "note": "Beat Week 3: less assistance OR a longer lowering. Pick one, not both.",
+     "scheme": {"main": (4, "6", "2 min", "1–2"), "ecc": (4, "3 (6-sec lower)", "2 min", "1"), "hold": (3, "35s", "60s", "1"), "acc": (3, "10", "75s", "1"), "fin": (3, "10", "60s", "1")}},
+    {"name": "Week 5", "phase": "Deload", "note": "Recovery week. Same assistance as Week 4, half the sets. Your strength catches up this week.",
+     "scheme": {"main": (2, "6", "2 min", "3"), "ecc": (2, "3 (4-sec lower)", "2 min", "3"), "hold": (2, "20s", "60s", "3"), "acc": (2, "10", "75s", "3"), "fin": (2, "10", "60s", "2")}},
+    {"name": "Week 6", "phase": "Strength", "note": "Heavy and strong. Your lowest assistance yet. Try ONE unassisted rep at the start of Day 1.",
+     "scheme": {"main": (5, "4", "2.5 min", "1–2"), "ecc": (4, "2 (8-sec lower)", "2.5 min", "1"), "hold": (3, "40s", "75s", "1"), "acc": (3, "8", "90s", "1"), "fin": (3, "12", "60s", "0–1")}},
+    {"name": "Week 7", "phase": "Peak", "note": "Minimum help. Start each day with 3 singles: your best attempt at a full pull-up, 2 min rest between.",
+     "scheme": {"main": (4, "3", "3 min", "1"), "ecc": (3, "2 (10-sec lower)", "3 min", "1"), "hold": (3, "45s", "75s", "1"), "acc": (3, "8", "90s", "1"), "fin": (2, "12", "60s", "0")}},
+    {"name": "Week 8", "phase": "Pull-Up Day", "note": "Day 1 is TEST DAY. Follow the Pull-Up Day Protocol (Chapter 10), film it and log it on the PR Wall.",
+     "scheme": {"main": (3, "3", "3 min", "2"), "ecc": (2, "2 (6-sec lower)", "3 min", "2"), "hold": (2, "Max hold", "90s", "0"), "acc": (2, "10", "75s", "2"), "fin": (2, "10", "60s", "1")}},
+]
+
 STARTER_DAYS = [
     ("Workout A · Glute Wake-Up", "Activation and foundational patterns.", [
         ("Glute Bridge", "acc", False), ("Banded Lateral Walk", "acc", True), ("Goblet Squat", "main", False),
@@ -359,6 +389,31 @@ PRODUCTS = [
         },
     },
     {
+        "slug": "pull-up-queen-u8r3", "token": "9c4e71d2a85f3b60", "short": "Pull-Up Queen", "title": "Pull-Up Queen",
+        "kicker": "8-week pull-up program", "sub": "Go from zero to your first real pull-up, then keep stacking reps.",
+        "meta": ["8 weeks", "3 days/week", "24 workouts", "Gym"], "hue": 265, "guide": "pull-up-queen",
+        "sections": [
+            {"type": "guide", "id": "guide", "label": "Handbook"},
+            {"type": "program", "id": "prog", "label": "Program", "weeks": build_program(PULL_DAYS, PULL_PHASES)},
+            {"type": "progress", "id": "stats", "label": "Progress",
+             "lifts": ["Lat Pulldown", "Inverted Row", "Single-Arm DB Row", "Seated Cable Row", "Straight-Arm Pulldown"]},
+            {"type": "library", "id": "lib", "label": "Exercise Library"},
+            {"type": "tools", "id": "tools", "label": "Tools"},
+            {"type": "upsell", "id": "next", "label": "Next Steps"},
+        ],
+        "stan": {
+            "kind": "Digital Product", "price": "$24", "strike": "$47",
+            "thumb_title": "Pull-Up Queen", "thumb_sub": "Your first real pull-up in 8 weeks",
+            "button": "Get My First Pull-Up",
+            "checkout_title": "Pull-Up Queen: Your First Pull-Up in 8 Weeks",
+            "desc": "Can't do a single pull-up yet? Perfect. That's exactly who this is for. Most women are told they \"just don't have the upper body strength.\" That's a lie. You just never had a plan. This 8-week program takes you from hanging on the bar to pulling your chin over it, using assisted pull-ups, slow negatives, holds and lat work that build the exact strength a pull-up needs. Every week you'll need a little less help. In Week 8 you'll test your first real, unassisted pull-up, and film it.",
+            "bullets": ["24 progressive workouts across 8 weeks (3 days a week)", "An 11-chapter pull-up handbook with knowledge checks", "The 4-step pull-up ladder: assisted → negatives → holds → real reps", "Exactly how to lower your assistance every week", "Grip, shoulder health and 'why can't I do one?' troubleshooting", "Pull-Up Day test protocol + PR Wall to log your reps", "An app that logs every set, plus a printable PDF with fillable workout logs"],
+            "cta": "Get the Program",
+            "bump": {"title": "Add Press Like A Boss for $15 (reg. $24)", "desc": "Strong pull, strong press. Add my 6-week pressing program for a complete upper body."},
+            "thanks": "Welcome, Queen! Your program is in your inbox. Read Chapters 1–3, then do your Test Day before Week 1. Film your first hang and tag me. I want to see the before AND the after!",
+        },
+    },
+    {
         "slug": "fuel-like-a-baddie-f2q6", "token": "2a9db03cdc77f650", "short": "Fuel Like A Baddie", "title": "Fuel Like A Baddie",
         "kicker": "Nutrition guide", "sub": "The complete high-protein nutrition system for women who train.",
         "meta": ["17 chapters", "12 recipes", "7-day plan", "Macro calculator"], "hue": 290, "guide": "fuel-like-a-baddie",
@@ -422,15 +477,15 @@ PRODUCTS = [
 ]
 
 BUNDLE = {
-    "kind": "Bundle", "price": "$67", "strike": "$106.99",
-    "thumb_title": "The Complete Collection", "thumb_sub": "All 5 programs & guides. Save 37%",
+    "kind": "Bundle", "price": "$77", "strike": "$130.99",
+    "thumb_title": "The Complete Collection", "thumb_sub": "All 6 programs & guides. Save over $50",
     "button": "Get Everything",
     "checkout_title": "The Complete Get Fit With Me Collection",
-    "desc": "Everything I teach in one place: training, nutrition and confidence. Get all five programs and guides, each with its interactive app and printable PDF book, and save over $40 compared with buying them separately.",
-    "bullets": ["The Glute Specialist Program ($37)", "Press Like A Boss ($24)", "Fuel Like A Baddie ($19)", "30-Day Get Fit With Me Challenge ($14.99)", "The Gym Girl Confidence Kit ($12)", "5 interactive apps + 5 printable PDF books", "Lifetime access and all future updates"],
+    "desc": "Everything I teach in one place: training, nutrition and confidence. Get all six programs and guides, each with its interactive app and printable PDF book, and save over $50 compared with buying them separately.",
+    "bullets": ["The Glute Specialist Program ($37)", "Press Like A Boss ($24)", "Pull-Up Queen ($24)", "Fuel Like A Baddie ($19)", "30-Day Get Fit With Me Challenge ($14.99)", "The Gym Girl Confidence Kit ($12)", "6 interactive apps + 6 printable PDF books", "Lifetime access and all future updates"],
     "cta": "Get the Collection",
     "bump": {"title": "Add a 30-min Form Check Call for $29 (reg. $49)", "desc": "Send me your lift videos and we'll review your technique together on a 1:1 video call."},
-    "thanks": "Welcome to the full collection! All five links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss when you're ready.",
+    "thanks": "Welcome to the full collection! All six links are in your email. Suggested order: Confidence Kit, then Fuel Like A Baddie, then the Glute Specialist Program, adding Press Like A Boss and Pull-Up Queen when you're ready.",
 }
 
 COACHING = [
@@ -451,7 +506,7 @@ COACHING = [
         "button": "Apply Now",
         "checkout_title": "1:1 Online Coaching with Danielle",
         "desc": "For women who are ready to stop starting over. You get a fully custom training program built around your body, schedule and gym; personalized macros; weekly check-ins with adjustments; unlimited form reviews; and direct messaging access to me. I keep my client roster small so every client gets real attention, so please apply.",
-        "bullets": ["Custom program updated every 4 weeks", "Personalized macros and nutrition guidance", "Weekly check-ins and adjustments", "Unlimited form-check videos", "Direct messaging access", "All 5 Get Fit With Me programs included"],
+        "bullets": ["Custom program updated every 4 weeks", "Personalized macros and nutrition guidance", "Weekly check-ins and adjustments", "Unlimited form-check videos", "Direct messaging access", "All 6 Get Fit With Me programs included"],
         "cta": "Apply for Coaching",
         "bump": None,
         "thanks": "Application received. I personally review every one and will be in touch within 48 hours.",
@@ -470,7 +525,7 @@ LAUNCH = {
         "Slide 2: screen recording scrolling through an app. Text: \"It's finally here.\"",
         "Slide 3: poll. \"What do you need most? Glutes / Upper body / Nutrition / Confidence\"",
         "Slide 4: \"Start free\" + link sticker to the Glute Starter Guide",
-        "Slide 5: \"Launch week: the Complete Collection is $67\" + link sticker",
+        "Slide 5: \"Launch week: the Complete Collection is $77\" + link sticker",
         "Slide 6: countdown sticker for the end of the launch price (72 hours)",
     ],
     "dm_keywords": "Pin a Reel that says \"Comment GLUTES for my free workout guide.\" Send everyone who comments the Glute Starter Guide link. Stan's AutoDM feature can do this automatically.",
